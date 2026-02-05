@@ -32,7 +32,7 @@ export function Header() {
         left: 0,
         right: 0,
         zIndex: 9999,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         borderBottom: 'none',
