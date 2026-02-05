@@ -67,7 +67,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.75 }}
-          className="text-muted text-base sm:text-lg mb-3 whitespace-pre-line"
+          className="text-muted text-lg sm:text-xl mb-3 whitespace-pre-line"
         >
           {t('greeting')}
         </motion.p>
@@ -76,7 +76,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.75 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-3 uppercase"
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-3 uppercase"
         >
           {t('name')}
         </motion.h1>
@@ -85,7 +85,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.75 }}
-          className="mb-5 h-16 sm:h-20 flex items-center justify-center"
+          className="mb-5 h-20 sm:h-24 flex items-center justify-center"
         >
           <AnimatePresence mode="wait">
             <motion.span
@@ -94,7 +94,7 @@ export function Hero() {
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, filter: 'blur(10px)' }}
               transition={{ duration: 0.5 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium font-creative"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative"
               style={{ color: '#dddddd' }}
             >
               {blurTexts[textIndex]}
@@ -102,9 +102,9 @@ export function Hero() {
           </AnimatePresence>
         </motion.div>
 
-        <div className="mb-8 h-12 sm:h-14 flex items-center justify-center">
+        <div className="mb-8 h-14 sm:h-16 flex items-center justify-center">
           <span
-            className="text-2xl sm:text-3xl md:text-4xl font-script inline-block"
+            className="text-3xl sm:text-4xl md:text-5xl font-script inline-block"
             style={{ color: '#767676' }}
           >
             {title.split('').map((char, index) => (
@@ -131,7 +131,7 @@ export function Hero() {
         >
           <Link
             href="#services"
-            className="btn-primary inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-full transition-opacity"
+            className="btn-primary inline-flex items-center justify-center px-10 py-5 text-lg font-medium rounded-full transition-opacity"
           >
             {t('cta')}
           </Link>
@@ -148,12 +148,12 @@ export function Hero() {
           href="#about"
           className="flex flex-col items-center gap-2 text-muted hover:opacity-70 transition-opacity"
         >
-          <span className="text-sm">{t('scroll')}</span>
+          <span className="text-base">{t('scroll')}</span>
           <motion.div
-            animate={{ y: [0, 6, 0] }}
+            animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
           >
-            <ArrowDown size={18} />
+            <ArrowDown size={24} />
           </motion.div>
         </Link>
       </motion.div>
