@@ -27,8 +27,8 @@ export default async function LocaleLayout({
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Providers>
         <Header />
-        <div className="page-content flex min-h-screen flex-col" style={{ backgroundColor: '#000000' }}>
-          <main className="flex-1" style={{ backgroundColor: '#000000' }}>{children}</main>
+        <div className="page-content flex min-h-screen flex-col">
+          <main className="flex-1">{children}</main>
           <Footer />
         </div>
       </Providers>
