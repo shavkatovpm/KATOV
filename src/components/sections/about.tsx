@@ -16,7 +16,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 md:mb-12 md:text-center">
             {t('title')}
           </h2>
           <p className="text-muted text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
@@ -31,8 +31,8 @@ export function About() {
           </p>
 
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
             className="mb-3"
@@ -41,8 +41,8 @@ export function About() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
             className="flex flex-col md:flex-row md:items-center gap-1 md:gap-0"
