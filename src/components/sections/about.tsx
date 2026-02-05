@@ -9,22 +9,21 @@ function AnimatedText({
   text,
   className,
   startDelay = 0,
-  charDelay = 0.02
+  charDelay = 0.02,
+  isInView
 }: {
   text: string;
   className?: string;
   startDelay?: number;
   charDelay?: number;
+  isInView: boolean;
 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   // Split text into words, keeping track of character index for delays
   const words = text.split(' ');
   let charIndex = 0;
 
   return (
-    <span ref={ref} className={className}>
+    <span className={className}>
       {words.map((word, wordIndex) => {
         const wordStartIndex = charIndex;
         charIndex += word.length + 1; // +1 for space
@@ -102,20 +101,20 @@ export function About() {
           </h2>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 leading-relaxed text-left">
-            <AnimatedText text={description} startDelay={descDelay} charDelay={0.008} />
+            <AnimatedText text={description} startDelay={descDelay} charDelay={0.008} isInView={isInView} />
           </p>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-12 md:mb-20 leading-relaxed text-left">
-            <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.008} />
+            <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.008} isInView={isInView} />
           </p>
 
           <p className="text-muted text-sm sm:text-base md:text-xl mb-6 md:mb-10 text-left">
-            <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.01} />
+            <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.01} isInView={isInView} />
           </p>
 
           <div className="mb-4 md:mb-8 text-left">
             <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl">
-              <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.01} />
+              <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.01} isInView={isInView} />
             </span>
           </div>
 
@@ -129,7 +128,7 @@ export function About() {
               >
                 •
               </motion.span>
-              <AnimatedText text={feature1} startDelay={featuresRowDelay} charDelay={0.015} />
+              <AnimatedText text={feature1} startDelay={featuresRowDelay} charDelay={0.015} isInView={isInView} />
             </span>
             <motion.span
               className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
@@ -148,7 +147,7 @@ export function About() {
               >
                 •
               </motion.span>
-              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.015 + 0.08} charDelay={0.015} />
+              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.015 + 0.08} charDelay={0.015} isInView={isInView} />
             </span>
             <motion.span
               className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
@@ -167,7 +166,7 @@ export function About() {
               >
                 •
               </motion.span>
-              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16} charDelay={0.015} />
+              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16} charDelay={0.015} isInView={isInView} />
             </span>
           </div>
         </div>
