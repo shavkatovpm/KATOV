@@ -3,8 +3,6 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
-const features = ['feature4', 'feature1', 'feature2', 'feature3'];
-
 export function About() {
   const t = useTranslations('about');
 
@@ -32,21 +30,29 @@ export function About() {
             {t('featuresTitle')}
           </p>
 
-          <div className="flex flex-col gap-3">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex items-center gap-2"
-              >
-                {index > 0 && <span className="text-muted">•</span>}
-                <span className="text-base sm:text-lg">{t(feature)}</span>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="mb-3"
+          >
+            <span className="text-base sm:text-lg">{t('feature4')}</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="flex flex-col md:flex-row md:items-center gap-1 md:gap-0"
+          >
+            <span className="text-base sm:text-lg">{t('feature1')}</span>
+            <span className="hidden md:inline text-muted mx-2">•</span>
+            <span className="text-base sm:text-lg">{t('feature2')}</span>
+            <span className="hidden md:inline text-muted mx-2">•</span>
+            <span className="text-base sm:text-lg">{t('feature3')}</span>
+          </motion.div>
         </motion.div>
       </div>
     </section>
