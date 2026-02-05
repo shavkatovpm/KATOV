@@ -21,12 +21,13 @@
     "scroll": "Pastga"
   },
   "about": {
-    "title": "Biz haqimizda",
-    "subtitle": "Kim biz?",
-    "description": "Katov - bu kreativ veb-saytlar yaratishga ixtisoslashgan brend. Biz har bir loyihaga individual yondashib, sizning biznesingiz uchun eng yaxshi yechimlarni taqdim etamiz.",
-    "experience": "yillik tajriba",
-    "projects": "tugallangan loyihalar",
-    "clients": "mamnun mijozlar"
+    "title": "KATOV kim?",
+    "description": "KATOV - kreativ va ishonchli web yechimlar ishlab chiqadigan studiya. Biz saytni shunchaki ko'rinish uchun emas, foyda keltirishi uchun qilamiz.",
+    "featuresTitle": "Qisqacha aytganda:",
+    "feature1": "Minimal dizayn",
+    "feature2": "Individual yondashuv",
+    "feature3": "Kreativ yechim",
+    "feature4": "Ishonchli website va platformalar quramiz"
   },
   "services": {
     "title": "Xizmatlar",

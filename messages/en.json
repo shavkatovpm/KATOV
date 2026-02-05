@@ -21,12 +21,13 @@
     "scroll": "Scroll down"
   },
   "about": {
-    "title": "About Us",
-    "subtitle": "Who we are?",
-    "description": "Katov is a brand specialized in creating creative websites. We approach each project individually and provide the best solutions for your business.",
-    "experience": "years of experience",
-    "projects": "completed projects",
-    "clients": "happy clients"
+    "title": "Who is KATOV?",
+    "description": "KATOV is a studio that creates creative and reliable web solutions. We build websites not just for looks, but for results.",
+    "featuresTitle": "In short:",
+    "feature1": "Minimal design",
+    "feature2": "Individual approach",
+    "feature3": "Creative solutions",
+    "feature4": "Reliable websites and platforms"
   },
   "services": {
     "title": "Services",
