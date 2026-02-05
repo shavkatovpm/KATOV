@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
 // Animated text component with blur effect - words stay together
@@ -71,6 +71,15 @@ export function About() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
+  // Scroll progress for border animation
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Transform scroll progress to scaleY (0 to 1)
+  const borderScaleY = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
   const description = t('description');
   const description2 = t('description2');
   const featuresTitle = t('featuresTitle');
@@ -92,8 +101,18 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="section-padding md:min-h-screen md:flex md:items-center"
+      className="section-padding md:min-h-screen md:flex md:items-center relative"
     >
+      {/* Animated border that fills from top to bottom on scroll */}
+      <motion.div
+        className="absolute left-0 top-0 w-full h-full pointer-events-none"
+        style={{
+          borderLeft: '1px solid #444444',
+          borderRight: '1px solid #444444',
+          scaleY: borderScaleY,
+          transformOrigin: 'top',
+        }}
+      />
       <div className="container-custom w-full">
         <div className="max-w-3xl md:max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
