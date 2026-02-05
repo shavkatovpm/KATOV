@@ -60,7 +60,7 @@ export function Hero() {
   }));
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative">
+    <section className="min-h-[100dvh] flex items-center justify-center relative">
       <div className="container-custom text-center">
         <motion.h1
           initial={{ opacity: 0, filter: 'blur(10px)' }}
