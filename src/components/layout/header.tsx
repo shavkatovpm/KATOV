@@ -72,13 +72,30 @@ export function Header() {
 
           <div className="hidden lg:flex items-center gap-8">
             {siteConfig.navigation.map((item) => (
-              <Link
-                key={item.key}
-                href={item.href}
-                className="text-sm font-medium nav-link"
-              >
-                {t(item.key)}
-              </Link>
+              item.href.startsWith('#') ? (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="text-sm font-medium nav-link cursor-pointer"
+                >
+                  {t(item.key)}
+                </a>
+              ) : (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  className="text-sm font-medium nav-link"
+                >
+                  {t(item.key)}
+                </Link>
+              )
             ))}
           </div>
 
@@ -136,13 +153,30 @@ export function Header() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="py-3 text-base font-medium nav-link text-right block"
-                    >
-                      {t(item.key)}
-                    </Link>
+                    {item.href.startsWith('#') ? (
+                      <a
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsOpen(false);
+                          const element = document.querySelector(item.href);
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }}
+                        className="py-3 text-base font-medium nav-link text-right block cursor-pointer"
+                      >
+                        {t(item.key)}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="py-3 text-base font-medium nav-link text-right block"
+                      >
+                        {t(item.key)}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
                 <motion.div

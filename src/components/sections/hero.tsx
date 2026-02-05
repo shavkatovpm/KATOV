@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 
 const blurTexts = [
   'Ishonchli website',
@@ -132,12 +131,19 @@ export function Hero() {
           animate={showOtherElements ? { opacity: 1, filter: 'blur(0px)' } : { opacity: 0, filter: 'blur(10px)' }}
           transition={{ duration: 0.5 }}
         >
-          <Link
+          <a
             href="#services"
-            className="btn-outline inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-full transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#services');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="btn-outline inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-full transition-colors cursor-pointer"
           >
             {t('cta')}
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>
