@@ -134,7 +134,7 @@ export function Hero() {
         >
           <Link
             href="#services"
-            className="btn-primary inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-full transition-opacity"
+            className="btn-outline inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-full transition-colors"
           >
             {t('cta')}
           </Link>
