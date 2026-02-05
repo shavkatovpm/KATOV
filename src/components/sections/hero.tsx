@@ -102,9 +102,9 @@ export function Hero() {
           </AnimatePresence>
         </motion.div>
 
-        <div className="mb-8 h-14 sm:h-16 flex items-center justify-center">
+        <div className="mb-8 h-12 sm:h-14 flex items-center justify-center">
           <span
-            className="text-3xl sm:text-4xl md:text-5xl font-script inline-block"
+            className="text-2xl sm:text-3xl md:text-4xl font-script inline-block"
             style={{ color: '#767676' }}
           >
             {title.split('').map((char, index) => (
