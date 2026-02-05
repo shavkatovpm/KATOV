@@ -75,7 +75,7 @@ export function Hero() {
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 0.75 }}
-          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-3 uppercase"
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-1 uppercase"
         >
           {t('name')}
         </motion.h1>
@@ -84,7 +84,7 @@ export function Hero() {
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 1.75 }}
-          className="mb-5 h-20 sm:h-24 flex items-center justify-center"
+          className="mb-5 h-16 sm:h-20 lg:h-28 flex items-center justify-center"
         >
           <AnimatePresence mode="wait">
             <motion.span
@@ -93,7 +93,7 @@ export function Hero() {
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, filter: 'blur(10px)' }}
               transition={{ duration: 0.5 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-medium font-creative"
               style={{ color: '#dddddd' }}
             >
               {blurTexts[textIndex]}
