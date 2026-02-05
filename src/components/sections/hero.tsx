@@ -71,40 +71,11 @@ export function Hero() {
           {t('name')}
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 1.75 }}
-          className="text-muted text-lg sm:text-xl lg:text-3xl mb-2 whitespace-pre-line"
-        >
-          {t('greeting')}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 1.75 }}
-          className="h-20 sm:h-24 flex items-center justify-center"
-        >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={textIndex}
-              initial={{ opacity: 0, filter: 'blur(10px)' }}
-              animate={{ opacity: 1, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, filter: 'blur(10px)' }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative text-[#dddddd]"
-            >
-              {blurTexts[textIndex]}
-            </motion.span>
-          </AnimatePresence>
-        </motion.div>
-
         <div
-          className="mb-20 h-10 sm:h-12 flex items-center justify-center relative mt-4"
+          className="mb-4 h-10 sm:h-12 flex items-center justify-center relative"
           style={{
             backgroundColor: '#000000',
-            boxShadow: '0 -8px 12px 8px #000000',
+            boxShadow: '0 -8px 12px 8px #000000, 0 8px 12px 8px #000000',
             zIndex: 50
           }}
         >
@@ -129,10 +100,40 @@ export function Hero() {
           </span>
         </div>
 
+        <motion.p
+          initial={{ opacity: 0, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
+          transition={{ duration: 0.5, delay: 3 }}
+          className="text-muted text-lg sm:text-xl lg:text-3xl mb-2 whitespace-pre-line"
+        >
+          {t('greeting')}
+        </motion.p>
+
         <motion.div
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 1.75 }}
+          transition={{ duration: 0.5, delay: 3 }}
+          className="h-20 sm:h-24 flex items-center justify-center"
+        >
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={textIndex}
+              initial={{ opacity: 0, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, filter: 'blur(10px)' }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative text-[#dddddd]"
+            >
+              {blurTexts[textIndex]}
+            </motion.span>
+          </AnimatePresence>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
+          transition={{ duration: 0.5, delay: 3 }}
+          className="mt-16"
         >
           <Link
             href="#services"
