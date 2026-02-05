@@ -47,11 +47,20 @@ export function About() {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="flex flex-col md:flex-row md:items-center gap-1 md:gap-0"
           >
-            <span className="text-base sm:text-lg">{t('feature1')}</span>
+            <span className="flex items-center gap-2 text-base sm:text-lg">
+              <span className="text-muted md:hidden">•</span>
+              {t('feature1')}
+            </span>
             <span className="hidden md:inline text-muted mx-2">•</span>
-            <span className="text-base sm:text-lg">{t('feature2')}</span>
+            <span className="flex items-center gap-2 text-base sm:text-lg">
+              <span className="text-muted md:hidden">•</span>
+              {t('feature2')}
+            </span>
             <span className="hidden md:inline text-muted mx-2">•</span>
-            <span className="text-base sm:text-lg">{t('feature3')}</span>
+            <span className="flex items-center gap-2 text-base sm:text-lg">
+              <span className="text-muted md:hidden">•</span>
+              {t('feature3')}
+            </span>
           </motion.div>
         </motion.div>
       </div>
