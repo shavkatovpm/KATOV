@@ -84,17 +84,17 @@ export function Hero() {
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 1.75 }}
-          className="h-16 sm:h-20 relative"
+          className="h-20 sm:h-24 flex items-center justify-center"
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="wait">
             <motion.span
               key={textIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative will-change-transform"
-              style={{ color: '#dddddd', transform: 'translateZ(0)' }}
+              initial={{ opacity: 0, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, filter: 'blur(10px)' }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative"
+              style={{ color: '#dddddd' }}
             >
               {blurTexts[textIndex]}
             </motion.span>
