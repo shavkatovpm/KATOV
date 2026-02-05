@@ -77,8 +77,8 @@ export function About() {
     offset: ["start end", "end start"]
   });
 
-  // Transform scroll progress to scaleY (0 to 1)
-  const borderScaleY = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  // Transform scroll progress to height percentage (0% to 100%)
+  const borderHeight = useTransform(scrollYProgress, [0, 0.5], ['0%', '100%']);
 
   const description = t('description');
   const description2 = t('description2');
@@ -105,14 +105,19 @@ export function About() {
     >
       <div className="container-custom w-full">
         <div className="max-w-3xl md:max-w-6xl mx-auto relative">
-          {/* Animated border that fills from top to bottom on scroll */}
+          {/* Animated borders that fill from top to bottom on scroll */}
           <motion.div
-            className="absolute -left-4 sm:-left-6 md:-left-8 top-0 bottom-0 w-[calc(100%+2rem)] sm:w-[calc(100%+3rem)] md:w-[calc(100%+4rem)] pointer-events-none"
+            className="absolute -left-4 sm:-left-6 md:-left-8 top-0 w-px pointer-events-none"
             style={{
-              borderLeft: '1px solid #444444',
-              borderRight: '1px solid #444444',
-              scaleY: borderScaleY,
-              transformOrigin: 'top',
+              backgroundColor: '#444444',
+              height: borderHeight,
+            }}
+          />
+          <motion.div
+            className="absolute -right-4 sm:-right-6 md:-right-8 top-0 w-px pointer-events-none"
+            style={{
+              backgroundColor: '#444444',
+              height: borderHeight,
             }}
           />
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
