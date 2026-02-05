@@ -24,7 +24,7 @@ export function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTextIndex((prev) => (prev + 1) % blurTexts.length);
-    }, 3000);
+    }, 4500);
     return () => clearInterval(interval);
   }, []);
 
