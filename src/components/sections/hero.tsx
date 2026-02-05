@@ -71,35 +71,6 @@ export function Hero() {
           {t('name')}
         </motion.h1>
 
-        <div
-          className="mb-4 h-10 sm:h-12 flex items-center justify-center relative"
-          style={{
-            backgroundColor: '#000000',
-            boxShadow: '0 -8px 12px 8px #000000, 0 8px 12px 8px #000000',
-            zIndex: 50
-          }}
-        >
-          <span
-            className="text-2xl sm:text-3xl md:text-4xl font-script inline-block"
-            style={{ color: '#767676' }}
-          >
-            {title.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, filter: 'blur(8px)' }}
-                animate={{
-                  opacity: index < displayedTitle.length ? 1 : 0,
-                  filter: index < displayedTitle.length ? 'blur(0px)' : 'blur(8px)',
-                }}
-                transition={{ duration: 0.3 }}
-                style={{ display: 'inline-block', whiteSpace: 'pre' }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </span>
-        </div>
-
         <motion.p
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -129,11 +100,39 @@ export function Hero() {
           </AnimatePresence>
         </motion.div>
 
+        <div
+          className="mb-20 h-10 sm:h-12 flex items-center justify-center relative mt-4"
+          style={{
+            backgroundColor: '#000000',
+            boxShadow: '0 -8px 12px 8px #000000',
+            zIndex: 50
+          }}
+        >
+          <span
+            className="text-2xl sm:text-3xl md:text-4xl font-script inline-block"
+            style={{ color: '#767676' }}
+          >
+            {title.split('').map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, filter: 'blur(8px)' }}
+                animate={{
+                  opacity: index < displayedTitle.length ? 1 : 0,
+                  filter: index < displayedTitle.length ? 'blur(0px)' : 'blur(8px)',
+                }}
+                transition={{ duration: 0.3 }}
+                style={{ display: 'inline-block', whiteSpace: 'pre' }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </span>
+        </div>
+
         <motion.div
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 3 }}
-          className="mt-16"
         >
           <Link
             href="#services"
