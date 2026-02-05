@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 // Animated text component with blur effect - words stay together
 function AnimatedText({
@@ -70,7 +70,17 @@ export function About() {
   const t = useTranslations('about');
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Animation duration: slower on mobile
+  const borderDuration = isMobile ? 5.5 : 4;
 
   const description = t('description');
   const description2 = t('description2');
@@ -103,14 +113,14 @@ export function About() {
             style={{ backgroundColor: '#444444' }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 4, ease: 'easeOut' }}
+            transition={{ duration: borderDuration, ease: 'easeOut' }}
           />
           <motion.div
             className="absolute -right-4 sm:-right-6 md:-right-8 top-0 bottom-0 w-px pointer-events-none"
             style={{ backgroundColor: '#444444' }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 4, ease: 'easeOut' }}
+            transition={{ duration: borderDuration, ease: 'easeOut' }}
           />
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
             {t('title')}
