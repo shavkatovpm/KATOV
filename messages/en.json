@@ -50,8 +50,8 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "subtitle": "Our Work",
-    "description": "Explore our best projects.",
+    "subtitle": "",
+    "description": "Projects we're proud of:",
     "viewProject": "View Project",
     "viewAll": "View All"
   },

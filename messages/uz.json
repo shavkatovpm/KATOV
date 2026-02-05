@@ -50,8 +50,8 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "subtitle": "Ishlarimiz",
-    "description": "Bizning eng yaxshi loyihalarimiz bilan tanishing.",
+    "subtitle": "",
+    "description": "Maqtanishga arziydigan ishlarimiz:",
     "viewProject": "Loyihani ko'rish",
     "viewAll": "Barchasini ko'rish"
   },
