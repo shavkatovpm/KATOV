@@ -55,8 +55,10 @@ export function About() {
   const feature3 = t('feature3');
 
   // Calculate delays based on previous text lengths
+  // Title animates first, then other text follows after title completes
   const titleDelay = 0;
-  const descDelay = title.length * 0.02 + 0.2;
+  const titleDuration = title.length * 0.03 + 0.15; // Total time for title to complete
+  const descDelay = titleDuration + 0.3; // Wait for title to finish + buffer
   const desc2Delay = descDelay + description.length * 0.015 + 0.1;
   const featuresTitleDelay = desc2Delay + description2.length * 0.015 + 0.2;
   const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.02 + 0.1;
