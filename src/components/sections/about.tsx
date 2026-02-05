@@ -80,7 +80,7 @@ export function About() {
   }, []);
 
   // Animation duration: slower on mobile
-  const borderDuration = isMobile ? 5.5 : 4;
+  const borderDuration = isMobile ? 7.5 : 4;
 
   const description = t('description');
   const description2 = t('description2');
