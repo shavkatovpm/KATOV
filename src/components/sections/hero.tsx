@@ -101,7 +101,7 @@ export function Hero() {
           </AnimatePresence>
         </motion.div>
 
-        <div className="mb-2 h-10 sm:h-12 flex items-center justify-center">
+        <div className="mb-6 h-10 sm:h-12 flex items-center justify-center">
           <span
             className="text-2xl sm:text-3xl md:text-4xl font-script inline-block"
             style={{ color: '#767676' }}
