@@ -21,8 +21,11 @@ export function About() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             {t('title')}
           </h2>
-          <p className="text-muted text-base sm:text-lg md:text-xl mb-10 leading-relaxed">
+          <p className="text-muted text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
             {t('description')}
+          </p>
+          <p className="text-muted text-base sm:text-lg md:text-xl mb-10 leading-relaxed">
+            {t('description2')}
           </p>
 
           <p className="text-muted text-sm sm:text-base mb-4">
