@@ -958,18 +958,12 @@ export function FluidCursor() {
       updatePointerMoveData(pointer, posX, posY, color);
     };
 
-    // Track last touch position for scroll-based effects
-    let lastTouchX = canvas!.clientWidth / 2;
-    let lastTouchY = canvas!.clientHeight / 2;
-
     const handleTouchStart = (e: TouchEvent) => {
       const touches = e.targetTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         const posX = scaleByPixelRatio(touches[i].clientX);
         const posY = scaleByPixelRatio(touches[i].clientY);
-        lastTouchX = touches[i].clientX;
-        lastTouchY = touches[i].clientY;
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
     };
@@ -980,8 +974,6 @@ export function FluidCursor() {
       for (let i = 0; i < touches.length; i++) {
         const posX = scaleByPixelRatio(touches[i].clientX);
         const posY = scaleByPixelRatio(touches[i].clientY);
-        lastTouchX = touches[i].clientX;
-        lastTouchY = touches[i].clientY;
         updatePointerMoveData(pointer, posX, posY, pointer.color);
       }
     };
@@ -994,77 +986,24 @@ export function FluidCursor() {
       }
     };
 
-    // Check if device is touch-capable
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-    // Track if user is actively touching
-    let isTouching = false;
-    let touchEndTime = 0;
-
-    // Override touch handlers to track touch state
-    const originalHandleTouchStart = handleTouchStart;
-    const handleTouchStartWithState = (e: TouchEvent) => {
-      isTouching = true;
-      originalHandleTouchStart(e);
-    };
-
-    const originalHandleTouchEnd = handleTouchEnd;
-    const handleTouchEndWithState = (e: TouchEvent) => {
-      isTouching = false;
-      touchEndTime = Date.now();
-      originalHandleTouchEnd(e);
-    };
-
-    // Mobile-only scroll handling - only works on touch devices and when recently touched
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      // Only handle scroll on touch devices
-      if (!isTouchDevice) return;
-
-      // Only trigger if user recently touched (within 500ms)
-      const timeSinceTouch = Date.now() - touchEndTime;
-      if (!isTouching && timeSinceTouch > 500) return;
-
-      const currentScrollY = window.scrollY;
-      const deltaY = currentScrollY - lastScrollY;
-
-      if (Math.abs(deltaY) > 10) {
-        const pointer = pointers[0];
-
-        // Use last touch position
-        pointer.texcoordX = lastTouchX / canvas!.clientWidth;
-        pointer.texcoordY = 1.0 - lastTouchY / canvas!.clientHeight;
-        pointer.deltaX = (Math.random() - 0.5) * 0.005;
-        // Reduced velocity to prevent stretching
-        pointer.deltaY = Math.sign(deltaY) * 0.02;
-        pointer.moved = true;
-        pointer.color = generateColor();
-      }
-
-      lastScrollY = currentScrollY;
-    };
-
     // Start animation immediately
     update();
 
-    // Add event listeners
+    // Add event listeners - simple touch handling, no scroll effects
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchstart', handleTouchStartWithState, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
-    window.addEventListener('touchend', handleTouchEndWithState, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     // Cleanup
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchstart', handleTouchStartWithState);
+      window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEndWithState);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
   }, []);
 
