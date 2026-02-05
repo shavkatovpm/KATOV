@@ -57,12 +57,21 @@ export const metadata: Metadata = {
     title: 'KATOV - Kreativ website xizmatlari',
     description:
       'Kreativ va professional sayt yaratish xizmatlari. Minimal dizayn, maksimal natija.',
+    images: [
+      {
+        url: 'https://katov.uz/og-image.png',
+        width: 1200,
+        height: 1200,
+        alt: 'KATOV - Kreativ website xizmatlari',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'KATOV - Kreativ website xizmatlari',
     description:
       'Kreativ va professional sayt yaratish xizmatlari. Minimal dizayn, maksimal natija.',
+    images: ['https://katov.uz/og-image.png'],
   },
   robots: {
     index: true,
