@@ -1,26 +1,249 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Theme Colors (Dark Mode Only) */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #000000;
+  --color-fg: #dddddd;
+  --color-muted: #767676;
+  --color-border: #333333;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Page Entrance Animation */
+@keyframes pageEntrance {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    background-color: #000000;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    background-color: var(--color-bg);
   }
 }
 
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page Content Animation Wrapper */
+.page-content {
+  background-color: #000000;
+  padding-top: 0;
+  margin-top: 0;
+  animation: pageEntrance 1.8s ease-out forwards;
+}
+
+::selection {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+/* Logo */
+.logo-icon {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.15em;
+}
+
+/* Script Font */
+.font-script {
+  font-family: var(--font-caveat), cursive;
+}
+
+/* Nav Link */
+.nav-link {
+  color: #767676;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #dddddd;
+}
+
+/* Utility Classes */
+.text-muted {
+  color: var(--color-muted);
+}
+
+.bg-muted {
+  background-color: var(--color-muted);
+}
+
+.border-custom {
+  border-color: var(--color-border);
+}
+
+.bg-card {
+  background-color: var(--color-bg);
+}
+
+.bg-card-hover {
+  background-color: color-mix(in srgb, var(--color-fg) 5%, transparent);
+}
+
+.bg-section {
+  background-color: color-mix(in srgb, var(--color-fg) 2%, transparent);
+}
+
+.btn-primary {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+}
+
+/* Container */
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Section */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Card */
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background-color: var(--color-bg);
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--color-fg) 20%, transparent);
+}
+
+/* Prose for Blog */
+.prose {
+  color: var(--color-fg);
+  max-width: 65ch;
+}
+
+.prose > * + * {
+  margin-top: 1.5em;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.prose h1 { font-size: 2rem; margin-top: 0; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.25rem; }
+
+.prose p { line-height: 1.8; }
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-top: 0.5em;
+}
+
+.prose code {
+  background: var(--color-fg);
+  color: var(--color-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background: var(--color-fg);
+  color: var(--color-bg);
+  padding: 1.25em;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose th, .prose td {
+  border: 1px solid var(--color-border);
+  padding: 0.75em 1em;
+  text-align: left;
+}
+
+.prose th {
+  background: var(--color-fg);
+  color: var(--color-bg);
 }

@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "title": "Katov - Creative Website Services",
+    "description": "Katov - Creative and professional website development services in Uzbekistan. Minimal design, maximum impact."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "We build result-oriented\nwebsites",
+    "name": "Katov",
+    "title": "Not standard, creative solution",
+    "description": "Minimal design. Maximum impact. We help your brand stand out in the online world.",
+    "cta": "Start Your Project",
+    "scroll": "Scroll down"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Who we are?",
+    "description": "Katov is a brand specialized in creating creative websites. We approach each project individually and provide the best solutions for your business.",
+    "experience": "years of experience",
+    "projects": "completed projects",
+    "clients": "happy clients"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "What can we do?",
+    "description": "We offer the most modern and creative solutions for your business.",
+    "learnMore": "Learn More",
+    "landing": {
+      "title": "Landing Page",
+      "description": "Single-page websites for fast and effective sales boost."
+    },
+    "corporate": {
+      "title": "Corporate Website",
+      "description": "Complete website that creates your company's professional image."
+    },
+    "ecommerce": {
+      "title": "Online Store",
+      "description": "Modern e-commerce solutions to sell your products online."
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Our Work",
+    "description": "Explore our best projects.",
+    "viewProject": "View Project",
+    "viewAll": "View All"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Transparent Pricing",
+    "description": "Clear and understandable pricing for each project.",
+    "from": "starting from",
+    "popular": "Popular",
+    "includes": "What's included:",
+    "cta": "Order Now",
+    "starter": {
+      "name": "Starter",
+      "description": "For small businesses and startups",
+      "feature1": "1-3 page website",
+      "feature2": "Mobile responsive design",
+      "feature3": "SEO optimization",
+      "feature4": "1 month free support",
+      "feature5": "Hosting setup"
+    },
+    "business": {
+      "name": "Business",
+      "description": "For growing companies",
+      "feature1": "5-10 page website",
+      "feature2": "Creative design",
+      "feature3": "Advanced SEO",
+      "feature4": "Admin panel",
+      "feature5": "3 months free support",
+      "feature6": "Analytics integration"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "For large companies",
+      "feature1": "Unlimited pages",
+      "feature2": "Custom design",
+      "feature3": "Full SEO strategy",
+      "feature4": "Complex functionality",
+      "feature5": "6 months free support",
+      "feature6": "Priority technical support",
+      "feature7": "Performance optimization"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Useful Articles",
+    "description": "Latest articles about website development, SEO, and design.",
+    "readMore": "Read More",
+    "readTime": "min read",
+    "viewAll": "All Articles"
+  },
+  "footer": {
+    "description": "Professional services for creating creative websites.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "social": "Social Media",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}

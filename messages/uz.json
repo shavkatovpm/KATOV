@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "title": "Katov - Kreativ Veb-sayt Xizmatlari",
+    "description": "Katov - O'zbekistonda kreativ va professional veb-sayt yaratish xizmatlari. Minimal dizayn, maksimal natija."
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "portfolio": "Portfolio",
+    "services": "Xizmatlar",
+    "pricing": "Narxlar",
+    "blog": "Blog",
+    "contact": "Aloqa"
+  },
+  "hero": {
+    "greeting": "Natijaga yo'naltirilgan\nwebsite ishlab chiqamiz",
+    "name": "Katov",
+    "title": "Standart emas, kreativ yechim",
+    "description": "Minimal dizayn. Maksimal ta'sir. Sizning brendingizni onlayn dunyoda ajralib turishiga yordam beramiz.",
+    "cta": "Loyihangizni boshlang",
+    "scroll": "Pastga aylantiring"
+  },
+  "about": {
+    "title": "Biz haqimizda",
+    "subtitle": "Kim biz?",
+    "description": "Katov - bu kreativ veb-saytlar yaratishga ixtisoslashgan brend. Biz har bir loyihaga individual yondashib, sizning biznesingiz uchun eng yaxshi yechimlarni taqdim etamiz.",
+    "experience": "yillik tajriba",
+    "projects": "tugallangan loyihalar",
+    "clients": "mamnun mijozlar"
+  },
+  "services": {
+    "title": "Xizmatlar",
+    "subtitle": "Nima qila olamiz?",
+    "description": "Sizning biznesingiz uchun eng zamonaviy va kreativ yechimlarni taklif etamiz.",
+    "learnMore": "Batafsil",
+    "landing": {
+      "title": "Landing Page",
+      "description": "Tez va samarali sotuvlarni oshirish uchun bir sahifali veb-saytlar."
+    },
+    "corporate": {
+      "title": "Korporativ Sayt",
+      "description": "Kompaniyangizning professional imijini yaratuvchi to'liq veb-sayt."
+    },
+    "ecommerce": {
+      "title": "Onlayn Do'kon",
+      "description": "Mahsulotlaringizni onlayn sotish uchun zamonaviy e-commerce yechimlar."
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Ishlarimiz",
+    "description": "Bizning eng yaxshi loyihalarimiz bilan tanishing.",
+    "viewProject": "Loyihani ko'rish",
+    "viewAll": "Barchasini ko'rish"
+  },
+  "pricing": {
+    "title": "Narxlar",
+    "subtitle": "Shaffof narxlar",
+    "description": "Har bir loyiha uchun aniq va tushunarli narxlar.",
+    "from": "dan boshlab",
+    "popular": "Mashhur",
+    "includes": "Nimalar kiradi:",
+    "cta": "Buyurtma berish",
+    "starter": {
+      "name": "Boshlang'ich",
+      "description": "Kichik biznes va startaplar uchun",
+      "feature1": "1-3 sahifali veb-sayt",
+      "feature2": "Mobil moslashuvchan dizayn",
+      "feature3": "SEO optimallashtirish",
+      "feature4": "1 oylik bepul qo'llab-quvvatlash",
+      "feature5": "Hosting sozlash"
+    },
+    "business": {
+      "name": "Biznes",
+      "description": "O'sib borayotgan kompaniyalar uchun",
+      "feature1": "5-10 sahifali veb-sayt",
+      "feature2": "Kreativ dizayn",
+      "feature3": "Kengaytirilgan SEO",
+      "feature4": "Admin panel",
+      "feature5": "3 oylik bepul qo'llab-quvvatlash",
+      "feature6": "Analitika integratsiyasi"
+    },
+    "enterprise": {
+      "name": "Korporativ",
+      "description": "Yirik kompaniyalar uchun",
+      "feature1": "Cheksiz sahifalar",
+      "feature2": "Maxsus dizayn",
+      "feature3": "To'liq SEO strategiya",
+      "feature4": "Murakkab funksionallik",
+      "feature5": "6 oylik bepul qo'llab-quvvatlash",
+      "feature6": "Ustuvor texnik yordam",
+      "feature7": "Performance optimallashtirish"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Foydali maqolalar",
+    "description": "Veb-sayt yaratish, SEO va dizayn haqida eng so'nggi maqolalar.",
+    "readMore": "Davomini o'qish",
+    "readTime": "daqiqa o'qish",
+    "viewAll": "Barcha maqolalar"
+  },
+  "footer": {
+    "description": "Kreativ veb-saytlar yaratish bo'yicha professional xizmatlar.",
+    "quickLinks": "Tezkor havolalar",
+    "contact": "Bog'lanish",
+    "social": "Ijtimoiy tarmoqlar",
+    "rights": "Barcha huquqlar himoyalangan."
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xatolik yuz berdi",
+    "back": "Orqaga",
+    "next": "Keyingi",
+    "previous": "Oldingi"
+  }
+}
