@@ -35,6 +35,23 @@
   will-change: transform;
 }
 
+/* Fade in animation with delay */
+@keyframes fadeInDelayed {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.animate-fade-in-delayed {
+  opacity: 0;
+  animation: fadeInDelayed 0.5s ease-out 1.75s forwards;
+}
+
 /* Base Styles */
 html {
   scroll-behavior: smooth;

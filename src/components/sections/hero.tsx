@@ -138,12 +138,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, filter: 'blur(10px)' }}
-        animate={{ opacity: 1, filter: 'blur(0px)' }}
-        transition={{ duration: 0.5, delay: 1.75 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in-delayed">
         <Link
           href="#about"
           className="flex flex-col items-center gap-2 text-muted hover:opacity-70 transition-opacity"
@@ -153,7 +148,7 @@ export function Hero() {
             <ArrowDown size={24} />
           </div>
         </Link>
-      </motion.div>
+      </div>
     </section>
   );
 }
