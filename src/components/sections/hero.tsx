@@ -101,10 +101,10 @@ export function Hero() {
         </motion.div>
 
         <div
-          className="mb-20 h-10 sm:h-12 flex items-center justify-center relative mt-2"
+          className="mb-20 h-10 sm:h-12 flex items-center justify-center relative mt-4"
           style={{
             backgroundColor: '#000000',
-            boxShadow: '0 -20px 20px 20px #000000',
+            boxShadow: '0 -8px 12px 8px #000000',
             zIndex: 50
           }}
         >
