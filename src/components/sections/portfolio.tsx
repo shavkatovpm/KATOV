@@ -44,31 +44,37 @@ export function Portfolio() {
             >
               <Link
                 href={item.url}
-                target={item.url.startsWith('http') ? '_blank' : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group block"
               >
                 <div
-                  className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4 flex items-center justify-center"
-                  style={{ backgroundColor: 'color-mix(in srgb, var(--color-fg) 5%, transparent)' }}
+                  className="relative aspect-[4/3] rounded-2xl overflow-hidden p-5 sm:p-6 flex flex-col justify-between"
+                  style={{
+                    backgroundColor: 'color-mix(in srgb, var(--color-fg) 5%, transparent)',
+                    border: '1px solid var(--color-border)'
+                  }}
                 >
-                  <span className="text-5xl sm:text-6xl font-bold opacity-10">
-                    {item.title[0]}
-                  </span>
+                  {/* Top left - Title and Description */}
+                  <div className="text-left">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-1 group-hover:opacity-70 transition-opacity">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted text-xs sm:text-sm">
+                      {item.category}
+                    </p>
+                  </div>
 
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  {/* Bottom right - Arrow icon */}
+                  <div className="flex justify-end">
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: 'var(--color-bg)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
+                      className="w-10 h-10 rounded-full flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity"
+                      style={{ backgroundColor: 'var(--color-border)' }}
                     >
-                      <ArrowUpRight size={22} />
+                      <ArrowUpRight size={20} />
                     </div>
                   </div>
                 </div>
-
-                <p className="text-muted text-xs sm:text-sm mb-1">{item.category}</p>
-                <h3 className="text-lg sm:text-xl font-semibold group-hover:opacity-70 transition-opacity">
-                  {item.title}
-                </h3>
               </Link>
             </motion.div>
           ))}
