@@ -37,7 +37,9 @@ export function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="flex items-center gap-2"
               >
+                {index > 0 && <span className="text-muted">•</span>}
                 <span className="text-base sm:text-lg">{t(feature)}</span>
               </motion.div>
             ))}
