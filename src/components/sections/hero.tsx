@@ -127,7 +127,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 2.05 }}
+          transition={{ duration: 0.5, delay: 1.75 }}
         >
           <Link
             href="#services"
@@ -141,7 +141,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0, filter: 'blur(10px)' }}
         animate={{ opacity: 1, filter: 'blur(0px)' }}
-        transition={{ duration: 0.5, delay: 2.25 }}
+        transition={{ duration: 0.5, delay: 1.75 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <Link
