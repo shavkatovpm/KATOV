@@ -83,19 +83,19 @@ export function Header() {
             className="lg:hidden pb-6 border-t"
             style={{ borderColor: 'var(--color-border)' }}
           >
-            <div className="flex flex-col gap-1 pt-4">
+            <div className="flex flex-col items-end gap-1 pt-4">
               {siteConfig.navigation.map((item) => (
                 <Link
                   key={item.key}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="py-3 text-base font-medium nav-link"
+                  className="py-3 text-base font-medium nav-link text-right"
                 >
                   {t(item.key)}
                 </Link>
               ))}
               <div
-                className="flex items-center gap-3 pt-4 mt-2 border-t"
+                className="flex items-center gap-3 pt-4 mt-2 border-t w-full justify-end"
                 style={{ borderColor: 'var(--color-border)' }}
               >
                 <LanguageSwitcher />
