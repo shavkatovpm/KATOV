@@ -18,6 +18,7 @@ export function Hero() {
   const [textIndex, setTextIndex] = useState(0);
   const [displayedTitle, setDisplayedTitle] = useState('');
   const [showTypewriter, setShowTypewriter] = useState(false);
+  const [showOtherElements, setShowOtherElements] = useState(false);
   const title = t('title');
 
   useEffect(() => {
@@ -46,8 +47,12 @@ export function Hero() {
         currentIndex++;
       } else {
         clearInterval(typeInterval);
+        // Show other elements 1 second after typewriter completes
+        setTimeout(() => {
+          setShowOtherElements(true);
+        }, 1000);
       }
-    }, 50);
+    }, 25);
 
     return () => clearInterval(typeInterval);
   }, [showTypewriter, title]);
@@ -73,8 +78,8 @@ export function Hero() {
 
         <motion.p
           initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 3 }}
+          animate={showOtherElements ? { opacity: 1, filter: 'blur(0px)' } : { opacity: 0, filter: 'blur(10px)' }}
+          transition={{ duration: 0.5 }}
           className="text-muted text-lg sm:text-xl lg:text-3xl mb-2 whitespace-pre-line"
         >
           {t('greeting')}
@@ -82,8 +87,8 @@ export function Hero() {
 
         <motion.div
           initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 3 }}
+          animate={showOtherElements ? { opacity: 1, filter: 'blur(0px)' } : { opacity: 0, filter: 'blur(10px)' }}
+          transition={{ duration: 0.5 }}
           className="h-20 sm:h-24 flex items-center justify-center"
         >
           <AnimatePresence mode="wait">
@@ -131,8 +136,8 @@ export function Hero() {
 
         <motion.div
           initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 3 }}
+          animate={showOtherElements ? { opacity: 1, filter: 'blur(0px)' } : { opacity: 0, filter: 'blur(10px)' }}
+          transition={{ duration: 0.5 }}
         >
           <Link
             href="#services"
