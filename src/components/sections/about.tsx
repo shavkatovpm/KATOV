@@ -18,7 +18,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:text-center">
             {t('title')}
           </h2>
           <p className="text-muted text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
