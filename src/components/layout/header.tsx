@@ -41,10 +41,13 @@ export function Header() {
     >
       <div className="container-custom">
         <nav className="flex items-center justify-between h-16 sm:h-20">
-          <Link href="#" className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase"
+          >
             <span className="logo-icon text-2xl sm:text-3xl" style={{ color: '#dddddd' }}>|&lt;</span>
             <span style={{ color: '#dddddd' }}>{siteConfig.name}</span>
-          </Link>
+          </button>
 
           <div className="hidden lg:flex items-center gap-8">
             {siteConfig.navigation.map((item) => (
