@@ -66,8 +66,8 @@ export function Header() {
             }}
             className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase cursor-pointer"
           >
-            <span className="logo-icon text-2xl sm:text-3xl" style={{ color: '#dddddd' }}>|&lt;</span>
-            <span style={{ color: '#dddddd' }}>{siteConfig.name}</span>
+            <span className="logo-icon text-2xl sm:text-3xl cursor-pointer" style={{ color: '#dddddd' }}>|&lt;</span>
+            <span className="cursor-pointer" style={{ color: '#dddddd' }}>{siteConfig.name}</span>
           </a>
 
           <div className="hidden lg:flex items-center gap-8">
