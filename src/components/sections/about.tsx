@@ -101,20 +101,20 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="section-padding md:min-h-screen md:flex md:items-center relative"
+      className="section-padding md:min-h-screen md:flex md:items-center"
     >
-      {/* Animated border that fills from top to bottom on scroll */}
-      <motion.div
-        className="absolute left-0 top-0 w-full h-full pointer-events-none"
-        style={{
-          borderLeft: '1px solid #444444',
-          borderRight: '1px solid #444444',
-          scaleY: borderScaleY,
-          transformOrigin: 'top',
-        }}
-      />
       <div className="container-custom w-full">
-        <div className="max-w-3xl md:max-w-6xl mx-auto">
+        <div className="max-w-3xl md:max-w-6xl mx-auto relative">
+          {/* Animated border that fills from top to bottom on scroll */}
+          <motion.div
+            className="absolute -left-4 sm:-left-6 md:-left-8 top-0 bottom-0 w-[calc(100%+2rem)] sm:w-[calc(100%+3rem)] md:w-[calc(100%+4rem)] pointer-events-none"
+            style={{
+              borderLeft: '1px solid #444444',
+              borderRight: '1px solid #444444',
+              scaleY: borderScaleY,
+              transformOrigin: 'top',
+            }}
+          />
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
             {t('title')}
           </h2>
