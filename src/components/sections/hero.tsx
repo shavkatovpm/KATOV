@@ -78,15 +78,6 @@ export function Hero() {
           {t('name')}
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={showOtherElements ? { opacity: 1, filter: 'blur(0px)' } : { opacity: 0, filter: 'blur(10px)' }}
-          transition={{ duration: 0.5 }}
-          className="text-muted text-lg sm:text-xl lg:text-3xl mb-2 whitespace-pre-line"
-        >
-          {t('greeting')}
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={showOtherElements ? { opacity: 1, filter: 'blur(0px)' } : { opacity: 0, filter: 'blur(10px)' }}
