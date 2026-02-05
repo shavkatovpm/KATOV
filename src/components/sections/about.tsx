@@ -103,14 +103,14 @@ export function About() {
             style={{ backgroundColor: '#444444' }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
+            transition={{ duration: 3, ease: 'easeOut' }}
           />
           <motion.div
             className="absolute -right-4 sm:-right-6 md:-right-8 top-0 bottom-0 w-px pointer-events-none"
             style={{ backgroundColor: '#444444' }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
+            transition={{ duration: 3, ease: 'easeOut' }}
           />
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
             {t('title')}
