@@ -214,13 +214,15 @@ button {
 }
 
 .btn-outline {
-  border: 2px solid var(--color-border);
+  border: 2px solid var(--color-fg);
   background-color: transparent;
-  transition: border-color 0.2s;
+  color: var(--color-fg);
+  transition: all 0.2s;
 }
 
 .btn-outline:hover {
-  border-color: var(--color-fg);
+  background-color: var(--color-fg);
+  color: var(--color-bg);
 }
 
 /* Container */

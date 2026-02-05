@@ -56,42 +56,49 @@
     "viewAll": "Barchasini ko'rish"
   },
   "pricing": {
-    "title": "Narxlar",
-    "subtitle": "Shaffof narxlar",
-    "description": "Har bir loyiha uchun aniq va tushunarli narxlar.",
-    "from": "dan boshlab",
+    "title": "Tariflar",
+    "description": "Loyihangizga mos tarifni tanlang",
+    "from": "+",
     "popular": "Mashhur",
-    "includes": "Nimalar kiradi:",
+    "includes": "Batafsil:",
     "cta": "Buyurtma berish",
-    "starter": {
-      "name": "Boshlang'ich",
-      "description": "Kichik biznes va startaplar uchun",
-      "feature1": "1-3 sahifali veb-sayt",
-      "feature2": "Mobil moslashuvchan dizayn",
-      "feature3": "SEO optimallashtirish",
-      "feature4": "1 oylik bepul qo'llab-quvvatlash",
-      "feature5": "Hosting sozlash"
+    "minimal": {
+      "name": "Minimal",
+      "shortDesc": "Sotuvga yo'naltirilgan website",
+      "description": "Sotuvga yo'naltirilgan 2–5 sahifali website va lead yig'ish tizimi.",
+      "description2": "Zapusk, landing yoki oddiy vizitka sayt qilmoqchi bo'lganlar uchun. Tez ishga tushadi va natijani ko'rsatadi.",
+      "feature1": "Mijoz olib kelishga yo'naltirilgan conversion sahifa",
+      "feature2": "Kuchli taklif (offer) va aniq CTA tuzilmasi",
+      "feature3": "Lead yig'ish tizimi (forma yoki Telegram orqali)",
+      "feature4": "Asosiy SEO sozlamalari va sayt tezligini optimizatsiya qilish",
+      "feature5": "Analytics: trafik va leadlarni o'lchash",
+      "feature6": "Oddiy, lekin o'ylangan kreativ yondashuv"
     },
-    "business": {
-      "name": "Biznes",
-      "description": "O'sib borayotgan kompaniyalar uchun",
-      "feature1": "5-10 sahifali veb-sayt",
-      "feature2": "Kreativ dizayn",
-      "feature3": "Kengaytirilgan SEO",
-      "feature4": "Admin panel",
-      "feature5": "3 oylik bepul qo'llab-quvvatlash",
-      "feature6": "Analitika integratsiyasi"
+    "standart": {
+      "name": "Standart",
+      "shortDesc": "Biznes avtomatlashtirish",
+      "description": "Biznes jarayonlarini avtomatlashtirish va foydalanuvchilarni tahlil qilish uchun.",
+      "description2": "Admin panel, analitika, Telegram bot va ichki jarayonlarni boshqarish tizimi bilan. O'sishga tayyor bizneslar uchun qulay yechim.",
+      "feature1": "Kuchli biznes sahifa, website",
+      "feature2": "Lead va trafikni boshqarish uchun admin panel",
+      "feature3": "Batafsil analitika va tushunarli hisobotlar",
+      "feature4": "Marketing voronkasi asosida tuzilgan logika",
+      "feature5": "Telegram bot integratsiyasi",
+      "feature6": "Avtomatik javoblar va bildirishnomalar",
+      "feature7": "Bir nechta kreativ va texnik yechimlar"
     },
-    "enterprise": {
-      "name": "Korporativ",
-      "description": "Yirik kompaniyalar uchun",
-      "feature1": "Cheksiz sahifalar",
-      "feature2": "Maxsus dizayn",
-      "feature3": "To'liq SEO strategiya",
-      "feature4": "Murakkab funksionallik",
-      "feature5": "6 oylik bepul qo'llab-quvvatlash",
-      "feature6": "Ustuvor texnik yordam",
-      "feature7": "Performance optimallashtirish"
+    "individual": {
+      "name": "Individual",
+      "shortDesc": "To'liq platforma",
+      "description": "Katta maqsadli kompaniyalar va startaplar uchun.",
+      "description2": "To'liq platforma, individual strategiya va texnik yechimlar. Noldan quriladi va biznes bilan birga o'sadi.",
+      "feature1": "To'liq moslashtirilgan website, web platforma",
+      "feature2": "Kengaytirilgan va individual admin panel",
+      "feature3": "Professional analitika va mijoz yo'lini (funnel) kuzatish",
+      "feature4": "Foydalanuvchilarni saralash va boshqarish logikasi",
+      "feature5": "Telegram bot va avtomatlashtirilgan jarayonlar",
+      "feature6": "SEO va umumiy ishlash tezligini chuqur optimizatsiya qilish",
+      "feature7": "Individual strategiya va kreativ yondashuv"
     }
   },
   "blog": {
