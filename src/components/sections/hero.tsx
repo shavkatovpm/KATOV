@@ -6,7 +6,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import Link from 'next/link';
 
-const blurTexts = ['Kreativ dizayn', 'Zamonaviy texnologiya', 'Sifatli xizmat'];
+const blurTexts = [
+  'Ishonchli website',
+  'Kreativ dizayn',
+  'Zamonaviy dastur',
+  'Raqamli yechimlar',
+  'Yoqimli interfeys',
+];
 
 export function Hero() {
   const t = useTranslations('hero');

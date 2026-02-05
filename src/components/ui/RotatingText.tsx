@@ -8,7 +8,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type TargetAndTransition, type Transition } from 'framer-motion';
 
 import './RotatingText.css';
 
@@ -18,10 +18,10 @@ function cn(...classes: (string | undefined | false)[]) {
 
 interface RotatingTextProps {
   texts: string[];
-  transition?: object;
-  initial?: object;
-  animate?: object;
-  exit?: object;
+  transition?: Transition;
+  initial?: TargetAndTransition | boolean;
+  animate?: TargetAndTransition;
+  exit?: TargetAndTransition;
   animatePresenceMode?: 'wait' | 'sync' | 'popLayout';
   animatePresenceInitial?: boolean;
   rotationInterval?: number;
