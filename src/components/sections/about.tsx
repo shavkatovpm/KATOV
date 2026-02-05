@@ -74,11 +74,11 @@ export function About() {
   // Scroll progress for border animation
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 0.8", "start 0.2"]
+    offset: ["start 0.9", "end 0.5"]
   });
 
-  // Transform scroll progress to scaleY (0 to 1) for drawing effect
-  const borderScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // Transform scroll progress to pathLength for SVG drawing effect
+  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const description = t('description');
   const description2 = t('description2');
@@ -106,22 +106,34 @@ export function About() {
       <div className="container-custom w-full">
         <div className="max-w-3xl md:max-w-6xl mx-auto relative">
           {/* Animated borders that draw from top to bottom on scroll */}
-          <motion.div
-            className="absolute -left-4 sm:-left-6 md:-left-8 top-0 bottom-0 w-px pointer-events-none"
-            style={{
-              backgroundColor: '#444444',
-              scaleY: borderScale,
-              transformOrigin: 'top',
-            }}
-          />
-          <motion.div
-            className="absolute -right-4 sm:-right-6 md:-right-8 top-0 bottom-0 w-px pointer-events-none"
-            style={{
-              backgroundColor: '#444444',
-              scaleY: borderScale,
-              transformOrigin: 'top',
-            }}
-          />
+          <svg
+            className="absolute -left-4 sm:-left-6 md:-left-8 top-0 h-full w-px pointer-events-none"
+            preserveAspectRatio="none"
+          >
+            <motion.line
+              x1="0.5"
+              y1="0"
+              x2="0.5"
+              y2="100%"
+              stroke="#444444"
+              strokeWidth="1"
+              style={{ pathLength }}
+            />
+          </svg>
+          <svg
+            className="absolute -right-4 sm:-right-6 md:-right-8 top-0 h-full w-px pointer-events-none"
+            preserveAspectRatio="none"
+          >
+            <motion.line
+              x1="0.5"
+              y1="0"
+              x2="0.5"
+              y2="100%"
+              stroke="#444444"
+              strokeWidth="1"
+              style={{ pathLength }}
+            />
+          </svg>
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
             {t('title')}
           </h2>
