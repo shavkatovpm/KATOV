@@ -24,7 +24,6 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <p className="text-muted text-sm sm:text-base mb-2">{t('subtitle')}</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
             {t('title')}
           </h2>
