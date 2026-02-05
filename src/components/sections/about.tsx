@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-// Animated text component with blur effect
+// Animated text component with blur effect - words stay together
 function AnimatedText({
   text,
   className,
@@ -19,23 +19,50 @@ function AnimatedText({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  // Split text into words, keeping track of character index for delays
+  const words = text.split(' ');
+  let charIndex = 0;
+
   return (
     <span ref={ref} className={className}>
-      {text.split('').map((char, index) => (
-        <motion.span
-          key={index}
-          initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={isInView ? { opacity: 1, filter: 'blur(0px)' } : {}}
-          transition={{
-            duration: 0.15,
-            delay: startDelay + index * charDelay,
-            ease: 'easeOut'
-          }}
-          style={{ display: 'inline-block', whiteSpace: 'pre' }}
-        >
-          {char === ' ' ? '\u00A0' : char}
-        </motion.span>
-      ))}
+      {words.map((word, wordIndex) => {
+        const wordStartIndex = charIndex;
+        charIndex += word.length + 1; // +1 for space
+
+        return (
+          <span key={wordIndex} style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+            {word.split('').map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, filter: 'blur(10px)' }}
+                animate={isInView ? { opacity: 1, filter: 'blur(0px)' } : {}}
+                transition={{
+                  duration: 0.15,
+                  delay: startDelay + (wordStartIndex + i) * charDelay,
+                  ease: 'easeOut'
+                }}
+                style={{ display: 'inline-block' }}
+              >
+                {char}
+              </motion.span>
+            ))}
+            {wordIndex < words.length - 1 && (
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{
+                  duration: 0.15,
+                  delay: startDelay + (wordStartIndex + word.length) * charDelay,
+                  ease: 'easeOut'
+                }}
+                style={{ display: 'inline-block' }}
+              >
+                {'\u00A0'}
+              </motion.span>
+            )}
+          </span>
+        );
+      })}
     </span>
   );
 }
@@ -45,7 +72,6 @@ export function About() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  const title = t('title');
   const description = t('description');
   const description2 = t('description2');
   const featuresTitle = t('featuresTitle');
@@ -55,10 +81,8 @@ export function About() {
   const feature3 = t('feature3');
 
   // Calculate delays based on previous text lengths
-  // Title animates first, then other text follows after title completes
-  const titleDelay = 0;
-  const titleDuration = title.length * 0.03 + 0.15; // Total time for title to complete
-  const descDelay = titleDuration + 0.3; // Wait for title to finish + buffer
+  // Title is static (no animation), other text animates
+  const descDelay = 0;
   const desc2Delay = descDelay + description.length * 0.015 + 0.1;
   const featuresTitleDelay = desc2Delay + description2.length * 0.015 + 0.2;
   const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.02 + 0.1;
@@ -73,7 +97,7 @@ export function About() {
       <div className="container-custom w-full">
         <div className="max-w-3xl md:max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 md:text-center">
-            <AnimatedText text={title} startDelay={titleDelay} charDelay={0.03} />
+            {t('title')}
           </h2>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 leading-relaxed text-left">
