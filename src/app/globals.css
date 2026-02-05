@@ -20,6 +20,21 @@
   }
 }
 
+/* Smooth bounce animation for scroll indicator */
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 1.5s ease-in-out infinite;
+  will-change: transform;
+}
+
 /* Base Styles */
 html {
   scroll-behavior: smooth;

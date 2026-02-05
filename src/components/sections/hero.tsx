@@ -149,12 +149,9 @@ export function Hero() {
           className="flex flex-col items-center gap-2 text-muted hover:opacity-70 transition-opacity"
         >
           <span className="text-base">{t('scroll')}</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
+          <div className="animate-bounce-slow">
             <ArrowDown size={24} />
-          </motion.div>
+          </div>
         </Link>
       </motion.div>
     </section>
