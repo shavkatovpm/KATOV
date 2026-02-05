@@ -958,12 +958,18 @@ export function FluidCursor() {
       updatePointerMoveData(pointer, posX, posY, color);
     };
 
+    // Track last touch position for scroll-based effects
+    let lastTouchX = canvas!.clientWidth / 2;
+    let lastTouchY = canvas!.clientHeight / 2;
+
     const handleTouchStart = (e: TouchEvent) => {
       const touches = e.targetTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         const posX = scaleByPixelRatio(touches[i].clientX);
         const posY = scaleByPixelRatio(touches[i].clientY);
+        lastTouchX = touches[i].clientX;
+        lastTouchY = touches[i].clientY;
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
     };
@@ -974,6 +980,8 @@ export function FluidCursor() {
       for (let i = 0; i < touches.length; i++) {
         const posX = scaleByPixelRatio(touches[i].clientX);
         const posY = scaleByPixelRatio(touches[i].clientY);
+        lastTouchX = touches[i].clientX;
+        lastTouchY = touches[i].clientY;
         updatePointerMoveData(pointer, posX, posY, pointer.color);
       }
     };
@@ -986,7 +994,7 @@ export function FluidCursor() {
       }
     };
 
-    // Mobile scroll handling
+    // Mobile scroll handling - uses last touch position
     let lastScrollY = window.scrollY;
     let lastScrollTime = Date.now();
 
@@ -1000,12 +1008,9 @@ export function FluidCursor() {
         const velocity = deltaY / deltaTime;
         const pointer = pointers[0];
 
-        // Create splat at center of screen based on scroll
-        const centerX = scaleByPixelRatio(canvas!.clientWidth / 2);
-        const centerY = scaleByPixelRatio(canvas!.clientHeight / 2);
-
-        pointer.texcoordX = 0.5;
-        pointer.texcoordY = 0.5;
+        // Use last touch position instead of center
+        pointer.texcoordX = lastTouchX / canvas!.clientWidth;
+        pointer.texcoordY = 1.0 - lastTouchY / canvas!.clientHeight;
         pointer.deltaX = (Math.random() - 0.5) * 0.01;
         pointer.deltaY = velocity * 0.5;
         pointer.moved = true;

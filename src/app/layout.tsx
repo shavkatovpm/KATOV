@@ -74,9 +74,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning>
+    <html suppressHydrationWarning style={{ backgroundColor: '#000000' }}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${caveat.variable} ${syne.variable} antialiased`}
+        style={{ backgroundColor: '#000000' }}
       >
         {children}
       </body>
