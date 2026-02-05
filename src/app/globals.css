@@ -214,12 +214,12 @@ button {
 .btn-outline {
   border: 2px solid var(--color-border);
   background-color: transparent;
-  transition: border-color 0.2s, border-width 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .btn-outline:hover {
   border-color: var(--color-fg);
-  border-width: 3px;
+  box-shadow: 0 0 0 2px var(--color-fg);
 }
 
 /* Container */
