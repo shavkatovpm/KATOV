@@ -11,7 +11,16 @@ export function Header() {
   const t = useTranslations('nav');
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+
+  // Mark animation as complete after delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasAnimated(true);
+    }, 3900); // 3.4s delay + 0.5s duration
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,9 +52,9 @@ export function Header() {
   return (
     <motion.header
       ref={headerRef}
-      initial={{ opacity: 0, filter: 'blur(10px)' }}
+      initial={hasAnimated ? false : { opacity: 0, filter: 'blur(10px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 0.5, delay: 3.4 }}
+      transition={hasAnimated ? { duration: 0 } : { duration: 0.5, delay: 3.4 }}
       className="transition-all duration-300"
       style={{
         position: 'fixed',
