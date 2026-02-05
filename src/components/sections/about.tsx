@@ -14,19 +14,19 @@ export function About() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl md:max-w-6xl mx-auto md:text-center"
+          className="max-w-3xl md:max-w-6xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 md:text-center">
             {t('title')}
           </h2>
-          <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-4 md:mb-6 leading-relaxed">
+          <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-4 md:mb-6 leading-relaxed text-left">
             {t('description')}
           </p>
-          <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-10 md:mb-16 leading-relaxed">
+          <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-10 md:mb-16 leading-relaxed text-left">
             {t('description2')}
           </p>
 
-          <p className="text-muted text-sm sm:text-base md:text-xl mb-4 md:mb-8">
+          <p className="text-muted text-sm sm:text-base md:text-xl mb-4 md:mb-8 text-left">
             {t('featuresTitle')}
           </p>
 
@@ -35,7 +35,7 @@ export function About() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="mb-3 md:mb-6"
+            className="mb-3 md:mb-6 text-left"
           >
             <span className="text-base sm:text-lg md:text-2xl lg:text-3xl">{t('feature4')}</span>
           </motion.div>
