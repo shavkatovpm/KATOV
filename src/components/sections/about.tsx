@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 // Animated text component with blur effect - words stay together
@@ -71,14 +71,6 @@ export function About() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  // Scroll progress for border animation
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.9", "end 0.5"]
-  });
-
-  // Transform scroll progress to pathLength for SVG drawing effect
-  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const description = t('description');
   const description2 = t('description2');
@@ -105,35 +97,21 @@ export function About() {
     >
       <div className="container-custom w-full">
         <div className="max-w-3xl md:max-w-6xl mx-auto relative">
-          {/* Animated borders that draw from top to bottom on scroll */}
-          <svg
-            className="absolute -left-4 sm:-left-6 md:-left-8 top-0 h-full w-px pointer-events-none"
-            preserveAspectRatio="none"
-          >
-            <motion.line
-              x1="0.5"
-              y1="0"
-              x2="0.5"
-              y2="100%"
-              stroke="#444444"
-              strokeWidth="1"
-              style={{ pathLength }}
-            />
-          </svg>
-          <svg
-            className="absolute -right-4 sm:-right-6 md:-right-8 top-0 h-full w-px pointer-events-none"
-            preserveAspectRatio="none"
-          >
-            <motion.line
-              x1="0.5"
-              y1="0"
-              x2="0.5"
-              y2="100%"
-              stroke="#444444"
-              strokeWidth="1"
-              style={{ pathLength }}
-            />
-          </svg>
+          {/* Animated borders that draw from top to bottom when section is in view */}
+          <motion.div
+            className="absolute -left-4 sm:-left-6 md:-left-8 top-0 bottom-0 w-px pointer-events-none"
+            style={{ backgroundColor: '#444444' }}
+            initial={{ scaleY: 0, transformOrigin: 'top' }}
+            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+          />
+          <motion.div
+            className="absolute -right-4 sm:-right-6 md:-right-8 top-0 bottom-0 w-px pointer-events-none"
+            style={{ backgroundColor: '#444444' }}
+            initial={{ scaleY: 0, transformOrigin: 'top' }}
+            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+          />
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
             {t('title')}
           </h2>
