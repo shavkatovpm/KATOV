@@ -119,41 +119,57 @@ export function About() {
             </span>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.3, delay: featuresRowDelay }}
-            className="flex flex-col md:flex-row md:items-center gap-2 md:gap-0 text-left"
-          >
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-0 text-left">
             <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
-              <span className="text-muted md:hidden">•</span>
+              <motion.span
+                className="text-muted md:hidden"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: featuresRowDelay }}
+              >
+                •
+              </motion.span>
               <AnimatedText text={feature1} startDelay={featuresRowDelay} charDelay={0.015} />
             </span>
             <motion.span
               className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: featuresRowDelay + feature1.length * 0.015 }}
+              transition={{ delay: featuresRowDelay + feature1.length * 0.015 + 0.05 }}
             >
               •
             </motion.span>
             <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
-              <span className="text-muted md:hidden">•</span>
-              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.015 + 0.03} charDelay={0.015} />
+              <motion.span
+                className="text-muted md:hidden"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: featuresRowDelay + feature1.length * 0.015 + 0.08 }}
+              >
+                •
+              </motion.span>
+              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.015 + 0.08} charDelay={0.015} />
             </span>
             <motion.span
               className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.06 }}
+              transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.13 }}
             >
               •
             </motion.span>
             <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
-              <span className="text-muted md:hidden">•</span>
-              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.09} charDelay={0.015} />
+              <motion.span
+                className="text-muted md:hidden"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16 }}
+              >
+                •
+              </motion.span>
+              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16} charDelay={0.015} />
             </span>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
