@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
 import Link from 'next/link';
 
 const blurTexts = [
@@ -136,18 +135,6 @@ export function Hero() {
             {t('cta')}
           </Link>
         </motion.div>
-      </div>
-
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in-delayed">
-        <Link
-          href="#about"
-          className="flex flex-col items-center gap-2 text-muted hover:opacity-70 transition-opacity"
-        >
-          <span className="text-base">{t('scroll')}</span>
-          <div className="animate-bounce-slow">
-            <ArrowDown size={24} />
-          </div>
-        </Link>
       </div>
     </section>
   );

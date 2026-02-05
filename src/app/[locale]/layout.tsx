@@ -5,7 +5,6 @@ import { locales } from '@/i18n/config';
 import { Providers } from '@/components/providers';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { FluidCursor } from '@/components/ui/fluid-cursor';
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -27,7 +26,6 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Providers>
-        <FluidCursor />
         <Header />
         <div className="page-content flex min-h-screen flex-col" style={{ backgroundColor: '#000000' }}>
           <main className="flex-1" style={{ backgroundColor: '#000000' }}>{children}</main>
