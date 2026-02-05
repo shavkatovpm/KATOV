@@ -22,11 +22,13 @@ export function Hero() {
   const title = t('title');
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    // "Ishonchli website" (index 0) stays 30% longer
+    const duration = textIndex === 0 ? 5850 : 4500;
+    const timeout = setTimeout(() => {
       setTextIndex((prev) => (prev + 1) % blurTexts.length);
-    }, 4500);
-    return () => clearInterval(interval);
-  }, []);
+    }, duration);
+    return () => clearTimeout(timeout);
+  }, [textIndex]);
 
   // Typewriter effect - starts when "Katov" animation completes (0.75s delay + 0.5s duration = 1.25s)
   useEffect(() => {
