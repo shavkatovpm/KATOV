@@ -64,8 +64,8 @@ export function Hero() {
     <section className="min-h-screen flex items-center justify-center relative">
       <div className="container-custom text-center">
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 1.75 }}
           className="text-muted text-lg sm:text-xl mb-3 whitespace-pre-line"
         >
@@ -73,8 +73,8 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 0.75 }}
           className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-3 uppercase"
         >
@@ -82,8 +82,8 @@ export function Hero() {
         </motion.h1>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 1.75 }}
           className="mb-5 h-20 sm:h-24 flex items-center justify-center"
         >
@@ -125,8 +125,8 @@ export function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 2.05 }}
         >
           <Link
@@ -139,8 +139,8 @@ export function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, filter: 'blur(10px)' }}
+        animate={{ opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.5, delay: 2.25 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
