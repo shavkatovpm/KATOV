@@ -14,7 +14,7 @@ export function About() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
+          className="max-w-3xl md:max-w-5xl mx-auto"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 md:mb-12 md:text-center">
             {t('title')}
@@ -45,19 +45,19 @@ export function About() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="flex flex-col md:flex-row md:items-center gap-1 md:gap-0"
+            className="flex flex-col md:flex-row md:items-center md:justify-center gap-1 md:gap-0"
           >
-            <span className="flex items-center gap-2 text-base sm:text-lg">
+            <span className="flex items-center gap-2 text-base sm:text-lg md:text-3xl lg:text-4xl">
               <span className="text-muted md:hidden">•</span>
               {t('feature1')}
             </span>
-            <span className="hidden md:inline text-muted mx-2">•</span>
-            <span className="flex items-center gap-2 text-base sm:text-lg">
+            <span className="hidden md:inline text-muted mx-4 md:text-3xl lg:text-4xl">•</span>
+            <span className="flex items-center gap-2 text-base sm:text-lg md:text-3xl lg:text-4xl">
               <span className="text-muted md:hidden">•</span>
               {t('feature2')}
             </span>
-            <span className="hidden md:inline text-muted mx-2">•</span>
-            <span className="flex items-center gap-2 text-base sm:text-lg">
+            <span className="hidden md:inline text-muted mx-4 md:text-3xl lg:text-4xl">•</span>
+            <span className="flex items-center gap-2 text-base sm:text-lg md:text-3xl lg:text-4xl">
               <span className="text-muted md:hidden">•</span>
               {t('feature3')}
             </span>
