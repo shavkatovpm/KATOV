@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '@/config/site';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 
@@ -71,38 +70,76 @@ export function Header() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 flex flex-col justify-center items-center w-10 h-10"
             aria-label="Menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <motion.span
+              animate={{
+                rotate: isOpen ? 45 : 0,
+                y: isOpen ? 8 : 0,
+              }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="block w-6 h-0.5 bg-current mb-1.5"
+            />
+            <motion.span
+              animate={{
+                opacity: isOpen ? 0 : 1,
+                scaleX: isOpen ? 0 : 1,
+              }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="block w-6 h-0.5 bg-current mb-1.5"
+            />
+            <motion.span
+              animate={{
+                rotate: isOpen ? -45 : 0,
+                y: isOpen ? -8 : 0,
+              }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="block w-6 h-0.5 bg-current"
+            />
           </button>
         </nav>
 
-        {isOpen && (
-          <div
-            className="lg:hidden pb-6 border-t"
-            style={{ borderColor: 'var(--color-border)' }}
-          >
-            <div className="flex flex-col items-end gap-1 pt-4">
-              {siteConfig.navigation.map((item) => (
-                <Link
-                  key={item.key}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="py-3 text-base font-medium nav-link text-right"
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="lg:hidden overflow-hidden border-t"
+              style={{ borderColor: 'var(--color-border)' }}
+            >
+              <div className="flex flex-col items-end gap-1 pt-4 pb-6">
+                {siteConfig.navigation.map((item, index) => (
+                  <motion.div
+                    key={item.key}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="py-3 text-base font-medium nav-link text-right block"
+                    >
+                      {t(item.key)}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: siteConfig.navigation.length * 0.05 }}
+                  className="flex items-center gap-3 pt-4 mt-2 border-t w-full justify-end"
+                  style={{ borderColor: 'var(--color-border)' }}
                 >
-                  {t(item.key)}
-                </Link>
-              ))}
-              <div
-                className="flex items-center gap-3 pt-4 mt-2 border-t w-full justify-end"
-                style={{ borderColor: 'var(--color-border)' }}
-              >
-                <LanguageSwitcher />
+                  <LanguageSwitcher />
+                </motion.div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );
