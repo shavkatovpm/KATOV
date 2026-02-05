@@ -93,8 +93,7 @@ export function Hero() {
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, filter: 'blur(10px)' }}
               transition={{ duration: 0.5 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative"
-              style={{ color: '#dddddd' }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative text-[#dddddd]"
             >
               {blurTexts[textIndex]}
             </motion.span>
