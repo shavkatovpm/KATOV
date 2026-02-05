@@ -94,7 +94,7 @@ export function Hero() {
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, filter: 'blur(10px)' }}
               transition={{ duration: 0.5 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium font-creative"
               style={{ color: '#dddddd' }}
             >
               {blurTexts[textIndex]}

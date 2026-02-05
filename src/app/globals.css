@@ -74,6 +74,11 @@ button {
   font-family: var(--font-caveat), cursive;
 }
 
+/* Creative Font */
+.font-creative {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
 /* Nav Link */
 .nav-link {
   color: #767676;
