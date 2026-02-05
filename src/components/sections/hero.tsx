@@ -84,25 +84,31 @@ export function Hero() {
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 1.75 }}
-          className="mb-2 h-16 sm:h-20 relative isolate"
-          style={{ contain: 'layout paint' }}
+          className="h-16 sm:h-20 relative"
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="popLayout">
             <motion.span
               key={textIndex}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative"
-              style={{ color: '#dddddd' }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative will-change-transform"
+              style={{ color: '#dddddd', transform: 'translateZ(0)' }}
             >
               {blurTexts[textIndex]}
             </motion.span>
           </AnimatePresence>
         </motion.div>
 
-        <div className="mb-20 h-10 sm:h-12 flex items-center justify-center relative z-10" style={{ backgroundColor: '#000000' }}>
+        <div
+          className="mb-20 h-10 sm:h-12 flex items-center justify-center relative mt-2"
+          style={{
+            backgroundColor: '#000000',
+            boxShadow: '0 -20px 20px 20px #000000',
+            zIndex: 50
+          }}
+        >
           <span
             className="text-2xl sm:text-3xl md:text-4xl font-script inline-block"
             style={{ color: '#767676' }}
