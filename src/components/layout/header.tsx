@@ -64,7 +64,7 @@ export function Header() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase"
+            className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase cursor-pointer"
           >
             <span className="logo-icon text-2xl sm:text-3xl" style={{ color: '#dddddd' }}>|&lt;</span>
             <span style={{ color: '#dddddd' }}>{siteConfig.name}</span>
