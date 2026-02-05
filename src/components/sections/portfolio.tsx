@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 const portfolioItems = [
-  { id: '1', title: 'UzbekType', category: 'Web App', url: 'https://uzbektype.uz' },
-  { id: '2', title: 'E-commerce Store', category: 'Online Store', url: '#' },
-  { id: '3', title: 'Corporate Website', category: 'Business', url: '#' },
+  { id: '1', title: 'Darslinker', category: "Onlayn ta'limni tizimlashtirish platformasi", url: 'https://darslinker.uz' },
+  { id: '2', title: 'Uzbektype', category: "Tez va to'g'ri yozishni tekshirish", url: 'https://uzbektype.uz' },
+  { id: '3', title: 'Getolog', category: 'Yopiq telegram kanallarini avtomatlashtirish', url: 'https://getolog.uz' },
 ];
 
 export function Portfolio() {
