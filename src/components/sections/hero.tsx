@@ -47,7 +47,7 @@ export function Hero() {
       } else {
         clearInterval(typeInterval);
       }
-    }, 100);
+    }, 50);
 
     return () => clearInterval(typeInterval);
   }, [showTypewriter, title]);
