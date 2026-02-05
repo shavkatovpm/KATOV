@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
-const features = ['feature1', 'feature2', 'feature3', 'feature4'];
+const features = ['feature4', 'feature1', 'feature2', 'feature3'];
 
 export function About() {
   const t = useTranslations('about');
@@ -37,9 +37,7 @@ export function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex items-center gap-3"
               >
-                <span className="text-lg">—</span>
                 <span className="text-base sm:text-lg">{t(feature)}</span>
               </motion.div>
             ))}
