@@ -24,7 +24,7 @@ export function Header() {
     <motion.header
       initial={{ opacity: 0, filter: 'blur(10px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 0.5, delay: 2.8 }}
+      transition={{ duration: 0.5, delay: 3.4 }}
       className="transition-all duration-300"
       style={{
         position: 'fixed',

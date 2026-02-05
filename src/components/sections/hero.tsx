@@ -52,7 +52,7 @@ export function Hero() {
           setShowOtherElements(true);
         }, 1000);
       }
-    }, 25);
+    }, 50);
 
     return () => clearInterval(typeInterval);
   }, [showTypewriter, title]);
