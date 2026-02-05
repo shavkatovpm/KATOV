@@ -79,7 +79,7 @@ export default function RootLayout({
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              html, body, #__next, main, div {
+              html, body, #__next, main {
                 background-color: #000000 !important;
               }
               html::before {
