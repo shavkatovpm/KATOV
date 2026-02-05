@@ -994,31 +994,55 @@ export function FluidCursor() {
       }
     };
 
-    // Mobile scroll handling - uses last touch position
+    // Check if device is touch-capable
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    // Track if user is actively touching
+    let isTouching = false;
+    let touchEndTime = 0;
+
+    // Override touch handlers to track touch state
+    const originalHandleTouchStart = handleTouchStart;
+    const handleTouchStartWithState = (e: TouchEvent) => {
+      isTouching = true;
+      originalHandleTouchStart(e);
+    };
+
+    const originalHandleTouchEnd = handleTouchEnd;
+    const handleTouchEndWithState = (e: TouchEvent) => {
+      isTouching = false;
+      touchEndTime = Date.now();
+      originalHandleTouchEnd(e);
+    };
+
+    // Mobile-only scroll handling - only works on touch devices and when recently touched
     let lastScrollY = window.scrollY;
-    let lastScrollTime = Date.now();
 
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const currentTime = Date.now();
-      const deltaY = currentScrollY - lastScrollY;
-      const deltaTime = currentTime - lastScrollTime;
+      // Only handle scroll on touch devices
+      if (!isTouchDevice) return;
 
-      if (deltaTime > 0 && Math.abs(deltaY) > 5) {
-        const velocity = deltaY / deltaTime;
+      // Only trigger if user recently touched (within 500ms)
+      const timeSinceTouch = Date.now() - touchEndTime;
+      if (!isTouching && timeSinceTouch > 500) return;
+
+      const currentScrollY = window.scrollY;
+      const deltaY = currentScrollY - lastScrollY;
+
+      if (Math.abs(deltaY) > 10) {
         const pointer = pointers[0];
 
-        // Use last touch position instead of center
+        // Use last touch position
         pointer.texcoordX = lastTouchX / canvas!.clientWidth;
         pointer.texcoordY = 1.0 - lastTouchY / canvas!.clientHeight;
-        pointer.deltaX = (Math.random() - 0.5) * 0.01;
-        pointer.deltaY = velocity * 0.5;
+        pointer.deltaX = (Math.random() - 0.5) * 0.005;
+        // Reduced velocity to prevent stretching
+        pointer.deltaY = Math.sign(deltaY) * 0.02;
         pointer.moved = true;
         pointer.color = generateColor();
       }
 
       lastScrollY = currentScrollY;
-      lastScrollTime = currentTime;
     };
 
     // Start animation immediately
@@ -1027,9 +1051,9 @@ export function FluidCursor() {
     // Add event listeners
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchstart', handleTouchStartWithState, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
-    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    window.addEventListener('touchend', handleTouchEndWithState, { passive: true });
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Cleanup
@@ -1037,9 +1061,9 @@ export function FluidCursor() {
       cancelAnimationFrame(animationId);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchstart', handleTouchStartWithState);
       window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('touchend', handleTouchEndWithState);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
