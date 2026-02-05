@@ -47,11 +47,20 @@ export function Footer() {
             <h4 className="font-semibold text-sm sm:text-base mb-4">
               {t('contact')}
             </h4>
-            <ul className="space-y-2 text-muted text-xs sm:text-sm">
+            <ul className="space-y-2 text-xs sm:text-sm">
+              <li>
+                <a
+                  href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  <span className="text-muted">{siteConfig.contact.phoneCode}</span>{' '}
+                  <span>{siteConfig.contact.phoneNumber}</span>
+                </a>
+              </li>
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="hover:opacity-70 transition-opacity"
+                  className="text-muted hover:opacity-70 transition-opacity"
                 >
                   {siteConfig.contact.email}
                 </a>
@@ -61,7 +70,7 @@ export function Footer() {
                   href={siteConfig.social.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-70 transition-opacity"
+                  className="text-muted hover:opacity-70 transition-opacity"
                 >
                   Telegram
                 </a>
@@ -71,7 +80,7 @@ export function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-70 transition-opacity"
+                  className="text-muted hover:opacity-70 transition-opacity"
                 >
                   Instagram
                 </a>

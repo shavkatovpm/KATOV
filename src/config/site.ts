@@ -6,7 +6,9 @@ export const siteConfig = {
 
   contact: {
     email: 'hello@katov.uz',
-    phone: '+998 XX XXX XX XX',
+    phone: '+998 33 888 01 33',
+    phoneCode: '+998',
+    phoneNumber: '33 888 01 33',
     telegram: '@katov_uz',
   },
 
