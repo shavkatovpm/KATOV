@@ -84,7 +84,7 @@ export function Hero() {
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 1.75 }}
-          className="mb-2 h-24 sm:h-28 flex items-center justify-center relative"
+          className="mb-2 h-16 sm:h-20 flex items-center justify-center relative"
         >
           <AnimatePresence mode="wait">
             <motion.span
@@ -101,7 +101,7 @@ export function Hero() {
           </AnimatePresence>
         </motion.div>
 
-        <div className="mb-2 h-12 sm:h-14 flex items-center justify-center">
+        <div className="mb-2 h-10 sm:h-12 flex items-center justify-center">
           <span
             className="text-2xl sm:text-3xl md:text-4xl font-script inline-block"
             style={{ color: '#767676' }}
