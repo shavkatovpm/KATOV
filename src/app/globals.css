@@ -13,12 +13,10 @@
   0% {
     opacity: 0;
     filter: blur(20px);
-    background-color: #000000;
   }
   100% {
     opacity: 1;
     filter: blur(0px);
-    background-color: var(--color-bg);
   }
 }
 
@@ -70,11 +68,23 @@ textarea,
 
 /* Page Content Animation Wrapper */
 .page-content {
-  background-color: #000000;
   padding-top: 0;
   margin-top: 0;
   animation: pageEntrance 1.8s ease-out forwards;
   position: relative;
+}
+
+/* Ensure black background at all times */
+.page-content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  z-index: -1;
+  pointer-events: none;
 }
 
 ::selection {

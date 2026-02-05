@@ -75,6 +75,28 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning style={{ backgroundColor: '#000000' }}>
+      <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              html, body, #__next, main, div {
+                background-color: #000000 !important;
+              }
+              html::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #000000;
+                z-index: -9999;
+                pointer-events: none;
+              }
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${caveat.variable} ${syne.variable} antialiased`}
         style={{ backgroundColor: '#000000' }}
