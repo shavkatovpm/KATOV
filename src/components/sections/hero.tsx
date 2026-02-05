@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const blurTexts = [
   'Ishonchli website',
-  'Kreativ dizayn',
+  'Minimalistik dizayn',
   'Zamonaviy dastur',
   'Raqamli yechimlar',
   'Yoqimli interfeys',
