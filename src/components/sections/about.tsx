@@ -7,26 +7,26 @@ export function About() {
   const t = useTranslations('about');
 
   return (
-    <section id="about" className="section-padding">
-      <div className="container-custom">
+    <section id="about" className="section-padding md:min-h-screen md:flex md:items-center">
+      <div className="container-custom w-full">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl md:max-w-5xl mx-auto"
+          className="max-w-3xl md:max-w-6xl mx-auto md:text-center"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 md:mb-12 md:text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16">
             {t('title')}
           </h2>
-          <p className="text-muted text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
+          <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-4 md:mb-6 leading-relaxed">
             {t('description')}
           </p>
-          <p className="text-muted text-base sm:text-lg md:text-xl mb-10 leading-relaxed">
+          <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-10 md:mb-16 leading-relaxed">
             {t('description2')}
           </p>
 
-          <p className="text-muted text-sm sm:text-base mb-4">
+          <p className="text-muted text-sm sm:text-base md:text-xl mb-4 md:mb-8">
             {t('featuresTitle')}
           </p>
 
@@ -35,9 +35,9 @@ export function About() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="mb-3"
+            className="mb-3 md:mb-6"
           >
-            <span className="text-base sm:text-lg">{t('feature4')}</span>
+            <span className="text-base sm:text-lg md:text-2xl lg:text-3xl">{t('feature4')}</span>
           </motion.div>
 
           <motion.div
