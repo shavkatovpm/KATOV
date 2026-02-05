@@ -32,11 +32,11 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Katov - Kreativ Veb-sayt Xizmatlari',
-    template: '%s | Katov',
+    default: 'KATOV - Kreativ website xizmatlari',
+    template: '%s | KATOV',
   },
   description:
-    "Katov - O'zbekistonda kreativ va professional veb-sayt yaratish xizmatlari. Minimal dizayn, maksimal natija.",
+    'Kreativ va professional sayt yaratish xizmatlari. Minimal dizayn, maksimal natija.',
   keywords: [
     'veb-sayt',
     'web design',
@@ -44,23 +44,25 @@ export const metadata: Metadata = {
     "O'zbekiston",
     'sayt yaratish',
     'landing page',
+    'website',
+    'Toshkent',
   ],
-  authors: [{ name: 'Katov' }],
-  creator: 'Katov',
+  authors: [{ name: 'KATOV' }],
+  creator: 'KATOV',
   openGraph: {
     type: 'website',
     locale: 'uz_UZ',
     url: 'https://katov.uz',
-    siteName: 'Katov',
-    title: 'Katov - Kreativ Veb-sayt Xizmatlari',
+    siteName: 'KATOV',
+    title: 'KATOV - Kreativ website xizmatlari',
     description:
-      "Katov - O'zbekistonda kreativ va professional veb-sayt yaratish xizmatlari.",
+      'Kreativ va professional sayt yaratish xizmatlari. Minimal dizayn, maksimal natija.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Katov - Kreativ Veb-sayt Xizmatlari',
+    title: 'KATOV - Kreativ website xizmatlari',
     description:
-      "Katov - O'zbekistonda kreativ va professional veb-sayt yaratish xizmatlari.",
+      'Kreativ va professional sayt yaratish xizmatlari. Minimal dizayn, maksimal natija.',
   },
   robots: {
     index: true,
