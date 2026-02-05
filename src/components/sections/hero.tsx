@@ -84,7 +84,7 @@ export function Hero() {
           initial={{ opacity: 0, filter: 'blur(10px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 1.75 }}
-          className="mb-2 h-16 sm:h-20 flex items-center justify-center relative"
+          className="mb-2 h-16 sm:h-20 relative overflow-hidden"
         >
           <AnimatePresence mode="wait">
             <motion.span
@@ -93,7 +93,7 @@ export function Hero() {
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, filter: 'blur(10px)' }}
               transition={{ duration: 0.5 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative absolute"
+              className="absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative"
               style={{ color: '#dddddd' }}
             >
               {blurTexts[textIndex]}
