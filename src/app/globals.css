@@ -73,6 +73,7 @@
 html {
   scroll-behavior: smooth;
   background-color: #000000;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -85,10 +86,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Prevent layout shifts on mobile */
+/* Prevent layout shifts on mobile + scroll snap */
 section {
   transform: translateZ(0);
   backface-visibility: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 /* Default cursor for all elements */

@@ -96,7 +96,7 @@ export function About() {
     >
       <div className="container-custom w-full">
         <div className="max-w-3xl md:max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 md:text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
             {t('title')}
           </h2>
 
@@ -113,7 +113,7 @@ export function About() {
           </p>
 
           <div className="mb-4 md:mb-8 text-left">
-            <span className="text-base sm:text-lg md:text-2xl lg:text-3xl">
+            <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl">
               <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.02} />
             </span>
           </div>
