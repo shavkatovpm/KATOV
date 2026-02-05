@@ -36,6 +36,38 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Default cursor for all elements */
+*,
+*::before,
+*::after {
+  cursor: default;
+}
+
+/* Clickable elements get pointer cursor */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+label[for],
+select,
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+/* Text inputs keep text cursor */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+textarea,
+[contenteditable="true"] {
+  cursor: text !important;
+}
+
 /* Page Content Animation Wrapper */
 .page-content {
   background-color: #000000;

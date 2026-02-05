@@ -986,28 +986,56 @@ export function FluidCursor() {
       }
     };
 
-    // Delay start until page elements appear (match page entrance animation)
-    const startDelay = setTimeout(() => {
-      // Start animation
-      update();
+    // Mobile scroll handling
+    let lastScrollY = window.scrollY;
+    let lastScrollTime = Date.now();
 
-      // Add event listeners
-      window.addEventListener('mousedown', handleMouseDown);
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('touchstart', handleTouchStart);
-      window.addEventListener('touchmove', handleTouchMove, false);
-      window.addEventListener('touchend', handleTouchEnd);
-    }, 1800);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const currentTime = Date.now();
+      const deltaY = currentScrollY - lastScrollY;
+      const deltaTime = currentTime - lastScrollTime;
+
+      if (deltaTime > 0 && Math.abs(deltaY) > 5) {
+        const velocity = deltaY / deltaTime;
+        const pointer = pointers[0];
+
+        // Create splat at center of screen based on scroll
+        const centerX = scaleByPixelRatio(canvas!.clientWidth / 2);
+        const centerY = scaleByPixelRatio(canvas!.clientHeight / 2);
+
+        pointer.texcoordX = 0.5;
+        pointer.texcoordY = 0.5;
+        pointer.deltaX = (Math.random() - 0.5) * 0.01;
+        pointer.deltaY = velocity * 0.5;
+        pointer.moved = true;
+        pointer.color = generateColor();
+      }
+
+      lastScrollY = currentScrollY;
+      lastScrollTime = currentTime;
+    };
+
+    // Start animation immediately
+    update();
+
+    // Add event listeners
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Cleanup
     return () => {
-      clearTimeout(startDelay);
       cancelAnimationFrame(animationId);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
