@@ -82,11 +82,12 @@ export function About() {
 
   // Calculate delays based on previous text lengths
   // Title is static (no animation), other text animates
+  // Using faster charDelay (0.008) for quicker animation
   const descDelay = 0;
-  const desc2Delay = descDelay + description.length * 0.015 + 0.1;
-  const featuresTitleDelay = desc2Delay + description2.length * 0.015 + 0.2;
-  const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.02 + 0.1;
-  const featuresRowDelay = feature4Delay + feature4.length * 0.02 + 0.1;
+  const desc2Delay = descDelay + description.length * 0.008 + 0.05;
+  const featuresTitleDelay = desc2Delay + description2.length * 0.008 + 0.05;
+  const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.01 + 0.05;
+  const featuresRowDelay = feature4Delay + feature4.length * 0.01 + 0.05;
 
   return (
     <section
@@ -101,20 +102,20 @@ export function About() {
           </h2>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 leading-relaxed text-left">
-            <AnimatedText text={description} startDelay={descDelay} charDelay={0.015} />
+            <AnimatedText text={description} startDelay={descDelay} charDelay={0.008} />
           </p>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-12 md:mb-20 leading-relaxed text-left">
-            <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.015} />
+            <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.008} />
           </p>
 
           <p className="text-muted text-sm sm:text-base md:text-xl mb-6 md:mb-10 text-left">
-            <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.02} />
+            <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.01} />
           </p>
 
           <div className="mb-4 md:mb-8 text-left">
             <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl">
-              <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.02} />
+              <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.01} />
             </span>
           </div>
 
@@ -126,31 +127,31 @@ export function About() {
           >
             <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
               <span className="text-muted md:hidden">•</span>
-              <AnimatedText text={feature1} startDelay={featuresRowDelay} charDelay={0.02} />
+              <AnimatedText text={feature1} startDelay={featuresRowDelay} charDelay={0.015} />
             </span>
             <motion.span
               className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: featuresRowDelay + feature1.length * 0.02 }}
+              transition={{ delay: featuresRowDelay + feature1.length * 0.015 }}
             >
               •
             </motion.span>
             <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
               <span className="text-muted md:hidden">•</span>
-              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.02 + 0.05} charDelay={0.02} />
+              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.015 + 0.03} charDelay={0.015} />
             </span>
             <motion.span
               className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.02 + 0.1 }}
+              transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.06 }}
             >
               •
             </motion.span>
             <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
               <span className="text-muted md:hidden">•</span>
-              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.02 + 0.15} charDelay={0.02} />
+              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.09} charDelay={0.015} />
             </span>
           </motion.div>
         </div>
