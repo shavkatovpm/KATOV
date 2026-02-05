@@ -52,6 +52,23 @@
   animation: fadeInDelayed 0.5s ease-out 1.75s forwards;
 }
 
+/* Header entrance animation */
+@keyframes headerEntrance {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.header-animate {
+  opacity: 0;
+  animation: headerEntrance 0.5s ease-out 3.4s forwards;
+}
+
 /* Base Styles */
 html {
   scroll-behavior: smooth;
