@@ -91,6 +91,22 @@ body {
 section {
   transform: translateZ(0);
   backface-visibility: hidden;
+  /* Use min-height instead of height to prevent jumping */
+  contain: layout style;
+}
+
+/* Fix mobile viewport height issues */
+.splash-cursor-container {
+  height: 100vh; /* Fallback for older browsers */
+  height: 100dvh; /* Dynamic viewport height */
+  height: -webkit-fill-available; /* Safari fallback */
+}
+
+/* Stable viewport for mobile browsers */
+@supports (height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh !important;
+  }
 }
 
 /* Default cursor for all elements */
