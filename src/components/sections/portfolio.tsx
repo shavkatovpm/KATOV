@@ -125,14 +125,16 @@ export function Portfolio() {
       {/* Confirmation Modal */}
       <AnimatePresence>
         {selectedItem && (
-          <>
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            onClick={handleCancel}
+          >
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
-              onClick={handleCancel}
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             />
 
             {/* Modal */}
@@ -142,7 +144,7 @@ export function Portfolio() {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100%-2rem)] max-w-md rounded-2xl p-6 sm:p-8"
+              className="relative w-full max-w-md rounded-2xl p-6 sm:p-8"
               style={{
                 backgroundColor: 'var(--color-bg)',
                 border: '1px solid var(--color-border)'
@@ -183,7 +185,7 @@ export function Portfolio() {
                 </div>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </section>
