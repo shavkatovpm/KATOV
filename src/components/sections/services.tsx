@@ -6,16 +6,39 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ChevronDown } from 'lucide-react';
 
 const plans = [
-  { id: 'minimal', price: 270, features: 6 },
-  { id: 'standart', price: 870, features: 7 },
-  { id: 'individual', price: 2700, features: 7 },
+  { id: 'minimal', price: 270, features: 6, popular: false },
+  { id: 'standart', price: 870, features: 7, popular: true },
+  { id: 'individual', price: 2700, features: 7, popular: false },
 ];
 
 export function Services() {
   const t = useTranslations('services');
   const pt = useTranslations('pricing');
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [shakeButton, setShakeButton] = useState<string | null>(null);
   const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const activeCard = hoveredCard || expandedCard;
+    if (activeCard) {
+      hoverTimeoutRef.current = setTimeout(() => {
+        setShakeButton(activeCard);
+      }, 12000);
+    } else {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+        hoverTimeoutRef.current = null;
+      }
+      setShakeButton(null);
+    }
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, [hoveredCard, expandedCard]);
 
   const handleCardClick = (planId: string) => {
     if (window.innerWidth < 1024) {
@@ -57,19 +80,40 @@ export function Services() {
         </motion.div>
 
         {/* Desktop Cards */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+        <div
+          className="hidden lg:grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch"
+          onMouseLeave={() => setHoveredCard(null)}
+        >
           {plans.map((plan, index) => (
             <motion.div
-              key={plan.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              key={hoveredCard === plan.id ? plan.id : `${plan.id}-${hoveredCard || 'default'}`}
+              initial={{ opacity: 1, borderColor: 'var(--color-border)', filter: 'blur(0px)' }}
+              animate={{
+                x: plan.popular ? (hoveredCard === plan.id ? 0 : [0, -2, 2, -2, 2, 0]) : 0,
+                filter: hoveredCard && hoveredCard !== plan.id ? 'blur(5px)' : 'blur(0px)',
+                opacity: hoveredCard && hoveredCard !== plan.id ? 0 : 1,
+                borderColor: hoveredCard === plan.id ? '#dddddd' : 'var(--color-border)',
+              }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{
+                opacity: {
+                  duration: hoveredCard && hoveredCard !== plan.id ? 5 : 0.5,
+                  delay: hoveredCard && hoveredCard !== plan.id ? 6 : 0
+                },
+                x: plan.popular ? { duration: 0.5, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' } : { duration: 0.3 },
+                borderColor: { duration: 0.3 },
+                filter: {
+                  duration: hoveredCard && hoveredCard !== plan.id ? 5 : 0.5,
+                  delay: hoveredCard && hoveredCard !== plan.id ? 2 : 0
+                },
+              }}
               className="relative rounded-2xl p-8 flex flex-col"
               style={{
                 backgroundColor: 'var(--color-bg)',
-                border: '1px solid var(--color-border)',
+                borderWidth: '1px',
+                borderStyle: 'solid',
               }}
+              onMouseEnter={() => setHoveredCard(plan.id)}
             >
               <h3 className="text-xl font-semibold mb-3">
                 {pt(`${plan.id}.name`)}
@@ -77,7 +121,7 @@ export function Services() {
               <p className="text-sm mb-2 text-muted">
                 {pt(`${plan.id}.description`)}
               </p>
-              <p className="text-sm mb-6 text-muted opacity-80">
+              <p className="text-sm mb-6 text-muted">
                 {pt(`${plan.id}.description2`)}
               </p>
 
@@ -98,7 +142,7 @@ export function Services() {
                   <span className="text-xl ml-0.5 font-bold">{pt('from')}</span>
                 </div>
 
-                <a
+                <motion.a
                   href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
@@ -107,10 +151,16 @@ export function Services() {
                       element.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
+                  animate={shakeButton === plan.id ? {
+                    x: [0, -12, 12, -12, 12, 0],
+                  } : {}}
+                  transition={{
+                    x: { duration: 0.5, repeat: Infinity, repeatDelay: 1, ease: 'easeInOut' },
+                  }}
                   className="btn-outline inline-block py-2 px-6 text-center text-sm font-medium rounded-full cursor-pointer"
                 >
                   {pt('cta')}
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           ))}
@@ -122,14 +172,31 @@ export function Services() {
             <motion.div
               key={plan.id}
               ref={(el) => { cardRefs.current[plan.id] = el; }}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0, borderColor: 'var(--color-border)' }}
               whileInView={{ opacity: 1 }}
+              animate={
+                expandedCard === plan.id
+                  ? { borderColor: '#dddddd' }
+                  : plan.popular
+                    ? { x: [0, -2, 2, -2, 2, 0] }
+                    : {}
+              }
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={
+                expandedCard === plan.id
+                  ? { borderColor: { duration: 0.3 } }
+                  : plan.popular
+                    ? {
+                        opacity: { duration: 0.6, delay: index * 0.1 },
+                        x: { duration: 0.5, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' },
+                      }
+                    : { duration: 0.6, delay: index * 0.1 }
+              }
               className="relative rounded-2xl p-6 cursor-pointer"
               style={{
                 backgroundColor: 'var(--color-bg)',
-                border: '1px solid var(--color-border)',
+                borderWidth: '1px',
+                borderStyle: 'solid',
               }}
               onClick={() => handleCardClick(plan.id)}
             >
@@ -179,7 +246,7 @@ export function Services() {
                           <span className="text-lg ml-0.5 font-bold">{pt('from')}</span>
                         </div>
 
-                        <a
+                        <motion.a
                           href="#contact"
                           onClick={(e) => {
                             e.preventDefault();
@@ -189,10 +256,16 @@ export function Services() {
                               element.scrollIntoView({ behavior: 'smooth' });
                             }
                           }}
+                          animate={shakeButton === plan.id ? {
+                            x: [0, -12, 12, -12, 12, 0],
+                          } : {}}
+                          transition={{
+                            x: { duration: 0.5, repeat: Infinity, repeatDelay: 1, ease: 'easeInOut' },
+                          }}
                           className="btn-outline inline-block py-2 px-6 text-center text-sm font-medium rounded-full cursor-pointer"
                         >
                           {pt('cta')}
-                        </a>
+                        </motion.a>
                       </div>
                     </div>
                   </motion.div>

@@ -17,7 +17,7 @@
     "name": "Katov",
     "title": "Standart emas, kreativ yechim",
     "description": "Minimal dizayn. Maksimal ta'sir. Sizning brendingizni onlayn dunyoda ajralib turishiga yordam beramiz.",
-    "cta": "Xizmatlar bilan tanishish",
+    "cta": "Xizmatlar va Narxlar",
     "scroll": "Pastga"
   },
   "about": {
@@ -95,15 +95,15 @@
     "individual": {
       "name": "Individual",
       "shortDesc": "To'liq platforma",
-      "description": "Katta maqsadli kompaniyalar va startaplar uchun.",
-      "description2": "To'liq platforma, individual strategiya va texnik yechimlar. Noldan quriladi va biznes bilan birga o'sadi.",
-      "feature1": "To'liq moslashtirilgan website, web platforma",
-      "feature2": "Kengaytirilgan va individual admin panel",
-      "feature3": "Professional analitika va mijoz yo'lini (funnel) kuzatish",
-      "feature4": "Foydalanuvchilarni saralash va boshqarish logikasi",
-      "feature5": "Telegram bot va avtomatlashtirilgan jarayonlar",
-      "feature6": "SEO va umumiy ishlash tezligini chuqur optimizatsiya qilish",
-      "feature7": "Individual strategiya va kreativ yondashuv"
+      "description": "Katta maqsadli bizneslar va texnologik startaplar uchun.",
+      "description2": "Biznesingizga moslab noldan quriladigan platforma. U faqat bugun uchun emas - biznes bilan birga o'sish uchun loyihalanadi.",
+      "feature1": "To'liq moslashtirilgan website yoki web platforma",
+      "feature2": "Biznes jarayonlariga mos individual yechim",
+      "feature3": "Chuqurlashtirilgan analitika va mijoz yo'li (funnel)",
+      "feature4": "Foydalanuvchilarni segmentlash va boshqarish tizimi",
+      "feature5": "Telegram botlar va avtomatlashtirilgan ish jarayonlari",
+      "feature6": "SEO va ishlash tezligini maksimal darajada optimizatsiya qilish",
+      "feature7": "Strategik fikrlash + kreativ yechimlar"
     }
   },
   "blog": {

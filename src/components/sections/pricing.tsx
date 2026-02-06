@@ -79,16 +79,10 @@ export function Pricing() {
               <h3 className="text-xl font-semibold mb-3">
                 {t(`${plan.id}.name`)}
               </h3>
-              <p
-                className="text-sm mb-2"
-                style={{ opacity: plan.popular ? 0.85 : 1, color: plan.popular ? 'inherit' : 'var(--color-muted)' }}
-              >
+              <p className="text-sm mb-2 text-muted" style={plan.popular ? { color: 'inherit', opacity: 0.8 } : undefined}>
                 {t(`${plan.id}.description`)}
               </p>
-              <p
-                className="text-sm mb-6"
-                style={{ opacity: plan.popular ? 0.7 : 0.8, color: plan.popular ? 'inherit' : 'var(--color-muted)' }}
-              >
+              <p className="text-sm mb-6 text-muted" style={plan.popular ? { color: 'inherit', opacity: 0.8 } : undefined}>
                 {t(`${plan.id}.description2`)}
               </p>
 
@@ -245,16 +239,10 @@ export function Pricing() {
                       <h3 className="text-xl font-semibold mb-3">
                         {t(`${plan.id}.name`)}
                       </h3>
-                      <p
-                        className="text-sm mb-2"
-                        style={{ opacity: plan.popular ? 0.85 : 1, color: plan.popular ? 'inherit' : 'var(--color-muted)' }}
-                      >
+                      <p className="text-sm mb-2 text-muted" style={plan.popular ? { color: 'inherit', opacity: 0.8 } : undefined}>
                         {t(`${plan.id}.description`)}
                       </p>
-                      <p
-                        className="text-sm mb-5"
-                        style={{ opacity: plan.popular ? 0.7 : 0.8, color: plan.popular ? 'inherit' : 'var(--color-muted)' }}
-                      >
+                      <p className="text-sm mb-5 text-muted" style={plan.popular ? { color: 'inherit', opacity: 0.8 } : undefined}>
                         {t(`${plan.id}.description2`)}
                       </p>
 
