@@ -72,6 +72,8 @@
 /* Base Styles */
 html {
   background-color: #000000;
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -81,6 +83,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
 }
 
 /* Fix mobile viewport height issues */
