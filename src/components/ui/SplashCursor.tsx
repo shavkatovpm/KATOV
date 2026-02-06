@@ -1001,7 +1001,7 @@ function SplashCursor({
       }
     }
 
-    // Touch tracking with continuous RAF-based updates
+    // Touch tracking state
     let currentTouchX = 0;
     let currentTouchY = 0;
     let lastProcessedX = 0;
@@ -1011,6 +1011,15 @@ function SplashCursor({
     let isTouching = false;
     let touchColor = generateColor();
     let touchRAF: number | null = null;
+
+    // Stop touch processing
+    function stopTouchProcessing() {
+      isTouching = false;
+      if (touchRAF !== null) {
+        cancelAnimationFrame(touchRAF);
+        touchRAF = null;
+      }
+    }
 
     // Continuous touch processing loop
     function processTouchLoop() {
@@ -1029,7 +1038,6 @@ function SplashCursor({
         const velX = texX - lastProcessedTexX;
         const velY = texY - lastProcessedTexY;
 
-        // Create splats along the path
         const steps = Math.max(1, Math.min(Math.ceil(distance / 6), 15));
 
         for (let j = 1; j <= steps; j++) {
@@ -1054,58 +1062,59 @@ function SplashCursor({
     }
 
     function handleTouchStart(e: TouchEvent) {
+      // ALWAYS stop any existing processing first
+      stopTouchProcessing();
+
       const touches = e.targetTouches;
+      if (touches.length === 0) return;
+
       let pointer = pointers[0];
+      const touch = touches[0];
+      const posX = scaleByPixelRatio(touch.clientX);
+      const posY = scaleByPixelRatio(touch.clientY);
 
-      for (let i = 0; i < touches.length; i++) {
-        const posX = scaleByPixelRatio(touches[i].clientX);
-        const posY = scaleByPixelRatio(touches[i].clientY);
-        updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+      updatePointerDownData(pointer, touch.identifier, posX, posY);
 
-        // Initialize tracking
-        currentTouchX = posX;
-        currentTouchY = posY;
-        lastProcessedX = posX;
-        lastProcessedY = posY;
-        lastProcessedTexX = posX / canvas.width;
-        lastProcessedTexY = 1.0 - posY / canvas.height;
-        isTouching = true;
-        touchColor = generateColor();
+      // Reset all tracking state
+      currentTouchX = posX;
+      currentTouchY = posY;
+      lastProcessedX = posX;
+      lastProcessedY = posY;
+      lastProcessedTexX = posX / canvas.width;
+      lastProcessedTexY = 1.0 - posY / canvas.height;
+      touchColor = generateColor();
 
-        // Start continuous processing
-        if (!touchRAF) {
-          touchRAF = requestAnimationFrame(processTouchLoop);
-        }
-      }
+      // Start fresh
+      isTouching = true;
+      touchRAF = requestAnimationFrame(processTouchLoop);
     }
 
     function handleTouchMove(e: TouchEvent) {
+      if (!isTouching) return;
+
       const touches = e.targetTouches;
+      if (touches.length === 0) return;
+
       let pointer = pointers[0];
+      const touch = touches[0];
 
-      for (let i = 0; i < touches.length; i++) {
-        // Just update current position - RAF loop will handle splats
-        currentTouchX = scaleByPixelRatio(touches[i].clientX);
-        currentTouchY = scaleByPixelRatio(touches[i].clientY);
+      currentTouchX = scaleByPixelRatio(touch.clientX);
+      currentTouchY = scaleByPixelRatio(touch.clientY);
 
-        // Also update pointer for main loop
-        updatePointerMoveData(pointer, currentTouchX, currentTouchY, touchColor);
-      }
+      updatePointerMoveData(pointer, currentTouchX, currentTouchY, touchColor);
     }
 
-    function handleTouchEnd(e: TouchEvent) {
-      const touches = e.changedTouches;
+    function handleTouchEnd() {
+      stopTouchProcessing();
       let pointer = pointers[0];
+      updatePointerUpData(pointer);
+    }
 
-      for (let i = 0; i < touches.length; i++) {
-        updatePointerUpData(pointer);
-      }
-
-      isTouching = false;
-      if (touchRAF) {
-        cancelAnimationFrame(touchRAF);
-        touchRAF = null;
-      }
+    // Handle touchcancel - important for momentum scrolling!
+    function handleTouchCancel() {
+      stopTouchProcessing();
+      let pointer = pointers[0];
+      updatePointerUpData(pointer);
     }
 
     // Add event listeners
@@ -1114,6 +1123,7 @@ function SplashCursor({
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', handleTouchCancel, { passive: true });
 
     updateFrame();
 
@@ -1127,12 +1137,16 @@ function SplashCursor({
         animationFrameId.current = null;
       }
 
+      // Stop touch processing
+      stopTouchProcessing();
+
       // Remove event listeners
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('touchcancel', handleTouchCancel);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

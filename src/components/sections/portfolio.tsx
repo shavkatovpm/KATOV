@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -21,6 +22,11 @@ interface SelectedItem {
 export function Portfolio() {
   const t = useTranslations('portfolio');
   const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleCardClick = (item: SelectedItem) => {
     setSelectedItem(item);
@@ -122,72 +128,76 @@ export function Portfolio() {
         </motion.div>
       </div>
 
-      {/* Confirmation Modal */}
-      <AnimatePresence>
-        {selectedItem && (
-          <div
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-            onClick={handleCancel}
-          >
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-            />
-
-            {/* Modal */}
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-md rounded-2xl p-6 sm:p-8"
-              style={{
-                backgroundColor: 'var(--color-bg)',
-                border: '1px solid var(--color-border)'
-              }}
+      {/* Confirmation Modal - rendered via Portal to body */}
+      {mounted && createPortal(
+        <AnimatePresence>
+          {selectedItem && (
+            <div
+              className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+              style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+              onClick={handleCancel}
             >
-              {/* Close button */}
-              <button
-                onClick={handleCancel}
-                className="absolute top-4 right-4 p-1 rounded-full opacity-60 hover:opacity-100 transition-opacity"
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              />
+
+              {/* Modal */}
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative w-full max-w-md rounded-2xl p-6 sm:p-8"
+                style={{
+                  backgroundColor: 'var(--color-bg)',
+                  border: '1px solid var(--color-border)'
+                }}
               >
-                <X size={20} />
-              </button>
+                {/* Close button */}
+                <button
+                  onClick={handleCancel}
+                  className="absolute top-4 right-4 p-1 rounded-full opacity-60 hover:opacity-100 transition-opacity"
+                >
+                  <X size={20} />
+                </button>
 
-              {/* Content */}
-              <div className="text-center">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4">
-                  Rostdan ham <span className="text-blue-400">{selectedItem.title}</span> saytiga o&apos;tmoqchimisiz?
-                </h3>
+                {/* Content */}
+                <div className="text-center">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-4">
+                    Rostdan ham <span className="text-blue-400">{selectedItem.title}</span> saytiga o&apos;tmoqchimisiz?
+                  </h3>
 
-                {/* Buttons */}
-                <div className="flex gap-3 justify-center mt-6">
-                  <button
-                    onClick={handleCancel}
-                    className="px-6 py-2.5 rounded-full text-sm font-medium transition-colors"
-                    style={{
-                      backgroundColor: 'color-mix(in srgb, var(--color-fg) 10%, transparent)',
-                      border: '1px solid var(--color-border)'
-                    }}
-                  >
-                    Yo&apos;q
-                  </button>
-                  <button
-                    onClick={handleConfirm}
-                    className="px-6 py-2.5 rounded-full text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
-                  >
-                    Ha
-                  </button>
+                  {/* Buttons */}
+                  <div className="flex gap-3 justify-center mt-6">
+                    <button
+                      onClick={handleCancel}
+                      className="px-6 py-2.5 rounded-full text-sm font-medium transition-colors"
+                      style={{
+                        backgroundColor: 'color-mix(in srgb, var(--color-fg) 10%, transparent)',
+                        border: '1px solid var(--color-border)'
+                      }}
+                    >
+                      Yo&apos;q
+                    </button>
+                    <button
+                      onClick={handleConfirm}
+                      className="px-6 py-2.5 rounded-full text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                    >
+                      Ha
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 }
