@@ -82,6 +82,7 @@ export function About() {
   // Animation duration: slower on mobile (25% slower)
   const borderDuration = isMobile ? 6.375 : 5;
 
+  const title = t('title');
   const description = t('description');
   const description2 = t('description2');
   const featuresTitle = t('featuresTitle');
@@ -91,7 +92,8 @@ export function About() {
   const feature3 = t('feature3');
 
   // Calculate delays based on visual order (top to bottom)
-  const descDelay = 0;
+  const titleDelay = 0;
+  const descDelay = titleDelay + title.length * 0.02 + 0.1;
   const desc2Delay = descDelay + description.length * 0.008 + 0.05;
   const featuresTitleDelay = desc2Delay + description2.length * 0.008 + 0.05;
   const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.01 + 0.05;
@@ -121,7 +123,7 @@ export function About() {
             transition={{ duration: borderDuration, ease: 'easeOut' }}
           />
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
-            {t('title')}
+            <AnimatedText text={title} startDelay={titleDelay} charDelay={0.02} isInView={isInView} />
           </h2>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 leading-relaxed text-left">
