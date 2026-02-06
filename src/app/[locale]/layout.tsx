@@ -28,12 +28,10 @@ export default async function LocaleLayout({
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Providers>
         <SplashCursor />
-        <div className="scroll-container">
-          <Header />
-          <div className="page-content flex min-h-screen flex-col">
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+        <Header />
+        <div className="page-content flex min-h-screen flex-col">
+          <main className="flex-1">{children}</main>
+          <Footer />
         </div>
       </Providers>
     </NextIntlClientProvider>
