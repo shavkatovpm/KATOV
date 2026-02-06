@@ -13,9 +13,9 @@ export const siteConfig = {
   },
 
   social: {
-    telegram: 'https://t.me/katov_uz',
+    telegram: 'https://t.me/katovuz',
     instagram: 'https://instagram.com/katov.uz',
-    github: 'https://github.com/katov',
+    support: 'https://t.me/katovuz_bot',
   },
 
   navigation: [

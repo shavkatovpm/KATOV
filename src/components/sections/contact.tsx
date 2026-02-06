@@ -81,7 +81,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-section">
+    <section id="contact" className="section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0 }}

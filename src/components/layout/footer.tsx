@@ -59,14 +59,6 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="text-muted hover:opacity-70 transition-opacity"
-                >
-                  {siteConfig.contact.email}
-                </a>
-              </li>
-              <li>
-                <a
                   href={siteConfig.social.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -83,6 +75,16 @@ export function Footer() {
                   className="text-muted hover:opacity-70 transition-opacity"
                 >
                   Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.social.support}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:opacity-70 transition-opacity"
+                >
+                  Support
                 </a>
               </li>
             </ul>
