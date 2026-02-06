@@ -21,8 +21,8 @@ function SplashCursor({
   const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvasRef.current) return;
+    const canvas = canvasRef.current as HTMLCanvasElement;
 
     // Track if the effect is still active for cleanup
     let isActive = true;
@@ -148,16 +148,16 @@ function SplashCursor({
     class Material {
       vertexShader: any;
       fragmentShaderSource: any;
-      programs: any[];
+      programs: Record<number, any>;
       activeProgram: any;
-      uniforms: any[];
+      uniforms: Record<string, any>;
 
       constructor(vertexShader: any, fragmentShaderSource: any) {
         this.vertexShader = vertexShader;
         this.fragmentShaderSource = fragmentShaderSource;
-        this.programs = [];
+        this.programs = {};
         this.activeProgram = null;
-        this.uniforms = [];
+        this.uniforms = {};
       }
       setKeywords(keywords: any[]) {
         let hash = 0;
@@ -201,7 +201,7 @@ function SplashCursor({
     }
 
     function getUniforms(program: any) {
-      let uniforms: any = [];
+      let uniforms: Record<string, any> = {};
       let uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
       for (let i = 0; i < uniformCount; i++) {
         let uniformName = gl.getActiveUniform(program, i).name;
