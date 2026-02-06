@@ -1001,44 +1001,12 @@ function SplashCursor({
       }
     }
 
-    // Touch tracking with interpolation for smooth effect during fast scrolling
+    // Touch tracking with direct splat generation for fast scrolling
     let lastTouchX = 0;
     let lastTouchY = 0;
-    let currentTouchX = 0;
-    let currentTouchY = 0;
-    let isTouching = false;
-    let touchInterpolationFrame: number | null = null;
-
-    function interpolateTouch() {
-      if (!isTouching || !isActive) {
-        touchInterpolationFrame = null;
-        return;
-      }
-
-      let pointer = pointers[0];
-
-      // Calculate distance between last processed position and current touch
-      const dx = currentTouchX - lastTouchX;
-      const dy = currentTouchY - lastTouchY;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      // If there's significant movement, interpolate points along the path
-      if (distance > 5) {
-        const steps = Math.min(Math.ceil(distance / 10), 10); // Max 10 intermediate points
-
-        for (let i = 1; i <= steps; i++) {
-          const t = i / steps;
-          const interpX = lastTouchX + dx * t;
-          const interpY = lastTouchY + dy * t;
-          updatePointerMoveData(pointer, interpX, interpY, pointer.color);
-        }
-
-        lastTouchX = currentTouchX;
-        lastTouchY = currentTouchY;
-      }
-
-      touchInterpolationFrame = requestAnimationFrame(interpolateTouch);
-    }
+    let lastTouchTexX = 0;
+    let lastTouchTexY = 0;
+    let touchColor = generateColor();
 
     function handleTouchStart(e: TouchEvent) {
       const touches = e.targetTouches;
@@ -1051,23 +1019,62 @@ function SplashCursor({
         // Initialize touch tracking
         lastTouchX = posX;
         lastTouchY = posY;
-        currentTouchX = posX;
-        currentTouchY = posY;
-        isTouching = true;
-
-        // Start interpolation loop
-        if (!touchInterpolationFrame) {
-          touchInterpolationFrame = requestAnimationFrame(interpolateTouch);
-        }
+        lastTouchTexX = posX / canvas.width;
+        lastTouchTexY = 1.0 - posY / canvas.height;
+        touchColor = generateColor();
       }
     }
 
     function handleTouchMove(e: TouchEvent) {
       const touches = e.targetTouches;
+      let pointer = pointers[0];
+
       for (let i = 0; i < touches.length; i++) {
-        // Update current position - interpolation loop will handle the rest
-        currentTouchX = scaleByPixelRatio(touches[i].clientX);
-        currentTouchY = scaleByPixelRatio(touches[i].clientY);
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
+
+        // Calculate pixel distance
+        const dx = posX - lastTouchX;
+        const dy = posY - lastTouchY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Convert to texture coordinates
+        const texX = posX / canvas.width;
+        const texY = 1.0 - posY / canvas.height;
+
+        // For fast movement, create multiple splats along the path
+        if (distance > 20) {
+          const steps = Math.min(Math.ceil(distance / 15), 8);
+
+          for (let j = 1; j <= steps; j++) {
+            const t = j / steps;
+            const interpTexX = lastTouchTexX + (texX - lastTouchTexX) * t;
+            const interpTexY = lastTouchTexY + (texY - lastTouchTexY) * t;
+
+            // Calculate velocity for this segment
+            const segmentDx = (texX - lastTouchTexX) / steps;
+            const segmentDy = (texY - lastTouchTexY) / steps;
+
+            // Apply splat directly
+            const forceDx = segmentDx * config.SPLAT_FORCE * 1.5;
+            const forceDy = segmentDy * config.SPLAT_FORCE * 1.5;
+            splat(interpTexX, interpTexY, forceDx, forceDy, touchColor);
+          }
+        } else if (distance > 3) {
+          // Normal movement - single splat
+          const forceDx = (texX - lastTouchTexX) * config.SPLAT_FORCE;
+          const forceDy = (texY - lastTouchTexY) * config.SPLAT_FORCE;
+          splat(texX, texY, forceDx, forceDy, touchColor);
+        }
+
+        // Update last position
+        lastTouchX = posX;
+        lastTouchY = posY;
+        lastTouchTexX = texX;
+        lastTouchTexY = texY;
+
+        // Also update pointer for the main loop
+        updatePointerMoveData(pointer, posX, posY, touchColor);
       }
     }
 
@@ -1076,11 +1083,6 @@ function SplashCursor({
       let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
-      }
-      isTouching = false;
-      if (touchInterpolationFrame) {
-        cancelAnimationFrame(touchInterpolationFrame);
-        touchInterpolationFrame = null;
       }
     }
 
