@@ -1001,27 +1001,81 @@ function SplashCursor({
       }
     }
 
-    // Touch tracking with direct splat generation for fast scrolling
-    let lastTouchX = 0;
-    let lastTouchY = 0;
-    let lastTouchTexX = 0;
-    let lastTouchTexY = 0;
+    // Touch tracking with continuous RAF-based updates
+    let currentTouchX = 0;
+    let currentTouchY = 0;
+    let lastProcessedX = 0;
+    let lastProcessedY = 0;
+    let lastProcessedTexX = 0;
+    let lastProcessedTexY = 0;
+    let isTouching = false;
     let touchColor = generateColor();
+    let touchRAF: number | null = null;
+
+    // Continuous touch processing loop
+    function processTouchLoop() {
+      if (!isTouching || !isActive) {
+        touchRAF = null;
+        return;
+      }
+
+      const dx = currentTouchX - lastProcessedX;
+      const dy = currentTouchY - lastProcessedY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance > 1) {
+        const texX = currentTouchX / canvas.width;
+        const texY = 1.0 - currentTouchY / canvas.height;
+        const velX = texX - lastProcessedTexX;
+        const velY = texY - lastProcessedTexY;
+
+        // Create splats along the path
+        const steps = Math.max(1, Math.min(Math.ceil(distance / 6), 15));
+
+        for (let j = 1; j <= steps; j++) {
+          const t = j / steps;
+          const interpTexX = lastProcessedTexX + velX * t;
+          const interpTexY = lastProcessedTexY + velY * t;
+
+          const speedMultiplier = Math.min(distance / 20, 4);
+          const forceDx = (velX / steps) * config.SPLAT_FORCE * (1 + speedMultiplier);
+          const forceDy = (velY / steps) * config.SPLAT_FORCE * (1 + speedMultiplier);
+
+          splat(interpTexX, interpTexY, forceDx, forceDy, touchColor);
+        }
+
+        lastProcessedX = currentTouchX;
+        lastProcessedY = currentTouchY;
+        lastProcessedTexX = texX;
+        lastProcessedTexY = texY;
+      }
+
+      touchRAF = requestAnimationFrame(processTouchLoop);
+    }
 
     function handleTouchStart(e: TouchEvent) {
       const touches = e.targetTouches;
       let pointer = pointers[0];
+
       for (let i = 0; i < touches.length; i++) {
-        let posX = scaleByPixelRatio(touches[i].clientX);
-        let posY = scaleByPixelRatio(touches[i].clientY);
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
 
-        // Initialize touch tracking
-        lastTouchX = posX;
-        lastTouchY = posY;
-        lastTouchTexX = posX / canvas.width;
-        lastTouchTexY = 1.0 - posY / canvas.height;
+        // Initialize tracking
+        currentTouchX = posX;
+        currentTouchY = posY;
+        lastProcessedX = posX;
+        lastProcessedY = posY;
+        lastProcessedTexX = posX / canvas.width;
+        lastProcessedTexY = 1.0 - posY / canvas.height;
+        isTouching = true;
         touchColor = generateColor();
+
+        // Start continuous processing
+        if (!touchRAF) {
+          touchRAF = requestAnimationFrame(processTouchLoop);
+        }
       }
     }
 
@@ -1030,58 +1084,27 @@ function SplashCursor({
       let pointer = pointers[0];
 
       for (let i = 0; i < touches.length; i++) {
-        const posX = scaleByPixelRatio(touches[i].clientX);
-        const posY = scaleByPixelRatio(touches[i].clientY);
+        // Just update current position - RAF loop will handle splats
+        currentTouchX = scaleByPixelRatio(touches[i].clientX);
+        currentTouchY = scaleByPixelRatio(touches[i].clientY);
 
-        // Calculate pixel distance
-        const dx = posX - lastTouchX;
-        const dy = posY - lastTouchY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        // Skip tiny movements
-        if (distance < 2) continue;
-
-        // Convert to texture coordinates
-        const texX = posX / canvas.width;
-        const texY = 1.0 - posY / canvas.height;
-
-        // Calculate base velocity
-        const velX = texX - lastTouchTexX;
-        const velY = texY - lastTouchTexY;
-
-        // Always create splats along the path for any significant movement
-        // More splats for faster movement
-        const steps = Math.max(1, Math.min(Math.ceil(distance / 8), 12));
-
-        for (let j = 1; j <= steps; j++) {
-          const t = j / steps;
-          const interpTexX = lastTouchTexX + velX * t;
-          const interpTexY = lastTouchTexY + velY * t;
-
-          // Scale force based on speed - faster = stronger
-          const speedMultiplier = Math.min(distance / 30, 3);
-          const forceDx = (velX / steps) * config.SPLAT_FORCE * (1 + speedMultiplier);
-          const forceDy = (velY / steps) * config.SPLAT_FORCE * (1 + speedMultiplier);
-
-          splat(interpTexX, interpTexY, forceDx, forceDy, touchColor);
-        }
-
-        // Update last position
-        lastTouchX = posX;
-        lastTouchY = posY;
-        lastTouchTexX = texX;
-        lastTouchTexY = texY;
-
-        // Also update pointer for the main loop
-        updatePointerMoveData(pointer, posX, posY, touchColor);
+        // Also update pointer for main loop
+        updatePointerMoveData(pointer, currentTouchX, currentTouchY, touchColor);
       }
     }
 
     function handleTouchEnd(e: TouchEvent) {
       const touches = e.changedTouches;
       let pointer = pointers[0];
+
       for (let i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
+      }
+
+      isTouching = false;
+      if (touchRAF) {
+        cancelAnimationFrame(touchRAF);
+        touchRAF = null;
       }
     }
 
