@@ -69,11 +69,13 @@
   animation: headerEntrance 0.5s ease-out 3.4s forwards;
 }
 
-/* Base Styles */
+/* Base Styles - Fixed body approach for iOS bounce prevention */
 html {
   background-color: #000000;
-  overscroll-behavior: none;
-  overscroll-behavior-y: none;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 body {
@@ -82,9 +84,22 @@ body {
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Main scroll container */
+.scroll-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
   overflow-x: hidden;
-  overscroll-behavior: none;
-  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Fix mobile viewport height issues */

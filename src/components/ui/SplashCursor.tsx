@@ -1080,9 +1080,16 @@ function SplashCursor({
       currentTouchY = posY;
       lastProcessedX = posX;
       lastProcessedY = posY;
-      lastProcessedTexX = posX / canvas.width;
-      lastProcessedTexY = 1.0 - posY / canvas.height;
+      const texX = posX / canvas.width;
+      const texY = 1.0 - posY / canvas.height;
+      lastProcessedTexX = texX;
+      lastProcessedTexY = texY;
       touchColor = generateColor();
+
+      // Create immediate splat on touch (so effect shows right away)
+      const randomDx = (Math.random() - 0.5) * 20;
+      const randomDy = (Math.random() - 0.5) * 20;
+      splat(texX, texY, randomDx, randomDy, touchColor);
 
       // Start fresh
       isTouching = true;
@@ -1090,18 +1097,51 @@ function SplashCursor({
     }
 
     function handleTouchMove(e: TouchEvent) {
-      if (!isTouching) return;
-
       const touches = e.targetTouches;
       if (touches.length === 0) return;
 
-      let pointer = pointers[0];
       const touch = touches[0];
+      const posX = scaleByPixelRatio(touch.clientX);
+      const posY = scaleByPixelRatio(touch.clientY);
 
-      currentTouchX = scaleByPixelRatio(touch.clientX);
-      currentTouchY = scaleByPixelRatio(touch.clientY);
+      // Calculate movement
+      const dx = posX - lastProcessedX;
+      const dy = posY - lastProcessedY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
 
-      updatePointerMoveData(pointer, currentTouchX, currentTouchY, touchColor);
+      // Direct splat creation in touchmove (don't rely only on RAF)
+      if (distance > 2) {
+        const texX = posX / canvas.width;
+        const texY = 1.0 - posY / canvas.height;
+        const velX = texX - lastProcessedTexX;
+        const velY = texY - lastProcessedTexY;
+
+        // Create splats along path
+        const steps = Math.max(1, Math.min(Math.ceil(distance / 8), 10));
+        for (let j = 1; j <= steps; j++) {
+          const t = j / steps;
+          const interpTexX = lastProcessedTexX + velX * t;
+          const interpTexY = lastProcessedTexY + velY * t;
+          const speedMult = Math.min(distance / 25, 3);
+          const forceDx = (velX / steps) * config.SPLAT_FORCE * (1.5 + speedMult);
+          const forceDy = (velY / steps) * config.SPLAT_FORCE * (1.5 + speedMult);
+          splat(interpTexX, interpTexY, forceDx, forceDy, touchColor);
+        }
+
+        // Update tracking
+        lastProcessedX = posX;
+        lastProcessedY = posY;
+        lastProcessedTexX = texX;
+        lastProcessedTexY = texY;
+      }
+
+      // Update current position for RAF loop backup
+      currentTouchX = posX;
+      currentTouchY = posY;
+
+      // Also update pointer
+      let pointer = pointers[0];
+      updatePointerMoveData(pointer, posX, posY, touchColor);
     }
 
     function handleTouchEnd() {
