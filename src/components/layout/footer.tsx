@@ -34,7 +34,7 @@ export function Footer() {
                 <li key={item.key}>
                   <Link
                     href={item.href}
-                    className="text-muted text-xs sm:text-sm hover:text-white transition-colors"
+                    className="text-muted text-xs sm:text-sm hover:text-[#dddddd] transition-colors"
                   >
                     {navT(item.key)}
                   </Link>
@@ -51,7 +51,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                  className="text-muted hover:text-white transition-colors"
+                  className="text-muted hover:text-[#dddddd] transition-colors"
                 >
                   {siteConfig.contact.phoneCode} {siteConfig.contact.phoneNumber}
                 </a>
@@ -61,7 +61,7 @@ export function Footer() {
                   href={siteConfig.social.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted hover:text-white transition-colors"
+                  className="text-muted hover:text-[#dddddd] transition-colors"
                 >
                   Telegram
                 </a>
@@ -71,7 +71,7 @@ export function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted hover:text-white transition-colors"
+                  className="text-muted hover:text-[#dddddd] transition-colors"
                 >
                   Instagram
                 </a>
@@ -81,7 +81,7 @@ export function Footer() {
                   href={siteConfig.social.support}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted hover:text-white transition-colors"
+                  className="text-muted hover:text-[#dddddd] transition-colors"
                 >
                   Support
                 </a>
