@@ -71,6 +71,15 @@ export function About() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [isMobile, setIsMobile] = useState(false);
+  const [heroComplete, setHeroComplete] = useState(false);
+
+  // Wait for hero animation to complete before allowing About animations
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHeroComplete(true);
+    }, 3000); // Hero typewriter completes around 2.75s
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -81,6 +90,9 @@ export function About() {
 
   // Animation duration: slower on mobile (25% slower)
   const borderDuration = isMobile ? 6.375 : 5;
+
+  // Combined condition: animate only when in view AND hero animation is complete
+  const canAnimate = isInView && heroComplete;
 
   const title = t('title');
   const description = t('description');
@@ -112,35 +124,35 @@ export function About() {
             className="absolute -left-4 sm:-left-6 md:-left-8 top-0 bottom-0 w-px pointer-events-none"
             style={{ backgroundColor: '#dddddd' }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
-            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+            animate={canAnimate ? { scaleY: 1 } : { scaleY: 0 }}
             transition={{ duration: borderDuration, ease: 'easeOut' }}
           />
           <motion.div
             className="absolute -right-4 sm:-right-6 md:-right-8 top-0 bottom-0 w-px pointer-events-none"
             style={{ backgroundColor: '#dddddd' }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
-            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+            animate={canAnimate ? { scaleY: 1 } : { scaleY: 0 }}
             transition={{ duration: borderDuration, ease: 'easeOut' }}
           />
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
-            <AnimatedText text={title} startDelay={titleDelay} charDelay={0.02} isInView={isInView} />
+            <AnimatedText text={title} startDelay={titleDelay} charDelay={0.02} isInView={canAnimate} />
           </h2>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 leading-relaxed text-left">
-            <AnimatedText text={description} startDelay={descDelay} charDelay={0.008} isInView={isInView} />
+            <AnimatedText text={description} startDelay={descDelay} charDelay={0.008} isInView={canAnimate} />
           </p>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-12 md:mb-20 leading-relaxed text-left">
-            <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.008} isInView={isInView} />
+            <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.008} isInView={canAnimate} />
           </p>
 
           <p className="text-muted text-sm sm:text-base md:text-xl mb-6 md:mb-10 text-left">
-            <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.01} isInView={isInView} />
+            <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.01} isInView={canAnimate} />
           </p>
 
           <div className="mb-4 md:mb-8 text-left">
             <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-script">
-              <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.01} isInView={isInView} />
+              <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.01} isInView={canAnimate} />
             </span>
           </div>
 
@@ -149,17 +161,17 @@ export function About() {
               <motion.span
                 className="text-muted md:hidden"
                 initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
+                animate={canAnimate ? { opacity: 1 } : {}}
                 transition={{ delay: featuresRowDelay }}
               >
                 •
               </motion.span>
-              <AnimatedText text={feature1} startDelay={featuresRowDelay} charDelay={0.015} isInView={isInView} />
+              <AnimatedText text={feature1} startDelay={featuresRowDelay} charDelay={0.015} isInView={canAnimate} />
             </span>
             <motion.span
               className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
               initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
+              animate={canAnimate ? { opacity: 1 } : {}}
               transition={{ delay: featuresRowDelay + feature1.length * 0.015 + 0.05 }}
             >
               •
@@ -168,17 +180,17 @@ export function About() {
               <motion.span
                 className="text-muted md:hidden"
                 initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
+                animate={canAnimate ? { opacity: 1 } : {}}
                 transition={{ delay: featuresRowDelay + feature1.length * 0.015 + 0.08 }}
               >
                 •
               </motion.span>
-              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.015 + 0.08} charDelay={0.015} isInView={isInView} />
+              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.015 + 0.08} charDelay={0.015} isInView={canAnimate} />
             </span>
             <motion.span
               className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
               initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
+              animate={canAnimate ? { opacity: 1 } : {}}
               transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.13 }}
             >
               •
@@ -187,12 +199,12 @@ export function About() {
               <motion.span
                 className="text-muted md:hidden"
                 initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
+                animate={canAnimate ? { opacity: 1 } : {}}
                 transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16 }}
               >
                 •
               </motion.span>
-              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16} charDelay={0.015} isInView={isInView} />
+              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16} charDelay={0.015} isInView={canAnimate} />
             </span>
           </div>
         </div>
