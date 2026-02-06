@@ -34,7 +34,7 @@ export function Footer() {
                 <li key={item.key}>
                   <Link
                     href={item.href}
-                    className="text-muted text-xs sm:text-sm hover:opacity-70 transition-opacity"
+                    className="text-muted text-xs sm:text-sm hover:text-white transition-colors"
                   >
                     {navT(item.key)}
                   </Link>
@@ -51,10 +51,9 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                  className="hover:opacity-70 transition-opacity"
+                  className="text-muted hover:text-white transition-colors"
                 >
-                  <span className="text-muted">{siteConfig.contact.phoneCode}</span>{' '}
-                  <span className="text-muted">{siteConfig.contact.phoneNumber}</span>
+                  {siteConfig.contact.phoneCode} {siteConfig.contact.phoneNumber}
                 </a>
               </li>
               <li>
@@ -62,7 +61,7 @@ export function Footer() {
                   href={siteConfig.social.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted hover:opacity-70 transition-opacity"
+                  className="text-muted hover:text-white transition-colors"
                 >
                   Telegram
                 </a>
@@ -72,7 +71,7 @@ export function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted hover:opacity-70 transition-opacity"
+                  className="text-muted hover:text-white transition-colors"
                 >
                   Instagram
                 </a>
@@ -82,7 +81,7 @@ export function Footer() {
                   href={siteConfig.social.support}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted hover:opacity-70 transition-opacity"
+                  className="text-muted hover:text-white transition-colors"
                 >
                   Support
                 </a>
