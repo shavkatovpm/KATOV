@@ -202,16 +202,28 @@ export function Services() {
           ))}
         </div>
 
-        {/* Description below cards */}
-        <motion.p
+        {/* Free Consultation Button */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-muted text-base sm:text-lg max-w-2xl mx-auto text-center mt-10"
+          className="text-center mt-12"
         >
-          {t('description')}
-        </motion.p>
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="btn-outline inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm sm:text-base font-medium transition-colors cursor-pointer"
+          >
+            {t('freeConsultation')}
+          </a>
+        </motion.div>
       </div>
     </section>
   );

@@ -48,23 +48,23 @@ export function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0, borderColor: plan.popular ? '#dddddd' : 'var(--color-border)' }}
               whileInView={{ opacity: 1 }}
               animate={plan.popular ? {
-                x: [0, -2, 2, -2, 2, -2, 2, -1, 0],
-                rotate: [0, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0],
+                borderColor: ['#dddddd', '#767676', '#dddddd'],
               } : {}}
               viewport={{ once: true }}
               transition={plan.popular ? {
                 opacity: { duration: 0.6, delay: index * 0.1 },
-                x: { duration: 0.5, repeat: Infinity, repeatDelay: 2 },
-                rotate: { duration: 0.5, repeat: Infinity, repeatDelay: 2 },
+                borderColor: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
               } : { duration: 0.6, delay: index * 0.1 }}
               className="relative rounded-2xl p-8 flex flex-col"
               style={{
                 backgroundColor: plan.popular ? 'var(--color-fg)' : 'var(--color-bg)',
                 color: plan.popular ? 'var(--color-bg)' : 'inherit',
-                border: `1px solid ${plan.popular ? 'var(--color-fg)' : 'var(--color-border)'}`,
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: plan.popular ? undefined : 'var(--color-border)',
               }}
             >
               {plan.popular && (
@@ -142,23 +142,23 @@ export function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0, borderColor: plan.popular ? '#dddddd' : 'var(--color-border)' }}
               whileInView={{ opacity: 1 }}
               animate={plan.popular ? {
-                x: [0, -2, 2, -2, 2, -2, 2, -1, 0],
-                rotate: [0, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0],
+                borderColor: ['#dddddd', '#767676', '#dddddd'],
               } : {}}
               viewport={{ once: true }}
               transition={plan.popular ? {
                 opacity: { duration: 0.6, delay: index * 0.1 },
-                x: { duration: 0.5, repeat: Infinity, repeatDelay: 2 },
-                rotate: { duration: 0.5, repeat: Infinity, repeatDelay: 2 },
+                borderColor: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
               } : { duration: 0.6, delay: index * 0.1 }}
               className="relative rounded-2xl p-6 cursor-pointer"
               style={{
                 backgroundColor: plan.popular ? 'var(--color-fg)' : 'var(--color-bg)',
                 color: plan.popular ? 'var(--color-bg)' : 'inherit',
-                border: `1px solid ${plan.popular ? 'var(--color-fg)' : 'var(--color-border)'}`,
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: plan.popular ? undefined : 'var(--color-border)',
               }}
               onClick={() => handleCardClick(plan.id)}
             >
