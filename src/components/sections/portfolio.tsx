@@ -172,7 +172,9 @@ export function Portfolio() {
                 {/* Content */}
                 <div className="text-center">
                   <h3 className="text-xl sm:text-2xl font-semibold mb-4">
-                    Rostdan ham <span className="text-blue-400">{selectedItem.title}</span> saytiga o&apos;tmoqchimisiz?
+                    {t.rich('modal.title', {
+                      site: () => <span className="text-blue-400">{selectedItem.title}</span>
+                    }) as React.ReactNode}
                   </h3>
 
                   {/* Buttons */}
@@ -185,13 +187,13 @@ export function Portfolio() {
                         border: '1px solid var(--color-border)'
                       }}
                     >
-                      Yo&apos;q
+                      {t('modal.no')}
                     </button>
                     <button
                       onClick={handleConfirm}
                       className="px-6 py-2.5 rounded-full text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
                     >
-                      Ha
+                      {t('modal.yes')}
                     </button>
                   </div>
                 </div>

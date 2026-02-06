@@ -91,13 +91,12 @@ export function About() {
   const feature3 = t('feature3');
 
   // Calculate delays based on previous text lengths
-  // Title is static (no animation), other text animates
-  // Using faster charDelay (0.008) for quicker animation
-  const descDelay = 0;
+  // "Ishonchli website" (feature4) animates FIRST, then other elements
+  const feature4Delay = 0;
+  const descDelay = feature4Delay + feature4.length * 0.01 + 0.1;
   const desc2Delay = descDelay + description.length * 0.008 + 0.05;
   const featuresTitleDelay = desc2Delay + description2.length * 0.008 + 0.05;
-  const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.01 + 0.05;
-  const featuresRowDelay = feature4Delay + feature4.length * 0.01 + 0.05;
+  const featuresRowDelay = featuresTitleDelay + featuresTitle.length * 0.01 + 0.05;
 
   return (
     <section

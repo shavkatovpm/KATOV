@@ -53,7 +53,12 @@
     "subtitle": "Kamtarona ishlarimiz :)",
     "description": "",
     "viewProject": "Loyihani ko'rish",
-    "viewAll": "Sizda ham g'oya bormi?"
+    "viewAll": "Sizda ham g'oya bormi?",
+    "modal": {
+      "title": "Rostdan ham <site></site> saytiga o'tmoqchimisiz?",
+      "yes": "Ha",
+      "no": "Yo'q"
+    }
   },
   "pricing": {
     "title": "Tariflar",
@@ -114,6 +119,11 @@
     "subtitle": "G'oyangizni birga quramiz!",
     "description": "Loyihangizni qanday qilib natijaga olib chiqish mumkinligini birga ko'rib chiqamiz.",
     "phone": "Telefon",
+    "telegramBot": "Telegramdan yozish",
+    "toast": {
+      "success": "Xabar yuborildi, hayrli bo'lsin.",
+      "error": "Ozgina uzilish bo'ldi, yana urinib ko'raylik."
+    },
     "form": {
       "name": "Ismingiz",
       "namePlaceholder": "Ismingizni kiriting",
@@ -123,7 +133,13 @@
       "messagePlaceholder": "Loyihangiz haqida qisqacha yozing...",
       "submit": "Yuborish",
       "sending": "Yuborilmoqda...",
-      "sent": "Yuborildi!"
+      "sent": "Yuborildi!",
+      "validation": {
+        "nameRequired": "Ismingizni bilishni juda xohlaymiz",
+        "phoneRequired": "Raqamingiz bo'lmasa, qanday bog'lanamiz?",
+        "phoneIncomplete": "Raqamni to'liq kiriting",
+        "messageRequired": "Kutuvingiz haqida qisqacha yozib keting!"
+      }
     }
   },
   "footer": {

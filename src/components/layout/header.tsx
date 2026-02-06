@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -98,13 +97,21 @@ export function Header() {
                   {t(item.key)}
                 </a>
               ) : (
-                <Link
+                <a
                   key={item.key}
-                  href={item.href}
-                  className="text-sm font-medium nav-link"
+                  href={`/${locale}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (isHomePage) {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                      router.push(`/${locale}`);
+                    }
+                  }}
+                  className="text-sm font-medium nav-link cursor-pointer"
                 >
                   {t(item.key)}
-                </Link>
+                </a>
               )
             ))}
           </div>
@@ -179,13 +186,21 @@ export function Header() {
                         {t(item.key)}
                       </a>
                     ) : (
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className="py-3 text-base font-medium nav-link text-right block"
+                      <a
+                        href={`/${locale}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsOpen(false);
+                          if (isHomePage) {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          } else {
+                            router.push(`/${locale}`);
+                          }
+                        }}
+                        className="py-3 text-base font-medium nav-link text-right block cursor-pointer"
                       >
                         {t(item.key)}
-                      </Link>
+                      </a>
                     )}
                   </motion.div>
                 ))}

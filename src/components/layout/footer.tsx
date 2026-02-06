@@ -1,13 +1,18 @@
 'use client';
 
-import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { siteConfig } from '@/config/site';
 
 export function Footer() {
   const t = useTranslations('footer');
   const navT = useTranslations('nav');
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
   const currentYear = new Date().getFullYear();
+
+  const isHomePage = pathname === `/${locale}` || pathname === '/';
 
   return (
     <footer
@@ -17,9 +22,20 @@ export function Footer() {
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <div className="col-span-2">
-            <Link href="/" className="text-xl sm:text-2xl font-bold tracking-tight">
+            <a
+              href={`/${locale}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (isHomePage) {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  router.push(`/${locale}`);
+                }
+              }}
+              className="text-xl sm:text-2xl font-bold tracking-tight cursor-pointer"
+            >
               {siteConfig.name}
-            </Link>
+            </a>
             <p className="text-muted mt-4 text-sm sm:text-base max-w-md">
               {t('description')}
             </p>
@@ -32,12 +48,36 @@ export function Footer() {
             <ul className="space-y-2">
               {siteConfig.navigation.slice(0, 4).map((item) => (
                 <li key={item.key}>
-                  <Link
-                    href={item.href}
-                    className="text-[#767676] text-xs sm:text-sm hover:text-[#dddddd] transition-colors"
-                  >
-                    {navT(item.key)}
-                  </Link>
+                  {item.href.startsWith('#') ? (
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.querySelector(item.href);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="footer-link text-xs sm:text-sm cursor-pointer"
+                    >
+                      {navT(item.key)}
+                    </a>
+                  ) : (
+                    <a
+                      href={`/${locale}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (isHomePage) {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                          router.push(`/${locale}`);
+                        }
+                      }}
+                      className="footer-link text-xs sm:text-sm cursor-pointer"
+                    >
+                      {navT(item.key)}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -51,7 +91,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                  className="text-[#dddddd] hover:text-[#ffffff] transition-colors"
+                  className="footer-link"
                 >
                   {siteConfig.contact.phoneCode} {siteConfig.contact.phoneNumber}
                 </a>
@@ -61,7 +101,7 @@ export function Footer() {
                   href={siteConfig.social.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#dddddd] hover:text-[#ffffff] transition-colors"
+                  className="footer-link"
                 >
                   Telegram
                 </a>
@@ -71,7 +111,7 @@ export function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#dddddd] hover:text-[#ffffff] transition-colors"
+                  className="footer-link"
                 >
                   Instagram
                 </a>
@@ -81,7 +121,7 @@ export function Footer() {
                   href={siteConfig.social.support}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#dddddd] hover:text-[#ffffff] transition-colors"
+                  className="footer-link"
                 >
                   Support
                 </a>

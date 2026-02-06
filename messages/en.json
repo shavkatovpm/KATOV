@@ -53,7 +53,12 @@
     "subtitle": "Our humble works :)",
     "description": "",
     "viewProject": "View Project",
-    "viewAll": "View All"
+    "viewAll": "View All",
+    "modal": {
+      "title": "Do you really want to visit <site></site>?",
+      "yes": "Yes",
+      "no": "No"
+    }
   },
   "pricing": {
     "title": "Pricing",
@@ -114,6 +119,11 @@
     "subtitle": "Let's bring your idea to life!",
     "description": "Let's explore together how to turn your project into results.",
     "phone": "Phone",
+    "telegramBot": "Message on Telegram",
+    "toast": {
+      "success": "Message sent successfully!",
+      "error": "Something went wrong, let's try again."
+    },
     "form": {
       "name": "Your Name",
       "namePlaceholder": "Enter your name",
@@ -123,7 +133,13 @@
       "messagePlaceholder": "Briefly describe your project...",
       "submit": "Send",
       "sending": "Sending...",
-      "sent": "Sent!"
+      "sent": "Sent!",
+      "validation": {
+        "nameRequired": "We'd really like to know your name",
+        "phoneRequired": "How can we contact you without a number?",
+        "phoneIncomplete": "Please enter the full number",
+        "messageRequired": "Tell us briefly about your expectations!"
+      }
     }
   },
   "footer": {
