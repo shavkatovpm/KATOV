@@ -51,7 +51,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                  className="text-[#767676] hover:text-[#dddddd] transition-colors"
+                  className="text-[#dddddd] hover:text-[#ffffff] transition-colors"
                 >
                   {siteConfig.contact.phoneCode} {siteConfig.contact.phoneNumber}
                 </a>
@@ -61,7 +61,7 @@ export function Footer() {
                   href={siteConfig.social.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#767676] hover:text-[#dddddd] transition-colors"
+                  className="text-[#dddddd] hover:text-[#ffffff] transition-colors"
                 >
                   Telegram
                 </a>
@@ -71,7 +71,7 @@ export function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#767676] hover:text-[#dddddd] transition-colors"
+                  className="text-[#dddddd] hover:text-[#ffffff] transition-colors"
                 >
                   Instagram
                 </a>
@@ -81,7 +81,7 @@ export function Footer() {
                   href={siteConfig.social.support}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#767676] hover:text-[#dddddd] transition-colors"
+                  className="text-[#dddddd] hover:text-[#ffffff] transition-colors"
                 >
                   Support
                 </a>
