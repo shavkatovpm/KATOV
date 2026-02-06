@@ -79,8 +79,8 @@ export function About() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Animation duration: slower on mobile
-  const borderDuration = isMobile ? 5.1 : 4;
+  // Animation duration: slower on mobile (25% slower)
+  const borderDuration = isMobile ? 6.375 : 5;
 
   const description = t('description');
   const description2 = t('description2');

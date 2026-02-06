@@ -125,6 +125,11 @@ textarea,
   cursor: text !important;
 }
 
+/* Placeholder text styling */
+::placeholder {
+  opacity: 0.5;
+}
+
 /* Page Content Animation Wrapper */
 .page-content {
   padding-top: 0;
