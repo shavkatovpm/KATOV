@@ -1,10 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
 
 const portfolioItems = [
   { id: '1', title: 'Darslinker', category: "Onlayn ta'limni tizimlashtirish platformasi", url: 'https://darslinker.uz', image: '/portfolio/Darslinker.png' },
@@ -12,8 +13,29 @@ const portfolioItems = [
   { id: '3', title: 'Uzbektype', category: "Tez va to'g'ri yozishni tekshirish", url: 'https://uzbektype.uz', image: '/portfolio/Uzbektype.png' },
 ];
 
+interface SelectedItem {
+  title: string;
+  url: string;
+}
+
 export function Portfolio() {
   const t = useTranslations('portfolio');
+  const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
+
+  const handleCardClick = (item: SelectedItem) => {
+    setSelectedItem(item);
+  };
+
+  const handleConfirm = () => {
+    if (selectedItem) {
+      window.open(selectedItem.url, '_blank', 'noopener,noreferrer');
+      setSelectedItem(null);
+    }
+  };
+
+  const handleCancel = () => {
+    setSelectedItem(null);
+  };
 
   return (
     <section id="portfolio" className="section-padding">
@@ -39,11 +61,9 @@ export function Portfolio() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Link
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block relative"
+              <button
+                onClick={() => handleCardClick({ title: item.title, url: item.url })}
+                className="group block relative w-full text-left cursor-pointer"
               >
                 <div
                   className="relative aspect-[4/3] rounded-2xl overflow-hidden p-5 sm:p-6 flex flex-col justify-between"
@@ -80,7 +100,7 @@ export function Portfolio() {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </button>
             </motion.div>
           ))}
         </div>
@@ -101,6 +121,71 @@ export function Portfolio() {
           </Link>
         </motion.div>
       </div>
+
+      {/* Confirmation Modal */}
+      <AnimatePresence>
+        {selectedItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            onClick={handleCancel}
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+
+            {/* Modal */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative z-10 w-full max-w-md rounded-2xl p-6 sm:p-8"
+              style={{
+                backgroundColor: 'var(--color-bg)',
+                border: '1px solid var(--color-border)'
+              }}
+            >
+              {/* Close button */}
+              <button
+                onClick={handleCancel}
+                className="absolute top-4 right-4 p-1 rounded-full opacity-60 hover:opacity-100 transition-opacity"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Content */}
+              <div className="text-center">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4">
+                  Rostdan ham <span className="text-blue-400">{selectedItem.title}</span> saytiga o&apos;tmoqchimisiz?
+                </h3>
+
+                {/* Buttons */}
+                <div className="flex gap-3 justify-center mt-6">
+                  <button
+                    onClick={handleCancel}
+                    className="px-6 py-2.5 rounded-full text-sm font-medium transition-colors"
+                    style={{
+                      backgroundColor: 'color-mix(in srgb, var(--color-fg) 10%, transparent)',
+                      border: '1px solid var(--color-border)'
+                    }}
+                  >
+                    Yo&apos;q
+                  </button>
+                  <button
+                    onClick={handleConfirm}
+                    className="px-6 py-2.5 rounded-full text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                  >
+                    Ha
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
