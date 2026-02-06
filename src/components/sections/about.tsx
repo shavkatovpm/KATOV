@@ -88,8 +88,8 @@ export function About() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Animation duration: slower on mobile (25% slower)
-  const borderDuration = isMobile ? 6.375 : 5;
+  // Animation duration: slower on mobile (25% slower), 20% faster overall
+  const borderDuration = isMobile ? 5.1 : 4;
 
   // Combined condition: animate only when in view AND hero animation is complete
   const canAnimate = isInView && heroComplete;
