@@ -1038,33 +1038,32 @@ function SplashCursor({
         const dy = posY - lastTouchY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
+        // Skip tiny movements
+        if (distance < 2) continue;
+
         // Convert to texture coordinates
         const texX = posX / canvas.width;
         const texY = 1.0 - posY / canvas.height;
 
-        // For fast movement, create multiple splats along the path
-        if (distance > 20) {
-          const steps = Math.min(Math.ceil(distance / 15), 8);
+        // Calculate base velocity
+        const velX = texX - lastTouchTexX;
+        const velY = texY - lastTouchTexY;
 
-          for (let j = 1; j <= steps; j++) {
-            const t = j / steps;
-            const interpTexX = lastTouchTexX + (texX - lastTouchTexX) * t;
-            const interpTexY = lastTouchTexY + (texY - lastTouchTexY) * t;
+        // Always create splats along the path for any significant movement
+        // More splats for faster movement
+        const steps = Math.max(1, Math.min(Math.ceil(distance / 8), 12));
 
-            // Calculate velocity for this segment
-            const segmentDx = (texX - lastTouchTexX) / steps;
-            const segmentDy = (texY - lastTouchTexY) / steps;
+        for (let j = 1; j <= steps; j++) {
+          const t = j / steps;
+          const interpTexX = lastTouchTexX + velX * t;
+          const interpTexY = lastTouchTexY + velY * t;
 
-            // Apply splat directly
-            const forceDx = segmentDx * config.SPLAT_FORCE * 1.5;
-            const forceDy = segmentDy * config.SPLAT_FORCE * 1.5;
-            splat(interpTexX, interpTexY, forceDx, forceDy, touchColor);
-          }
-        } else if (distance > 3) {
-          // Normal movement - single splat
-          const forceDx = (texX - lastTouchTexX) * config.SPLAT_FORCE;
-          const forceDy = (texY - lastTouchTexY) * config.SPLAT_FORCE;
-          splat(texX, texY, forceDx, forceDy, touchColor);
+          // Scale force based on speed - faster = stronger
+          const speedMultiplier = Math.min(distance / 30, 3);
+          const forceDx = (velX / steps) * config.SPLAT_FORCE * (1 + speedMultiplier);
+          const forceDy = (velY / steps) * config.SPLAT_FORCE * (1 + speedMultiplier);
+
+          splat(interpTexX, interpTexY, forceDx, forceDy, touchColor);
         }
 
         // Update last position
