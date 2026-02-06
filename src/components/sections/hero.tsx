@@ -66,7 +66,7 @@ export function Hero() {
   }));
 
   return (
-    <section className="min-h-[100svh] flex items-center justify-center relative">
+    <section className="relative py-32 sm:py-40 md:py-48 lg:py-56">
       <div className="container-custom text-center">
         <motion.h1
           initial={{ opacity: 0, filter: 'blur(10px)' }}

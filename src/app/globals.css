@@ -90,12 +90,6 @@ body {
   height: -webkit-fill-available; /* Safari fallback */
 }
 
-/* Stable viewport for mobile browsers - use svh to prevent resize on scroll */
-@supports (height: 100svh) {
-  .min-h-screen {
-    min-height: 100svh !important;
-  }
-}
 
 /* Default cursor for all elements */
 *,
