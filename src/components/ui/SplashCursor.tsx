@@ -1029,50 +1029,12 @@ function SplashCursor({
       }
     }
 
-    // Track last scroll position for scroll-based fluid effect
-    let lastScrollY = window.scrollY;
-    let lastScrollX = window.scrollX;
-    let lastScrollTime = Date.now();
-
-    function handleScroll() {
-      const now = Date.now();
-      const deltaTime = now - lastScrollTime;
-      if (deltaTime < 16) return; // Throttle to ~60fps
-
-      const scrollY = window.scrollY;
-      const scrollX = window.scrollX;
-      const deltaY = scrollY - lastScrollY;
-      const deltaX = scrollX - lastScrollX;
-
-      // Only trigger if there's significant scroll movement
-      if (Math.abs(deltaY) > 2 || Math.abs(deltaX) > 2) {
-        let pointer = pointers[0];
-        // Create synthetic movement based on scroll
-        const centerX = scaleByPixelRatio(window.innerWidth / 2);
-        const centerY = scaleByPixelRatio(window.innerHeight / 2);
-
-        // Simulate touch movement at center of screen based on scroll direction
-        const moveX = centerX + scaleByPixelRatio(deltaX * 0.5);
-        const moveY = centerY + scaleByPixelRatio(deltaY * 0.5);
-
-        if (!pointer.down) {
-          pointer.color = generateColor();
-        }
-        updatePointerMoveData(pointer, moveX, moveY, pointer.color);
-      }
-
-      lastScrollY = scrollY;
-      lastScrollX = scrollX;
-      lastScrollTime = now;
-    }
-
     // Add event listeners
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true });
 
     updateFrame();
 
@@ -1092,7 +1054,6 @@ function SplashCursor({
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
-      window.removeEventListener('scroll', handleScroll);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
