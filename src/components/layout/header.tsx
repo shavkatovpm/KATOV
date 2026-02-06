@@ -2,16 +2,22 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '@/config/site';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 
 export function Header() {
   const t = useTranslations('nav');
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+
+  const isHomePage = pathname === `/${locale}` || pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,10 +65,14 @@ export function Header() {
       <div className="container-custom">
         <nav className="flex items-center justify-between h-16 sm:h-20">
           <a
-            href="#"
+            href={`/${locale}`}
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              if (isHomePage) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                router.push(`/${locale}`);
+              }
             }}
             className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase cursor-pointer"
           >

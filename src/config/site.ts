@@ -21,6 +21,7 @@ export const siteConfig = {
   navigation: [
     { key: 'home', href: '/' },
     { key: 'services', href: '#services' },
+    { key: 'portfolio', href: '#portfolio' },
     { key: 'contact', href: '#contact' },
   ],
 };

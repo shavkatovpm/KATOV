@@ -6,7 +6,7 @@
   "nav": {
     "home": "Bosh sahifa",
     "about": "Biz haqimizda",
-    "portfolio": "Portfolio",
+    "portfolio": "Loyihalar",
     "services": "Xizmatlar",
     "pricing": "Narxlar",
     "blog": "Blog",
@@ -49,11 +49,11 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
+    "title": "Kamtarona ishlarimiz :)",
     "subtitle": "",
-    "description": "Maqtanishga arziydigan ishlarimiz:",
+    "description": "",
     "viewProject": "Loyihani ko'rish",
-    "viewAll": "Barchasini ko'rish"
+    "viewAll": "Sizda ham g'oya bormi?"
   },
   "pricing": {
     "title": "Tariflar",
@@ -103,11 +103,28 @@
   },
   "blog": {
     "title": "Blog",
-    "subtitle": "Foydali maqolalar",
-    "description": "Veb-sayt yaratish, SEO va dizayn haqida eng so'nggi maqolalar.",
+    "subtitle": "",
+    "description": "AyTi haqida maqolalar",
     "readMore": "Davomini o'qish",
     "readTime": "daqiqa o'qish",
     "viewAll": "Barcha maqolalar"
+  },
+  "contact": {
+    "title": "Bog'lanish",
+    "subtitle": "G'oyangizni hayotga olib chiqamiz!",
+    "description": "Loyihangiz haqida gaplashishga tayyormiz. Savollaringiz bo'lsa yoki hamkorlik qilmoqchi bo'lsangiz, biz bilan bog'laning.",
+    "phone": "Telefon",
+    "form": {
+      "name": "Ismingiz",
+      "namePlaceholder": "Ismingizni kiriting",
+      "phone": "Telefon raqamingiz",
+      "phonePlaceholder": "+998 90 123 45 67",
+      "message": "Xabaringiz",
+      "messagePlaceholder": "Loyihangiz haqida qisqacha yozing...",
+      "submit": "Yuborish",
+      "sending": "Yuborilmoqda...",
+      "sent": "Yuborildi!"
+    }
   },
   "footer": {
     "description": "Kreativ veb-saytlar yaratish bo'yicha professional xizmatlar.",

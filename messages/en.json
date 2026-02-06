@@ -6,7 +6,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "portfolio": "Portfolio",
+    "portfolio": "Projects",
     "services": "Services",
     "pricing": "Pricing",
     "blog": "Blog",
@@ -49,9 +49,9 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
+    "title": "Our humble works :)",
     "subtitle": "",
-    "description": "Projects we're proud of:",
+    "description": "",
     "viewProject": "View Project",
     "viewAll": "View All"
   },
@@ -108,6 +108,23 @@
     "readMore": "Read More",
     "readTime": "min read",
     "viewAll": "All Articles"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Let's bring your idea to life!",
+    "description": "We're ready to discuss your project. If you have questions or want to collaborate, get in touch with us.",
+    "phone": "Phone",
+    "form": {
+      "name": "Your Name",
+      "namePlaceholder": "Enter your name",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+998 90 123 45 67",
+      "message": "Message",
+      "messagePlaceholder": "Briefly describe your project...",
+      "submit": "Send",
+      "sending": "Sending...",
+      "sent": "Sent!"
+    }
   },
   "footer": {
     "description": "Professional services for creating creative websites.",
