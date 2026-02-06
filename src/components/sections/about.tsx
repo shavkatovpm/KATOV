@@ -33,10 +33,10 @@ function AnimatedText({
             {word.split('').map((char, i) => (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, filter: 'blur(10px)' }}
+                initial={{ opacity: 0, filter: 'blur(12px)' }}
                 animate={isInView ? { opacity: 1, filter: 'blur(0px)' } : {}}
                 transition={{
-                  duration: 0.15,
+                  duration: 0.3,
                   delay: startDelay + (wordStartIndex + i) * charDelay,
                   ease: 'easeOut'
                 }}

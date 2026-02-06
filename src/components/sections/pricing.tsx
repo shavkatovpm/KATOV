@@ -71,8 +71,9 @@ export function Pricing() {
               <h3 className="text-xl font-semibold mb-3">
                 {plan.popular ? (
                   <motion.span
-                    animate={{ scale: [1, 1.02, 1] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    animate={{ x: [0, -2, 2, -2, 2, 0] }}
+                    transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+                    style={{ display: 'inline-block' }}
                   >
                     {t(`${plan.id}.name`)}
                   </motion.span>
@@ -169,8 +170,9 @@ export function Pricing() {
                   <h3 className="text-lg font-semibold mb-1">
                     {plan.popular ? (
                       <motion.span
-                        animate={{ scale: [1, 1.02, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        animate={{ x: [0, -2, 2, -2, 2, 0] }}
+                        transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+                        style={{ display: 'inline-block' }}
                       >
                         {t(`${plan.id}.name`)}
                       </motion.span>
@@ -247,8 +249,9 @@ export function Pricing() {
                       <h3 className="text-xl font-semibold mb-3">
                         {plan.popular ? (
                           <motion.span
-                            animate={{ scale: [1, 1.02, 1] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                            animate={{ x: [0, -2, 2, -2, 2, 0] }}
+                            transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+                            style={{ display: 'inline-block' }}
                           >
                             {t(`${plan.id}.name`)}
                           </motion.span>
