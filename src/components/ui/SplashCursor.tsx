@@ -1001,6 +1001,45 @@ function SplashCursor({
       }
     }
 
+    // Touch tracking with interpolation for smooth effect during fast scrolling
+    let lastTouchX = 0;
+    let lastTouchY = 0;
+    let currentTouchX = 0;
+    let currentTouchY = 0;
+    let isTouching = false;
+    let touchInterpolationFrame: number | null = null;
+
+    function interpolateTouch() {
+      if (!isTouching || !isActive) {
+        touchInterpolationFrame = null;
+        return;
+      }
+
+      let pointer = pointers[0];
+
+      // Calculate distance between last processed position and current touch
+      const dx = currentTouchX - lastTouchX;
+      const dy = currentTouchY - lastTouchY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      // If there's significant movement, interpolate points along the path
+      if (distance > 5) {
+        const steps = Math.min(Math.ceil(distance / 10), 10); // Max 10 intermediate points
+
+        for (let i = 1; i <= steps; i++) {
+          const t = i / steps;
+          const interpX = lastTouchX + dx * t;
+          const interpY = lastTouchY + dy * t;
+          updatePointerMoveData(pointer, interpX, interpY, pointer.color);
+        }
+
+        lastTouchX = currentTouchX;
+        lastTouchY = currentTouchY;
+      }
+
+      touchInterpolationFrame = requestAnimationFrame(interpolateTouch);
+    }
+
     function handleTouchStart(e: TouchEvent) {
       const touches = e.targetTouches;
       let pointer = pointers[0];
@@ -1008,16 +1047,27 @@ function SplashCursor({
         let posX = scaleByPixelRatio(touches[i].clientX);
         let posY = scaleByPixelRatio(touches[i].clientY);
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+
+        // Initialize touch tracking
+        lastTouchX = posX;
+        lastTouchY = posY;
+        currentTouchX = posX;
+        currentTouchY = posY;
+        isTouching = true;
+
+        // Start interpolation loop
+        if (!touchInterpolationFrame) {
+          touchInterpolationFrame = requestAnimationFrame(interpolateTouch);
+        }
       }
     }
 
     function handleTouchMove(e: TouchEvent) {
       const touches = e.targetTouches;
-      let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
-        let posX = scaleByPixelRatio(touches[i].clientX);
-        let posY = scaleByPixelRatio(touches[i].clientY);
-        updatePointerMoveData(pointer, posX, posY, pointer.color);
+        // Update current position - interpolation loop will handle the rest
+        currentTouchX = scaleByPixelRatio(touches[i].clientX);
+        currentTouchY = scaleByPixelRatio(touches[i].clientY);
       }
     }
 
@@ -1026,6 +1076,11 @@ function SplashCursor({
       let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
+      }
+      isTouching = false;
+      if (touchInterpolationFrame) {
+        cancelAnimationFrame(touchInterpolationFrame);
+        touchInterpolationFrame = null;
       }
     }
 
