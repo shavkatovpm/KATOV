@@ -72,12 +72,21 @@ export function About() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [isMobile, setIsMobile] = useState(false);
   const [heroComplete, setHeroComplete] = useState(false);
+  const [titleCanAnimate, setTitleCanAnimate] = useState(false);
 
-  // Wait for hero animation to complete before allowing About animations
+  // Title animates after hero animation completes (3.2s), regardless of scroll
+  useEffect(() => {
+    const titleTimer = setTimeout(() => {
+      setTitleCanAnimate(true);
+    }, 3200); // Hero typewriter completes around 3.2s
+    return () => clearTimeout(titleTimer);
+  }, []);
+
+  // Wait for hero animation to complete before allowing other About animations
   useEffect(() => {
     const timer = setTimeout(() => {
       setHeroComplete(true);
-    }, 3000); // Hero typewriter completes around 2.75s
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 

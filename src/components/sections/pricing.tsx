@@ -70,13 +70,9 @@ export function Pricing() {
 
               <h3 className="text-xl font-semibold mb-3">
                 {plan.popular ? (
-                  <motion.span
-                    animate={{ x: [0, -2, 2, -2, 2, 0] }}
-                    transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
-                    style={{ display: 'inline-block' }}
-                  >
+                  <span className="animate-shake">
                     {t(`${plan.id}.name`)}
-                  </motion.span>
+                  </span>
                 ) : (
                   t(`${plan.id}.name`)
                 )}
@@ -169,13 +165,9 @@ export function Pricing() {
                 <div>
                   <h3 className="text-lg font-semibold mb-1">
                     {plan.popular ? (
-                      <motion.span
-                        animate={{ x: [0, -2, 2, -2, 2, 0] }}
-                        transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
-                        style={{ display: 'inline-block' }}
-                      >
+                      <span className="animate-shake">
                         {t(`${plan.id}.name`)}
-                      </motion.span>
+                      </span>
                     ) : (
                       t(`${plan.id}.name`)
                     )}
@@ -248,13 +240,9 @@ export function Pricing() {
 
                       <h3 className="text-xl font-semibold mb-3">
                         {plan.popular ? (
-                          <motion.span
-                            animate={{ x: [0, -2, 2, -2, 2, 0] }}
-                            transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
-                            style={{ display: 'inline-block' }}
-                          >
+                          <span className="animate-shake">
                             {t(`${plan.id}.name`)}
-                          </motion.span>
+                          </span>
                         ) : (
                           t(`${plan.id}.name`)
                         )}
