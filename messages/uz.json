@@ -49,8 +49,8 @@
     }
   },
   "portfolio": {
-    "title": "Kamtarona ishlarimiz :)",
-    "subtitle": "",
+    "title": "Portfolio",
+    "subtitle": "Kamtarona ishlarimiz :)",
     "description": "",
     "viewProject": "Loyihani ko'rish",
     "viewAll": "Sizda ham g'oya bormi?"
@@ -102,9 +102,9 @@
     }
   },
   "blog": {
-    "title": "Blog",
-    "subtitle": "",
-    "description": "AyTi haqida maqolalar",
+    "title": "Katov Studio",
+    "subtitle": "Blog emas, amaliy kontentlar",
+    "description": "",
     "readMore": "Davomini o'qish",
     "readTime": "daqiqa o'qish",
     "viewAll": "Barcha maqolalar"
@@ -112,7 +112,7 @@
   "contact": {
     "title": "Bog'lanish",
     "subtitle": "G'oyangizni birga quramiz!",
-    "description": "Loyihangiz haqida gaplashishga tayyormiz. Savollaringiz bo'lsa yoki hamkorlik qilmoqchi bo'lsangiz, biz bilan bog'laning.",
+    "description": "Loyihangizni qanday qilib natijaga olib chiqish mumkinligini birga ko'rib chiqamiz.",
     "phone": "Telefon",
     "form": {
       "name": "Ismingiz",

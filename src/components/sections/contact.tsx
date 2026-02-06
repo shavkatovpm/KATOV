@@ -3,8 +3,26 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Send, MessageCircle, Phone, Bot } from 'lucide-react';
+import { Phone, Bot, Instagram, Send } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+
+// Custom Telegram icon (minimal style)
+const TelegramIcon = ({ size = 20, className = '' }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="m22 2-7 20-4-9-9-4 20-7Z" />
+    <path d="M22 2 11 13" />
+  </svg>
+);
 
 export function Contact() {
   const t = useTranslations('contact');
@@ -36,32 +54,29 @@ export function Contact() {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
-  const phoneLabel = t('phone');
-
   const contactLinks = [
     {
-      icon: MessageCircle,
-      label: 'Telegram',
-      value: siteConfig.contact.telegram,
-      href: siteConfig.social.telegram,
+      icon: Phone,
+      value: '+998 33 888 01 33',
+      href: 'tel:+998338880133',
     },
     {
       icon: Bot,
-      label: 'Telegram Bot',
-      value: '@katov_bot',
-      href: 'https://t.me/katov_bot',
+      value: 'Telegramdan yozish',
+      href: 'https://t.me/katovuz_bot',
     },
+  ];
+
+  const socialLinks = [
     {
-      icon: Send,
+      icon: Instagram,
+      href: 'https://instagram.com/katov.uz',
       label: 'Instagram',
-      value: '@katov.uz',
-      href: siteConfig.social.instagram,
     },
     {
-      icon: Phone,
-      label: phoneLabel,
-      value: siteConfig.contact.phone,
-      href: `tel:${siteConfig.contact.phone.replace(/\s/g, '')}`,
+      icon: TelegramIcon,
+      href: 'https://t.me/katovuz',
+      label: 'Telegram',
     },
   ];
 
@@ -96,10 +111,10 @@ export function Contact() {
               {t('description')}
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {contactLinks.map((link, index) => (
                 <motion.a
-                  key={link.label}
+                  key={link.value}
                   href={link.href}
                   target={link.href.startsWith('tel') ? undefined : '_blank'}
                   rel={link.href.startsWith('tel') ? undefined : 'noopener noreferrer'}
@@ -107,22 +122,28 @@ export function Contact() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-4 p-4 rounded-xl transition-all hover:opacity-70"
-                  style={{
-                    backgroundColor: 'var(--color-bg)',
-                    border: '1px solid var(--color-border)',
-                  }}
+                  className="flex items-center gap-3 py-2 transition-opacity hover:opacity-60"
                 >
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: 'var(--color-border)' }}
-                  >
-                    <link.icon size={20} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted">{link.label}</p>
-                    <p className="font-medium">{link.value}</p>
-                  </div>
+                  <link.icon size={18} className="text-muted" />
+                  <span className="text-muted">{link.value}</span>
+                </motion.a>
+              ))}
+
+              {/* Social links with labels */}
+              {socialLinks.map((link, index) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  className="flex items-center gap-3 py-2 transition-opacity hover:opacity-60"
+                >
+                  <link.icon size={18} className="text-muted" />
+                  <span className="text-muted">{link.label}</span>
                 </motion.a>
               ))}
             </div>

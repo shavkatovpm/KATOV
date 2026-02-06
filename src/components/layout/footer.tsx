@@ -54,7 +54,7 @@ export function Footer() {
                   className="hover:opacity-70 transition-opacity"
                 >
                   <span className="text-muted">{siteConfig.contact.phoneCode}</span>{' '}
-                  <span>{siteConfig.contact.phoneNumber}</span>
+                  <span className="text-muted">{siteConfig.contact.phoneNumber}</span>
                 </a>
               </li>
               <li>

@@ -49,8 +49,8 @@
     }
   },
   "portfolio": {
-    "title": "Our humble works :)",
-    "subtitle": "",
+    "title": "Portfolio",
+    "subtitle": "Our humble works :)",
     "description": "",
     "viewProject": "View Project",
     "viewAll": "View All"
@@ -102,9 +102,9 @@
     }
   },
   "blog": {
-    "title": "Blog",
-    "subtitle": "Useful Articles",
-    "description": "Latest articles about website development, SEO, and design.",
+    "title": "Katov Studio",
+    "subtitle": "Not a blog, practical content",
+    "description": "",
     "readMore": "Read More",
     "readTime": "min read",
     "viewAll": "All Articles"
@@ -112,7 +112,7 @@
   "contact": {
     "title": "Contact Us",
     "subtitle": "Let's bring your idea to life!",
-    "description": "We're ready to discuss your project. If you have questions or want to collaborate, get in touch with us.",
+    "description": "Let's explore together how to turn your project into results.",
     "phone": "Phone",
     "form": {
       "name": "Your Name",

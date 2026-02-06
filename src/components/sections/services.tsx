@@ -42,7 +42,7 @@ export function Services() {
   }, [expandedCard]);
 
   return (
-    <section id="services" className="section-padding bg-section">
+    <section id="services" className="section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0 }}

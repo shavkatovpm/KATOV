@@ -53,9 +53,12 @@ export function Portfolio() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-script text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             {t('title')}
           </h2>
+          <p className="text-2xl sm:text-3xl md:text-4xl font-script text-muted mt-4">
+            {t('subtitle')}
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
