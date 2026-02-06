@@ -1,36 +1,35 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-const blogPosts = [
+const blogPostsUz = [
   {
-    slug: 'veb-sayt-narxi-2024',
-    title: "Veb-sayt yaratish narxi 2024-yilda",
-    description: "O'zbekistonda veb-sayt yaratish qancha turadi? To'liq qo'llanma.",
-    date: '2024-01-15',
-    readingTime: 5,
-  },
-  {
-    slug: 'seo-nima',
-    title: 'SEO nima va nima uchun kerak?',
-    description: "Qidiruv tizimlarida yuqori o'rinni egallash sirlari.",
-    date: '2024-01-10',
+    slug: 'sayt-yaratish-xizmati',
+    title: "Sayt yaratish xizmati: narxlar, turlar va buyurtma berish jarayoni",
+    description: "O'zbekistonda biznes uchun sayt yaratish xizmati haqida to'liq qo'llanma.",
+    date: '2025-02-06',
     readingTime: 7,
   },
+];
+
+const blogPostsRu = [
   {
-    slug: 'landing-page-afzalliklari',
-    title: 'Landing page afzalliklari',
-    description: 'Nima uchun har bir biznesga landing page kerak?',
-    date: '2024-01-05',
-    readingTime: 4,
+    slug: 'sozdanie-sayta-uslugi',
+    title: "Создание сайта: цены, виды и процесс заказа",
+    description: "Полное руководство по созданию сайтов для бизнеса в Узбекистане.",
+    date: '2025-02-06',
+    readingTime: 7,
   },
 ];
 
 export function BlogPreview() {
   const t = useTranslations('blog');
+  const locale = useLocale();
+
+  const blogPosts = locale === 'ru' ? blogPostsRu : blogPostsUz;
 
   return (
     <section id="blog" className="section-padding">
@@ -51,7 +50,7 @@ export function BlogPreview() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="max-w-2xl mx-auto">
           {blogPosts.map((post, index) => (
             <motion.article
               key={post.slug}
@@ -62,30 +61,37 @@ export function BlogPreview() {
             >
               <Link href={`/blog/${post.slug}`} className="group block">
                 <div
-                  className="aspect-[16/10] rounded-2xl mb-4 flex items-center justify-center"
-                  style={{ backgroundColor: 'color-mix(in srgb, var(--color-fg) 5%, transparent)' }}
+                  className="rounded-2xl p-6 sm:p-8 transition-all"
+                  style={{
+                    backgroundColor: 'color-mix(in srgb, var(--color-fg) 3%, transparent)',
+                    border: '1px solid var(--color-border)',
+                  }}
                 >
-                  <span className="text-4xl sm:text-5xl font-bold opacity-10">
-                    {post.title[0]}
-                  </span>
-                </div>
+                  <div className="flex items-center gap-2 text-muted text-xs sm:text-sm mb-3">
+                    <time>
+                      {new Date(post.date).toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'uz-UZ', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    <span>•</span>
+                    <span>{post.readingTime} {t('readTime')}</span>
+                  </div>
 
-                <div className="flex items-center gap-2 text-muted text-xs sm:text-sm mb-2">
-                  <time>
-                    {new Date(post.date).toLocaleDateString('uz-UZ', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  <span>•</span>
-                  <span>{post.readingTime} {t('readTime')}</span>
-                </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-3 group-hover:opacity-70 transition-opacity">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted text-sm sm:text-base mb-4">{post.description}</p>
 
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 group-hover:opacity-70 transition-opacity">
-                  {post.title}
-                </h3>
-                <p className="text-muted text-sm">{post.description}</p>
+                  <div className="flex items-center gap-2 text-sm font-medium opacity-70 group-hover:opacity-100 transition-opacity">
+                    {t('readMore')}
+                    <ArrowRight
+                      size={16}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
+                  </div>
+                </div>
               </Link>
             </motion.article>
           ))}

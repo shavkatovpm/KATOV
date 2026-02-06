@@ -139,7 +139,7 @@ export function About() {
           </p>
 
           <div className="mb-4 md:mb-8 text-left">
-            <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl">
+            <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-script">
               <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.01} isInView={isInView} />
             </span>
           </div>

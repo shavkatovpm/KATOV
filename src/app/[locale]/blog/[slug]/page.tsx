@@ -54,19 +54,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <article className="pt-24 pb-16">
-      <div className="container">
+    <article className="section-padding pt-32">
+      <div className="container-custom">
         <div className="max-w-3xl mx-auto">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-muted hover:text-foreground transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity mb-10"
           >
             <ArrowLeft size={18} />
             {t('viewAll')}
           </Link>
 
           <header className="mb-12">
-            <div className="flex items-center gap-3 text-sm text-muted mb-4">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted mb-5">
               <time>
                 {new Date(post.date).toLocaleDateString(locale, {
                   year: 'numeric',
@@ -82,15 +82,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <span>{post.author}</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
-            <p className="text-xl text-muted">{post.description}</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">{post.title}</h1>
+            <p className="text-base sm:text-lg md:text-xl text-muted">{post.description}</p>
 
             {post.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-6">
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-sm bg-foreground/5 rounded-full"
+                    className="px-3 py-1 text-xs sm:text-sm rounded-full"
+                    style={{
+                      backgroundColor: 'color-mix(in srgb, var(--color-fg) 10%, transparent)',
+                      border: '1px solid var(--color-border)',
+                    }}
                   >
                     {tag}
                   </span>
@@ -99,7 +103,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
           </header>
 
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div className="prose max-w-none">
             <MDXRemote source={post.content} />
           </div>
         </div>

@@ -24,13 +24,13 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const posts = getBlogPosts(locale);
 
   return (
-    <div className="pt-24 pb-16">
-      <div className="container">
+    <div className="section-padding pt-32">
+      <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-muted mb-2">{t('subtitle')}</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('title')}</h1>
-            <p className="text-muted text-lg">{t('description')}</p>
+            <p className="text-muted text-sm sm:text-base mb-2">{t('subtitle')}</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">{t('title')}</h1>
+            <p className="text-muted text-base sm:text-lg max-w-2xl mx-auto">{t('description')}</p>
           </div>
 
           {posts.length === 0 ? (
@@ -38,14 +38,18 @@ export default async function BlogPage({ params }: BlogPageProps) {
               <p className="text-muted">Maqolalar tez orada...</p>
             </div>
           ) : (
-            <div className="space-y-8">
+            <div className="space-y-6">
               {posts.map((post) => (
                 <article
                   key={post.slug}
-                  className="group border-b border-border pb-8 last:border-0"
+                  className="group rounded-2xl p-6 sm:p-8 transition-all"
+                  style={{
+                    backgroundColor: 'color-mix(in srgb, var(--color-fg) 3%, transparent)',
+                    border: '1px solid var(--color-border)',
+                  }}
                 >
                   <Link href={`/blog/${post.slug}`} className="block">
-                    <div className="flex items-center gap-3 text-sm text-muted mb-2">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted mb-3">
                       <time>
                         {new Date(post.date).toLocaleDateString(locale, {
                           year: 'numeric',
@@ -59,12 +63,12 @@ export default async function BlogPage({ params }: BlogPageProps) {
                       </span>
                     </div>
 
-                    <h2 className="text-2xl font-semibold mb-2 group-hover:text-muted transition-colors">
+                    <h2 className="text-xl sm:text-2xl font-semibold mb-3 group-hover:opacity-70 transition-opacity">
                       {post.title}
                     </h2>
-                    <p className="text-muted mb-4">{post.description}</p>
+                    <p className="text-muted text-sm sm:text-base mb-5 line-clamp-2">{post.description}</p>
 
-                    <div className="flex items-center gap-2 text-sm font-medium">
+                    <div className="flex items-center gap-2 text-sm font-medium opacity-70 group-hover:opacity-100 transition-opacity">
                       {t('readMore')}
                       <ArrowRight
                         size={16}
