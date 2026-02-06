@@ -70,14 +70,7 @@
 }
 
 /* Base Styles */
-html,
-body {
-  overscroll-behavior: none;
-  overscroll-behavior-y: none;
-}
-
 html {
-  scroll-behavior: smooth;
   background-color: #000000;
 }
 
@@ -87,16 +80,7 @@ body {
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
-}
-
-/* Prevent section stretching during overscroll */
-section {
-  position: relative;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 /* Fix mobile viewport height issues */
