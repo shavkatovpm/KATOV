@@ -69,7 +69,16 @@ export function Pricing() {
               )}
 
               <h3 className="text-xl font-semibold mb-3">
-                {t(`${plan.id}.name`)}
+                {plan.popular ? (
+                  <motion.span
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    {t(`${plan.id}.name`)}
+                  </motion.span>
+                ) : (
+                  t(`${plan.id}.name`)
+                )}
               </h3>
               <p
                 className="text-sm mb-2"
@@ -158,7 +167,16 @@ export function Pricing() {
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold mb-1">
-                    {t(`${plan.id}.name`)}
+                    {plan.popular ? (
+                      <motion.span
+                        animate={{ scale: [1, 1.02, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        {t(`${plan.id}.name`)}
+                      </motion.span>
+                    ) : (
+                      t(`${plan.id}.name`)
+                    )}
                   </h3>
                   <p
                     className="text-xs"
@@ -227,7 +245,16 @@ export function Pricing() {
                       </button>
 
                       <h3 className="text-xl font-semibold mb-3">
-                        {t(`${plan.id}.name`)}
+                        {plan.popular ? (
+                          <motion.span
+                            animate={{ scale: [1, 1.02, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            {t(`${plan.id}.name`)}
+                          </motion.span>
+                        ) : (
+                          t(`${plan.id}.name`)
+                        )}
                       </h3>
                       <p
                         className="text-sm mb-2"
