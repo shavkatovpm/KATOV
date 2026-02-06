@@ -72,15 +72,6 @@ export function About() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [isMobile, setIsMobile] = useState(false);
   const [heroComplete, setHeroComplete] = useState(false);
-  const [titleCanAnimate, setTitleCanAnimate] = useState(false);
-
-  // Title animates after hero animation completes (3.2s), regardless of scroll
-  useEffect(() => {
-    const titleTimer = setTimeout(() => {
-      setTitleCanAnimate(true);
-    }, 3200); // Hero typewriter completes around 3.2s
-    return () => clearTimeout(titleTimer);
-  }, []);
 
   // Wait for hero animation to complete before allowing other About animations
   useEffect(() => {
@@ -112,9 +103,8 @@ export function About() {
   const feature2 = t('feature2');
   const feature3 = t('feature3');
 
-  // Calculate delays based on visual order (top to bottom)
-  const titleDelay = 0;
-  const descDelay = titleDelay + title.length * 0.02 + 0.1;
+  // Calculate delays - title animates separately, other elements start from 0 when scrolled into view
+  const descDelay = 0;
   const desc2Delay = descDelay + description.length * 0.008 + 0.05;
   const featuresTitleDelay = desc2Delay + description2.length * 0.008 + 0.05;
   const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.01 + 0.05;
@@ -144,7 +134,7 @@ export function About() {
             transition={{ duration: borderDuration, ease: 'easeOut' }}
           />
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16 text-center">
-            <AnimatedText text={title} startDelay={titleDelay} charDelay={0.02} isInView={canAnimate} />
+            {title}
           </h2>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 leading-relaxed text-left">

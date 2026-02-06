@@ -50,8 +50,16 @@ export function Pricing() {
               key={plan.id}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
+              animate={plan.popular ? {
+                x: [0, -2, 2, -2, 2, -2, 2, -1, 0],
+                rotate: [0, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0],
+              } : {}}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={plan.popular ? {
+                opacity: { duration: 0.6, delay: index * 0.1 },
+                x: { duration: 0.5, repeat: Infinity, repeatDelay: 2 },
+                rotate: { duration: 0.5, repeat: Infinity, repeatDelay: 2 },
+              } : { duration: 0.6, delay: index * 0.1 }}
               className="relative rounded-2xl p-8 flex flex-col"
               style={{
                 backgroundColor: plan.popular ? 'var(--color-fg)' : 'var(--color-bg)',
@@ -69,13 +77,7 @@ export function Pricing() {
               )}
 
               <h3 className="text-xl font-semibold mb-3">
-                {plan.popular ? (
-                  <span className="animate-shake">
-                    {t(`${plan.id}.name`)}
-                  </span>
-                ) : (
-                  t(`${plan.id}.name`)
-                )}
+                {t(`${plan.id}.name`)}
               </h3>
               <p
                 className="text-sm mb-2"
@@ -142,8 +144,16 @@ export function Pricing() {
               key={plan.id}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
+              animate={plan.popular ? {
+                x: [0, -2, 2, -2, 2, -2, 2, -1, 0],
+                rotate: [0, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0],
+              } : {}}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={plan.popular ? {
+                opacity: { duration: 0.6, delay: index * 0.1 },
+                x: { duration: 0.5, repeat: Infinity, repeatDelay: 2 },
+                rotate: { duration: 0.5, repeat: Infinity, repeatDelay: 2 },
+              } : { duration: 0.6, delay: index * 0.1 }}
               className="relative rounded-2xl p-6 cursor-pointer"
               style={{
                 backgroundColor: plan.popular ? 'var(--color-fg)' : 'var(--color-bg)',
@@ -164,13 +174,7 @@ export function Pricing() {
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold mb-1">
-                    {plan.popular ? (
-                      <span className="animate-shake">
-                        {t(`${plan.id}.name`)}
-                      </span>
-                    ) : (
-                      t(`${plan.id}.name`)
-                    )}
+                    {t(`${plan.id}.name`)}
                   </h3>
                   <p
                     className="text-xs"
@@ -239,13 +243,7 @@ export function Pricing() {
                       </button>
 
                       <h3 className="text-xl font-semibold mb-3">
-                        {plan.popular ? (
-                          <span className="animate-shake">
-                            {t(`${plan.id}.name`)}
-                          </span>
-                        ) : (
-                          t(`${plan.id}.name`)
-                        )}
+                        {t(`${plan.id}.name`)}
                       </h3>
                       <p
                         className="text-sm mb-2"

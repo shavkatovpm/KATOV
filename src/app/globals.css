@@ -35,26 +35,6 @@
   will-change: transform;
 }
 
-/* Shake animation for pricing */
-@keyframes shake {
-  0%, 100% { transform: translateX(0) rotate(0deg); }
-  10% { transform: translateX(-2px) rotate(-1deg); }
-  20% { transform: translateX(2px) rotate(1deg); }
-  30% { transform: translateX(-2px) rotate(-1deg); }
-  40% { transform: translateX(2px) rotate(1deg); }
-  50% { transform: translateX(-2px) rotate(-1deg); }
-  60% { transform: translateX(2px) rotate(1deg); }
-  70% { transform: translateX(-2px) rotate(-1deg); }
-  80% { transform: translateX(2px) rotate(1deg); }
-  90% { transform: translateX(-1px) rotate(0deg); }
-}
-
-.animate-shake {
-  display: inline-block !important;
-  animation: shake 0.5s ease-in-out !important;
-  animation-iteration-count: infinite !important;
-}
-
 /* Fade in animation with delay */
 @keyframes fadeInDelayed {
   0% {
