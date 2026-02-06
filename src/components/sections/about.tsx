@@ -110,14 +110,14 @@ export function About() {
           {/* Animated borders that draw from top to bottom when section is in view */}
           <motion.div
             className="absolute -left-4 sm:-left-6 md:-left-8 top-0 bottom-0 w-px pointer-events-none"
-            style={{ backgroundColor: '#444444' }}
+            style={{ backgroundColor: '#dddddd' }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
             transition={{ duration: borderDuration, ease: 'easeOut' }}
           />
           <motion.div
             className="absolute -right-4 sm:-right-6 md:-right-8 top-0 bottom-0 w-px pointer-events-none"
-            style={{ backgroundColor: '#444444' }}
+            style={{ backgroundColor: '#dddddd' }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
             transition={{ duration: borderDuration, ease: 'easeOut' }}

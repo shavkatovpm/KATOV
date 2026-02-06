@@ -6,7 +6,6 @@ import { Providers } from '@/components/providers';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import SplashCursor from '@/components/ui/SplashCursor';
-import { PreventOverscroll } from '@/components/ui/PreventOverscroll';
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -28,12 +27,13 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Providers>
-        <PreventOverscroll />
         <SplashCursor />
-        <Header />
-        <div className="page-content flex min-h-screen flex-col">
-          <main className="flex-1">{children}</main>
-          <Footer />
+        <div className="scroll-container">
+          <Header />
+          <div className="page-content flex min-h-screen flex-col">
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </div>
       </Providers>
     </NextIntlClientProvider>
