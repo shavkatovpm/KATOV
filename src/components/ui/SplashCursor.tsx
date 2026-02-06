@@ -1157,6 +1157,43 @@ function SplashCursor({
       updatePointerUpData(pointer);
     }
 
+    // Scroll-based effect for when touch events are sparse
+    let lastScrollY = window.scrollY;
+    let lastScrollTime = Date.now();
+    let scrollColor = generateColor();
+
+    function handleScroll() {
+      const now = Date.now();
+      const dt = now - lastScrollTime;
+      if (dt < 16) return; // Throttle
+
+      const scrollY = window.scrollY;
+      const deltaY = scrollY - lastScrollY;
+
+      // Only create effects for significant scroll movement
+      if (Math.abs(deltaY) > 5) {
+        // Create effect at center of screen, moving with scroll
+        const centerX = canvas.width / 2;
+        const texX = (centerX / canvas.width);
+        const texY = 0.5; // Center vertically
+
+        const scrollSpeed = Math.abs(deltaY) / dt * 16; // Normalize to frame
+        const forceMult = Math.min(scrollSpeed / 10, 5);
+
+        // Create splat based on scroll direction and speed
+        const forceY = (deltaY > 0 ? -1 : 1) * config.SPLAT_FORCE * 0.3 * forceMult;
+        splat(texX, texY, 0, forceY, scrollColor);
+
+        // Change color occasionally
+        if (Math.random() < 0.1) {
+          scrollColor = generateColor();
+        }
+      }
+
+      lastScrollY = scrollY;
+      lastScrollTime = now;
+    }
+
     // Add event listeners
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mousemove', handleMouseMove);
@@ -1164,6 +1201,7 @@ function SplashCursor({
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
     window.addEventListener('touchcancel', handleTouchCancel, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     updateFrame();
 
@@ -1187,6 +1225,7 @@ function SplashCursor({
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('touchcancel', handleTouchCancel);
+      window.removeEventListener('scroll', handleScroll);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
