@@ -177,7 +177,7 @@ export function Services() {
               animate={
                 expandedCard === plan.id
                   ? { borderColor: '#dddddd' }
-                  : plan.popular
+                  : plan.popular && !expandedCard
                     ? { x: [0, -2, 2, -2, 2, 0] }
                     : {}
               }
@@ -185,7 +185,7 @@ export function Services() {
               transition={
                 expandedCard === plan.id
                   ? { borderColor: { duration: 0.3 } }
-                  : plan.popular
+                  : plan.popular && !expandedCard
                     ? {
                         opacity: { duration: 0.6, delay: index * 0.1 },
                         x: { duration: 0.5, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' },
