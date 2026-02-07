@@ -31,11 +31,11 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
     return () => clearTimeout(timeout);
   }, [textIndex]);
 
-  // Typewriter effect - starts after "Katov" animation completes (0.75s delay + 0.5s duration = 1.25s)
+  // Typewriter effect - starts after "Katov" animation completes (0.25s delay + 0.5s duration = 0.75s)
   useEffect(() => {
     const startDelay = setTimeout(() => {
       setShowTypewriter(true);
-    }, 1250);
+    }, 750);
     return () => clearTimeout(startDelay);
   }, []);
 
@@ -91,7 +91,7 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
           <motion.h1
             initial={{ opacity: 0, filter: 'blur(10px)' }}
             animate={{ opacity: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 0.5, delay: shakeCtaButton ? 0 : 0.75 }}
+            transition={{ duration: 0.5, delay: shakeCtaButton ? 0 : 0.25 }}
             className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 uppercase"
           >
             {t('name')}
