@@ -87,14 +87,42 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
   return (
     <section className="relative py-32 sm:py-40 md:py-48 lg:py-56">
       <div className="container-custom text-center">
-        <motion.h1
-          initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 0.75 }}
-          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 uppercase"
-        >
-          {t('name')}
-        </motion.h1>
+        <div className="relative inline-block">
+          <motion.h1
+            initial={{ opacity: 0, filter: 'blur(10px)' }}
+            animate={shakeCtaButton ? { opacity: 0.2, filter: 'blur(0px)' } : { opacity: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 0.5, delay: shakeCtaButton ? 0 : 0.75 }}
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 uppercase"
+          >
+            {t('name')}
+          </motion.h1>
+          <AnimatePresence>
+            {shakeCtaButton && [0, 1, 2].map((i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 0, scale: 0.6 }}
+                animate={{
+                  opacity: [0, 0.4, 0.8, 1, 0.8, 0.3, 0],
+                  y: [0, -8, -16, -24, -32, -38, -44],
+                  scale: [0.6, 0.7, 0.8, 0.9, 0.95, 1, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: i * 0.8,
+                  ease: 'linear',
+                }}
+                className="absolute top-0 text-lg sm:text-xl md:text-2xl font-normal"
+                style={{
+                  color: '#555',
+                  right: `${2 + i * -8}px`,
+                }}
+              >
+                z
+              </motion.span>
+            ))}
+          </AnimatePresence>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, filter: 'blur(10px)' }}

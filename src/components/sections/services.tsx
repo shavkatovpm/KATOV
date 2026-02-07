@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Check, ChevronDown } from 'lucide-react';
 
 const plans = [
@@ -17,8 +17,12 @@ export function Services() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [shakeButton, setShakeButton] = useState<string | null>(null);
+  const [shakeChevron, setShakeChevron] = useState(false);
   const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionInView = useInView(sectionRef, { once: false });
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const chevronTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const activeCard = hoveredCard || expandedCard;
@@ -39,6 +43,25 @@ export function Services() {
       }
     };
   }, [hoveredCard, expandedCard]);
+
+  // Mobile chevron animation after 10s idle, restart on card click or view change
+  useEffect(() => {
+    if (!sectionInView) {
+      if (chevronTimerRef.current) clearTimeout(chevronTimerRef.current);
+      setShakeChevron(false);
+      return;
+    }
+
+    if (chevronTimerRef.current) clearTimeout(chevronTimerRef.current);
+    setShakeChevron(false);
+    chevronTimerRef.current = setTimeout(() => {
+      setShakeChevron(true);
+    }, 10000);
+
+    return () => {
+      if (chevronTimerRef.current) clearTimeout(chevronTimerRef.current);
+    };
+  }, [expandedCard, sectionInView]);
 
   const handleCardClick = (planId: string) => {
     if (window.innerWidth < 1024) {
@@ -167,7 +190,7 @@ export function Services() {
         </div>
 
         {/* Mobile Cards */}
-        <div className="lg:hidden grid gap-5">
+        <div ref={sectionRef} className="lg:hidden grid gap-5">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}
@@ -188,7 +211,7 @@ export function Services() {
                   : plan.popular && !expandedCard
                     ? {
                         opacity: { duration: 0.6, delay: index * 0.1 },
-                        x: { duration: 0.5, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' },
+                        x: { duration: 0.5, repeat: Infinity, repeatDelay: 3, delay: 3, ease: 'easeInOut' },
                       }
                     : { duration: 0.6, delay: index * 0.1 }
               }
@@ -205,10 +228,22 @@ export function Services() {
                   {pt(`${plan.id}.name`)}
                 </h3>
                 <motion.div
-                  animate={{ rotate: expandedCard === plan.id ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
+                  animate={{
+                    rotate: expandedCard === plan.id ? 180 : 0,
+                    opacity: !expandedCard && shakeChevron ? [0.5, 1, 0.5] : expandedCard === plan.id ? 1 : 0.5,
+                    scale: !expandedCard && shakeChevron ? [1, 1.2, 1] : 1,
+                  }}
+                  transition={{
+                    rotate: { duration: 0.2 },
+                    opacity: !expandedCard && shakeChevron
+                      ? { duration: 1.5, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut', delay: index * 3 }
+                      : { duration: 0.3 },
+                    scale: !expandedCard && shakeChevron
+                      ? { duration: 1.5, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut', delay: index * 3 }
+                      : { duration: 0.3 },
+                  }}
                 >
-                  <ChevronDown size={20} className="opacity-50" />
+                  <ChevronDown size={20} />
                 </motion.div>
               </div>
               <p className="text-sm text-muted mb-2">
