@@ -135,7 +135,7 @@ export function Footer() {
           style={{ borderTop: '1px solid var(--color-border)' }}
         >
           <p className="text-muted text-xs sm:text-sm">
-            &copy; {currentYear} {siteConfig.name}. {t('rights')}
+            &copy; {currentYear} {siteConfig.name} {t('rights')}
           </p>
         </div>
       </div>
