@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -12,12 +12,14 @@ const blurTexts = [
   'Yoqimli interfeys',
 ];
 
-export function Hero() {
+export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void }) {
   const t = useTranslations('hero');
   const [textIndex, setTextIndex] = useState(0);
   const [displayedTitle, setDisplayedTitle] = useState('');
   const [showTypewriter, setShowTypewriter] = useState(false);
   const [showOtherElements, setShowOtherElements] = useState(false);
+  const [shakeCtaButton, setShakeCtaButton] = useState(false);
+  const ctaTimerRef = useRef<NodeJS.Timeout | null>(null);
   const title = t('title');
 
   useEffect(() => {
@@ -29,12 +31,11 @@ export function Hero() {
     return () => clearTimeout(timeout);
   }, [textIndex]);
 
-  // Typewriter effect - starts when "Katov" animation completes (0.75s delay + 0.5s duration = 1.25s)
+  // Typewriter effect - starts after "Katov" animation completes (0.75s delay + 0.5s duration = 1.25s)
   useEffect(() => {
     const startDelay = setTimeout(() => {
       setShowTypewriter(true);
     }, 1250);
-
     return () => clearTimeout(startDelay);
   }, []);
 
@@ -51,6 +52,7 @@ export function Hero() {
         // Show other elements 1 second after typewriter completes
         setTimeout(() => {
           setShowOtherElements(true);
+          onAnimationComplete?.();
         }, 1000);
       }
     }, 50);
@@ -58,12 +60,29 @@ export function Hero() {
     return () => clearInterval(typeInterval);
   }, [showTypewriter, title]);
 
-  // Calculate visible characters with their indices
-  const visibleChars = displayedTitle.split('').map((char, i) => ({
-    char,
-    index: i,
-    isNew: i === displayedTitle.length - 1,
-  }));
+
+  // CTA shake after 10s idle on hero, scroll resets timer
+  useEffect(() => {
+    if (!showOtherElements) return;
+
+    const startTimer = () => {
+      if (ctaTimerRef.current) clearTimeout(ctaTimerRef.current);
+      setShakeCtaButton(false);
+      ctaTimerRef.current = setTimeout(() => {
+        setShakeCtaButton(true);
+      }, 10000);
+    };
+
+    startTimer();
+
+    const handleScroll = () => startTimer();
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (ctaTimerRef.current) clearTimeout(ctaTimerRef.current);
+    };
+  }, [showOtherElements]);
 
   return (
     <section className="relative py-32 sm:py-40 md:py-48 lg:py-56">
@@ -131,7 +150,7 @@ export function Hero() {
           animate={showOtherElements ? { opacity: 1, filter: 'blur(0px)' } : { opacity: 0, filter: 'blur(10px)' }}
           transition={{ duration: 0.5 }}
         >
-          <a
+          <motion.a
             href="#services"
             onClick={(e) => {
               e.preventDefault();
@@ -140,10 +159,16 @@ export function Hero() {
                 element.scrollIntoView({ behavior: 'smooth' });
               }
             }}
+            animate={shakeCtaButton ? {
+              x: [0, -8, 8, -8, 8, 0],
+            } : {}}
+            transition={{
+              x: { duration: 0.5, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' },
+            }}
             className="btn-outline inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-full transition-colors cursor-pointer"
           >
             {t('cta')}
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>
