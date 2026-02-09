@@ -5,11 +5,11 @@ import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const blurTexts = [
-  'Ishonchli website',
-  'Minimalistik dizayn',
-  'Zamonaviy dastur',
-  'Raqamli yechimlar',
-  'Yoqimli interfeys',
+  'Natijali Website',
+  'Strategik Dizayn',
+  'Biznes Avtomatika',
+  'Individual Platforma',
+  "O'lchanadigan Natija",
 ];
 
 export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void }) {

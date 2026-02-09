@@ -22,13 +22,16 @@
   },
   "about": {
     "title": "Who is KATOV?",
-    "description": "KATOV is a studio that creates creative and reliable web solutions. We build websites not just for looks, but for results.",
-    "description2": "Every project is focused on clear goals, understandable structure, and real results. We combine design tailored to your business, modern technologies, and convenient management.",
+    "description": "Katov is a technical partner building digital systems that work for your business.",
+    "description2": "We connect beautiful design with strategy, and technology with real results.",
     "featuresTitle": "In short:",
-    "feature1": "Minimal design",
-    "feature2": "Individual approach",
-    "feature3": "Creative solutions",
-    "feature4": "Reliable websites and platforms"
+    "feature4": "We build websites that generate profit, capture leads, and simplify processes.",
+    "featuresIntro": "Every project:",
+    "feature1": "starts with strategy",
+    "feature2": "is built with beautiful minimalist design",
+    "feature3": "runs on sales and lead generation logic",
+    "feature5": "integrates with Telegram and other systems",
+    "feature6": "results are measured in numbers"
   },
   "services": {
     "title": "Our Services",

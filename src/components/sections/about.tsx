@@ -99,16 +99,21 @@ export function About() {
   const description2 = t('description2');
   const featuresTitle = t('featuresTitle');
   const feature4 = t('feature4');
-  const feature1 = t('feature1');
-  const feature2 = t('feature2');
-  const feature3 = t('feature3');
+  const featuresIntro = t('featuresIntro');
+  const bulletFeatures = [
+    t('feature1'),
+    t('feature2'),
+    t('feature3'),
+    t('feature5'),
+    t('feature6'),
+  ];
 
   // Calculate delays - title animates separately, other elements start from 0 when scrolled into view
   const descDelay = 0;
   const desc2Delay = descDelay + description.length * 0.008 + 0.05;
   const featuresTitleDelay = desc2Delay + description2.length * 0.008 + 0.05;
   const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.01 + 0.05;
-  const featuresRowDelay = feature4Delay + feature4.length * 0.01 + 0.05;
+  const featuresIntroDelay = feature4Delay + feature4.length * 0.01 + 0.05;
 
   return (
     <section
@@ -149,62 +154,34 @@ export function About() {
             <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.01} isInView={canAnimate} />
           </p>
 
-          <div className="mb-4 md:mb-8 text-left">
+          <div className="mb-8 md:mb-12 text-left">
             <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-script">
               <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.01} isInView={canAnimate} />
             </span>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-0 text-left">
-            <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
-              <motion.span
-                className="text-muted md:hidden"
-                initial={{ opacity: 0 }}
-                animate={canAnimate ? { opacity: 1 } : {}}
-                transition={{ delay: featuresRowDelay }}
-              >
-                •
-              </motion.span>
-              <AnimatedText text={feature1} startDelay={featuresRowDelay} charDelay={0.015} isInView={canAnimate} />
-            </span>
-            <motion.span
-              className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
-              initial={{ opacity: 0 }}
-              animate={canAnimate ? { opacity: 1 } : {}}
-              transition={{ delay: featuresRowDelay + feature1.length * 0.015 + 0.05 }}
-            >
-              •
-            </motion.span>
-            <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
-              <motion.span
-                className="text-muted md:hidden"
-                initial={{ opacity: 0 }}
-                animate={canAnimate ? { opacity: 1 } : {}}
-                transition={{ delay: featuresRowDelay + feature1.length * 0.015 + 0.08 }}
-              >
-                •
-              </motion.span>
-              <AnimatedText text={feature2} startDelay={featuresRowDelay + feature1.length * 0.015 + 0.08} charDelay={0.015} isInView={canAnimate} />
-            </span>
-            <motion.span
-              className="hidden md:inline text-muted mx-6 md:text-xl lg:text-2xl"
-              initial={{ opacity: 0 }}
-              animate={canAnimate ? { opacity: 1 } : {}}
-              transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.13 }}
-            >
-              •
-            </motion.span>
-            <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl lg:text-2xl">
-              <motion.span
-                className="text-muted md:hidden"
-                initial={{ opacity: 0 }}
-                animate={canAnimate ? { opacity: 1 } : {}}
-                transition={{ delay: featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16 }}
-              >
-                •
-              </motion.span>
-              <AnimatedText text={feature3} startDelay={featuresRowDelay + (feature1.length + feature2.length) * 0.015 + 0.16} charDelay={0.015} isInView={canAnimate} />
-            </span>
+          <p className="text-muted text-sm sm:text-base md:text-xl mb-4 md:mb-6 text-left">
+            <AnimatedText text={featuresIntro} startDelay={featuresIntroDelay} charDelay={0.01} isInView={canAnimate} />
+          </p>
+
+          <div className="flex flex-col gap-2 md:gap-3 text-left">
+            {bulletFeatures.map((feat, i) => {
+              const prevChars = bulletFeatures.slice(0, i).reduce((sum, f) => sum + f.length, 0);
+              const bulletDelay = featuresIntroDelay + featuresIntro.length * 0.01 + 0.05 + prevChars * 0.015 + i * 0.05;
+              return (
+                <span key={i} className="flex items-center gap-3 text-base sm:text-lg md:text-xl lg:text-2xl">
+                  <motion.span
+                    className="text-muted"
+                    initial={{ opacity: 0 }}
+                    animate={canAnimate ? { opacity: 1 } : {}}
+                    transition={{ delay: bulletDelay }}
+                  >
+                    •
+                  </motion.span>
+                  <AnimatedText text={feat} startDelay={bulletDelay} charDelay={0.015} isInView={canAnimate} />
+                </span>
+              );
+            })}
           </div>
         </div>
       </div>

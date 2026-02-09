@@ -22,13 +22,16 @@
   },
   "about": {
     "title": "KATOV kim?",
-    "description": "KATOV - kreativ va ishonchli web yechimlar ishlab chiqadigan studiya. Biz saytni shunchaki ko'rinish uchun emas, foyda keltirishi uchun qilamiz.",
-    "description2": "Har bir loyiha aniq maqsad, tushunarli struktura va real natijaga yo'naltiriladi. Biznesingizga mos dizayn, zamonaviy texnologiyalar va qulay boshqaruvni birlashtiramiz.",
-    "featuresTitle": "Qisqacha aytganda:",
-    "feature1": "Minimal dizayn",
-    "feature2": "Individual yondashuv",
-    "feature3": "Kreativ yechim",
-    "feature4": "Ishonchli website va platformalar quramiz"
+    "description": "Katov — biznes uchun ishlaydigan raqamli tizimlar ishlab chiquvchi texnik hamkor.",
+    "description2": "Biz chiroyli dizaynni strategiya bilan, texnologiyani esa real natija bilan bog'laymiz.",
+    "featuresTitle": "Qisqa qilib aytganda:",
+    "feature4": "Website'ni foyda keltirishi, lead olib kelishi va jarayonni soddalashtirishi uchun quramiz.",
+    "featuresIntro": "Har bir loyiha:",
+    "feature1": "strategiyadan boshlanadi",
+    "feature2": "chiroyli va minimalistik dizayn bilan quriladi",
+    "feature3": "sotuv va lead olib keladigan logika asosida ishlaydi",
+    "feature5": "Telegram va boshqa tizimlar bilan integratsiya qilinadi",
+    "feature6": "natijasi raqamlar orqali o'lchanadi"
   },
   "services": {
     "title": "Xizmatlarimiz",
