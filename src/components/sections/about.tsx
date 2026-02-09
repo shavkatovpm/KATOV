@@ -142,11 +142,9 @@ export function About() {
             {title}
           </h2>
 
-          <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 leading-relaxed text-left">
-            <AnimatedText text={description} startDelay={descDelay} charDelay={0.008} isInView={canAnimate} />
-          </p>
-
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-12 md:mb-20 leading-relaxed text-left">
+            <AnimatedText text={description} startDelay={descDelay} charDelay={0.008} isInView={canAnimate} />
+            {' '}
             <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.008} isInView={canAnimate} />
           </p>
 
@@ -155,7 +153,7 @@ export function About() {
           </p>
 
           <div className="mb-8 md:mb-12 text-left">
-            <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-script">
+            <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl">
               <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.01} isInView={canAnimate} />
             </span>
           </div>

@@ -87,9 +87,13 @@ export function Header() {
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    const element = document.querySelector(item.href);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
+                    if (isHomePage) {
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    } else {
+                      router.push(`/${locale}${item.href}`);
                     }
                   }}
                   className="text-sm font-medium nav-link cursor-pointer"
@@ -176,9 +180,13 @@ export function Header() {
                         onClick={(e) => {
                           e.preventDefault();
                           setIsOpen(false);
-                          const element = document.querySelector(item.href);
-                          if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' });
+                          if (isHomePage) {
+                            const element = document.querySelector(item.href);
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          } else {
+                            router.push(`/${locale}${item.href}`);
                           }
                         }}
                         className="py-3 text-base font-medium nav-link text-right block cursor-pointer"

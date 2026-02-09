@@ -4,16 +4,9 @@ import { useState, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const blurTexts = [
-  'Natijali Website',
-  'Strategik Dizayn',
-  'Biznes Avtomatika',
-  'Individual Platforma',
-  "O'lchanadigan Natija",
-];
-
 export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void }) {
   const t = useTranslations('hero');
+  const blurTexts = [t('blur1'), t('blur2'), t('blur3'), t('blur4'), t('blur5')];
   const [textIndex, setTextIndex] = useState(0);
   const [displayedTitle, setDisplayedTitle] = useState('');
   const [showTypewriter, setShowTypewriter] = useState(false);

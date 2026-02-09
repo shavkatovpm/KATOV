@@ -18,7 +18,12 @@
     "title": "Not standard, creative solution",
     "description": "Minimal design. Maximum impact. We help your brand stand out in the online world.",
     "cta": "Start Your Project",
-    "scroll": "Scroll down"
+    "scroll": "Scroll down",
+    "blur1": "Effective Website",
+    "blur2": "Strategic Design",
+    "blur3": "Business Automation",
+    "blur4": "Custom Platform",
+    "blur5": "Measurable Results"
   },
   "about": {
     "title": "Who is KATOV?",
@@ -35,7 +40,7 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "",
+    "subtitle": "Every project is built with an individual strategy.",
     "description": "Every website must serve the brand!",
     "calcPrice": "Calculate price yourself",
     "freeConsultation": "Get free consultation",

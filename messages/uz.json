@@ -18,7 +18,12 @@
     "title": "Standart emas, kreativ yechim",
     "description": "Minimal dizayn. Maksimal ta'sir. Sizning brendingizni onlayn dunyoda ajralib turishiga yordam beramiz.",
     "cta": "Xizmatlar va Narxlar",
-    "scroll": "Pastga"
+    "scroll": "Pastga",
+    "blur1": "Natijali Website",
+    "blur2": "Strategik Dizayn",
+    "blur3": "Biznes Avtomatika",
+    "blur4": "Individual Platforma",
+    "blur5": "O'lchanadigan Natija"
   },
   "about": {
     "title": "KATOV kim?",
@@ -35,7 +40,7 @@
   },
   "services": {
     "title": "Xizmatlarimiz",
-    "subtitle": "",
+    "subtitle": "Har bir loyiha alohida strategiya bilan quriladi.",
     "calcPrice": "Narxni o'zingiz hisoblang",
     "freeConsultation": "Bepul konsultatsiya olish",
     "learnMore": "Batafsil",

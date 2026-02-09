@@ -96,11 +96,12 @@ export function Services() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-14 lg:mb-5"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             {t('title')}
           </h2>
+          <p className="text-muted text-sm mt-2">{t('subtitle')}</p>
         </motion.div>
 
         {/* Desktop Cards */}
