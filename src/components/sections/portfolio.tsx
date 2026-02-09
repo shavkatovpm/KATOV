@@ -76,7 +76,7 @@ export function Portfolio() {
                 <div
                   className="relative aspect-[4/3] rounded-2xl overflow-hidden p-5 sm:p-6 flex flex-col justify-between"
                   style={{
-                    backgroundColor: 'color-mix(in srgb, var(--color-fg) 5%, transparent)',
+                    backgroundColor: '#000000',
                     border: '1px solid var(--color-border)'
                   }}
                 >

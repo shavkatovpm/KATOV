@@ -38,7 +38,7 @@ export function BlogPreview() {
               href="/studio/price"
               className="group block rounded-2xl p-6 sm:p-8 transition-all duration-300"
               style={{
-                backgroundColor: 'color-mix(in srgb, var(--color-fg) 3%, transparent)',
+                backgroundColor: '#000000',
                 border: '1px solid var(--color-border)',
               }}
               onMouseEnter={(e) => {

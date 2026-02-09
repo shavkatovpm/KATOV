@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
-import { Locale, locales } from '@/i18n/config';
+import { Locale, locales, defaultLocale } from '@/i18n/config';
 import { getBlogPost, getAllBlogSlugs } from '@/lib/blog';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -31,6 +31,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
   const { locale, slug } = await params;
+
+  // Redirect to correct slug for this locale
+  const mapping = slugMap[slug];
+  if (mapping && mapping[locale] && mapping[locale] !== slug) {
+    return { title: 'Redirecting...' };
+  }
+
   const post = getBlogPost(slug, locale);
 
   if (!post) {
@@ -41,7 +48,6 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   const url = `${baseUrl}/${locale}/studio/${slug}`;
 
   const alternateLanguages: Record<string, string> = {};
-  const mapping = slugMap[slug];
   if (mapping) {
     for (const loc of locales) {
       if (mapping[loc]) {
@@ -86,6 +92,14 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { locale, slug } = await params;
+
+  // Redirect to correct slug for this locale (e.g., UZ slug on EN page → EN slug)
+  const slugMapping = slugMap[slug];
+  if (slugMapping && slugMapping[locale] && slugMapping[locale] !== slug) {
+    const prefix = locale === defaultLocale ? '' : `/${locale}`;
+    redirect(`${prefix}/studio/${slugMapping[locale]}`);
+  }
+
   const t = await getTranslations({ locale, namespace: 'blog' });
   const post = getBlogPost(slug, locale);
 

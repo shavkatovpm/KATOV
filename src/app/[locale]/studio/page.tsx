@@ -135,7 +135,7 @@ export default function StudioPage() {
                       href={`/studio/${tool.id}`}
                       className="group block rounded-2xl p-6 sm:p-8 transition-all duration-300"
                       style={{
-                        backgroundColor: 'color-mix(in srgb, var(--color-fg) 5%, transparent)',
+                        backgroundColor: '#000000',
                         border: '1px solid var(--color-border)',
                       }}
                       onMouseEnter={(e) => {
@@ -182,7 +182,7 @@ export default function StudioPage() {
                       href={`/studio/${post.slug}`}
                       className="group block rounded-2xl p-6 sm:p-8 transition-all duration-300 h-full"
                       style={{
-                        backgroundColor: 'color-mix(in srgb, var(--color-fg) 5%, transparent)',
+                        backgroundColor: '#000000',
                         border: '1px solid var(--color-border)',
                       }}
                       onMouseEnter={(e) => {

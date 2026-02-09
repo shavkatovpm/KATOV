@@ -203,7 +203,7 @@ export function Contact() {
               <div
                 className="mb-5 p-4 rounded-xl text-sm"
                 style={{
-                  backgroundColor: 'color-mix(in srgb, var(--color-fg) 5%, transparent)',
+                  backgroundColor: '#000000',
                   border: '1px solid var(--color-border)',
                 }}
               >

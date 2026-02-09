@@ -263,7 +263,7 @@ export function Services() {
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
-                    className="overflow-hidden"
+                    style={{ clipPath: 'inset(0 -20px)' }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <div className="pt-5 mt-5" style={{ borderTop: '1px solid var(--color-border)' }}>
