@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Check, RotateCcw } from 'lucide-react';
 import Link from 'next/link';
@@ -18,12 +19,12 @@ const siteTypes = [
 ];
 
 const features = [
-  { id: 'admin', price: 200, days: 5 },
-  { id: 'telegram', price: 150, days: 3 },
-  { id: 'analytics', price: 100, days: 2 },
-  { id: 'seo', price: 100, days: 2 },
-  { id: 'multilang', price: 150, days: 3 },
-  { id: 'payment', price: 200, days: 4 },
+  { id: 'admin', price: 200, daysPercent: 0.2 },
+  { id: 'telegram', price: 150, daysPercent: 0.2 },
+  { id: 'analytics', price: 50, daysPercent: 0.2 },
+  { id: 'seo', price: 50, daysPercent: 0.1 },
+  { id: 'multilang', price: 50, daysPercent: 0.2 },
+  { id: 'payment', price: 200, fixedDays: 7 },
 ];
 
 const designTypes = [
@@ -34,6 +35,7 @@ const designTypes = [
 
 export default function PriceCalculator() {
   const t = useTranslations('studio.priceTool');
+  const locale = useLocale();
   const [step, setStep] = useState<Step>('type');
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
@@ -58,7 +60,11 @@ export default function PriceCalculator() {
       const feature = features.find(f => f.id === fId);
       if (feature) {
         totalPrice += feature.price;
-        totalDays += feature.days;
+        if (feature.fixedDays) {
+          totalDays += feature.fixedDays;
+        } else if (feature.daysPercent) {
+          totalDays += Math.ceil(type.baseDays * feature.daysPercent);
+        }
       }
     });
 
@@ -362,15 +368,16 @@ export default function PriceCalculator() {
                       <RotateCcw size={14} />
                       {t('restart')}
                     </button>
-                    <a
-                      href="#contact"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.location.href = '/';
-                        setTimeout(() => {
-                          const el = document.querySelector('#contact');
-                          if (el) el.scrollIntoView({ behavior: 'smooth' });
-                        }, 500);
+                    <button
+                      onClick={() => {
+                        const params = new URLSearchParams({
+                          type: selectedType || '',
+                          features: selectedFeatures.join(','),
+                          design: selectedDesign || '',
+                          price: String(price),
+                          days: String(days),
+                        });
+                        window.location.href = `/${locale}?order=${encodeURIComponent(params.toString())}#contact`;
                       }}
                       className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-opacity flex items-center gap-1.5 sm:gap-2 justify-center cursor-pointer"
                       style={{
@@ -378,9 +385,9 @@ export default function PriceCalculator() {
                         color: 'var(--color-bg)',
                       }}
                     >
-                      {t('contactUs')}
+                      {t('order')}
                       <ArrowRight size={14} />
-                    </a>
+                    </button>
                   </div>
                 </div>
               </motion.div>

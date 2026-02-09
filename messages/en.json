@@ -149,6 +149,7 @@
       "selectedItems": "Selected services",
       "restart": "Start over",
       "contactUs": "Contact Us",
+      "order": "Place order",
       "types": {
         "landing": {
           "title": "Landing Page",
@@ -225,6 +226,14 @@
     "description": "Let's explore together how to turn your project into results.",
     "phone": "Phone",
     "telegramBot": "Message on Telegram",
+    "order": {
+      "title": "Your calculator order:",
+      "type": "Website type",
+      "features": "Features",
+      "design": "Design",
+      "price": "Estimated price",
+      "days": "Estimated timeline"
+    },
     "toast": {
       "success": "Message sent successfully!",
       "error": "Something went wrong, let's try again."

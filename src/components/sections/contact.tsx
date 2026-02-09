@@ -32,6 +32,7 @@ export function Contact() {
     phone: '',
     message: '',
   });
+  const [orderData, setOrderData] = useState<Record<string, string> | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -39,6 +40,23 @@ export function Contact() {
 
   useEffect(() => {
     setMounted(true);
+
+    // Read calculator order data from URL
+    const url = new URL(window.location.href);
+    const orderParam = url.searchParams.get('order');
+    if (orderParam) {
+      const params = new URLSearchParams(orderParam);
+      const data: Record<string, string> = {};
+      params.forEach((value, key) => {
+        if (value) data[key] = value;
+      });
+      if (Object.keys(data).length > 0) {
+        setOrderData(data);
+      }
+      // Clean URL without reload
+      url.searchParams.delete('order');
+      window.history.replaceState({}, '', url.pathname + url.hash);
+    }
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -53,6 +71,7 @@ export function Contact() {
         body: JSON.stringify({
           ...formData,
           phone: '+998 ' + formData.phone,
+          ...(orderData && { order: orderData }),
         }),
       });
 
@@ -61,6 +80,7 @@ export function Contact() {
       if (response.ok) {
         setSubmitted(true);
         setFormData({ name: '', phone: '', message: '' });
+        setOrderData(null);
         setTimeout(() => setSubmitted(false), 3000);
       } else {
         console.error('Form submission error:', result.error);
@@ -179,6 +199,24 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="order-1 lg:order-2"
           >
+            {orderData && (
+              <div
+                className="mb-5 p-4 rounded-xl text-sm"
+                style={{
+                  backgroundColor: 'color-mix(in srgb, var(--color-fg) 5%, transparent)',
+                  border: '1px solid var(--color-border)',
+                }}
+              >
+                <p className="font-medium mb-2">{t('order.title')}</p>
+                <div className="space-y-1 text-muted text-xs">
+                  {orderData.type && <p>{t('order.type')}: {orderData.type}</p>}
+                  {orderData.features && <p>{t('order.features')}: {orderData.features.split(',').join(', ')}</p>}
+                  {orderData.design && <p>{t('order.design')}: {orderData.design}</p>}
+                  {orderData.price && <p>{t('order.price')}: ${orderData.price}</p>}
+                  {orderData.days && <p>{t('order.days')}: {orderData.days}</p>}
+                </div>
+              </div>
+            )}
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">

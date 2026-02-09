@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, phone, message } = await request.json();
+    const { name, phone, message, order } = await request.json();
 
     // Validate input
     if (!name || !phone || !message) {
@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const timestamp = new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' });
 
     // Send to Telegram
-    const telegramResult = await sendToTelegram(name, phone, message, timestamp);
+    const telegramResult = await sendToTelegram(name, phone, message, timestamp, order);
 
     // Save to Google Sheets via Apps Script
     const sheetsResult = await saveToGoogleSheets(name, phone, message, timestamp);
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function sendToTelegram(name: string, phone: string, message: string, timestamp: string) {
+async function sendToTelegram(name: string, phone: string, message: string, timestamp: string, order?: Record<string, string>) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
@@ -51,12 +51,25 @@ async function sendToTelegram(name: string, phone: string, message: string, time
     return { success: false };
   }
 
+  let orderBlock = '';
+  if (order) {
+    const lines: string[] = [];
+    if (order.type) lines.push(`🌐 *Sayt turi:* ${escapeMarkdown(order.type)}`);
+    if (order.features) lines.push(`⚙️ *Funksiyalar:* ${escapeMarkdown(order.features.split(',').join(', '))}`);
+    if (order.design) lines.push(`🎨 *Dizayn:* ${escapeMarkdown(order.design)}`);
+    if (order.price) lines.push(`💰 *Narx:* $${escapeMarkdown(order.price)}`);
+    if (order.days) lines.push(`📅 *Muddat:* ${escapeMarkdown(order.days)} kun`);
+    if (lines.length > 0) {
+      orderBlock = `\n\n📋 *Kalkulyator buyurtmasi:*\n${lines.join('\n')}`;
+    }
+  }
+
   const text = `
 🆕 *Yangi ariza!*
 
 👤 *Ism:* ${escapeMarkdown(name)}
 📱 *Telefon:* ${escapeMarkdown(phone)}
-💬 *Xabar:* ${escapeMarkdown(message)}
+💬 *Xabar:* ${escapeMarkdown(message)}${orderBlock}
 
 🕐 *Vaqt:* ${timestamp}
   `.trim();

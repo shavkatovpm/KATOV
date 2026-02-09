@@ -148,10 +148,11 @@
       "selectedItems": "Tanlangan xizmatlar",
       "restart": "Qaytadan",
       "contactUs": "Bog'lanish",
+      "order": "Buyurtma berish",
       "types": {
         "landing": {
           "title": "Landing Page",
-          "description": "Sotuvga yo'naltirilgan bir sahifali sayt"
+          "description": "Sotuvga yo'naltirilgan 1-3 sahifali sayt"
         },
         "corporate": {
           "title": "Korporativ sayt",
@@ -224,6 +225,14 @@
     "description": "Loyihangizni qanday qilib natijaga olib chiqish mumkinligini birga ko'rib chiqamiz.",
     "phone": "Telefon",
     "telegramBot": "Telegramdan yozish",
+    "order": {
+      "title": "Kalkulyatordagi buyurtmangiz:",
+      "type": "Sayt turi",
+      "features": "Funksiyalar",
+      "design": "Dizayn",
+      "price": "Taxminiy narx",
+      "days": "Taxminiy muddat"
+    },
     "toast": {
       "success": "Xabar yuborildi, hayrli bo'lsin.",
       "error": "Ozgina uzilish bo'ldi, yana urinib ko'raylik."
