@@ -9,7 +9,7 @@
     "portfolio": "Projects",
     "services": "Services",
     "pricing": "Pricing",
-    "blog": "Blog",
+    "blog": "Studio",
     "contact": "Contact"
   },
   "hero": {
@@ -34,6 +34,8 @@
     "title": "Our Services",
     "subtitle": "",
     "description": "Every website must serve the brand!",
+    "calcPrice": "Calculate price yourself",
+    "freeConsultation": "Get free consultation",
     "learnMore": "Learn More",
     "landing": {
       "title": "Landing Page",
@@ -106,13 +108,108 @@
       "feature7": "Individual strategy and creative approach"
     }
   },
+  "studio": {
+    "lab": "Laboratory",
+    "title": "Katov Studio",
+    "subtitle": "Tools and practical content",
+    "toolsTitle": "Capabilities",
+    "blogsTitle": "Articles",
+    "viewAll": "View All",
+    "toolsPageTitle": "All capabilities",
+    "tools": {
+      "price": {
+        "title": "Calculate website price",
+        "description": "Calculate your website price online — select type and features.",
+        "cta": "Try it"
+      }
+    },
+    "priceTool": {
+      "back": "Back",
+      "title": "Price Calculator",
+      "description": "Select website type and features — see estimated price and timeline.",
+      "stepType": "Choose website type",
+      "stepFeatures": "Additional features",
+      "stepDesign": "Choose design type",
+      "next": "Next",
+      "prev": "Back",
+      "calculate": "Calculate",
+      "resultTitle": "Estimated result",
+      "estimatedPrice": "Estimated price",
+      "estimatedDays": "Estimated timeline",
+      "priceNote": "starting from",
+      "daysNote": "business days",
+      "selectedItems": "Selected services",
+      "restart": "Start over",
+      "contactUs": "Contact Us",
+      "types": {
+        "landing": {
+          "title": "Landing Page",
+          "description": "Sales-focused single page website"
+        },
+        "corporate": {
+          "title": "Corporate Website",
+          "description": "Full professional website for your company"
+        },
+        "ecommerce": {
+          "title": "Online Store",
+          "description": "E-commerce platform for selling products online"
+        },
+        "platform": {
+          "title": "Web Platform",
+          "description": "Complex and scalable web platform"
+        }
+      },
+      "features": {
+        "admin": {
+          "title": "Admin Panel",
+          "description": "Content management admin panel"
+        },
+        "telegram": {
+          "title": "Telegram Bot",
+          "description": "Telegram bot integration and notifications"
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Traffic and user tracking"
+        },
+        "seo": {
+          "title": "SEO Optimization",
+          "description": "Search engine optimization"
+        },
+        "multilang": {
+          "title": "Multilingual",
+          "description": "Display site in multiple languages"
+        },
+        "payment": {
+          "title": "Payment System",
+          "description": "Online payment integration"
+        }
+      },
+      "designs": {
+        "simple": {
+          "title": "Simple",
+          "description": "Clean and minimal design, focus on core functionality"
+        },
+        "medium": {
+          "title": "Medium",
+          "description": "Modern design with animations and visual effects"
+        },
+        "creative": {
+          "title": "Creative",
+          "description": "Unique and original design with custom solutions"
+        }
+      }
+    }
+  },
   "blog": {
     "title": "Katov Studio",
     "subtitle": "Not a blog, practical content",
     "description": "",
     "readMore": "Read More",
     "readTime": "min read",
-    "viewAll": "All Articles"
+    "viewAll": "Enter Studio",
+    "allArticles": "All articles",
+    "backToStudio": "Studio"
   },
   "contact": {
     "title": "Contact Us",

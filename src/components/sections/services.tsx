@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Check, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 
 const plans = [
   { id: 'minimal', price: 270, features: 6, popular: false },
@@ -123,7 +124,7 @@ export function Services() {
                   duration: hoveredCard && hoveredCard !== plan.id ? 5 : 0.5,
                   delay: hoveredCard && hoveredCard !== plan.id ? 6 : 0
                 },
-                x: plan.popular ? { duration: 0.5, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' } : { duration: 0.3 },
+                x: plan.popular ? { duration: 0.5, repeat: Infinity, repeatDelay: 6, ease: 'easeInOut' } : { duration: 0.3 },
                 borderColor: { duration: 0.3 },
                 filter: {
                   duration: hoveredCard && hoveredCard !== plan.id ? 5 : 0.5,
@@ -211,7 +212,7 @@ export function Services() {
                   : plan.popular && !expandedCard
                     ? {
                         opacity: { duration: 0.6, delay: index * 0.1 },
-                        x: { duration: 0.5, repeat: Infinity, repeatDelay: 3, delay: 3, ease: 'easeInOut' },
+                        x: { duration: 0.5, repeat: Infinity, repeatDelay: 6, delay: 3, ease: 'easeInOut' },
                       }
                     : { duration: 0.6, delay: index * 0.1 }
               }
@@ -316,8 +317,14 @@ export function Services() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-12"
+          className="text-center mt-12 flex flex-row items-center justify-center gap-2 sm:gap-3"
         >
+          <Link
+            href="/studio/price"
+            className="btn-outline inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base font-medium transition-colors cursor-pointer"
+          >
+            {t('calcPrice')}
+          </Link>
           <a
             href="#contact"
             onClick={(e) => {
@@ -327,7 +334,7 @@ export function Services() {
                 element.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="btn-outline inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm sm:text-base font-medium transition-colors cursor-pointer"
+            className="btn-outline inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base font-medium transition-colors cursor-pointer"
           >
             {t('freeConsultation')}
           </a>

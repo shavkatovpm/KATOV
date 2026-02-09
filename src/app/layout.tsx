@@ -1,34 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Poppins, Caveat, Syne } from 'next/font/google';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
-const poppins = Poppins({
-  variable: '--font-poppins',
-  subsets: ['latin'],
-  weight: ['700'],
-});
-
-const caveat = Caveat({
-  variable: '--font-caveat',
-  subsets: ['latin', 'cyrillic'],
-  weight: ['400', '700'],
-});
-
-const syne = Syne({
-  variable: '--font-syne',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -46,9 +17,13 @@ export const metadata: Metadata = {
     'landing page',
     'website',
     'Toshkent',
+    'создание сайта',
+    'создание сайта ташкент',
+    'заказать сайт узбекистан',
   ],
   authors: [{ name: 'KATOV' }],
   creator: 'KATOV',
+  metadataBase: new URL('https://katov.uz'),
   openGraph: {
     type: 'website',
     locale: 'uz_UZ',
@@ -59,7 +34,7 @@ export const metadata: Metadata = {
       'Kreativ va professional sayt yaratish xizmatlari. Minimal dizayn, maksimal natija.',
     images: [
       {
-        url: 'https://katov.uz/og-image.png',
+        url: '/og-image.png',
         width: 1200,
         height: 1200,
         alt: 'KATOV - Kreativ website xizmatlari',
@@ -71,7 +46,14 @@ export const metadata: Metadata = {
     title: 'KATOV - Kreativ website xizmatlari',
     description:
       'Kreativ va professional sayt yaratish xizmatlari. Minimal dizayn, maksimal natija.',
-    images: ['https://katov.uz/og-image.png'],
+    images: ['/og-image.png'],
+  },
+  alternates: {
+    languages: {
+      uz: '/uz',
+      ru: '/ru',
+      en: '/en',
+    },
   },
   robots: {
     index: true,
@@ -84,36 +66,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html suppressHydrationWarning style={{ backgroundColor: '#000000' }}>
-      <head>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              html, body, #__next, main {
-                background-color: #000000 !important;
-              }
-              html::before {
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #000000;
-                z-index: -9999;
-                pointer-events: none;
-              }
-            `,
-          }}
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${caveat.variable} ${syne.variable} antialiased`}
-        style={{ backgroundColor: '#000000' }}
-      >
-        {children}
-      </body>
-    </html>
-  );
+  return children;
 }

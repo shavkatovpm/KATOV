@@ -22,6 +22,7 @@ export const siteConfig = {
     { key: 'home', href: '/' },
     { key: 'services', href: '#services' },
     { key: 'portfolio', href: '#portfolio' },
+    { key: 'blog', href: '#studio' },
     { key: 'contact', href: '#contact' },
   ],
 };

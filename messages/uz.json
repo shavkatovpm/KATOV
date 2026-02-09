@@ -9,7 +9,7 @@
     "portfolio": "Loyihalar",
     "services": "Xizmatlar",
     "pricing": "Narxlar",
-    "blog": "Blog",
+    "blog": "Studiya",
     "contact": "Aloqa"
   },
   "hero": {
@@ -33,6 +33,7 @@
   "services": {
     "title": "Xizmatlarimiz",
     "subtitle": "",
+    "calcPrice": "Narxni o'zingiz hisoblang",
     "freeConsultation": "Bepul konsultatsiya olish",
     "learnMore": "Batafsil",
     "landing": {
@@ -106,13 +107,108 @@
       "feature7": "Strategik fikrlash + kreativ yechimlar"
     }
   },
+  "studio": {
+    "lab": "Laboratoriya",
+    "title": "Katov Studiyasi",
+    "subtitle": "Asboblar va amaliy kontentlar",
+    "toolsTitle": "Imkoniyatlar",
+    "blogsTitle": "Maqolalar",
+    "viewAll": "Hammasini ko'rish",
+    "toolsPageTitle": "Barcha imkoniyatlar",
+    "tools": {
+      "price": {
+        "title": "Sayt narxini hisoblash",
+        "description": "Sayt narxini onlayn hisoblang — tur va funksiyalarni tanlang.",
+        "cta": "Foydalanish"
+      }
+    },
+    "priceTool": {
+      "back": "Orqaga",
+      "title": "Narx kalkulyatori",
+      "description": "Sayt turini va kerakli funksiyalarni tanlang — taxminiy narx va muddatni ko'ring.",
+      "stepType": "Sayt turini tanlang",
+      "stepFeatures": "Qo'shimcha funksiyalar",
+      "stepDesign": "Dizayn turini tanlang",
+      "next": "Keyingi",
+      "prev": "Orqaga",
+      "calculate": "Hisoblash",
+      "resultTitle": "Taxminiy natija",
+      "estimatedPrice": "Taxminiy narx",
+      "estimatedDays": "Taxminiy muddat",
+      "priceNote": "dan boshlab",
+      "daysNote": "ish kuni",
+      "selectedItems": "Tanlangan xizmatlar",
+      "restart": "Qaytadan",
+      "contactUs": "Bog'lanish",
+      "types": {
+        "landing": {
+          "title": "Landing Page",
+          "description": "Sotuvga yo'naltirilgan bir sahifali sayt"
+        },
+        "corporate": {
+          "title": "Korporativ sayt",
+          "description": "Kompaniya uchun to'liq professional sayt"
+        },
+        "ecommerce": {
+          "title": "Onlayn do'kon",
+          "description": "Mahsulotlarni onlayn sotish uchun e-commerce platforma"
+        },
+        "platform": {
+          "title": "Web platforma",
+          "description": "Murakkab va kengaytiriladigan web platforma"
+        }
+      },
+      "features": {
+        "admin": {
+          "title": "Admin panel",
+          "description": "Kontentni boshqarish uchun admin panel"
+        },
+        "telegram": {
+          "title": "Telegram bot",
+          "description": "Telegram bot integratsiyasi va bildirishnomalar"
+        },
+        "analytics": {
+          "title": "Analitika",
+          "description": "Trafik va foydalanuvchilarni kuzatish"
+        },
+        "seo": {
+          "title": "SEO optimizatsiya",
+          "description": "Qidiruv tizimlari uchun optimizatsiya"
+        },
+        "multilang": {
+          "title": "Ko'p tilli",
+          "description": "Saytni bir nechta tillarda ko'rsatish"
+        },
+        "payment": {
+          "title": "To'lov tizimi",
+          "description": "Onlayn to'lov qabul qilish integratsiyasi"
+        }
+      },
+      "designs": {
+        "simple": {
+          "title": "Oddiy",
+          "description": "Toza va sodda dizayn, asosiy funksiyalarga e'tibor"
+        },
+        "medium": {
+          "title": "O'rtacha",
+          "description": "Zamonaviy dizayn, animatsiyalar va vizual effektlar"
+        },
+        "creative": {
+          "title": "Kreativ",
+          "description": "Noyob va original dizayn, maxsus yechimlar"
+        }
+      }
+    }
+  },
   "blog": {
-    "title": "Katov Studio",
+    "title": "Katov Studiyasi",
     "subtitle": "Blog emas, amaliy kontentlar",
     "description": "",
     "readMore": "Davomini o'qish",
     "readTime": "daqiqa o'qish",
-    "viewAll": "Barcha maqolalar"
+    "viewAll": "Studiyaga kirish",
+    "allArticles": "Barcha maqolalar",
+    "backToStudio": "Studiya"
   },
   "contact": {
     "title": "Bog'lanish",

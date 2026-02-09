@@ -49,11 +49,8 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
         currentIndex++;
       } else {
         clearInterval(typeInterval);
-        // Show other elements 1 second after typewriter completes
-        setTimeout(() => {
-          setShowOtherElements(true);
-          onAnimationComplete?.();
-        }, 1000);
+        setShowOtherElements(true);
+        onAnimationComplete?.();
       }
     }, 50);
 
