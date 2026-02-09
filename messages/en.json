@@ -42,8 +42,8 @@
     "title": "Our Services",
     "subtitle": "Every project is built with an individual strategy.",
     "description": "Every website must serve the brand!",
-    "calcPrice": "Calculate price yourself",
-    "freeConsultation": "Get free consultation",
+    "calcPrice": "Calculate price",
+    "freeConsultation": "Get consultation",
     "learnMore": "Learn More",
     "landing": {
       "title": "Landing Page",
@@ -133,7 +133,7 @@
     },
     "priceTool": {
       "back": "Back",
-      "title": "Price Calculator",
+      "title": "Calculate website price",
       "description": "Select website type and features — see estimated price and timeline.",
       "stepType": "Choose website type",
       "stepFeatures": "Additional features",

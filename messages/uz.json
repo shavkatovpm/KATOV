@@ -41,8 +41,8 @@
   "services": {
     "title": "Xizmatlarimiz",
     "subtitle": "Har bir loyiha alohida strategiya bilan quriladi.",
-    "calcPrice": "Narxni o'zingiz hisoblang",
-    "freeConsultation": "Bepul konsultatsiya olish",
+    "calcPrice": "Narxni hisoblash",
+    "freeConsultation": "Konsultatsiya olish",
     "learnMore": "Batafsil",
     "landing": {
       "title": "Landing Page",
@@ -132,7 +132,7 @@
     },
     "priceTool": {
       "back": "Orqaga",
-      "title": "Narx kalkulyatori",
+      "title": "Sayt narxini hisoblash",
       "description": "Sayt turini va kerakli funksiyalarni tanlang — taxminiy narx va muddatni ko'ring.",
       "stepType": "Sayt turini tanlang",
       "stepFeatures": "Qo'shimcha funksiyalar",
