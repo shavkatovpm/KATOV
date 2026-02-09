@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 
 interface PriceLayoutProps {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }
 
 const seoData: Record<string, { title: string; description: string; keywords: string[] }> = {
