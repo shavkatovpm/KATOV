@@ -337,28 +337,17 @@ export default function PriceCalculator() {
                   <div className="text-left mb-4 sm:mb-6 flex-1 min-h-0 overflow-auto">
                     <p className="text-xs sm:text-sm font-medium mb-2">{t('selectedItems')}</p>
                     <div className="space-y-1.5">
-                      <div className="flex items-center justify-between text-xs sm:text-sm">
-                        <span>{t(`types.${selectedType}.title`)}</span>
-                        <span className="font-medium">${siteTypes.find(t => t.id === selectedType)?.basePrice}</span>
+                      <div className="text-xs sm:text-sm">
+                        {t(`types.${selectedType}.title`)}
                       </div>
-                      {selectedFeatures.map(fId => {
-                        const feature = features.find(f => f.id === fId);
-                        return feature ? (
-                          <div key={fId} className="flex items-center justify-between text-xs sm:text-sm">
-                            <span className="text-muted">+ {t(`features.${fId}.title`)}</span>
-                            <span className="font-medium">${feature.price}</span>
-                          </div>
-                        ) : null;
-                      })}
+                      {selectedFeatures.map(fId => (
+                        <div key={fId} className="text-xs sm:text-sm text-muted">
+                          + {t(`features.${fId}.title`)}
+                        </div>
+                      ))}
                       {selectedDesign && (
-                        <div className="flex items-center justify-between text-xs sm:text-sm">
-                          <span className="text-muted">+ {t(`designs.${selectedDesign}.title`)}</span>
-                          <span className="font-medium">
-                            {designTypes.find(d => d.id === selectedDesign)?.multiplier === 1
-                              ? '—'
-                              : `×${designTypes.find(d => d.id === selectedDesign)?.multiplier}`
-                            }
-                          </span>
+                        <div className="text-xs sm:text-sm text-muted">
+                          + {t(`designs.${selectedDesign}.title`)}
                         </div>
                       )}
                     </div>
