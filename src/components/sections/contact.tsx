@@ -348,24 +348,21 @@ export function Contact() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -100 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] px-6 py-4 rounded-xl shadow-lg flex items-center gap-3"
+              className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-2rem)] sm:w-auto px-6 py-4 rounded-xl shadow-lg flex items-center gap-3"
               style={{
-                backgroundColor: '#ffffff',
-                color: '#000000',
+                backgroundColor: '#000000',
+                color: '#ffffff',
+                border: '1px solid rgba(255,255,255,0.1)',
               }}
             >
               {submitted ? (
                 <>
-                  <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
-                    <Check size={18} className="text-white" />
-                  </div>
+                  <Check size={18} className="shrink-0 opacity-70" />
                   <span className="font-medium">{t('toast.success')}</span>
                 </>
               ) : (
                 <>
-                  <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">
-                    <AlertTriangle size={18} className="text-white" />
-                  </div>
+                  <AlertTriangle size={18} className="shrink-0 opacity-70" />
                   <span className="font-medium">{t('toast.error')}</span>
                 </>
               )}
