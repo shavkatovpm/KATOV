@@ -5,6 +5,59 @@ import { getBlogPost, getAllBlogSlugs } from '@/lib/blog';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
+import ScrollToAnchor from '@/components/ScrollToAnchor';
+
+function DonutRing({ value, size, strokeWidth }: { value: number; size: number; strokeWidth: number }) {
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (value / 100) * circumference;
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ transform: 'rotate(-90deg)' }}>
+      <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="color-mix(in srgb, var(--color-fg) 10%, transparent)" strokeWidth={strokeWidth} />
+      <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="var(--color-fg)" strokeWidth={strokeWidth} strokeDasharray={circumference} strokeDashoffset={offset} strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function GrowthChart() {
+  const size = 160;
+  const strokeWidth = 16;
+
+  return (
+    <div className="growth-chart-wrap" style={{ margin: '2em 0', padding: '1.5em 2em', borderRadius: '1em', backgroundColor: '#000000', border: '1px solid var(--color-border)' }}>
+      <p className="gc-title" style={{ fontSize: '1.275em', color: 'var(--color-fg)', marginBottom: '1.5em', textAlign: 'center' }}>
+        O'zbekiston, 2025-yil
+      </p>
+      <div className="gc-grid" style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', flexWrap: 'wrap' }}>
+        <div className="gc-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75em', flex: '1 1 0', minWidth: '140px', padding: '0.75em 1em' }}>
+          <div style={{ position: 'relative', width: size, height: size }}>
+            <DonutRing value={89} size={size} strokeWidth={strokeWidth} />
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+              <span className="gc-percent" style={{ fontSize: '3em', fontWeight: 700, lineHeight: 1 }}>89%</span>
+            </div>
+          </div>
+          <span className="gc-label" style={{ fontSize: '1.275em', fontWeight: 600, color: 'var(--color-fg)' }}>Aholi internetda</span>
+          <span className="gc-sub" style={{ fontSize: '0.8em', color: 'var(--color-fg)', textAlign: 'center', lineHeight: 1.4 }}>32.7 mln kishi onlayn</span>
+        </div>
+        <div className="gc-divider" style={{ width: '1px', backgroundColor: 'var(--color-border)', margin: '0.5em 0' }} />
+        <div className="gc-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75em', flex: '1 1 0', minWidth: '140px', padding: '0.75em 1em' }}>
+          <div style={{ position: 'relative', width: size, height: size }}>
+            <DonutRing value={18} size={size} strokeWidth={strokeWidth} />
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+              <span className="gc-percent" style={{ fontSize: '3em', fontWeight: 700, lineHeight: 1 }}>18%</span>
+            </div>
+          </div>
+          <span className="gc-label" style={{ fontSize: '1.275em', fontWeight: 600, color: 'var(--color-fg)' }}>Biznesda sayt bor</span>
+          <span className="gc-sub" style={{ fontSize: '0.8em', color: 'var(--color-fg)', textAlign: 'center', lineHeight: 1.4 }}>471 000+ korxonadan</span>
+        </div>
+      </div>
+      <p style={{ fontSize: '0.75em', color: 'color-mix(in srgb, var(--color-fg) 35%, transparent)', marginTop: '1.5em', textAlign: 'center' }}>
+        Manba: DataReportal, Stat.uz, UNDP
+      </p>
+    </div>
+  );
+}
 
 const slugMap: Record<string, Record<string, string>> = {
   'sayt-yaratish-xizmati': { uz: 'sayt-yaratish-xizmati', ru: 'sozdanie-sayta-uslugi', en: 'website-creation-services' },
@@ -107,6 +160,59 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const prefix = locale === defaultLocale ? '' : `/${locale}`;
+  const fromPath = `/studio/${slug}`;
+  const priceUrl = `${prefix}/studio/price?from=${encodeURIComponent(fromPath)}`;
+
+  const priceCTATexts: Record<string, { question: string; description: string; note: string; button: string }> = {
+    uz: {
+      question: "Siz xohlagan sayt narxi qanchaga tushishi o'ylantiryaptimi?",
+      description: "Narx kalkulyatorimiz orqali\naniq javobni hoziroq bilib oling.",
+      note: "Tugmani bosish orqali hozirgi sahifani tark etasiz!",
+      button: "Sayt narxini hisoblash",
+    },
+    ru: {
+      question: "Думаете, сколько будет стоить нужный вам сайт?",
+      description: "Мы разработали калькулятор стоимости сайта, чтобы дать более точный ответ на этот вопрос.",
+      note: "Нажимая кнопку, вы покинете текущую страницу!",
+      button: "Рассчитать стоимость сайта",
+    },
+    en: {
+      question: "Wondering how much your website will cost?",
+      description: "We built a website price calculator to give you a more accurate answer.",
+      note: "Clicking the button will take you away from this page!",
+      button: "Calculate website price",
+    },
+  };
+  const ctaText = priceCTATexts[locale] || priceCTATexts.uz;
+
+  function PriceCTA() {
+    return (
+      <div id="price-cta" className="price-cta-wrap" style={{ margin: '2em 0', padding: '1.5em 2em', borderRadius: '1em', backgroundColor: '#000000', border: '1px solid var(--color-border)', textAlign: 'center' }}>
+        <p style={{ fontSize: '1.1em', fontWeight: 600, marginBottom: '0.5em', color: 'var(--color-fg)' }}>{ctaText.question}</p>
+        <p style={{ fontSize: '0.7em', color: 'color-mix(in srgb, var(--color-fg) 35%, transparent)', marginBottom: '1em' }}>{ctaText.note}</p>
+        <a
+          href={priceUrl}
+          style={{
+            display: 'inline-block',
+            padding: '0.75em 1.75em',
+            borderRadius: '2em',
+            backgroundColor: 'var(--color-fg)',
+            color: 'var(--color-bg)',
+            fontWeight: 600,
+            fontSize: '0.95em',
+            textDecoration: 'none',
+            transition: 'opacity 0.2s',
+          }}
+        >
+          {ctaText.button}
+        </a>
+      </div>
+    );
+  }
+
+  const mdxComponents = { GrowthChart, PriceCTA };
+
   const baseUrl = 'https://katov.uz';
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -138,6 +244,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
+      <ScrollToAnchor />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -169,22 +276,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <span>{post.readingTime} {t('readTime')}</span>
               </div>
 
-              {post.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs rounded-full"
-                      style={{
-                        backgroundColor: 'color-mix(in srgb, var(--color-fg) 7%, transparent)',
-                        border: '1px solid var(--color-border)',
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
             </header>
 
             <div
@@ -193,8 +284,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             />
 
             <div className="prose max-w-none">
-              <MDXRemote source={post.content} />
+              <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} components={mdxComponents} />
             </div>
+
+            {post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-10 pt-10" style={{ borderTop: '1px solid var(--color-border)' }}>
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 text-xs rounded-full"
+                    style={{
+                      backgroundColor: 'color-mix(in srgb, var(--color-fg) 7%, transparent)',
+                      border: '1px solid var(--color-border)',
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </article>

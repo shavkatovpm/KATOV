@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Check, RotateCcw } from 'lucide-react';
 import Link from 'next/link';
@@ -36,6 +37,9 @@ const designTypes = [
 export default function PriceCalculator() {
   const t = useTranslations('studio.priceTool');
   const locale = useLocale();
+  const searchParams = useSearchParams();
+  const fromUrl = searchParams.get('from');
+  const backHref = fromUrl && fromUrl.startsWith('/studio/') ? `${fromUrl}?scrollTo=price-cta` : '/studio';
   const [step, setStep] = useState<Step>('type');
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
@@ -92,7 +96,7 @@ export default function PriceCalculator() {
         {/* Header */}
         <div className="shrink-0">
           <Link
-            href="/studio"
+            href={backHref}
             className="inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity text-sm mb-4 sm:mb-6"
           >
             <ArrowLeft size={16} />
