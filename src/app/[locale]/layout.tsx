@@ -85,6 +85,46 @@ export default async function LocaleLayout({
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vetnzqe1cg");`}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'KATOV',
+              url: 'https://katov.uz',
+              logo: 'https://katov.uz/og-image.png',
+              description:
+                'KATOV — professional IT agency in Uzbekistan. We create modern websites, landing pages, corporate sites, and e-commerce solutions.',
+              foundingDate: '2024',
+              areaServed: {
+                '@type': 'Country',
+                name: 'Uzbekistan',
+              },
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+998-33-888-01-33',
+                contactType: 'customer service',
+                email: 'hello@katov.uz',
+                availableLanguage: ['Uzbek', 'Russian', 'English'],
+              },
+              sameAs: [
+                'https://t.me/katovuz',
+                'https://instagram.com/katov.uz',
+              ],
+              knowsAbout: [
+                'Web Development',
+                'Web Design',
+                'Landing Page',
+                'E-commerce',
+                'Corporate Website',
+                'UI/UX Design',
+                'SEO',
+                'IT Services',
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${caveat.variable} ${syne.variable} antialiased`}
