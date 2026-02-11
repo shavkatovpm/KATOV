@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone } from 'lucide-react';
 import { IoLogoInstagram } from 'react-icons/io5';
 import { PiTelegramLogo } from 'react-icons/pi';
 import { siteConfig } from '@/config/site';
@@ -219,38 +218,41 @@ export function Header() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: siteConfig.navigation.length * 0.05 }}
-                  className="flex items-center justify-end gap-0.5 pt-4 mt-2 border-t w-full"
+                  className="flex items-center justify-between pt-4 mt-2 border-t w-full"
                   style={{ borderColor: 'var(--color-border)' }}
                 >
-                  <a
-                    href={siteConfig.social.telegram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 cursor-pointer transition-colors hover:text-white"
-                    style={{ color: '#f5f5f5' }}
-                    aria-label="Telegram"
-                  >
-                    <PiTelegramLogo size={20} />
-                  </a>
-                  <a
-                    href={siteConfig.social.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 cursor-pointer transition-colors hover:text-white"
-                    style={{ color: '#f5f5f5' }}
-                    aria-label="Instagram"
-                  >
-                    <IoLogoInstagram size={20} />
-                  </a>
-                  <a
-                    href="tel:+998338880133"
-                    className="flex items-center gap-2 px-4 py-2 cursor-pointer transition-colors hover:text-white"
-                    style={{ color: '#f5f5f5' }}
-                  >
-                    <Phone size={18} />
-                    <span>+998 33 888 01 33</span>
-                  </a>
-                  <LanguageSwitcher />
+                  <div className="flex items-center gap-0.5">
+                    <a
+                      href={siteConfig.social.telegram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 cursor-pointer transition-colors hover:text-white"
+                      style={{ color: '#f5f5f5' }}
+                      aria-label="Telegram"
+                    >
+                      <PiTelegramLogo size={20} />
+                    </a>
+                    <a
+                      href={siteConfig.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 cursor-pointer transition-colors hover:text-white"
+                      style={{ color: '#f5f5f5' }}
+                      aria-label="Instagram"
+                    >
+                      <IoLogoInstagram size={20} />
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-0.5">
+                    <a
+                      href="tel:+998338880133"
+                      className="px-4 py-2 cursor-pointer transition-colors hover:text-white"
+                      style={{ color: '#f5f5f5' }}
+                    >
+                      <span>+998 33 888 01 33</span>
+                    </a>
+                    <LanguageSwitcher />
+                  </div>
                 </motion.div>
               </div>
             </motion.div>

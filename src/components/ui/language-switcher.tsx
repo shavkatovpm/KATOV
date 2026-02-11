@@ -6,6 +6,12 @@ import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { locales, localeNames, type Locale } from '@/i18n/config';
 
+const flagEmojis: Record<Locale, string> = {
+  uz: '🇺🇿',
+  ru: '🇷🇺',
+  en: '🇬🇧',
+};
+
 export function LanguageSwitcher() {
   const locale = useLocale() as Locale;
   const router = useRouter();
@@ -41,7 +47,7 @@ export function LanguageSwitcher() {
         className="flex items-center gap-1 px-3 py-2 text-sm font-medium cursor-pointer transition-colors hover:text-white"
         style={{ color: '#f5f5f5' }}
       >
-        {locale.toUpperCase()}
+        <span className="text-lg">{flagEmojis[locale]}</span>
         <ChevronDown
           size={14}
           className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -60,12 +66,12 @@ export function LanguageSwitcher() {
             <button
               key={loc}
               onClick={() => switchLocale(loc)}
-              className={`w-full px-4 py-2 text-left text-sm cursor-pointer transition-colors hover:text-white ${
+              className={`w-full px-4 py-2 text-left cursor-pointer transition-colors hover:text-white ${
                 locale === loc ? 'font-medium' : ''
               }`}
               style={{ color: '#f5f5f5' }}
             >
-              {localeNames[loc]}
+              <span className="text-lg">{flagEmojis[loc]}</span>
             </button>
           ))}
         </div>

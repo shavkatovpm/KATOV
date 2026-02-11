@@ -11,10 +11,10 @@ export function Providers({ children }: ProvidersProps) {
     // Disable scroll during page entrance animation
     document.body.style.overflow = 'hidden';
 
-    // Enable scroll after elements appear (~0.75s typewriter start + ~1.55s typing + 1s pause)
+    // Enable scroll after initial animations (1.5s)
     const timer = setTimeout(() => {
       document.body.style.overflow = 'auto';
-    }, 3300);
+    }, 1500);
 
     return () => {
       clearTimeout(timer);
