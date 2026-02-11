@@ -66,7 +66,7 @@
 
 .header-animate {
   opacity: 0;
-  animation: headerEntrance 0.5s ease-out 2.8s forwards;
+  animation: headerEntrance 0.3s ease-out 1s forwards;
 }
 
 /* Base Styles */
@@ -134,7 +134,7 @@ textarea,
 .page-content {
   padding-top: 0;
   margin-top: 0;
-  animation: pageEntrance 1.2s ease-out forwards;
+  animation: pageEntrance 0.3s ease-out forwards;
   position: relative;
 }
 

@@ -45,7 +45,7 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
         setShowOtherElements(true);
         onAnimationComplete?.();
       }
-    }, 50);
+    }, 30);
 
     return () => clearInterval(typeInterval);
   }, [showTypewriter, title]);
