@@ -38,7 +38,8 @@ export function LanguageSwitcher() {
     <div ref={dropdownRef} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-opacity hover:opacity-70"
+        className="flex items-center gap-1 px-3 py-2 text-sm font-medium cursor-pointer transition-colors hover:text-white"
+        style={{ color: '#f5f5f5' }}
       >
         {locale.toUpperCase()}
         <ChevronDown
@@ -59,9 +60,10 @@ export function LanguageSwitcher() {
             <button
               key={loc}
               onClick={() => switchLocale(loc)}
-              className={`w-full px-4 py-2 text-left text-sm transition-opacity hover:opacity-70 ${
+              className={`w-full px-4 py-2 text-left text-sm cursor-pointer transition-colors hover:text-white ${
                 locale === loc ? 'font-medium' : ''
               }`}
+              style={{ color: '#f5f5f5' }}
             >
               {localeNames[loc]}
             </button>

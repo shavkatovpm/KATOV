@@ -255,7 +255,7 @@ export function Contact() {
                   className="flex items-center rounded-xl overflow-hidden"
                   style={{ border: '1px solid var(--color-border)' }}
                 >
-                  <span className="pl-4 py-3 bg-transparent" style={{ color: '#dddddd' }}>
+                  <span className="pl-4 py-3 bg-transparent" style={{ color: '#f5f5f5' }}>
                     +998
                   </span>
                   <input

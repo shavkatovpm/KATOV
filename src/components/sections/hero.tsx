@@ -24,11 +24,11 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
     return () => clearTimeout(timeout);
   }, [textIndex]);
 
-  // Typewriter effect - starts after "Katov" animation completes (0.25s delay + 0.5s duration = 0.75s)
+  // Typewriter effect - starts immediately
   useEffect(() => {
     const startDelay = setTimeout(() => {
       setShowTypewriter(true);
-    }, 750);
+    }, 0);
     return () => clearTimeout(startDelay);
   }, []);
 

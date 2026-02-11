@@ -4,6 +4,9 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Phone } from 'lucide-react';
+import { IoLogoInstagram } from 'react-icons/io5';
+import { PiTelegramLogo } from 'react-icons/pi';
 import { siteConfig } from '@/config/site';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 
@@ -62,7 +65,7 @@ export function Header() {
       }}
     >
       <div className="container-custom">
-        <nav className="flex items-center justify-between h-16 sm:h-20">
+        <nav className="flex items-center justify-between h-16 sm:h-20 relative">
           <a
             href={`/${locale}`}
             onClick={(e) => {
@@ -75,11 +78,11 @@ export function Header() {
             }}
             className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase cursor-pointer"
           >
-            <span className="logo-icon text-2xl sm:text-3xl cursor-pointer" style={{ color: '#dddddd' }}>|&lt;</span>
-            <span className="cursor-pointer" style={{ color: '#dddddd' }}>{siteConfig.name}</span>
+            <span className="logo-icon text-2xl sm:text-3xl cursor-pointer" style={{ color: '#f5f5f5' }}>|&lt;</span>
+            <span className="cursor-pointer" style={{ color: '#f5f5f5' }}>{siteConfig.name}</span>
           </a>
 
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {siteConfig.navigation.map((item) => (
               item.href.startsWith('#') ? (
                 <a
@@ -120,7 +123,7 @@ export function Header() {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-0.5">
             <LanguageSwitcher />
           </div>
 
@@ -216,9 +219,37 @@ export function Header() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: siteConfig.navigation.length * 0.05 }}
-                  className="flex items-center gap-3 pt-4 mt-2 border-t w-full justify-end"
+                  className="flex items-center justify-end gap-0.5 pt-4 mt-2 border-t w-full"
                   style={{ borderColor: 'var(--color-border)' }}
                 >
+                  <a
+                    href={siteConfig.social.telegram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 cursor-pointer transition-colors hover:text-white"
+                    style={{ color: '#f5f5f5' }}
+                    aria-label="Telegram"
+                  >
+                    <PiTelegramLogo size={20} />
+                  </a>
+                  <a
+                    href={siteConfig.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 cursor-pointer transition-colors hover:text-white"
+                    style={{ color: '#f5f5f5' }}
+                    aria-label="Instagram"
+                  >
+                    <IoLogoInstagram size={20} />
+                  </a>
+                  <a
+                    href="tel:+998338880133"
+                    className="flex items-center gap-2 px-4 py-2 cursor-pointer transition-colors hover:text-white"
+                    style={{ color: '#f5f5f5' }}
+                  >
+                    <Phone size={18} />
+                    <span>+998 33 888 01 33</span>
+                  </a>
                   <LanguageSwitcher />
                 </motion.div>
               </div>
