@@ -99,7 +99,7 @@ export const pricingPlans = [
   {
     id: 'individual',
     nameKey: 'pricing.individual.name',
-    price: 2700,
+    price: 1700,
     currency: 'USD',
     descriptionKey: 'pricing.individual.description',
     features: [

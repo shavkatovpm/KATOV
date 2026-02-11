@@ -16,7 +16,7 @@ const siteTypes = [
   { id: 'landing', basePrice: 220, baseDays: 7 },
   { id: 'corporate', basePrice: 600, baseDays: 14 },
   { id: 'ecommerce', basePrice: 1200, baseDays: 21 },
-  { id: 'platform', basePrice: 2700, baseDays: 45 },
+  { id: 'platform', basePrice: 1700, baseDays: 45 },
 ];
 
 const features = [

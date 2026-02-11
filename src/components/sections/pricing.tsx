@@ -8,7 +8,7 @@ import { Check, X, ChevronDown } from 'lucide-react';
 const plans = [
   { id: 'minimal', price: 270, features: 6, popular: false },
   { id: 'standart', price: 870, features: 7, popular: true },
-  { id: 'individual', price: 2700, features: 7, popular: false },
+  { id: 'individual', price: 1700, features: 7, popular: false },
 ];
 
 export function Pricing() {
