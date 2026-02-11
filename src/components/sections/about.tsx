@@ -89,7 +89,7 @@ export function About() {
   }, []);
 
   // Animation duration: slower on mobile (25% slower)
-  const borderDuration = isMobile ? 2.55 : 2;
+  const borderDuration = isMobile ? 1.275 : 1;
 
   // Combined condition: animate only when in view AND hero animation is complete
   const canAnimate = isInView && heroComplete;
@@ -110,10 +110,10 @@ export function About() {
 
   // Calculate delays - title animates separately, other elements start from 0 when scrolled into view
   const descDelay = 0;
-  const desc2Delay = descDelay + description.length * 0.004 + 0.025;
-  const featuresTitleDelay = desc2Delay + description2.length * 0.004 + 0.025;
-  const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.005 + 0.025;
-  const featuresIntroDelay = feature4Delay + feature4.length * 0.005 + 0.025;
+  const desc2Delay = descDelay + description.length * 0.002 + 0.0125;
+  const featuresTitleDelay = desc2Delay + description2.length * 0.002 + 0.0125;
+  const feature4Delay = featuresTitleDelay + featuresTitle.length * 0.0025 + 0.0125;
+  const featuresIntroDelay = feature4Delay + feature4.length * 0.0025 + 0.0125;
 
   return (
     <section
@@ -143,29 +143,29 @@ export function About() {
           </h2>
 
           <p className="text-muted text-base sm:text-lg md:text-2xl lg:text-3xl mb-12 md:mb-20 leading-relaxed text-left">
-            <AnimatedText text={description} startDelay={descDelay} charDelay={0.004} isInView={canAnimate} />
+            <AnimatedText text={description} startDelay={descDelay} charDelay={0.002} isInView={canAnimate} />
             {' '}
-            <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.004} isInView={canAnimate} />
+            <AnimatedText text={description2} startDelay={desc2Delay} charDelay={0.002} isInView={canAnimate} />
           </p>
 
           <p className="text-muted text-sm sm:text-base md:text-xl mb-6 md:mb-10 text-left">
-            <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.005} isInView={canAnimate} />
+            <AnimatedText text={featuresTitle} startDelay={featuresTitleDelay} charDelay={0.0025} isInView={canAnimate} />
           </p>
 
           <div className="mb-8 md:mb-12 text-left">
             <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl">
-              <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.005} isInView={canAnimate} />
+              <AnimatedText text={feature4} startDelay={feature4Delay} charDelay={0.0025} isInView={canAnimate} />
             </span>
           </div>
 
           <p className="text-muted text-sm sm:text-base md:text-xl mb-4 md:mb-6 text-left">
-            <AnimatedText text={featuresIntro} startDelay={featuresIntroDelay} charDelay={0.005} isInView={canAnimate} />
+            <AnimatedText text={featuresIntro} startDelay={featuresIntroDelay} charDelay={0.0025} isInView={canAnimate} />
           </p>
 
           <div className="flex flex-col gap-2 md:gap-3 text-left">
             {bulletFeatures.map((feat, i) => {
               const prevChars = bulletFeatures.slice(0, i).reduce((sum, f) => sum + f.length, 0);
-              const bulletDelay = featuresIntroDelay + featuresIntro.length * 0.005 + 0.025 + prevChars * 0.0075 + i * 0.025;
+              const bulletDelay = featuresIntroDelay + featuresIntro.length * 0.0025 + 0.0125 + prevChars * 0.00375 + i * 0.0125;
               return (
                 <span key={i} className="flex items-center gap-3 text-base sm:text-lg md:text-xl lg:text-2xl">
                   <motion.span
@@ -176,7 +176,7 @@ export function About() {
                   >
                     •
                   </motion.span>
-                  <AnimatedText text={feat} startDelay={bulletDelay} charDelay={0.0075} isInView={canAnimate} />
+                  <AnimatedText text={feat} startDelay={bulletDelay} charDelay={0.00375} isInView={canAnimate} />
                 </span>
               );
             })}
