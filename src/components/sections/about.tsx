@@ -77,7 +77,7 @@ export function About() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setHeroComplete(true);
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
