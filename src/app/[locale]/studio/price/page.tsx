@@ -13,18 +13,18 @@ type Step = 'type' | 'features' | 'design' | 'result';
 const steps: Step[] = ['type', 'features', 'design', 'result'];
 
 const siteTypes = [
-  { id: 'landing', basePrice: 270, baseDays: 7 },
+  { id: 'landing', basePrice: 220, baseDays: 7 },
   { id: 'corporate', basePrice: 600, baseDays: 14 },
   { id: 'ecommerce', basePrice: 1200, baseDays: 21 },
   { id: 'platform', basePrice: 2700, baseDays: 45 },
 ];
 
 const features = [
-  { id: 'admin', price: 200, daysPercent: 0.2 },
-  { id: 'telegram', price: 150, daysPercent: 0.2 },
-  { id: 'analytics', price: 50, daysPercent: 0.2 },
-  { id: 'seo', price: 50, daysPercent: 0.1 },
-  { id: 'multilang', price: 50, daysPercent: 0.2 },
+  { id: 'admin', price: 150, daysPercent: 0.2 },
+  { id: 'telegram', price: 100, daysPercent: 0.2 },
+  { id: 'analytics', price: 25, daysPercent: 0.2 },
+  { id: 'seo', price: 25, daysPercent: 0.1 },
+  { id: 'multilang', price: 25, daysPercent: 0.2 },
   { id: 'payment', price: 200, fixedDays: 7 },
 ];
 
