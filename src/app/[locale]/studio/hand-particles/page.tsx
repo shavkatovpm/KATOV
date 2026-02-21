@@ -755,7 +755,9 @@ function createEngine(
 
       if (textFormation && cachedTextPts.length > 0) {
         if (p.textTargetX === undefined) {
-          const pt = cachedTextPts[Math.floor(Math.random() * cachedTextPts.length)];
+          // Assign each particle to a unique text point (1:1 mapping)
+          const ptIndex = i % cachedTextPts.length;
+          const pt = cachedTextPts[ptIndex];
           const nx = pt.x / (W * 0.45);
           const wave = Math.sin(nx * Math.PI * 2.5);
           p.textTargetX = pt.x;
