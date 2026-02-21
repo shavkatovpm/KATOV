@@ -777,6 +777,21 @@ function createEngine(
         // Clear old targets so particles rearrange to new text
         for (const pp of particles) { delete pp.textTargetX; delete pp.textTargetY; delete pp.textTargetZ; }
       }
+      // Spawn extra particles if not enough to cover all points
+      const needed = cachedTextPts.length - particles.length;
+      if (needed > 0) {
+        const cx = textFormation.cx, cy = textFormation.cy;
+        for (let s = 0; s < needed && particles.length < MAX_PARTICLES; s++) {
+          const rgb = neonColors[Math.floor(Math.random() * neonColors.length)];
+          particles.push({
+            x: cx + (Math.random() - 0.5) * 40, y: cy + (Math.random() - 0.5) * 40,
+            vx: 0, vy: 0, size: 0.9 + Math.random() * 1.2,
+            color: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, rgb,
+            alpha: 1, life: 1, decay: 0, permanent: true, hasTrail: false, trail: [],
+            z: 0.5, shape: 'circle',
+          });
+        }
+      }
     } else {
       cachedTextKey = '';
       cachedTextPts = [];
