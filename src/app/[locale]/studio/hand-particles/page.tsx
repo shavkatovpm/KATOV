@@ -569,12 +569,15 @@ function createEngine(
     hs.prevGesture = hs.gesture;
     hs.gesture = detectGesture(lm);
 
+    // Formation at center with subtle hand-follow offset
+    const fCx = W / 2 + (palmX - W / 2) * 0.25;
+    const fCy = H / 2 + (palmY - H / 2) * 0.25;
     if (hs.gesture === 'point' && handsCount === 1) {
-      textFormation = { cx: palmX, cy: palmY, text: '__SQUARE__' };
+      textFormation = { cx: fCx, cy: fCy, text: '__SQUARE__' };
     } else if (hs.gesture === 'peace' && handsCount === 1) {
-      textFormation = { cx: palmX, cy: palmY, text: '__CIRCLE__' };
+      textFormation = { cx: fCx, cy: fCy, text: '__CIRCLE__' };
     } else if (hs.gesture === 'three' && handsCount === 1) {
-      textFormation = { cx: palmX, cy: palmY, text: '__SMILEY__' };
+      textFormation = { cx: fCx, cy: fCy, text: '__SMILEY__' };
     } else if (hs.gesture === 'fist' || hs.gesture === 'thumbs' || (hs.gesture === 'pinch' && handsCount === 2)) {
       attractTarget = { x: palmX, y: palmY };
     } else if (hs.gesture === 'pinch' && handsCount === 1) {
@@ -686,12 +689,15 @@ function createEngine(
       const indexDist = Math.hypot(lm0[8].x - lm1[8].x, lm0[8].y - lm1[8].y);
       const isHeart = thumbDist < 0.08 && indexDist < 0.08;
 
+      // Formation at center with subtle hand-follow offset
+      const fX = W / 2 + (midX - W / 2) * 0.25;
+      const fY = H / 2 + (midY - H / 2) * 0.25;
       if (isHeart) {
-        textFormation = { cx: midX, cy: midY, text: '__HEART__' };
+        textFormation = { cx: fX, cy: fY, text: '__HEART__' };
       } else if (bothThree) {
-        textFormation = { cx: midX, cy: midY, text: '__SMILEY__' };
+        textFormation = { cx: fX, cy: fY, text: '__SMILEY__' };
       } else if (bothPeace) {
-        textFormation = { cx: midX, cy: midY, text: 'KATOV' };
+        textFormation = { cx: fX, cy: fY, text: 'KATOV' };
       } else if (bothPoint) {
         if (prevTextGesture !== 'point') {
           let pick = randomTexts[Math.floor(Math.random() * randomTexts.length)];
@@ -700,7 +706,7 @@ function createEngine(
           }
           lastRandomText = pick;
         }
-        textFormation = { cx: midX, cy: midY, text: lastRandomText };
+        textFormation = { cx: fX, cy: fY, text: lastRandomText };
       } else if (bothFist) {
         const spawnCount = 4;
         for (let s = 0; s < spawnCount; s++) {
@@ -717,7 +723,7 @@ function createEngine(
           });
         }
       } else if (bothPinch) {
-        twoHandMidpoint = { x: midX, y: midY };
+        twoHandMidpoint = { x: fX, y: fY };
       } else if (bothOpen) {
         twoHandMidpoint = null;
         if (wasBothFist) {
