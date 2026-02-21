@@ -422,9 +422,9 @@ function createEngine(
   const PALM_POLY_IDX = [0, 1, 5, 9, 13, 17];
 
   const neonColors = [
-    { r: 160, g: 180, b: 255 },
-    { r: 200, g: 160, b: 255 },
-    { r: 180, g: 230, b: 230 },
+    { r: 200, g: 200, b: 210 },
+    { r: 190, g: 195, b: 205 },
+    { r: 210, g: 210, b: 215 },
   ];
 
   function resize() {
@@ -968,7 +968,7 @@ function createEngine(
     for (const p of particles) {
       const z = p.z || 0.5;
       // Pure 3D perspective: only SIZE conveys depth
-      const depthScale = 0.3 + 4.0 * z * z; // far=0.3x(tiny dot), near=4.3x(big ball)
+      const depthScale = 0.2 + 2.0 * z * z; // far=0.2x, near=2.2x
       const depthAlpha = 0.4 + 0.6 * z;
       const rr = p.rgb.r;
       const gg = p.rgb.g;
@@ -977,15 +977,6 @@ function createEngine(
       const effectiveAlpha = baseAlpha * depthAlpha;
       const baseSize = p.permanent ? p.size : p.size * (0.3 + 0.7 * p.alpha);
       const effectiveSize = baseSize * depthScale;
-
-      if (p.hasTrail && p.trail.length > 1) {
-        pCtx.beginPath();
-        pCtx.moveTo(p.trail[0].x, p.trail[0].y);
-        for (let t = 1; t < p.trail.length; t++) pCtx.lineTo(p.trail[t].x, p.trail[t].y);
-        pCtx.lineTo(p.x, p.y);
-        pCtx.strokeStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.3})`;
-        pCtx.lineWidth = effectiveSize * 0.5; pCtx.lineCap = 'round'; pCtx.stroke();
-      }
 
       pCtx.save();
       pCtx.globalAlpha = effectiveAlpha;
