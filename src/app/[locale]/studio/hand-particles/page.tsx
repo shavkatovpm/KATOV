@@ -22,8 +22,9 @@ export default function HandParticlesPage() {
     setError(null);
 
     try {
+      const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { width: 1280, height: 720, facingMode: 'user' },
+        video: { width: mobile ? 640 : 1280, height: mobile ? 480 : 720, facingMode: 'user' },
       });
 
       if (videoRef.current) {
@@ -231,7 +232,8 @@ function createEngine(
   let destroyed = false;
   let animId = 0;
 
-  const MAX_PARTICLES = 3000;
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
+  const MAX_PARTICLES = isMobile ? 800 : 3000;
 
   interface Particle {
     x: number; y: number; vx: number; vy: number;
@@ -527,6 +529,10 @@ function createEngine(
 
     if (hs.gesture === 'point') {
       spawnParticle(hs.smoothX + (Math.random() - 0.5) * 6, hs.smoothY + (Math.random() - 0.5) * 6, 'draw');
+    } else if (hs.gesture === 'peace' && handsCount === 1) {
+      textFormation = { cx: palmX, cy: palmY, text: 'KATOV' };
+    } else if (hs.gesture === 'three' && handsCount === 1) {
+      textFormation = { cx: palmX, cy: palmY, text: '__SMILEY__' };
     } else if (hs.gesture === 'fist' || hs.gesture === 'thumbs' || (hs.gesture === 'pinch' && handsCount === 2)) {
       attractTarget = { x: palmX, y: palmY };
     } else if (hs.gesture === 'pinch' && handsCount === 1) {
@@ -898,33 +904,44 @@ function createEngine(
       pCtx.save();
       pCtx.globalAlpha = effectiveAlpha;
 
-      const glowMult = 2 + 6 * z;
-      const glowOuter = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * glowMult);
-      glowOuter.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * (0.1 + 0.3 * z)})`);
-      glowOuter.addColorStop(0.4, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.05 * z})`);
-      glowOuter.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
-      pCtx.fillStyle = glowOuter;
-      pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * glowMult, 0, Math.PI * 2); pCtx.fill();
+      if (isMobile) {
+        // Simplified rendering for mobile — single circle + optional core
+        pCtx.fillStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha})`;
+        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 1.5, 0, Math.PI * 2); pCtx.fill();
+        if (z > 0.5) {
+          pCtx.globalAlpha = effectiveAlpha * 0.8;
+          pCtx.fillStyle = '#fff';
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.4, 0, Math.PI * 2); pCtx.fill();
+        }
+      } else {
+        const glowMult = 2 + 6 * z;
+        const glowOuter = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * glowMult);
+        glowOuter.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * (0.1 + 0.3 * z)})`);
+        glowOuter.addColorStop(0.4, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.05 * z})`);
+        glowOuter.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
+        pCtx.fillStyle = glowOuter;
+        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * glowMult, 0, Math.PI * 2); pCtx.fill();
 
-      if (z > 0.25) {
-        const innerMult = 1.5 + 1.5 * z;
-        const glowInner = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * innerMult);
-        glowInner.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.6 * z})`);
-        glowInner.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
-        pCtx.fillStyle = glowInner;
-        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * innerMult, 0, Math.PI * 2); pCtx.fill();
-      }
+        if (z > 0.25) {
+          const innerMult = 1.5 + 1.5 * z;
+          const glowInner = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * innerMult);
+          glowInner.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.6 * z})`);
+          glowInner.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
+          pCtx.fillStyle = glowInner;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * innerMult, 0, Math.PI * 2); pCtx.fill();
+        }
 
-      const coreVis = z * z;
-      pCtx.globalAlpha = effectiveAlpha * (0.15 + 0.85 * coreVis);
-      pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
-      pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
+        const coreVis = z * z;
+        pCtx.globalAlpha = effectiveAlpha * (0.15 + 0.85 * coreVis);
+        pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
+        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
 
-      if (z > 0.55) {
-        const hotAlpha = (z - 0.55) / 0.45;
-        pCtx.globalAlpha = effectiveAlpha * 0.9 * hotAlpha;
-        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.4, 0, Math.PI * 2);
-        pCtx.fillStyle = '#fff'; pCtx.fill();
+        if (z > 0.55) {
+          const hotAlpha = (z - 0.55) / 0.45;
+          pCtx.globalAlpha = effectiveAlpha * 0.9 * hotAlpha;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.4, 0, Math.PI * 2);
+          pCtx.fillStyle = '#fff'; pCtx.fill();
+        }
       }
       pCtx.restore();
     }
@@ -1051,7 +1068,7 @@ function createEngine(
     drawBg();
     spawnAmbient(performance.now());
     updateParticles();
-    handleCollisions();
+    if (!isMobile) handleCollisions();
     renderParticles();
     animId = requestAnimationFrame(loop);
   }
@@ -1078,10 +1095,17 @@ function createEngine(
       });
       hands.onResults(onResults);
 
+      let frameSkip = 0;
       const camera = new Camera(video, {
-        onFrame: async () => { await hands.send({ image: video }); },
-        width: 1280,
-        height: 720,
+        onFrame: async () => {
+          if (isMobile) {
+            frameSkip++;
+            if (frameSkip % 2 !== 0) return; // Process every 2nd frame on mobile
+          }
+          await hands.send({ image: video });
+        },
+        width: isMobile ? 640 : 1280,
+        height: isMobile ? 480 : 720,
       });
       camera.start();
       cameraInstance = camera;
