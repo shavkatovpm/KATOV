@@ -314,13 +314,19 @@ function createEngine(
 
     const imgData = tc.getImageData(0, 0, size, size).data;
     const pts: { x: number; y: number }[] = [];
-    const step = 3;
-    for (let y = 0; y < size; y += step) {
-      for (let x = 0; x < size; x += step) {
-        if (imgData[(y * size + x) * 4 + 3] > 60) {
-          pts.push({ x: x - cx, y: y - cy });
+    // Adaptive step: ensure points fit within particle count
+    let step = 3;
+    while (step < 12) {
+      pts.length = 0;
+      for (let y = 0; y < size; y += step) {
+        for (let x = 0; x < size; x += step) {
+          if (imgData[(y * size + x) * 4 + 3] > 60) {
+            pts.push({ x: x - cx, y: y - cy });
+          }
         }
       }
+      if (pts.length <= MAX_PARTICLES) break;
+      step++;
     }
     return pts;
   }
@@ -354,13 +360,18 @@ function createEngine(
 
     const imgData = tc.getImageData(0, 0, size, size).data;
     const pts: { x: number; y: number }[] = [];
-    const step = 3;
-    for (let y = 0; y < size; y += step) {
-      for (let x = 0; x < size; x += step) {
-        if (imgData[(y * size + x) * 4 + 3] > 60) {
-          pts.push({ x: x - cx, y: y - cy });
+    let step = 3;
+    while (step < 12) {
+      pts.length = 0;
+      for (let y = 0; y < size; y += step) {
+        for (let x = 0; x < size; x += step) {
+          if (imgData[(y * size + x) * 4 + 3] > 60) {
+            pts.push({ x: x - cx, y: y - cy });
+          }
         }
       }
+      if (pts.length <= MAX_PARTICLES) break;
+      step++;
     }
     return pts;
   }
