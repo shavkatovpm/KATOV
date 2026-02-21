@@ -527,12 +527,20 @@ function createEngine(
     hs.prevGesture = hs.gesture;
     hs.gesture = detectGesture(lm);
 
-    if (hs.gesture === 'point') {
-      spawnParticle(hs.smoothX + (Math.random() - 0.5) * 6, hs.smoothY + (Math.random() - 0.5) * 6, 'draw');
+    const centerX = W / 2, centerY = H / 2;
+    if (hs.gesture === 'point' && handsCount === 1) {
+      if (handState[handIdx].prevGesture !== 'point') {
+        let pick = randomTexts[Math.floor(Math.random() * randomTexts.length)];
+        while (pick === lastRandomText && randomTexts.length > 1) {
+          pick = randomTexts[Math.floor(Math.random() * randomTexts.length)];
+        }
+        lastRandomText = pick;
+      }
+      textFormation = { cx: centerX, cy: centerY, text: lastRandomText };
     } else if (hs.gesture === 'peace' && handsCount === 1) {
-      textFormation = { cx: palmX, cy: palmY, text: 'KATOV' };
+      textFormation = { cx: centerX, cy: centerY, text: 'KATOV' };
     } else if (hs.gesture === 'three' && handsCount === 1) {
-      textFormation = { cx: palmX, cy: palmY, text: '__SMILEY__' };
+      textFormation = { cx: centerX, cy: centerY, text: '__SMILEY__' };
     } else if (hs.gesture === 'fist' || hs.gesture === 'thumbs' || (hs.gesture === 'pinch' && handsCount === 2)) {
       attractTarget = { x: palmX, y: palmY };
     } else if (hs.gesture === 'pinch' && handsCount === 1) {
@@ -644,12 +652,13 @@ function createEngine(
       const indexDist = Math.hypot(lm0[8].x - lm1[8].x, lm0[8].y - lm1[8].y);
       const isHeart = thumbDist < 0.08 && indexDist < 0.08;
 
+      const cX = W / 2, cY = H / 2;
       if (isHeart) {
-        textFormation = { cx: midX, cy: midY, text: '__HEART__' };
+        textFormation = { cx: cX, cy: cY, text: '__HEART__' };
       } else if (bothThree) {
-        textFormation = { cx: midX, cy: midY, text: '__SMILEY__' };
+        textFormation = { cx: cX, cy: cY, text: '__SMILEY__' };
       } else if (bothPeace) {
-        textFormation = { cx: midX, cy: midY, text: 'KATOV' };
+        textFormation = { cx: cX, cy: cY, text: 'KATOV' };
       } else if (bothPoint) {
         if (prevTextGesture !== 'point') {
           let pick = randomTexts[Math.floor(Math.random() * randomTexts.length)];
@@ -658,7 +667,7 @@ function createEngine(
           }
           lastRandomText = pick;
         }
-        textFormation = { cx: midX, cy: midY, text: lastRandomText };
+        textFormation = { cx: cX, cy: cY, text: lastRandomText };
       } else if (bothFist) {
         const spawnCount = 4;
         for (let s = 0; s < spawnCount; s++) {
@@ -675,7 +684,7 @@ function createEngine(
           });
         }
       } else if (bothPinch) {
-        twoHandMidpoint = { x: midX, y: midY };
+        twoHandMidpoint = { x: cX, y: cY };
       } else if (bothOpen) {
         twoHandMidpoint = null;
         if (wasBothFist) {
@@ -769,7 +778,7 @@ function createEngine(
         delete p.textTargetX; delete p.textTargetY; delete p.textTargetZ;
         const dx = twoHandMidpoint.x - p.x, dy = twoHandMidpoint.y - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        const bodyR = 80, ringInner = 150, ringOuter = 220;
+        const bodyR = isMobile ? 45 : 80, ringInner = isMobile ? 85 : 150, ringOuter = isMobile ? 125 : 220;
         const sphereZone = ringOuter * 2;
         const tilt = -0.35; // ~20° tilt, tepadan ko'rinish
         const cosT = Math.cos(tilt), sinT = Math.sin(tilt);
