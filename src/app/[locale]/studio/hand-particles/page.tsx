@@ -557,6 +557,8 @@ function createEngine(
       textFormation = { cx: W / 2, cy: H / 2, text: '__SQUARE__' };
     } else if (hs.gesture === 'peace' && handsCount === 1) {
       textFormation = { cx: W / 2, cy: H / 2, text: '__CIRCLE__' };
+    } else if (hs.gesture === 'three' && handsCount === 1) {
+      textFormation = { cx: W / 2, cy: H / 2, text: '__SMILEY__' };
     } else if (hs.gesture === 'fist' || hs.gesture === 'thumbs' || (hs.gesture === 'pinch' && handsCount === 2)) {
       attractTarget = { x: palmX, y: palmY };
     } else if (hs.gesture === 'pinch' && handsCount === 1) {
