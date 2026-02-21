@@ -554,11 +554,7 @@ function createEngine(
     if (isFist && thumbUp) return 'thumbs';
     const pinchDist = Math.hypot(lm[4].x - lm[8].x, lm[4].y - lm[8].y);
     if (pinchDist < 0.06) return 'pinch';
-    if (indexUp && middleUp && ringUp && pinkyUp) {
-      const thumbSpread = Math.hypot(lm[4].x - lm[5].x, lm[4].y - lm[5].y) > 0.06;
-      if (thumbSpread) return 'open';
-      return 'four';
-    }
+    if (indexUp && middleUp && ringUp && pinkyUp) return 'open';
     if (indexUp && !middleUp && !ringUp && !pinkyUp) return 'point';
     if (indexUp && middleUp && !ringUp && !pinkyUp) return 'peace';
     if (indexUp && middleUp && ringUp && !pinkyUp) return 'three';
@@ -688,7 +684,6 @@ function createEngine(
       const bothPeace = g0 === 'peace' && g1 === 'peace';
       const bothPoint = g0 === 'point' && g1 === 'point';
       const bothThree = g0 === 'three' && g1 === 'three';
-      const bothFour = g0 === 'four' && g1 === 'four';
 
       // Heart gesture: both hands' thumb tips close + index tips close (forming a heart shape)
       const thumbDist = Math.hypot(lm0[4].x - lm1[4].x, lm0[4].y - lm1[4].y);
@@ -698,9 +693,7 @@ function createEngine(
       // Formation at center with subtle hand-follow offset
       const fX = W / 2 + (midX - W / 2) * 0.25;
       const fY = H / 2 + (midY - H / 2) * 0.25;
-      if (bothFour) {
-        snowMode = true;
-      } else if (isHeart) {
+      if (isHeart) {
         textFormation = { cx: fX, cy: fY, text: '__HEART__' };
       } else if (bothThree) {
         textFormation = { cx: fX, cy: fY, text: '__SMILEY__' };
@@ -733,23 +726,8 @@ function createEngine(
       } else if (bothPinch) {
         twoHandMidpoint = { x: fX, y: fY };
       } else if (bothOpen) {
+        snowMode = true;
         twoHandMidpoint = null;
-        if (wasBothFist) {
-          wasBothFist = false;
-          let hasNearby = false;
-          for (const p of particles) {
-            const dx = p.x - midX, dy = p.y - midY;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist > 1 && dist < 700) {
-              hasNearby = true;
-              const distFactor = Math.max(0.1, 1 - dist / 700);
-              const force = (24 + Math.random() * 14) * distFactor;
-              const angle = Math.atan2(dy, dx);
-              p.vx += Math.cos(angle) * force; p.vy += Math.sin(angle) * force;
-            }
-          }
-          if (hasNearby) blastEffect = { x: midX, y: midY, time: now };
-        }
         repelFromHandSegments(lm0, W, H);
         repelFromHandSegments(lm1, W, H);
       }
@@ -836,12 +814,18 @@ function createEngine(
         if (p.trail.length > 8) p.trail.shift();
       }
 
-      // Rain physics: fast falling with slight wind
+      // Rain physics: fast falling, settle at bottom
       if (snowMode && !textFormation && !twoHandMidpoint && !attractTarget) {
-        p.vy += 0.3; // strong gravity
-        p.vx += (Math.random() - 0.5) * 0.15; // slight wind
-        p.vy *= 0.995;
-        if (p.y > H + 20) { particles.splice(i, 1); continue; }
+        if (p.y < H - p.size * 2) {
+          p.vy += 0.3;
+          p.vx += (Math.random() - 0.5) * 0.15;
+          p.vy *= 0.995;
+        } else {
+          // Settle at bottom
+          p.y = H - p.size * 2;
+          p.vy = 0;
+          p.vx *= 0.9;
+        }
       }
 
       if (textFormation && cachedTextPts.length > 0) {
