@@ -365,6 +365,32 @@ function createEngine(
     return pts;
   }
 
+  // Returns square outline points centered at (0,0)
+  function getSquarePoints(size: number) {
+    const pts: { x: number; y: number }[] = [];
+    const half = size / 2;
+    const step = 3;
+    // Four edges
+    for (let i = -half; i <= half; i += step) {
+      pts.push({ x: i, y: -half }); // top
+      pts.push({ x: i, y: half });  // bottom
+      pts.push({ x: -half, y: i }); // left
+      pts.push({ x: half, y: i });  // right
+    }
+    return pts;
+  }
+
+  // Returns circle outline points centered at (0,0)
+  function getCirclePoints(radius: number) {
+    const pts: { x: number; y: number }[] = [];
+    const count = Math.floor(radius * 2.5);
+    for (let i = 0; i < count; i++) {
+      const angle = (i / count) * Math.PI * 2;
+      pts.push({ x: radius * Math.cos(angle), y: radius * Math.sin(angle) });
+    }
+    return pts;
+  }
+
   const handState = [
     { gesture: 'none', prevGesture: 'none', smoothX: 0, smoothY: 0, pinchTrail: [] as { x: number; y: number }[] },
     { gesture: 'none', prevGesture: 'none', smoothX: 0, smoothY: 0, pinchTrail: [] as { x: number; y: number }[] },
@@ -528,18 +554,9 @@ function createEngine(
     hs.gesture = detectGesture(lm);
 
     if (hs.gesture === 'point' && handsCount === 1) {
-      if (handState[handIdx].prevGesture !== 'point') {
-        let pick = randomTexts[Math.floor(Math.random() * randomTexts.length)];
-        while (pick === lastRandomText && randomTexts.length > 1) {
-          pick = randomTexts[Math.floor(Math.random() * randomTexts.length)];
-        }
-        lastRandomText = pick;
-      }
-      textFormation = { cx: W / 2, cy: H / 2, text: lastRandomText };
+      textFormation = { cx: W / 2, cy: H / 2, text: '__SQUARE__' };
     } else if (hs.gesture === 'peace' && handsCount === 1) {
-      textFormation = { cx: W / 2, cy: H / 2, text: 'KATOV' };
-    } else if (hs.gesture === 'three' && handsCount === 1) {
-      textFormation = { cx: W / 2, cy: H / 2, text: '__SMILEY__' };
+      textFormation = { cx: W / 2, cy: H / 2, text: '__CIRCLE__' };
     } else if (hs.gesture === 'fist' || hs.gesture === 'thumbs' || (hs.gesture === 'pinch' && handsCount === 2)) {
       attractTarget = { x: palmX, y: palmY };
     } else if (hs.gesture === 'pinch' && handsCount === 1) {
@@ -728,7 +745,11 @@ function createEngine(
 
     if (textFormation) {
       if (textFormation.text !== cachedTextKey) {
-        if (textFormation.text === '__SMILEY__') {
+        if (textFormation.text === '__SQUARE__') {
+          cachedTextPts = getSquarePoints(Math.min(W, H) * (isMobile ? 0.3 : 0.35));
+        } else if (textFormation.text === '__CIRCLE__') {
+          cachedTextPts = getCirclePoints(Math.min(W, H) * (isMobile ? 0.15 : 0.2));
+        } else if (textFormation.text === '__SMILEY__') {
           cachedTextPts = getSmileyPoints(Math.min(W, H) * (isMobile ? 0.15 : 0.25));
         } else if (textFormation.text === '__HEART__') {
           cachedTextPts = getHeartPoints(Math.min(W, H) * (isMobile ? 0.18 : 0.28));
