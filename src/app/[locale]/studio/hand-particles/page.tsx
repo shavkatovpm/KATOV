@@ -521,7 +521,7 @@ function createEngine(
     if (type === 'draw') {
       p.vx = (Math.random() - 0.5) * 0.3; p.vy = (Math.random() - 0.5) * 0.3;
       p.size = 0.9 + Math.random() * 1.8; p.decay = 0; p.permanent = true; p.hasTrail = false;
-      p.z = 0.2 + Math.random() * 0.8;
+      p.z = 0.05 + Math.random() * 0.95;
     } else if (type === 'scatter') {
       const angle = Math.random() * Math.PI * 2;
       const speed = 5 + Math.random() * 12;
@@ -952,7 +952,7 @@ function createEngine(
           const targetZ = 0.5 + 0.42 * wave;
           p.z = p.z + (targetZ - p.z) * 0.02;
         } else {
-          p.z = Math.max(0.05, Math.min(1, (p.z || 0.5) + (Math.random() - 0.5) * 0.008));
+          p.z = Math.max(0.02, Math.min(1, (p.z || 0.5) + (Math.random() - 0.5) * 0.012));
         }
       }
       if (p.twinkle !== undefined) p.twinkle += 0.08 + Math.random() * 0.04;
@@ -967,11 +967,11 @@ function createEngine(
 
     for (const p of particles) {
       const z = p.z || 0.5;
-      const depthScale = 0.3 + 0.7 * z * z;
-      const depthAlpha = 0.25 + 0.75 * z;
-      const rr = Math.round(p.rgb.r * (0.55 + 0.45 * z));
-      const gg = Math.round(p.rgb.g * (0.6 + 0.4 * z));
-      const bb = Math.min(255, Math.round(p.rgb.b + (1 - z) * 50));
+      const depthScale = 0.15 + 2.5 * z * z; // far=tiny(0.15x), near=huge(2.65x)
+      const depthAlpha = 0.1 + 0.9 * z;
+      const rr = Math.round(p.rgb.r * (0.3 + 0.7 * z));
+      const gg = Math.round(p.rgb.g * (0.35 + 0.65 * z));
+      const bb = Math.min(255, Math.round(p.rgb.b + (1 - z) * 80));
       const baseAlpha = p.twinkle !== undefined ? p.alpha * (0.6 + 0.4 * Math.sin(p.twinkle)) : p.alpha;
       const effectiveAlpha = baseAlpha * depthAlpha;
       const baseSize = p.permanent ? p.size : p.size * (0.3 + 0.7 * p.alpha);
@@ -990,16 +990,17 @@ function createEngine(
       pCtx.globalAlpha = effectiveAlpha;
 
       if (isMobile) {
-        // Simplified rendering for mobile — single circle + optional core
+        // Simplified rendering for mobile with depth feel
         pCtx.fillStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha})`;
-        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 1.5, 0, Math.PI * 2); pCtx.fill();
-        if (z > 0.5) {
-          pCtx.globalAlpha = effectiveAlpha * 0.8;
+        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 1.3, 0, Math.PI * 2); pCtx.fill();
+        if (z > 0.7) {
+          // Near particles get bright core + glow
+          pCtx.globalAlpha = effectiveAlpha * 0.9;
           pCtx.fillStyle = '#fff';
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.4, 0, Math.PI * 2); pCtx.fill();
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.35, 0, Math.PI * 2); pCtx.fill();
         }
       } else {
-        const glowMult = 2 + 6 * z;
+        const glowMult = 2 + 10 * z * z;
         const glowOuter = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * glowMult);
         glowOuter.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * (0.1 + 0.3 * z)})`);
         glowOuter.addColorStop(0.4, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.05 * z})`);
