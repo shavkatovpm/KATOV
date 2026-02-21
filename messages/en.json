@@ -129,6 +129,11 @@
         "title": "Calculate website price",
         "description": "Calculate your website price online — select type and features.",
         "cta": "Try it"
+      },
+      "hand-particles": {
+        "title": "Hand Particles",
+        "description": "Control particles with hand gestures — turn on your camera and try it.",
+        "cta": "Try it"
       }
     },
     "priceTool": {

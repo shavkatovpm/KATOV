@@ -128,6 +128,11 @@
         "title": "Sayt narxini hisoblash",
         "description": "Sayt narxini onlayn hisoblang — tur va funksiyalarni tanlang.",
         "cta": "Foydalanish"
+      },
+      "hand-particles": {
+        "title": "Hand Particles",
+        "description": "Qo'l harakati bilan zarrachalarni boshqaring — kamerangizni yoqing va sinab ko'ring.",
+        "cta": "Sinab ko'rish"
       }
     },
     "priceTool": {

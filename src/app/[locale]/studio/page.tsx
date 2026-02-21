@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { CircleDollarSign } from 'lucide-react';
+import { CircleDollarSign, Sparkles } from 'lucide-react';
 
 const blogPostsUz = [
   {
@@ -40,6 +40,10 @@ const tools = [
   {
     id: 'price',
     icon: CircleDollarSign,
+  },
+  {
+    id: 'hand-particles',
+    icon: Sparkles,
   },
 ];
 

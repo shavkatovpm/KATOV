@@ -1,0 +1,1103 @@
+'use client';
+
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
+import { ArrowLeft, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+
+export default function HandParticlesPage() {
+  const t = useTranslations('studio.priceTool');
+  const [started, setStarted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const appRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const pCanvasRef = useRef<HTMLCanvasElement>(null);
+  const hCanvasRef = useRef<HTMLCanvasElement>(null);
+  const bgCanvasRef = useRef<HTMLCanvasElement>(null);
+  const engineRef = useRef<ReturnType<typeof createEngine> | null>(null);
+
+  const handleStart = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { width: 1280, height: 720, facingMode: 'user' },
+      });
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+      }
+
+      // Load MediaPipe scripts
+      await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.min.js');
+      await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1675466862/camera_utils.min.js');
+
+      const engine = createEngine(
+        pCanvasRef.current!,
+        hCanvasRef.current!,
+        bgCanvasRef.current!,
+        videoRef.current!,
+      );
+      engineRef.current = engine;
+      engine.start();
+
+      setStarted(true);
+      setLoading(false);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Unknown error';
+      setError(message);
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      engineRef.current?.destroy();
+    };
+  }, []);
+
+  // Hide header/footer
+  useEffect(() => {
+    const footer = document.querySelector('footer') as HTMLElement | null;
+    const header = document.querySelector('header') as HTMLElement | null;
+    if (footer) footer.style.display = 'none';
+    if (header) header.style.display = 'none';
+    return () => {
+      if (footer) footer.style.display = '';
+      if (header) header.style.display = '';
+    };
+  }, []);
+
+  return (
+    <div className="h-dvh flex flex-col overflow-hidden px-4 sm:px-6 pt-20 sm:pt-24 pb-6 sm:pb-8">
+      {!started && (
+        <div className="w-full max-w-2xl mx-auto flex flex-col flex-1 min-h-0">
+          {/* Header */}
+          <div className="shrink-0">
+            <Link
+              href="/studio"
+              className="inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity text-sm mb-4 sm:mb-6"
+            >
+              <ArrowLeft size={16} />
+              {t('back')}
+            </Link>
+
+            <div className="text-center mb-6 sm:mb-8">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                Hand Particles
+              </h1>
+              <p className="text-muted text-sm sm:text-base mt-2">
+                Qo&apos;l harakati bilan zarrachalarni boshqaring
+              </p>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="flex-1 min-h-0 flex flex-col items-center justify-center">
+            <div
+              className="rounded-xl sm:rounded-2xl p-6 sm:p-10 text-center w-full max-w-md"
+              style={{
+                backgroundColor: '#000000',
+                border: '1px solid var(--color-border)',
+              }}
+            >
+              <Sparkles size={36} className="mx-auto mb-4 opacity-70" />
+
+              <p className="text-muted text-sm sm:text-base mb-6 leading-relaxed">
+                Kameraga ruxsat bering va qo&apos;l harakatingiz bilan zarrachalarni boshqaring.
+              </p>
+
+              {!loading && !error && (
+                <button
+                  onClick={handleStart}
+                  className="px-6 py-3 rounded-full text-sm font-medium transition-opacity flex items-center gap-2 mx-auto cursor-pointer"
+                  style={{
+                    backgroundColor: 'var(--color-fg)',
+                    color: 'var(--color-bg)',
+                  }}
+                >
+                  Boshlash
+                </button>
+              )}
+
+              {loading && (
+                <div className="flex flex-col items-center gap-3">
+                  <div
+                    className="w-7 h-7 rounded-full animate-spin"
+                    style={{
+                      border: '2px solid var(--color-border)',
+                      borderTopColor: 'var(--color-fg)',
+                    }}
+                  />
+                  <span className="text-muted text-xs">
+                    AI model yuklanmoqda...
+                  </span>
+                </div>
+              )}
+
+              {error && (
+                <div className="text-center">
+                  <p className="text-sm" style={{ color: '#f472b6' }}>
+                    Kameraga ruxsat berilmadi
+                  </p>
+                  <p className="text-muted text-xs mt-2 mb-4">
+                    Davom etish uchun kameraga ruxsat bering.
+                  </p>
+                  <button
+                    onClick={() => { setError(null); handleStart(); }}
+                    className="px-5 py-2 rounded-full text-xs font-medium cursor-pointer"
+                    style={{ border: '1px solid var(--color-border)' }}
+                  >
+                    Qayta urinish
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Features */}
+            <div className="flex gap-6 mt-6">
+              {[
+                { label: '5 rejim' },
+                { label: '3D effekt' },
+                { label: 'AI MediaPipe' },
+              ].map((f) => (
+                <span key={f.label} className="text-muted text-xs">
+                  {f.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* App canvases — always mounted, visible only when started */}
+      <div ref={appRef} className={`fixed inset-0 ${started ? '' : 'invisible pointer-events-none'}`} style={{ backgroundColor: '#06060f', zIndex: started ? 50 : -1 }}>
+        <canvas ref={bgCanvasRef} className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }} />
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ transform: 'scaleX(-1)', opacity: 0.1 }}
+        />
+        <canvas ref={pCanvasRef} className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }} />
+        <canvas
+          ref={hCanvasRef}
+          className="absolute inset-0 w-full h-full"
+          style={{ transform: 'scaleX(-1)', zIndex: 2 }}
+        />
+        {started && (
+          <Link
+            href="/studio"
+            className="absolute top-6 left-6 z-50 inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity text-sm"
+          >
+            <ArrowLeft size={16} />
+            {t('back')}
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// =========== Script Loader ===========
+function loadScript(src: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[src="${src}"]`)) {
+      resolve();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error(`Failed to load: ${src}`));
+    document.head.appendChild(script);
+  });
+}
+
+// =========== Particle Engine ===========
+function createEngine(
+  pCanvas: HTMLCanvasElement,
+  hCanvas: HTMLCanvasElement,
+  bgCanvas: HTMLCanvasElement,
+  video: HTMLVideoElement,
+) {
+  const pCtx = pCanvas.getContext('2d')!;
+  const hCtx = hCanvas.getContext('2d')!;
+  const bgCtx = bgCanvas.getContext('2d')!;
+
+  let destroyed = false;
+  let animId = 0;
+
+  const MAX_PARTICLES = 3000;
+
+  interface Particle {
+    x: number; y: number; vx: number; vy: number;
+    size: number; color: string; rgb: { r: number; g: number; b: number };
+    alpha: number; life: number; decay: number;
+    permanent: boolean; hasTrail: boolean; trail: { x: number; y: number; alpha: number }[];
+    z: number; shape: string;
+    twinkle?: number;
+    spherePhi?: number; sphereTheta?: number;
+    saturnRole?: 'body' | 'ring';
+    katovBaseZ?: number;
+    textTargetX?: number; textTargetY?: number; textTargetZ?: number;
+  }
+
+  let particles: Particle[] = [];
+  let attractTarget: { x: number; y: number } | null = null;
+  let twoHandMidpoint: { x: number; y: number } | null = null;
+  let textFormation: { cx: number; cy: number; text: string } | null = null;
+  let wasBothFist = false;
+  let blastEffect: { x: number; y: number; time: number } | null = null;
+  let lastRandomText = '';
+  let prevTextGesture = '';
+
+  const randomTexts = ['SALOM', 'YOQDIMI?', 'ZERIKMAYAPSIZMI?'];
+
+  // Returns points centered at (0,0)
+  function getTextPoints(text: string, maxW: number) {
+    const tmp = document.createElement('canvas');
+    const size = Math.min(maxW * 0.9, 800);
+    tmp.width = size; tmp.height = size * 0.4;
+    const tc = tmp.getContext('2d')!;
+    let fontSize = Math.floor(tmp.height * 0.7);
+    tc.font = `900 ${fontSize}px 'Inter', sans-serif`;
+    while (tc.measureText(text).width > tmp.width * 0.9 && fontSize > 12) {
+      fontSize -= 2;
+      tc.font = `900 ${fontSize}px 'Inter', sans-serif`;
+    }
+    tc.textAlign = 'center'; tc.textBaseline = 'middle';
+    tc.fillStyle = '#fff';
+    tc.fillText(text, tmp.width / 2, tmp.height / 2);
+    const imgData = tc.getImageData(0, 0, tmp.width, tmp.height).data;
+    const pts: { x: number; y: number }[] = [];
+    const step = 4;
+    for (let y = 0; y < tmp.height; y += step) {
+      for (let x = 0; x < tmp.width; x += step) {
+        if (imgData[(y * tmp.width + x) * 4 + 3] > 128) {
+          pts.push({ x: x - tmp.width / 2, y: y - tmp.height / 2 });
+        }
+      }
+    }
+    return pts;
+  }
+
+  // Returns smiley face points centered at (0,0)
+  function getSmileyPoints(radius: number) {
+    const tmp = document.createElement('canvas');
+    const size = Math.ceil(radius * 3);
+    tmp.width = size; tmp.height = size;
+    const tc = tmp.getContext('2d')!;
+    const cx = size / 2, cy = size / 2, r = radius;
+
+    tc.fillStyle = '#fff'; tc.strokeStyle = '#fff';
+
+    // Thick face outline
+    tc.lineWidth = r * 0.12;
+    tc.beginPath(); tc.arc(cx, cy, r, 0, Math.PI * 2); tc.stroke();
+
+    // Left eye - oval
+    tc.beginPath(); tc.ellipse(cx - r * 0.32, cy - r * 0.2, r * 0.08, r * 0.14, 0, 0, Math.PI * 2); tc.fill();
+
+    // Right eye - oval
+    tc.beginPath(); tc.ellipse(cx + r * 0.32, cy - r * 0.2, r * 0.08, r * 0.14, 0, 0, Math.PI * 2); tc.fill();
+
+    // Wide smile
+    tc.lineWidth = r * 0.1;
+    tc.lineCap = 'round';
+    tc.beginPath(); tc.arc(cx, cy, r * 0.52, 0.2 * Math.PI, 0.8 * Math.PI); tc.stroke();
+
+    const imgData = tc.getImageData(0, 0, size, size).data;
+    const pts: { x: number; y: number }[] = [];
+    const step = 3;
+    for (let y = 0; y < size; y += step) {
+      for (let x = 0; x < size; x += step) {
+        if (imgData[(y * size + x) * 4 + 3] > 60) {
+          pts.push({ x: x - cx, y: y - cy });
+        }
+      }
+    }
+    return pts;
+  }
+
+  // Returns heart shape points centered at (0,0)
+  function getHeartPoints(radius: number) {
+    const tmp = document.createElement('canvas');
+    const size = Math.ceil(radius * 3);
+    tmp.width = size; tmp.height = size;
+    const tc = tmp.getContext('2d')!;
+    const cx = size / 2, cy = size / 2;
+
+    tc.fillStyle = '#fff';
+    tc.beginPath();
+    // Heart using parametric equation: x = 16sin³(t), y = 13cos(t) - 5cos(2t) - 2cos(3t) - cos(4t)
+    const scale = radius * 0.065;
+    for (let t = 0; t <= Math.PI * 2; t += 0.01) {
+      const hx = 16 * Math.pow(Math.sin(t), 3);
+      const hy = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+      const px = cx + hx * scale;
+      const py = cy + hy * scale;
+      if (t === 0) tc.moveTo(px, py);
+      else tc.lineTo(px, py);
+    }
+    tc.closePath();
+    tc.fill();
+    // Thick outline for more visible particles
+    tc.strokeStyle = '#fff';
+    tc.lineWidth = radius * 0.08;
+    tc.stroke();
+
+    const imgData = tc.getImageData(0, 0, size, size).data;
+    const pts: { x: number; y: number }[] = [];
+    const step = 3;
+    for (let y = 0; y < size; y += step) {
+      for (let x = 0; x < size; x += step) {
+        if (imgData[(y * size + x) * 4 + 3] > 60) {
+          pts.push({ x: x - cx, y: y - cy });
+        }
+      }
+    }
+    return pts;
+  }
+
+  const handState = [
+    { gesture: 'none', prevGesture: 'none', smoothX: 0, smoothY: 0, pinchTrail: [] as { x: number; y: number }[] },
+    { gesture: 'none', prevGesture: 'none', smoothX: 0, smoothY: 0, pinchTrail: [] as { x: number; y: number }[] },
+  ];
+
+  const HAND_COLLISION_SEGS = [
+    [0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],
+    [5,9],[9,10],[10,11],[11,12],[9,13],[13,14],[14,15],[15,16],
+    [13,17],[17,18],[18,19],[19,20],[0,17],
+    [1,5],[0,9],[5,13],[5,17],[1,9],[9,17],
+  ];
+  const PALM_POLY_IDX = [0, 1, 5, 9, 13, 17];
+
+  const neonColors = [
+    { r: 160, g: 180, b: 255 },
+    { r: 200, g: 160, b: 255 },
+    { r: 180, g: 230, b: 230 },
+  ];
+
+  function resize() {
+    pCanvas.width = hCanvas.width = bgCanvas.width = window.innerWidth;
+    pCanvas.height = hCanvas.height = bgCanvas.height = window.innerHeight;
+  }
+
+  function drawBg() {
+    bgCtx.fillStyle = '#06060f';
+    bgCtx.fillRect(0, 0, bgCanvas.width, bgCanvas.height);
+  }
+
+  function closestPointOnSegment(px: number, py: number, ax: number, ay: number, bx: number, by: number) {
+    const dx = bx - ax, dy = by - ay;
+    const lenSq = dx * dx + dy * dy;
+    if (lenSq < 0.001) return { x: ax, y: ay };
+    const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / lenSq));
+    return { x: ax + t * dx, y: ay + t * dy };
+  }
+
+  function isInsidePolygon(px: number, py: number, verts: { x: number; y: number }[]) {
+    let inside = false;
+    for (let i = 0, j = verts.length - 1; i < verts.length; j = i++) {
+      if ((verts[i].y > py) !== (verts[j].y > py) &&
+        px < (verts[j].x - verts[i].x) * (py - verts[i].y) / (verts[j].y - verts[i].y) + verts[i].x) {
+        inside = !inside;
+      }
+    }
+    return inside;
+  }
+
+  function repelFromHandSegments(lm: { x: number; y: number }[], W: number, H: number) {
+    const SOLID = 42, SOFT = 140;
+    const coords: { x: number; y: number }[] = [];
+    for (let i = 0; i < 21; i++) {
+      coords.push({ x: (1 - lm[i].x) * W, y: lm[i].y * H });
+    }
+    const palmPoly = PALM_POLY_IDX.map(i => coords[i]);
+    const palmCx = palmPoly.reduce((s, v) => s + v.x, 0) / palmPoly.length;
+    const palmCy = palmPoly.reduce((s, v) => s + v.y, 0) / palmPoly.length;
+
+    for (const p of particles) {
+      if (isInsidePolygon(p.x, p.y, palmPoly)) {
+        const dx = p.x - palmCx, dy = p.y - palmCy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > 0.01) {
+          const nx = dx / dist, ny = dy / dist;
+          p.vx += nx * 8; p.vy += ny * 8;
+          p.x += nx * 6; p.y += ny * 6;
+        } else {
+          const angle = Math.random() * Math.PI * 2;
+          p.vx += Math.cos(angle) * 8; p.vy += Math.sin(angle) * 8;
+        }
+        continue;
+      }
+
+      let minDist = Infinity, bestNx = 0, bestNy = 0, bestCx = 0, bestCy = 0;
+      for (const [a, b] of HAND_COLLISION_SEGS) {
+        const cp = closestPointOnSegment(p.x, p.y, coords[a].x, coords[a].y, coords[b].x, coords[b].y);
+        const dx = p.x - cp.x, dy = p.y - cp.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < minDist) {
+          minDist = dist; bestCx = cp.x; bestCy = cp.y;
+          bestNx = dist > 0.01 ? dx / dist : 0;
+          bestNy = dist > 0.01 ? dy / dist : 0;
+        }
+      }
+
+      const toParticleX = p.x - palmCx, toParticleY = p.y - palmCy;
+      if (bestNx * toParticleX + bestNy * toParticleY < 0) {
+        bestNx = -bestNx; bestNy = -bestNy;
+      }
+
+      if (minDist < SOLID && minDist > 0.01) {
+        const push = Math.max(0, SOLID - minDist);
+        p.x += bestNx * push * 0.5; p.y += bestNy * push * 0.5;
+        const dot = p.vx * bestNx + p.vy * bestNy;
+        if (dot < 0) { p.vx -= 1.8 * dot * bestNx; p.vy -= 1.8 * dot * bestNy; }
+        p.vx += bestNx * 3; p.vy += bestNy * 3;
+      } else if (minDist < SOFT) {
+        const falloff = (SOFT - minDist) / (SOFT - SOLID);
+        const force = falloff * falloff * 4.0;
+        p.vx += bestNx * force; p.vy += bestNy * force;
+      }
+    }
+  }
+
+  function spawnParticle(x: number, y: number, type = 'draw') {
+    if (particles.length >= MAX_PARTICLES) return;
+    const rgb = neonColors[Math.floor(Math.random() * neonColors.length)];
+    const color = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+    const p: Particle = { x, y, color, rgb, alpha: 1, life: 1, trail: [], shape: 'circle', vx: 0, vy: 0, size: 1, decay: 0, permanent: false, hasTrail: false, z: 0.5 };
+
+    if (type === 'draw') {
+      p.vx = (Math.random() - 0.5) * 0.3; p.vy = (Math.random() - 0.5) * 0.3;
+      p.size = 0.9 + Math.random() * 1.8; p.decay = 0; p.permanent = true; p.hasTrail = false;
+      p.z = 0.2 + Math.random() * 0.8;
+    } else if (type === 'scatter') {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 5 + Math.random() * 12;
+      p.vx = Math.cos(angle) * speed; p.vy = Math.sin(angle) * speed;
+      p.size = 1.2 + Math.random() * 2.4; p.decay = 0.012 + Math.random() * 0.015;
+      p.hasTrail = true; p.z = 0.3 + Math.random() * 0.7;
+    } else if (type === 'star') {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 1 + Math.random() * 2;
+      p.vx = Math.cos(angle) * speed; p.vy = Math.sin(angle) * speed - 1.5;
+      p.size = 1.2 + Math.random() * 2.1; p.decay = 0; p.permanent = true;
+      p.hasTrail = false; p.twinkle = Math.random() * Math.PI * 2;
+      p.z = 0.1 + Math.random() * 0.9;
+    }
+    particles.push(p);
+  }
+
+  function detectGesture(lm: { x: number; y: number }[]) {
+    const T = 0.04;
+    const indexUp = lm[8].y < lm[6].y - T;
+    const middleUp = lm[12].y < lm[10].y - T;
+    const ringUp = lm[16].y < lm[14].y - T;
+    const pinkyUp = lm[20].y < lm[18].y - T;
+    const palmY = lm[9].y;
+    const tipsBelowPalm = lm[8].y > palmY && lm[12].y > palmY && lm[16].y > palmY && lm[20].y > palmY;
+    const fourFingersDown = !indexUp && !middleUp && !ringUp && !pinkyUp;
+    const isFist = fourFingersDown || tipsBelowPalm;
+    const thumbUp = lm[4].y < lm[3].y - 0.03 && lm[4].y < lm[5].y - 0.03;
+    if (isFist && !thumbUp) return 'fist';
+    if (isFist && thumbUp) return 'thumbs';
+    const pinchDist = Math.hypot(lm[4].x - lm[8].x, lm[4].y - lm[8].y);
+    if (pinchDist < 0.06) return 'pinch';
+    if (indexUp && middleUp && ringUp && pinkyUp) return 'open';
+    if (indexUp && !middleUp && !ringUp && !pinkyUp) return 'point';
+    if (indexUp && middleUp && !ringUp && !pinkyUp) return 'peace';
+    if (indexUp && middleUp && ringUp && !pinkyUp) return 'three';
+    return 'other';
+  }
+
+  function processHand(lm: { x: number; y: number }[], handIdx: number, W: number, H: number, now: number, handsCount: number) {
+    const hs = handState[handIdx];
+    const rawX = (1 - lm[8].x) * W, rawY = lm[8].y * H;
+    hs.smoothX += (rawX - hs.smoothX) * 0.45;
+    hs.smoothY += (rawY - hs.smoothY) * 0.45;
+    const palmX = (1 - lm[9].x) * W, palmY = lm[9].y * H;
+    hs.prevGesture = hs.gesture;
+    hs.gesture = detectGesture(lm);
+
+    if (hs.gesture === 'point') {
+      spawnParticle(hs.smoothX + (Math.random() - 0.5) * 6, hs.smoothY + (Math.random() - 0.5) * 6, 'draw');
+    } else if (hs.gesture === 'fist' || hs.gesture === 'thumbs' || (hs.gesture === 'pinch' && handsCount === 2)) {
+      attractTarget = { x: palmX, y: palmY };
+    } else if (hs.gesture === 'pinch' && handsCount === 1) {
+      const thumbX = (1 - lm[4].x) * W, thumbY = lm[4].y * H;
+      const indexX = (1 - lm[8].x) * W, indexY = lm[8].y * H;
+      const pinchX = (thumbX + indexX) / 2, pinchY = (thumbY + indexY) / 2;
+      const trail = hs.pinchTrail;
+      if (trail.length === 0) {
+        trail.push({ x: pinchX, y: pinchY });
+      } else {
+        const last = trail[trail.length - 1];
+        const dd = Math.sqrt((pinchX - last.x) ** 2 + (pinchY - last.y) ** 2);
+        if (dd > 3) trail.push({ x: pinchX, y: pinchY });
+        trail[trail.length - 1] = { x: pinchX, y: pinchY };
+      }
+      while (trail.length > 50) trail.shift();
+
+      const trailLengths = [0];
+      for (let j = 1; j < trail.length; j++) {
+        const dx = trail[j].x - trail[j - 1].x, dy = trail[j].y - trail[j - 1].y;
+        trailLengths.push(trailLengths[j - 1] + Math.sqrt(dx * dx + dy * dy));
+      }
+      const totalTrailLen = trailLengths[trailLengths.length - 1] || 1;
+      const total = particles.length;
+      const halfCount = Math.ceil(total / 2);
+      const windTime = now * 0.003;
+      const ROW_GAP = 3;
+
+      for (let i = 0; i < total; i++) {
+        const p = particles[i];
+        const row = i % 2;
+        const idx = Math.floor(i / 2);
+        const tNorm = halfCount > 1 ? idx / (halfCount - 1) : 0.5;
+        const targetDist = (1 - tNorm) * totalTrailLen;
+        let segIdx = trail.length - 1;
+        for (let j = trail.length - 1; j > 0; j--) {
+          if (trailLengths[trail.length - 1] - trailLengths[j] >= targetDist) { segIdx = j; break; }
+        }
+        const tx = trail[segIdx].x, ty = trail[segIdx].y;
+        let perpX = 0, perpY = 1;
+        if (segIdx < trail.length - 1) {
+          const sdx = trail[segIdx + 1].x - trail[segIdx].x;
+          const sdy = trail[segIdx + 1].y - trail[segIdx].y;
+          const sLen = Math.sqrt(sdx * sdx + sdy * sdy);
+          if (sLen > 0.5) { perpX = -sdy / sLen; perpY = sdx / sLen; }
+        }
+        const flutter = Math.sin(tNorm * 8 + windTime) * tNorm * 8 + Math.sin(tNorm * 14 + windTime * 1.5) * tNorm * 3;
+        const rowOffset = (row === 0 ? 1 : -1) * ROW_GAP;
+        const targetX = tx + perpX * (flutter + rowOffset);
+        const targetY = ty + perpY * (flutter + rowOffset);
+        const dx = targetX - p.x, dy = targetY - p.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        const pull = d > 300 ? 0.07 : d > 100 ? 0.1 : 0.15;
+        p.vx += dx * pull; p.vy += dy * pull;
+        p.vx *= 0.82; p.vy *= 0.82;
+      }
+    } else if (hs.gesture === 'open') {
+      repelFromHandSegments(lm, W, H);
+      if (hs.prevGesture === 'fist' || hs.prevGesture === 'thumbs') {
+        let hasNearby = false;
+        for (const p of particles) {
+          const dx = p.x - palmX, dy = p.y - palmY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist > 1 && dist < 600) {
+            hasNearby = true;
+            const distFactor = Math.max(0.1, 1 - dist / 600);
+            const force = (20 + Math.random() * 12) * distFactor;
+            const angle = Math.atan2(dy, dx);
+            p.vx += Math.cos(angle) * force; p.vy += Math.sin(angle) * force;
+          }
+        }
+        if (hasNearby) blastEffect = { x: palmX, y: palmY, time: now };
+      }
+    }
+    return hs.gesture;
+  }
+
+  function onResults(results: { multiHandLandmarks?: { x: number; y: number }[][] }) {
+    const now = performance.now();
+    hCtx.clearRect(0, 0, hCanvas.width, hCanvas.height);
+    const hands = results.multiHandLandmarks;
+    if (!hands || hands.length === 0) {
+      handState[0].gesture = 'none'; handState[1].gesture = 'none';
+      attractTarget = null; twoHandMidpoint = null; textFormation = null;
+      return;
+    }
+    const W = hCanvas.width, H = hCanvas.height;
+    attractTarget = null; twoHandMidpoint = null; textFormation = null;
+
+    for (let h = 0; h < hands.length; h++) {
+      processHand(hands[h], h, W, H, now, hands.length);
+    }
+
+    if (hands.length === 2) {
+      const lm0 = hands[0], lm1 = hands[1];
+      const g0 = handState[0].gesture, g1 = handState[1].gesture;
+      const p0x = (1 - lm0[9].x) * W, p0y = lm0[9].y * H;
+      const p1x = (1 - lm1[9].x) * W, p1y = lm1[9].y * H;
+      const midX = (p0x + p1x) / 2, midY = (p0y + p1y) / 2;
+      const bothPinch = g0 === 'pinch' && g1 === 'pinch';
+      const bothFist = g0 === 'fist' && g1 === 'fist';
+      const bothOpen = g0 === 'open' && g1 === 'open';
+      const bothPeace = g0 === 'peace' && g1 === 'peace';
+      const bothPoint = g0 === 'point' && g1 === 'point';
+      const bothThree = g0 === 'three' && g1 === 'three';
+
+      // Heart gesture: both hands' thumb tips close + index tips close (forming a heart shape)
+      const thumbDist = Math.hypot(lm0[4].x - lm1[4].x, lm0[4].y - lm1[4].y);
+      const indexDist = Math.hypot(lm0[8].x - lm1[8].x, lm0[8].y - lm1[8].y);
+      const isHeart = thumbDist < 0.08 && indexDist < 0.08;
+
+      if (isHeart) {
+        textFormation = { cx: midX, cy: midY, text: '__HEART__' };
+      } else if (bothThree) {
+        textFormation = { cx: midX, cy: midY, text: '__SMILEY__' };
+      } else if (bothPeace) {
+        textFormation = { cx: midX, cy: midY, text: 'KATOV' };
+      } else if (bothPoint) {
+        if (prevTextGesture !== 'point') {
+          let pick = randomTexts[Math.floor(Math.random() * randomTexts.length)];
+          while (pick === lastRandomText && randomTexts.length > 1) {
+            pick = randomTexts[Math.floor(Math.random() * randomTexts.length)];
+          }
+          lastRandomText = pick;
+        }
+        textFormation = { cx: midX, cy: midY, text: lastRandomText };
+      } else if (bothFist) {
+        const spawnCount = 4;
+        for (let s = 0; s < spawnCount; s++) {
+          if (particles.length >= MAX_PARTICLES) break;
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 4 + Math.random() * 10;
+          const rgb = neonColors[Math.floor(Math.random() * neonColors.length)];
+          particles.push({
+            x: midX + (Math.random() - 0.5) * 10, y: midY + (Math.random() - 0.5) * 10,
+            vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+            size: 0.9 + Math.random() * 1.8, color: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, rgb,
+            alpha: 1, life: 1, decay: 0, permanent: true, hasTrail: false, trail: [],
+            z: 0.2 + Math.random() * 0.8, shape: 'circle',
+          });
+        }
+      } else if (bothPinch) {
+        twoHandMidpoint = { x: midX, y: midY };
+      } else if (bothOpen) {
+        twoHandMidpoint = null;
+        if (wasBothFist) {
+          wasBothFist = false;
+          let hasNearby = false;
+          for (const p of particles) {
+            const dx = p.x - midX, dy = p.y - midY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist > 1 && dist < 700) {
+              hasNearby = true;
+              const distFactor = Math.max(0.1, 1 - dist / 700);
+              const force = (24 + Math.random() * 14) * distFactor;
+              const angle = Math.atan2(dy, dx);
+              p.vx += Math.cos(angle) * force; p.vy += Math.sin(angle) * force;
+            }
+          }
+          if (hasNearby) blastEffect = { x: midX, y: midY, time: now };
+        }
+        repelFromHandSegments(lm0, W, H);
+        repelFromHandSegments(lm1, W, H);
+      }
+
+      prevTextGesture = bothThree ? 'three' : bothPeace ? 'peace' : bothPoint ? 'point' : '';
+    } else {
+      prevTextGesture = '';
+    }
+
+    for (let h = hands.length; h < 2; h++) {
+      handState[h].gesture = 'none'; handState[h].prevGesture = 'none';
+    }
+    if (blastEffect) {
+      const elapsed = performance.now() - blastEffect.time;
+      if (elapsed / 500 >= 1) blastEffect = null;
+    }
+  }
+
+  let cachedTextPts: { x: number; y: number }[] = [];
+  let cachedTextKey = '';
+
+  function updateParticles() {
+    const W = pCanvas.width, H = pCanvas.height;
+
+    if (textFormation) {
+      if (textFormation.text !== cachedTextKey) {
+        if (textFormation.text === '__SMILEY__') {
+          cachedTextPts = getSmileyPoints(Math.min(W, H) * 0.25);
+        } else if (textFormation.text === '__HEART__') {
+          cachedTextPts = getHeartPoints(Math.min(W, H) * 0.28);
+        } else {
+          cachedTextPts = getTextPoints(textFormation.text, W);
+        }
+        cachedTextKey = textFormation.text;
+        // Clear old targets so particles rearrange to new text
+        for (const pp of particles) { delete pp.textTargetX; delete pp.textTargetY; delete pp.textTargetZ; }
+      }
+    } else {
+      cachedTextKey = '';
+      cachedTextPts = [];
+    }
+
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      const zF = 0.15 + 0.85 * (p.z || 0.5);
+
+      if (p.hasTrail && p.life > 0.3) {
+        p.trail.push({ x: p.x, y: p.y, alpha: p.alpha });
+        if (p.trail.length > 8) p.trail.shift();
+      }
+
+      if (textFormation && cachedTextPts.length > 0) {
+        if (p.textTargetX === undefined) {
+          const pt = cachedTextPts[Math.floor(Math.random() * cachedTextPts.length)];
+          const nx = pt.x / (W * 0.45);
+          const wave = Math.sin(nx * Math.PI * 2.5);
+          p.textTargetX = pt.x;
+          p.textTargetY = pt.y;
+          p.textTargetZ = Math.max(0.45, Math.min(0.95, 0.7 + 0.2 * wave + (Math.random() - 0.5) * 0.06));
+        }
+        if (p.textTargetX !== undefined) {
+          const tx = textFormation.cx + p.textTargetX;
+          const ty = textFormation.cy + p.textTargetY!;
+          const dx = tx - p.x, dy = ty - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const pull = dist > 200 ? 0.06 : dist > 50 ? 0.1 : 0.14;
+          p.vx += dx * pull; p.vy += dy * pull;
+          p.vx *= 0.82; p.vy *= 0.82;
+          p.z = p.z + (p.textTargetZ! - p.z) * 0.05;
+        }
+        delete p.spherePhi; delete p.sphereTheta; delete p.saturnRole;
+      } else if (twoHandMidpoint) {
+        delete p.textTargetX; delete p.textTargetY; delete p.textTargetZ;
+        const dx = twoHandMidpoint.x - p.x, dy = twoHandMidpoint.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const bodyR = 80, ringInner = 150, ringOuter = 220;
+        const sphereZone = ringOuter * 2;
+        const tilt = -0.35; // ~20° tilt, tepadan ko'rinish
+        const cosT = Math.cos(tilt), sinT = Math.sin(tilt);
+
+        if (dist < sphereZone && p.spherePhi === undefined) {
+          p.spherePhi = Math.acos(2 * Math.random() - 1);
+          p.sphereTheta = Math.random() * Math.PI * 2;
+          p.saturnRole = Math.random() < 0.4 ? 'ring' : 'body';
+        }
+        if (dist >= sphereZone * 1.3) { delete p.spherePhi; delete p.sphereTheta; delete p.saturnRole; }
+
+        if (p.spherePhi !== undefined) {
+          const now = performance.now();
+          const theta = (p.sphereTheta ?? 0) + now * 0.0008;
+          let targetX: number, targetY: number, targetZ: number;
+
+          if (p.saturnRole === 'ring') {
+            const ringR = ringInner + (p.spherePhi / Math.PI) * (ringOuter - ringInner);
+            const rx = ringR * Math.cos(theta);
+            const ry = 0;
+            const rz = ringR * Math.sin(theta);
+            targetX = twoHandMidpoint.x + rx;
+            targetY = twoHandMidpoint.y + ry * cosT - rz * sinT;
+            targetZ = 0.5 + (ry * sinT + rz * cosT) / ringOuter * 0.47;
+          } else {
+            const phi = p.spherePhi;
+            const lx = bodyR * Math.sin(phi) * Math.cos(theta);
+            const ly = bodyR * Math.cos(phi);
+            const lz = bodyR * Math.sin(phi) * Math.sin(theta);
+            targetX = twoHandMidpoint.x + lx;
+            targetY = twoHandMidpoint.y + ly * cosT - lz * sinT;
+            targetZ = 0.5 + (ly * sinT + lz * cosT) / bodyR * 0.47;
+          }
+
+          const influence = Math.max(0.2, 1 - dist / sphereZone);
+          const pullRate = (0.04 + 0.08 * influence) * zF;
+          p.vx += (targetX - p.x) * pullRate; p.vy += (targetY - p.y) * pullRate;
+          p.z = p.z + (targetZ - p.z) * (0.05 + 0.1 * influence);
+        } else {
+          if (dist > 5) {
+            const strength = Math.min(3.5, 600 / (dist + 10)) * zF;
+            const angle = Math.atan2(dy, dx);
+            const spiralOffset = 0.5 * Math.min(1, 80 / (dist + 20));
+            p.vx += Math.cos(angle + spiralOffset) * strength;
+            p.vy += Math.sin(angle + spiralOffset) * strength;
+          }
+        }
+        p.vx *= 0.91; p.vy *= 0.91;
+      } else if (attractTarget) {
+        delete p.spherePhi; delete p.sphereTheta; delete p.saturnRole;
+        delete p.textTargetX; delete p.textTargetY; delete p.textTargetZ;
+        const dx = attractTarget.x - p.x, dy = attractTarget.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > 3) {
+          const strength = Math.min(2.0, 130 / (dist + 15)) * zF;
+          const angle = Math.atan2(dy, dx);
+          p.vx += Math.cos(angle + 0.4) * strength;
+          p.vy += Math.sin(angle + 0.4) * strength;
+        }
+        p.vx *= 0.92; p.vy *= 0.92;
+        if (dist < 30) {
+          const orbitAngle = Math.atan2(p.y - attractTarget.y, p.x - attractTarget.x);
+          const pushOut = (30 - dist) * 0.1 * zF;
+          p.vx += Math.cos(orbitAngle) * pushOut; p.vy += Math.sin(orbitAngle) * pushOut;
+          p.vx += Math.cos(orbitAngle + Math.PI / 2) * 0.5 * zF;
+          p.vy += Math.sin(orbitAngle + Math.PI / 2) * 0.5 * zF;
+        }
+      }
+
+      const maxSpeed = 18;
+      const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      if (speed > maxSpeed) { p.vx = (p.vx / speed) * maxSpeed; p.vy = (p.vy / speed) * maxSpeed; }
+
+      p.x += p.vx; p.y += p.vy;
+      const outMargin = 200;
+      if (p.x < -outMargin || p.x > W + outMargin || p.y < -outMargin || p.y > H + outMargin) {
+        particles.splice(i, 1); continue;
+      }
+
+      if (!p.permanent) {
+        p.vy += 0.03; p.vx *= 0.992; p.vy *= 0.992;
+        p.life -= p.decay; p.alpha = Math.max(0, p.life);
+      } else {
+        const zFactor = 0.4 + 0.6 * (p.z || 0.5);
+        p.vx *= 0.93; p.vy *= 0.93;
+        p.vx += (Math.random() - 0.5) * 0.05 * zFactor;
+        p.vy += ((Math.random() - 0.5) * 0.05 - 0.01) * zFactor;
+        if (!textFormation && !twoHandMidpoint && !attractTarget) {
+          delete p.textTargetX; delete p.textTargetY; delete p.textTargetZ;
+          delete p.spherePhi; delete p.sphereTheta; delete p.saturnRole;
+        }
+        if (p.katovBaseZ !== undefined && !twoHandMidpoint && !attractTarget && !textFormation) {
+          const t = performance.now() * 0.0006;
+          const wave = Math.sin((p.katovBaseZ - 0.5) * Math.PI * 2 + t);
+          const targetZ = 0.5 + 0.42 * wave;
+          p.z = p.z + (targetZ - p.z) * 0.02;
+        } else {
+          p.z = Math.max(0.05, Math.min(1, (p.z || 0.5) + (Math.random() - 0.5) * 0.008));
+        }
+      }
+      if (p.twinkle !== undefined) p.twinkle += 0.08 + Math.random() * 0.04;
+      if (p.life <= 0 && !p.permanent) particles.splice(i, 1);
+    }
+  }
+
+  function renderParticles() {
+    pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+    pCtx.globalCompositeOperation = 'lighter';
+    particles.sort((a, b) => (a.z || 0.5) - (b.z || 0.5));
+
+    for (const p of particles) {
+      const z = p.z || 0.5;
+      const depthScale = 0.3 + 0.7 * z * z;
+      const depthAlpha = 0.25 + 0.75 * z;
+      const rr = Math.round(p.rgb.r * (0.55 + 0.45 * z));
+      const gg = Math.round(p.rgb.g * (0.6 + 0.4 * z));
+      const bb = Math.min(255, Math.round(p.rgb.b + (1 - z) * 50));
+      const baseAlpha = p.twinkle !== undefined ? p.alpha * (0.6 + 0.4 * Math.sin(p.twinkle)) : p.alpha;
+      const effectiveAlpha = baseAlpha * depthAlpha;
+      const baseSize = p.permanent ? p.size : p.size * (0.3 + 0.7 * p.alpha);
+      const effectiveSize = baseSize * depthScale;
+
+      if (p.hasTrail && p.trail.length > 1) {
+        pCtx.beginPath();
+        pCtx.moveTo(p.trail[0].x, p.trail[0].y);
+        for (let t = 1; t < p.trail.length; t++) pCtx.lineTo(p.trail[t].x, p.trail[t].y);
+        pCtx.lineTo(p.x, p.y);
+        pCtx.strokeStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.15})`;
+        pCtx.lineWidth = effectiveSize * 0.4; pCtx.lineCap = 'round'; pCtx.stroke();
+      }
+
+      pCtx.save();
+      pCtx.globalAlpha = effectiveAlpha;
+
+      const glowMult = 2 + 6 * z;
+      const glowOuter = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * glowMult);
+      glowOuter.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * (0.1 + 0.3 * z)})`);
+      glowOuter.addColorStop(0.4, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.05 * z})`);
+      glowOuter.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
+      pCtx.fillStyle = glowOuter;
+      pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * glowMult, 0, Math.PI * 2); pCtx.fill();
+
+      if (z > 0.25) {
+        const innerMult = 1.5 + 1.5 * z;
+        const glowInner = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * innerMult);
+        glowInner.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.6 * z})`);
+        glowInner.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
+        pCtx.fillStyle = glowInner;
+        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * innerMult, 0, Math.PI * 2); pCtx.fill();
+      }
+
+      const coreVis = z * z;
+      pCtx.globalAlpha = effectiveAlpha * (0.15 + 0.85 * coreVis);
+      pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
+      pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
+
+      if (z > 0.55) {
+        const hotAlpha = (z - 0.55) / 0.45;
+        pCtx.globalAlpha = effectiveAlpha * 0.9 * hotAlpha;
+        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.4, 0, Math.PI * 2);
+        pCtx.fillStyle = '#fff'; pCtx.fill();
+      }
+      pCtx.restore();
+    }
+    pCtx.globalCompositeOperation = 'source-over';
+  }
+
+  function handleCollisions() {
+    const len = particles.length;
+    if (len < 2) return;
+    const cellSize = 14;
+    const grid: Record<number, number[]> = Object.create(null);
+
+    for (let i = 0; i < len; i++) {
+      const p = particles[i];
+      const key = (Math.floor(p.x / cellSize) << 16) | (Math.floor(p.y / cellSize) & 0xffff);
+      if (!grid[key]) grid[key] = [];
+      grid[key].push(i);
+    }
+
+    const keys = Object.keys(grid);
+    for (let k = 0; k < keys.length; k++) {
+      const cell = grid[Number(keys[k])];
+      const cx = Number(keys[k]) >> 16;
+      const cy = (Number(keys[k]) << 16) >> 16;
+      for (let dx = 0; dx <= 1; dx++) {
+        for (let dy = -1; dy <= 1; dy++) {
+          if (dx === 0 && dy < 0) continue;
+          const nKey = ((cx + dx) << 16) | ((cy + dy) & 0xffff);
+          const neighbor = grid[nKey];
+          if (!neighbor) continue;
+          const sameCell = dx === 0 && dy === 0;
+          for (let i = 0; i < cell.length; i++) {
+            const a = particles[cell[i]];
+            const jStart = sameCell ? i + 1 : 0;
+            for (let j = jStart; j < neighbor.length; j++) {
+              const b = particles[neighbor[j]];
+              const ddx = b.x - a.x, ddy = b.y - a.y;
+              const distSq = ddx * ddx + ddy * ddy;
+              const minDist = a.size + b.size;
+              if (distSq < minDist * minDist && distSq > 0.001) {
+                const dist = Math.sqrt(distSq);
+                const nx = ddx / dist, ny = ddy / dist;
+                const overlap = (minDist - dist) * 0.5;
+                a.x -= nx * overlap; a.y -= ny * overlap;
+                b.x += nx * overlap; b.y += ny * overlap;
+                const dvx = a.vx - b.vx, dvy = a.vy - b.vy;
+                const dvDotN = dvx * nx + dvy * ny;
+                if (dvDotN > 0) {
+                  const restitution = 0.7;
+                  a.vx -= dvDotN * nx * restitution; a.vy -= dvDotN * ny * restitution;
+                  b.vx += dvDotN * nx * restitution; b.vy += dvDotN * ny * restitution;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function spawnTextParticles() {
+    const W = pCanvas.width, H = pCanvas.height;
+    const tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = W; tmpCanvas.height = H;
+    const tmpCtx = tmpCanvas.getContext('2d')!;
+    const fontSize = Math.min(W * 0.108, H * 0.21);
+    tmpCtx.font = `900 ${fontSize}px 'Inter', sans-serif`;
+    tmpCtx.textAlign = 'center'; tmpCtx.textBaseline = 'alphabetic';
+    tmpCtx.fillStyle = '#fff';
+    const metrics = tmpCtx.measureText('KATOV');
+    const textH = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+    const baselineY = H / 2 + textH / 2 - metrics.actualBoundingBoxDescent;
+    tmpCtx.fillText('KATOV', W / 2, baselineY);
+
+    const imageData = tmpCtx.getImageData(0, 0, W, H);
+    const data = imageData.data;
+    const points: { x: number; y: number }[] = [];
+    const step = 4;
+    let textMinX = W, textMaxX = 0, textMinY = H, textMaxY = 0;
+    for (let y = 0; y < H; y += step) {
+      for (let x = 0; x < W; x += step) {
+        const idx = (y * W + x) * 4;
+        if (data[idx + 3] > 128) {
+          points.push({ x, y });
+          if (x < textMinX) textMinX = x; if (x > textMaxX) textMaxX = x;
+          if (y < textMinY) textMinY = y; if (y > textMaxY) textMaxY = y;
+        }
+      }
+    }
+    const textW = textMaxX - textMinX || 1;
+    const textH2 = textMaxY - textMinY || 1;
+
+    for (const pt of points) {
+      if (particles.length >= MAX_PARTICLES) break;
+      const rgb = neonColors[Math.floor(Math.random() * neonColors.length)];
+      const nx = (pt.x - textMinX) / textW;
+      const ny = (pt.y - textMinY) / textH2;
+      const wave = Math.sin(nx * Math.PI * 2.5);
+      const zBase = 0.5 + 0.4 * wave;
+      const zNoise = (Math.random() - 0.5) * 0.08;
+      const z = Math.max(0.05, Math.min(0.98, zBase + zNoise + ny * 0.1));
+      particles.push({
+        x: pt.x + (Math.random() - 0.5) * 2, y: pt.y + (Math.random() - 0.5) * 2,
+        vx: 0, vy: 0, size: 0.9 + Math.random() * 1.2,
+        color: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, rgb,
+        alpha: 1, life: 1, decay: 0, permanent: true, hasTrail: false, trail: [],
+        z, katovBaseZ: zBase, shape: 'circle',
+      });
+    }
+  }
+
+  let lastAmbientTime = 0;
+  function spawnAmbient(now: number) {
+    if (now - lastAmbientTime > 2000) {
+      lastAmbientTime = now;
+      for (let i = 0; i < 2; i++) {
+        spawnParticle(Math.random() * pCanvas.width, Math.random() * pCanvas.height, 'draw');
+      }
+    }
+  }
+
+  function loop() {
+    if (destroyed) return;
+    drawBg();
+    spawnAmbient(performance.now());
+    updateParticles();
+    handleCollisions();
+    renderParticles();
+    animId = requestAnimationFrame(loop);
+  }
+
+  let cameraInstance: { stop: () => void } | null = null;
+
+  return {
+    start() {
+      resize();
+      window.addEventListener('resize', resize);
+      loop();
+
+      const Hands = (window as any).Hands;
+      const Camera = (window as any).Camera;
+
+      const hands = new Hands({
+        locateFile: (file: string) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/${file}`,
+      });
+      hands.setOptions({
+        maxNumHands: 2,
+        modelComplexity: 0,
+        minDetectionConfidence: 0.7,
+        minTrackingConfidence: 0.5,
+      });
+      hands.onResults(onResults);
+
+      const camera = new Camera(video, {
+        onFrame: async () => { await hands.send({ image: video }); },
+        width: 1280,
+        height: 720,
+      });
+      camera.start();
+      cameraInstance = camera;
+
+      spawnTextParticles();
+    },
+    destroy() {
+      destroyed = true;
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', resize);
+      cameraInstance?.stop();
+      if (video.srcObject) {
+        (video.srcObject as MediaStream).getTracks().forEach(t => t.stop());
+        video.srcObject = null;
+      }
+      particles = [];
+    },
+  };
+}
