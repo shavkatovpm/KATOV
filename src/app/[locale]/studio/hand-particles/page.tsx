@@ -233,7 +233,7 @@ function createEngine(
   let animId = 0;
 
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
-  const MAX_PARTICLES = isMobile ? 800 : 3000;
+  const MAX_PARTICLES = isMobile ? 1000 : 3000;
 
   interface Particle {
     x: number; y: number; vx: number; vy: number;
