@@ -10,6 +10,7 @@ export default function HandParticlesPage() {
   const [started, setStarted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mode, setMode] = useState<1 | 2>(1);
   const appRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const pCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -190,13 +191,31 @@ export default function HandParticlesPage() {
           style={{ transform: 'scaleX(-1)', zIndex: 2 }}
         />
         {started && (
-          <Link
-            href="/studio"
-            className="absolute top-6 left-6 z-50 inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity text-sm"
-          >
-            <ArrowLeft size={16} />
-            {t('back')}
-          </Link>
+          <>
+            <Link
+              href="/studio"
+              className="absolute top-6 left-6 z-50 inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity text-sm"
+            >
+              <ArrowLeft size={16} />
+              {t('back')}
+            </Link>
+            <button
+              onClick={() => {
+                const newMode = mode === 1 ? 2 : 1;
+                setMode(newMode);
+                engineRef.current?.setMode(newMode);
+              }}
+              className="absolute top-6 right-6 z-50 px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-opacity hover:opacity-80"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                color: '#fff',
+                backdropFilter: 'blur(8px)',
+              }}
+            >
+              {mode === 1 ? '3D Kub' : 'Zarrachalar'}
+            </button>
+          </>
         )}
       </div>
     </div>
@@ -231,6 +250,14 @@ function createEngine(
 
   let destroyed = false;
   let animId = 0;
+  let currentMode: 1 | 2 = 1;
+
+  // Cube state
+  let cubeRotX = -0.4;
+  let cubeRotY = 0.6;
+  let prevPalmX = -1;
+  let prevPalmY = -1;
+  let cubeHandActive = false;
 
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
   const MAX_PARTICLES = isMobile ? 1000 : 3000;
@@ -406,6 +433,117 @@ function createEngine(
       pts.push({ x: radius * Math.cos(angle), y: radius * Math.sin(angle) });
     }
     return pts;
+  }
+
+  // =========== 3D Cube Geometry ===========
+  const CUBE_SIZE = isMobile ? 100 : 150;
+
+  const cubeVerticesBase: [number, number, number][] = [
+    [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
+    [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1],
+  ];
+  const cubeVertices: [number, number, number][] = cubeVerticesBase.map(
+    ([x, y, z]) => [x * CUBE_SIZE, y * CUBE_SIZE, z * CUBE_SIZE]
+  );
+
+  const cubeFaces: { indices: number[]; color: string; label: string }[] = [
+    { indices: [0, 1, 2, 3], color: 'rgba(255, 100, 100, 0.85)', label: '1' },
+    { indices: [4, 5, 6, 7], color: 'rgba(100, 100, 255, 0.85)', label: '2' },
+    { indices: [0, 1, 5, 4], color: 'rgba(100, 255, 100, 0.85)', label: '3' },
+    { indices: [2, 3, 7, 6], color: 'rgba(255, 255, 100, 0.85)', label: '4' },
+    { indices: [0, 3, 7, 4], color: 'rgba(255, 100, 255, 0.85)', label: '5' },
+    { indices: [1, 2, 6, 5], color: 'rgba(100, 255, 255, 0.85)', label: '6' },
+  ];
+
+  const cubeEdges: [number, number][] = [
+    [0, 1], [1, 2], [2, 3], [3, 0],
+    [4, 5], [5, 6], [6, 7], [7, 4],
+    [0, 4], [1, 5], [2, 6], [3, 7],
+  ];
+
+  function rotateXMat(p: [number, number, number], a: number): [number, number, number] {
+    const c = Math.cos(a), s = Math.sin(a);
+    return [p[0], p[1] * c - p[2] * s, p[1] * s + p[2] * c];
+  }
+
+  function rotateYMat(p: [number, number, number], a: number): [number, number, number] {
+    const c = Math.cos(a), s = Math.sin(a);
+    return [p[0] * c + p[2] * s, p[1], -p[0] * s + p[2] * c];
+  }
+
+  function project3D(p: [number, number, number], cx: number, cy: number, fl: number) {
+    const scale = fl / (fl + p[2]);
+    return { x: cx + p[0] * scale, y: cy + p[1] * scale, z: p[2] };
+  }
+
+  function renderCube() {
+    const W = pCanvas.width, H = pCanvas.height;
+    const cx = W / 2, cy = H / 2;
+    const fl = Math.min(W, H) * 0.8;
+
+    const rotated = cubeVertices.map(v => {
+      let r = rotateXMat([v[0], v[1], v[2]], cubeRotX);
+      r = rotateYMat(r, cubeRotY);
+      return r;
+    });
+
+    const projected = rotated.map(v => project3D(v, cx, cy, fl));
+
+    const sorted = cubeFaces
+      .map((face, i) => ({
+        face,
+        avgZ: face.indices.reduce((s, idx) => s + rotated[idx][2], 0) / 4,
+        index: i,
+      }))
+      .sort((a, b) => a.avgZ - b.avgZ);
+
+    pCtx.clearRect(0, 0, W, H);
+
+    for (const { face } of sorted) {
+      const pts = face.indices.map(i => projected[i]);
+      pCtx.beginPath();
+      pCtx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) pCtx.lineTo(pts[i].x, pts[i].y);
+      pCtx.closePath();
+      pCtx.fillStyle = face.color;
+      pCtx.fill();
+
+      const lx = pts.reduce((s, p) => s + p.x, 0) / 4;
+      const ly = pts.reduce((s, p) => s + p.y, 0) / 4;
+      pCtx.save();
+      pCtx.font = `bold ${Math.floor(CUBE_SIZE * 0.4)}px 'Inter', sans-serif`;
+      pCtx.textAlign = 'center';
+      pCtx.textBaseline = 'middle';
+      pCtx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+      pCtx.fillText(face.label, lx, ly);
+      pCtx.restore();
+    }
+
+    pCtx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    pCtx.lineWidth = 2;
+    for (const [a, b] of cubeEdges) {
+      pCtx.beginPath();
+      pCtx.moveTo(projected[a].x, projected[a].y);
+      pCtx.lineTo(projected[b].x, projected[b].y);
+      pCtx.stroke();
+    }
+  }
+
+  function processCubeHand(lm: { x: number; y: number }[], W: number, H: number) {
+    const palmX = (1 - lm[9].x) * W;
+    const palmY = lm[9].y * H;
+
+    if (prevPalmX >= 0 && prevPalmY >= 0) {
+      const dx = palmX - prevPalmX;
+      const dy = palmY - prevPalmY;
+      const sensitivity = 0.005;
+      cubeRotY += dx * sensitivity;
+      cubeRotX -= dy * sensitivity;
+    }
+
+    prevPalmX = palmX;
+    prevPalmY = palmY;
+    cubeHandActive = true;
   }
 
   const handState = [
@@ -663,8 +801,17 @@ function createEngine(
     if (!hands || hands.length === 0) {
       handState[0].gesture = 'none'; handState[1].gesture = 'none';
       attractTarget = null; twoHandMidpoint = null; textFormation = null; snowMode = false;
+      prevPalmX = -1; prevPalmY = -1; cubeHandActive = false;
       return;
     }
+
+    // Mode 2: Cube rotation
+    if (currentMode === 2) {
+      const W = hCanvas.width, H = hCanvas.height;
+      processCubeHand(hands[0], W, H);
+      return;
+    }
+
     const W = hCanvas.width, H = hCanvas.height;
     attractTarget = null; twoHandMidpoint = null; textFormation = null; snowMode = false;
 
@@ -1105,10 +1252,21 @@ function createEngine(
   function loop() {
     if (destroyed) return;
     drawBg();
-    spawnAmbient(performance.now());
-    updateParticles();
-    if (!isMobile) handleCollisions();
-    renderParticles();
+
+    if (currentMode === 1) {
+      spawnAmbient(performance.now());
+      updateParticles();
+      if (!isMobile) handleCollisions();
+      renderParticles();
+    } else {
+      if (!cubeHandActive) {
+        cubeRotY += 0.003;
+        cubeRotX += 0.001;
+      }
+      cubeHandActive = false;
+      renderCube();
+    }
+
     animId = requestAnimationFrame(loop);
   }
 
@@ -1161,6 +1319,28 @@ function createEngine(
         video.srcObject = null;
       }
       particles = [];
+    },
+    setMode(m: 1 | 2) {
+      if (m === currentMode) return;
+      currentMode = m;
+      if (m === 2) {
+        pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+        cubeRotX = -0.4;
+        cubeRotY = 0.6;
+        prevPalmX = -1;
+        prevPalmY = -1;
+        cubeHandActive = false;
+        attractTarget = null;
+        twoHandMidpoint = null;
+        textFormation = null;
+        snowMode = false;
+      } else {
+        pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+        prevPalmX = -1;
+        prevPalmY = -1;
+        particles = [];
+        spawnTextParticles();
+      }
     },
   };
 }
