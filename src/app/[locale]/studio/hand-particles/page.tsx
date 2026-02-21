@@ -967,12 +967,12 @@ function createEngine(
 
     for (const p of particles) {
       const z = p.z || 0.5;
-      // Dramatic 3D: near=huge sharp, far=tiny blurry
-      const depthScale = 0.2 + 3.5 * z * z * z; // far=0.2x, near=3.7x (cubic for dramatic near)
-      const depthAlpha = 0.08 + 0.92 * z * z;
-      const rr = Math.round(p.rgb.r * (0.2 + 0.8 * z));
-      const gg = Math.round(p.rgb.g * (0.25 + 0.75 * z));
-      const bb = Math.min(255, Math.round(p.rgb.b * 0.5 + (1 - z) * 120 + z * p.rgb.b * 0.5));
+      // Pure 3D perspective: only SIZE conveys depth
+      const depthScale = 0.3 + 4.0 * z * z; // far=0.3x(tiny dot), near=4.3x(big ball)
+      const depthAlpha = 0.4 + 0.6 * z;
+      const rr = p.rgb.r;
+      const gg = p.rgb.g;
+      const bb = p.rgb.b;
       const baseAlpha = p.twinkle !== undefined ? p.alpha * (0.6 + 0.4 * Math.sin(p.twinkle)) : p.alpha;
       const effectiveAlpha = baseAlpha * depthAlpha;
       const baseSize = p.permanent ? p.size : p.size * (0.3 + 0.7 * p.alpha);
@@ -983,70 +983,14 @@ function createEngine(
         pCtx.moveTo(p.trail[0].x, p.trail[0].y);
         for (let t = 1; t < p.trail.length; t++) pCtx.lineTo(p.trail[t].x, p.trail[t].y);
         pCtx.lineTo(p.x, p.y);
-        pCtx.strokeStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.15})`;
-        pCtx.lineWidth = effectiveSize * 0.4; pCtx.lineCap = 'round'; pCtx.stroke();
+        pCtx.strokeStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.3})`;
+        pCtx.lineWidth = effectiveSize * 0.5; pCtx.lineCap = 'round'; pCtx.stroke();
       }
 
       pCtx.save();
       pCtx.globalAlpha = effectiveAlpha;
-
-      if (isMobile) {
-        // Far particles: soft blur circle (bokeh)
-        if (z < 0.35) {
-          const blur = (0.35 - z) * 20;
-          pCtx.fillStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.4})`;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize + blur, 0, Math.PI * 2); pCtx.fill();
-        } else {
-          pCtx.fillStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha})`;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 1.3, 0, Math.PI * 2); pCtx.fill();
-          if (z > 0.75) {
-            pCtx.globalAlpha = effectiveAlpha * 0.9;
-            pCtx.fillStyle = '#fff';
-            pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.3, 0, Math.PI * 2); pCtx.fill();
-          }
-        }
-      } else {
-        if (z < 0.3) {
-          // FAR: soft bokeh blob — blurry, dim, large soft circle
-          const bokehR = effectiveSize * 3 + (0.3 - z) * 25;
-          const bokeh = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, bokehR);
-          bokeh.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.35})`);
-          bokeh.addColorStop(0.5, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.15})`);
-          bokeh.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
-          pCtx.fillStyle = bokeh;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, bokehR, 0, Math.PI * 2); pCtx.fill();
-        } else if (z < 0.6) {
-          // MID: normal glow
-          const glowR = effectiveSize * 4;
-          const glow = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
-          glow.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.5})`);
-          glow.addColorStop(0.3, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.15})`);
-          glow.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
-          pCtx.fillStyle = glow;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, glowR, 0, Math.PI * 2); pCtx.fill();
-          // core
-          pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
-        } else {
-          // NEAR: sharp, bright, big glow + white hot core
-          const glowR = effectiveSize * (4 + 8 * (z - 0.6));
-          const glow = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
-          glow.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.7})`);
-          glow.addColorStop(0.2, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.3})`);
-          glow.addColorStop(0.5, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.05})`);
-          glow.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
-          pCtx.fillStyle = glow;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, glowR, 0, Math.PI * 2); pCtx.fill();
-          // sharp core
-          pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
-          // white hot center
-          const hotness = (z - 0.6) / 0.4;
-          pCtx.globalAlpha = effectiveAlpha * hotness;
-          pCtx.fillStyle = '#fff';
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.4, 0, Math.PI * 2); pCtx.fill();
-        }
-      }
+      pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
+      pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
       pCtx.restore();
     }
     pCtx.globalCompositeOperation = 'source-over';
