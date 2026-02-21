@@ -813,15 +813,15 @@ function createEngine(
 
     // Snow mode: spawn falling particles from top
     if (snowMode) {
-      const spawnCount = isMobile ? 5 : 12;
+      const spawnCount = isMobile ? 15 : 30;
       for (let s = 0; s < spawnCount; s++) {
         if (particles.length >= MAX_PARTICLES) break;
         const rgb = neonColors[Math.floor(Math.random() * neonColors.length)];
         particles.push({
-          x: Math.random() * W, y: -10 - Math.random() * 40,
-          vx: (Math.random() - 0.5) * 1.5, vy: 1 + Math.random() * 2,
-          size: 0.8 + Math.random() * 2, color: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, rgb,
-          alpha: 1, life: 1, decay: 0, permanent: false, hasTrail: false, trail: [],
+          x: Math.random() * W, y: -10 - Math.random() * 60,
+          vx: (Math.random() - 0.5) * 2, vy: 8 + Math.random() * 10,
+          size: 0.5 + Math.random() * 1.2, color: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, rgb,
+          alpha: 1, life: 1, decay: 0, permanent: false, hasTrail: true, trail: [],
           z: 0.2 + Math.random() * 0.8, shape: 'circle',
         });
       }
@@ -836,12 +836,11 @@ function createEngine(
         if (p.trail.length > 8) p.trail.shift();
       }
 
-      // Snow physics: gentle falling with sway
+      // Rain physics: fast falling with slight wind
       if (snowMode && !textFormation && !twoHandMidpoint && !attractTarget) {
-        p.vy += 0.04; // gravity
-        p.vx += Math.sin(performance.now() * 0.001 + p.x * 0.01) * 0.08; // wind sway
-        p.vx *= 0.98; p.vy *= 0.99;
-        // Remove if below screen
+        p.vy += 0.3; // strong gravity
+        p.vx += (Math.random() - 0.5) * 0.15; // slight wind
+        p.vy *= 0.995;
         if (p.y > H + 20) { particles.splice(i, 1); continue; }
       }
 
