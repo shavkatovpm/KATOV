@@ -938,10 +938,10 @@ function createEngine(
         p.vy += 0.03; p.vx *= 0.992; p.vy *= 0.992;
         p.life -= p.decay; p.alpha = Math.max(0, p.life);
       } else {
-        const zFactor = 0.4 + 0.6 * (p.z || 0.5);
+        const zFactor = 0.15 + 0.85 * (p.z || 0.5); // near particles drift much more
         p.vx *= 0.93; p.vy *= 0.93;
-        p.vx += (Math.random() - 0.5) * 0.05 * zFactor;
-        p.vy += ((Math.random() - 0.5) * 0.05 - 0.01) * zFactor;
+        p.vx += (Math.random() - 0.5) * 0.08 * zFactor;
+        p.vy += ((Math.random() - 0.5) * 0.08 - 0.015) * zFactor;
         if (!textFormation && !twoHandMidpoint && !attractTarget) {
           delete p.textTargetX; delete p.textTargetY; delete p.textTargetZ;
           delete p.spherePhi; delete p.sphereTheta; delete p.saturnRole;
@@ -967,11 +967,12 @@ function createEngine(
 
     for (const p of particles) {
       const z = p.z || 0.5;
-      const depthScale = 0.15 + 2.5 * z * z; // far=tiny(0.15x), near=huge(2.65x)
-      const depthAlpha = 0.1 + 0.9 * z;
-      const rr = Math.round(p.rgb.r * (0.3 + 0.7 * z));
-      const gg = Math.round(p.rgb.g * (0.35 + 0.65 * z));
-      const bb = Math.min(255, Math.round(p.rgb.b + (1 - z) * 80));
+      // Dramatic 3D: near=huge sharp, far=tiny blurry
+      const depthScale = 0.2 + 3.5 * z * z * z; // far=0.2x, near=3.7x (cubic for dramatic near)
+      const depthAlpha = 0.08 + 0.92 * z * z;
+      const rr = Math.round(p.rgb.r * (0.2 + 0.8 * z));
+      const gg = Math.round(p.rgb.g * (0.25 + 0.75 * z));
+      const bb = Math.min(255, Math.round(p.rgb.b * 0.5 + (1 - z) * 120 + z * p.rgb.b * 0.5));
       const baseAlpha = p.twinkle !== undefined ? p.alpha * (0.6 + 0.4 * Math.sin(p.twinkle)) : p.alpha;
       const effectiveAlpha = baseAlpha * depthAlpha;
       const baseSize = p.permanent ? p.size : p.size * (0.3 + 0.7 * p.alpha);
@@ -990,43 +991,60 @@ function createEngine(
       pCtx.globalAlpha = effectiveAlpha;
 
       if (isMobile) {
-        // Simplified rendering for mobile with depth feel
-        pCtx.fillStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha})`;
-        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 1.3, 0, Math.PI * 2); pCtx.fill();
-        if (z > 0.7) {
-          // Near particles get bright core + glow
-          pCtx.globalAlpha = effectiveAlpha * 0.9;
-          pCtx.fillStyle = '#fff';
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.35, 0, Math.PI * 2); pCtx.fill();
+        // Far particles: soft blur circle (bokeh)
+        if (z < 0.35) {
+          const blur = (0.35 - z) * 20;
+          pCtx.fillStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.4})`;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize + blur, 0, Math.PI * 2); pCtx.fill();
+        } else {
+          pCtx.fillStyle = `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha})`;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 1.3, 0, Math.PI * 2); pCtx.fill();
+          if (z > 0.75) {
+            pCtx.globalAlpha = effectiveAlpha * 0.9;
+            pCtx.fillStyle = '#fff';
+            pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.3, 0, Math.PI * 2); pCtx.fill();
+          }
         }
       } else {
-        const glowMult = 2 + 10 * z * z;
-        const glowOuter = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * glowMult);
-        glowOuter.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * (0.1 + 0.3 * z)})`);
-        glowOuter.addColorStop(0.4, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.05 * z})`);
-        glowOuter.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
-        pCtx.fillStyle = glowOuter;
-        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * glowMult, 0, Math.PI * 2); pCtx.fill();
-
-        if (z > 0.25) {
-          const innerMult = 1.5 + 1.5 * z;
-          const glowInner = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, effectiveSize * innerMult);
-          glowInner.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.6 * z})`);
-          glowInner.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
-          pCtx.fillStyle = glowInner;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * innerMult, 0, Math.PI * 2); pCtx.fill();
-        }
-
-        const coreVis = z * z;
-        pCtx.globalAlpha = effectiveAlpha * (0.15 + 0.85 * coreVis);
-        pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
-        pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
-
-        if (z > 0.55) {
-          const hotAlpha = (z - 0.55) / 0.45;
-          pCtx.globalAlpha = effectiveAlpha * 0.9 * hotAlpha;
-          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.4, 0, Math.PI * 2);
-          pCtx.fillStyle = '#fff'; pCtx.fill();
+        if (z < 0.3) {
+          // FAR: soft bokeh blob — blurry, dim, large soft circle
+          const bokehR = effectiveSize * 3 + (0.3 - z) * 25;
+          const bokeh = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, bokehR);
+          bokeh.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.35})`);
+          bokeh.addColorStop(0.5, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.15})`);
+          bokeh.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
+          pCtx.fillStyle = bokeh;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, bokehR, 0, Math.PI * 2); pCtx.fill();
+        } else if (z < 0.6) {
+          // MID: normal glow
+          const glowR = effectiveSize * 4;
+          const glow = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
+          glow.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.5})`);
+          glow.addColorStop(0.3, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.15})`);
+          glow.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
+          pCtx.fillStyle = glow;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, glowR, 0, Math.PI * 2); pCtx.fill();
+          // core
+          pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
+        } else {
+          // NEAR: sharp, bright, big glow + white hot core
+          const glowR = effectiveSize * (4 + 8 * (z - 0.6));
+          const glow = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
+          glow.addColorStop(0, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.7})`);
+          glow.addColorStop(0.2, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.3})`);
+          glow.addColorStop(0.5, `rgba(${rr}, ${gg}, ${bb}, ${effectiveAlpha * 0.05})`);
+          glow.addColorStop(1, `rgba(${rr}, ${gg}, ${bb}, 0)`);
+          pCtx.fillStyle = glow;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, glowR, 0, Math.PI * 2); pCtx.fill();
+          // sharp core
+          pCtx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize, 0, Math.PI * 2); pCtx.fill();
+          // white hot center
+          const hotness = (z - 0.6) / 0.4;
+          pCtx.globalAlpha = effectiveAlpha * hotness;
+          pCtx.fillStyle = '#fff';
+          pCtx.beginPath(); pCtx.arc(p.x, p.y, effectiveSize * 0.4, 0, Math.PI * 2); pCtx.fill();
         }
       }
       pCtx.restore();
