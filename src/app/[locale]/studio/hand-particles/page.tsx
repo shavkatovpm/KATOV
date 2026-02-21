@@ -252,6 +252,7 @@ function createEngine(
   let attractTarget: { x: number; y: number } | null = null;
   let twoHandMidpoint: { x: number; y: number } | null = null;
   let textFormation: { cx: number; cy: number; text: string } | null = null;
+  let snowMode = false;
   let wasBothFist = false;
   let blastEffect: { x: number; y: number; time: number } | null = null;
   let lastRandomText = '';
@@ -553,7 +554,11 @@ function createEngine(
     if (isFist && thumbUp) return 'thumbs';
     const pinchDist = Math.hypot(lm[4].x - lm[8].x, lm[4].y - lm[8].y);
     if (pinchDist < 0.06) return 'pinch';
-    if (indexUp && middleUp && ringUp && pinkyUp) return 'open';
+    if (indexUp && middleUp && ringUp && pinkyUp) {
+      const thumbSpread = Math.hypot(lm[4].x - lm[5].x, lm[4].y - lm[5].y) > 0.06;
+      if (thumbSpread) return 'open';
+      return 'four';
+    }
     if (indexUp && !middleUp && !ringUp && !pinkyUp) return 'point';
     if (indexUp && middleUp && !ringUp && !pinkyUp) return 'peace';
     if (indexUp && middleUp && ringUp && !pinkyUp) return 'three';
@@ -661,11 +666,11 @@ function createEngine(
     const hands = results.multiHandLandmarks;
     if (!hands || hands.length === 0) {
       handState[0].gesture = 'none'; handState[1].gesture = 'none';
-      attractTarget = null; twoHandMidpoint = null; textFormation = null;
+      attractTarget = null; twoHandMidpoint = null; textFormation = null; snowMode = false;
       return;
     }
     const W = hCanvas.width, H = hCanvas.height;
-    attractTarget = null; twoHandMidpoint = null; textFormation = null;
+    attractTarget = null; twoHandMidpoint = null; textFormation = null; snowMode = false;
 
     for (let h = 0; h < hands.length; h++) {
       processHand(hands[h], h, W, H, now, hands.length);
@@ -683,6 +688,7 @@ function createEngine(
       const bothPeace = g0 === 'peace' && g1 === 'peace';
       const bothPoint = g0 === 'point' && g1 === 'point';
       const bothThree = g0 === 'three' && g1 === 'three';
+      const bothFour = g0 === 'four' && g1 === 'four';
 
       // Heart gesture: both hands' thumb tips close + index tips close (forming a heart shape)
       const thumbDist = Math.hypot(lm0[4].x - lm1[4].x, lm0[4].y - lm1[4].y);
@@ -692,7 +698,9 @@ function createEngine(
       // Formation at center with subtle hand-follow offset
       const fX = W / 2 + (midX - W / 2) * 0.25;
       const fY = H / 2 + (midY - H / 2) * 0.25;
-      if (isHeart) {
+      if (bothFour) {
+        snowMode = true;
+      } else if (isHeart) {
         textFormation = { cx: fX, cy: fY, text: '__HEART__' };
       } else if (bothThree) {
         textFormation = { cx: fX, cy: fY, text: '__SMILEY__' };
@@ -803,6 +811,22 @@ function createEngine(
       cachedTextPts = [];
     }
 
+    // Snow mode: spawn falling particles from top
+    if (snowMode) {
+      const spawnCount = isMobile ? 5 : 12;
+      for (let s = 0; s < spawnCount; s++) {
+        if (particles.length >= MAX_PARTICLES) break;
+        const rgb = neonColors[Math.floor(Math.random() * neonColors.length)];
+        particles.push({
+          x: Math.random() * W, y: -10 - Math.random() * 40,
+          vx: (Math.random() - 0.5) * 1.5, vy: 1 + Math.random() * 2,
+          size: 0.8 + Math.random() * 2, color: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, rgb,
+          alpha: 1, life: 1, decay: 0, permanent: false, hasTrail: false, trail: [],
+          z: 0.2 + Math.random() * 0.8, shape: 'circle',
+        });
+      }
+    }
+
     for (let i = particles.length - 1; i >= 0; i--) {
       const p = particles[i];
       const zF = 0.15 + 0.85 * (p.z || 0.5);
@@ -810,6 +834,15 @@ function createEngine(
       if (p.hasTrail && p.life > 0.3) {
         p.trail.push({ x: p.x, y: p.y, alpha: p.alpha });
         if (p.trail.length > 8) p.trail.shift();
+      }
+
+      // Snow physics: gentle falling with sway
+      if (snowMode && !textFormation && !twoHandMidpoint && !attractTarget) {
+        p.vy += 0.04; // gravity
+        p.vx += Math.sin(performance.now() * 0.001 + p.x * 0.01) * 0.08; // wind sway
+        p.vx *= 0.98; p.vy *= 0.99;
+        // Remove if below screen
+        if (p.y > H + 20) { particles.splice(i, 1); continue; }
       }
 
       if (textFormation && cachedTextPts.length > 0) {
