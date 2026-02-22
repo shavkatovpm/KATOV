@@ -438,27 +438,57 @@ function createEngine(
   // =========== 3D Cube Geometry ===========
   const CUBE_SIZE = isMobile ? 100 : 150;
 
-  const cubeVerticesBase: [number, number, number][] = [
-    [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
-    [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1],
-  ];
-  const cubeVertices: [number, number, number][] = cubeVerticesBase.map(
-    ([x, y, z]) => [x * CUBE_SIZE, y * CUBE_SIZE, z * CUBE_SIZE]
-  );
+  // Pre-generate particle points on cube faces and edges
+  interface CubePoint {
+    x: number; y: number; z: number;
+    isEdge: boolean;
+    faceIdx: number;
+    twinkle: number;
+  }
 
-  const cubeFaces: { indices: number[]; color: string; label: string }[] = [
-    { indices: [0, 1, 2, 3], color: 'rgba(255, 100, 100, 0.85)', label: '1' },
-    { indices: [4, 5, 6, 7], color: 'rgba(100, 100, 255, 0.85)', label: '2' },
-    { indices: [0, 1, 5, 4], color: 'rgba(100, 255, 100, 0.85)', label: '3' },
-    { indices: [2, 3, 7, 6], color: 'rgba(255, 255, 100, 0.85)', label: '4' },
-    { indices: [0, 3, 7, 4], color: 'rgba(255, 100, 255, 0.85)', label: '5' },
-    { indices: [1, 2, 6, 5], color: 'rgba(100, 255, 255, 0.85)', label: '6' },
-  ];
+  function generateCubePoints(): CubePoint[] {
+    const S = CUBE_SIZE;
+    const pts: CubePoint[] = [];
+    // 6 faces defined as: origin corner + two edge vectors
+    const faces: { o: [number, number, number]; u: [number, number, number]; v: [number, number, number] }[] = [
+      { o: [-S, -S, -S], u: [2 * S, 0, 0], v: [0, 2 * S, 0] }, // back  (z=-S)
+      { o: [-S, -S, S], u: [2 * S, 0, 0], v: [0, 2 * S, 0] },  // front (z=+S)
+      { o: [-S, -S, -S], u: [2 * S, 0, 0], v: [0, 0, 2 * S] }, // bottom(y=-S)
+      { o: [-S, S, -S], u: [2 * S, 0, 0], v: [0, 0, 2 * S] },  // top   (y=+S)
+      { o: [-S, -S, -S], u: [0, 2 * S, 0], v: [0, 0, 2 * S] }, // left  (x=-S)
+      { o: [S, -S, -S], u: [0, 2 * S, 0], v: [0, 0, 2 * S] },  // right (x=+S)
+    ];
 
-  const cubeEdges: [number, number][] = [
-    [0, 1], [1, 2], [2, 3], [3, 0],
-    [4, 5], [5, 6], [6, 7], [7, 4],
-    [0, 4], [1, 5], [2, 6], [3, 7],
+    const gridN = isMobile ? 10 : 14;
+    for (let fi = 0; fi < faces.length; fi++) {
+      const f = faces[fi];
+      for (let i = 0; i <= gridN; i++) {
+        for (let j = 0; j <= gridN; j++) {
+          const u = i / gridN, v = j / gridN;
+          const isEdge = i === 0 || i === gridN || j === 0 || j === gridN;
+          pts.push({
+            x: f.o[0] + f.u[0] * u + f.v[0] * v,
+            y: f.o[1] + f.u[1] * u + f.v[1] * v,
+            z: f.o[2] + f.u[2] * u + f.v[2] * v,
+            isEdge,
+            faceIdx: fi,
+            twinkle: Math.random() * Math.PI * 2,
+          });
+        }
+      }
+    }
+    return pts;
+  }
+
+  const cubePoints = generateCubePoints();
+
+  const cubeFaceColors = [
+    { r: 200, g: 200, b: 210 }, // back  - neutral white
+    { r: 180, g: 200, b: 230 }, // front - cool blue-white
+    { r: 200, g: 210, b: 190 }, // bottom- warm green-white
+    { r: 210, g: 195, b: 210 }, // top   - soft purple-white
+    { r: 195, g: 205, b: 215 }, // left  - steel blue
+    { r: 215, g: 205, b: 195 }, // right - warm cream
   ];
 
   function rotateXMat(p: [number, number, number], a: number): [number, number, number] {
@@ -471,62 +501,71 @@ function createEngine(
     return [p[0] * c + p[2] * s, p[1], -p[0] * s + p[2] * c];
   }
 
-  function project3D(p: [number, number, number], cx: number, cy: number, fl: number) {
-    const scale = fl / (fl + p[2]);
-    return { x: cx + p[0] * scale, y: cy + p[1] * scale, z: p[2] };
-  }
-
   function renderCube() {
     const W = pCanvas.width, H = pCanvas.height;
     const cx = W / 2, cy = H / 2;
-    const fl = Math.min(W, H) * 0.8;
+    const fl = Math.min(W, H) * 2.5; // high focal length = minimal distortion
 
-    const rotated = cubeVertices.map(v => {
-      let r = rotateXMat([v[0], v[1], v[2]], cubeRotX);
+    pCtx.clearRect(0, 0, W, H);
+    pCtx.globalCompositeOperation = 'lighter';
+
+    const now = performance.now();
+
+    // Compute face normals to do backface culling
+    const S = CUBE_SIZE;
+    const faceNormals: [number, number, number][] = [
+      [0, 0, -1], [0, 0, 1], [0, -1, 0], [0, 1, 0], [-1, 0, 0], [1, 0, 0],
+    ];
+    const rotatedNormals = faceNormals.map(n => {
+      let r = rotateXMat(n, cubeRotX);
       r = rotateYMat(r, cubeRotY);
       return r;
     });
+    // Face is visible if normal points toward camera (z < 0 in our coord system)
+    const faceVisible = rotatedNormals.map(n => n[2] < 0.1);
 
-    const projected = rotated.map(v => project3D(v, cx, cy, fl));
+    // Transform, depth-sort, and render all points
+    const transformed: { sx: number; sy: number; z: number; isEdge: boolean; faceIdx: number; twinkle: number }[] = [];
 
-    const sorted = cubeFaces
-      .map((face, i) => ({
-        face,
-        avgZ: face.indices.reduce((s, idx) => s + rotated[idx][2], 0) / 4,
-        index: i,
-      }))
-      .sort((a, b) => a.avgZ - b.avgZ);
+    for (const pt of cubePoints) {
+      if (!faceVisible[pt.faceIdx]) continue;
 
-    pCtx.clearRect(0, 0, W, H);
+      let r = rotateXMat([pt.x, pt.y, pt.z], cubeRotX);
+      r = rotateYMat(r, cubeRotY);
+      const scale = fl / (fl + r[2]);
+      transformed.push({
+        sx: cx + r[0] * scale,
+        sy: cy + r[1] * scale,
+        z: r[2],
+        isEdge: pt.isEdge,
+        faceIdx: pt.faceIdx,
+        twinkle: pt.twinkle,
+      });
+    }
 
-    for (const { face } of sorted) {
-      const pts = face.indices.map(i => projected[i]);
+    // Sort back-to-front
+    transformed.sort((a, b) => a.z - b.z);
+
+    for (const pt of transformed) {
+      const depthNorm = (pt.z + S) / (2 * S); // 0=far, 1=near
+      const depthScale = 0.4 + 1.6 * Math.max(0, Math.min(1, depthNorm));
+      const depthAlpha = 0.3 + 0.7 * Math.max(0, Math.min(1, depthNorm));
+      const twinkleVal = 0.7 + 0.3 * Math.sin(pt.twinkle + now * 0.003);
+
+      const fc = cubeFaceColors[pt.faceIdx];
+      const baseSize = pt.isEdge ? 2.0 : 1.2;
+      const size = baseSize * depthScale;
+      const alpha = (pt.isEdge ? 1.0 : 0.6) * depthAlpha * twinkleVal;
+
+      pCtx.globalAlpha = alpha;
+      pCtx.fillStyle = `rgb(${fc.r}, ${fc.g}, ${fc.b})`;
       pCtx.beginPath();
-      pCtx.moveTo(pts[0].x, pts[0].y);
-      for (let i = 1; i < pts.length; i++) pCtx.lineTo(pts[i].x, pts[i].y);
-      pCtx.closePath();
-      pCtx.fillStyle = face.color;
+      pCtx.arc(pt.sx, pt.sy, size, 0, Math.PI * 2);
       pCtx.fill();
-
-      const lx = pts.reduce((s, p) => s + p.x, 0) / 4;
-      const ly = pts.reduce((s, p) => s + p.y, 0) / 4;
-      pCtx.save();
-      pCtx.font = `bold ${Math.floor(CUBE_SIZE * 0.4)}px 'Inter', sans-serif`;
-      pCtx.textAlign = 'center';
-      pCtx.textBaseline = 'middle';
-      pCtx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-      pCtx.fillText(face.label, lx, ly);
-      pCtx.restore();
     }
 
-    pCtx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-    pCtx.lineWidth = 2;
-    for (const [a, b] of cubeEdges) {
-      pCtx.beginPath();
-      pCtx.moveTo(projected[a].x, projected[a].y);
-      pCtx.lineTo(projected[b].x, projected[b].y);
-      pCtx.stroke();
-    }
+    pCtx.globalAlpha = 1;
+    pCtx.globalCompositeOperation = 'source-over';
   }
 
   function processCubeHand(lm: { x: number; y: number }[], W: number, H: number) {
