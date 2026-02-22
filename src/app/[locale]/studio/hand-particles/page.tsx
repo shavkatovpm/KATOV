@@ -11,6 +11,7 @@ export default function HandParticlesPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [mode, setMode] = useState<1 | 2>(1);
+  const [shape, setShape] = useState('cube');
   const appRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const pCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -213,8 +214,30 @@ export default function HandParticlesPage() {
                 backdropFilter: 'blur(8px)',
               }}
             >
-              {mode === 1 ? '3D Kub' : 'Zarrachalar'}
+              {mode === 1 ? '3D' : 'Zarrachalar'}
             </button>
+            {mode === 2 && (
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex gap-2">
+                {(['cube', 'sphere', 'pyramid', 'cylinder', 'torus', 'cone'] as const).map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => {
+                      setShape(s);
+                      engineRef.current?.setShape(s);
+                    }}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer transition-all"
+                    style={{
+                      backgroundColor: shape === s ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.06)',
+                      border: shape === s ? '1px solid rgba(255, 255, 255, 0.4)' : '1px solid rgba(255, 255, 255, 0.12)',
+                      color: '#fff',
+                      backdropFilter: 'blur(8px)',
+                    }}
+                  >
+                    {{ cube: 'Kub', sphere: 'Shar', pyramid: 'Piramida', cylinder: 'Silindr', torus: 'Torus', cone: 'Konus' }[s]}
+                  </button>
+                ))}
+              </div>
+            )}
           </>
         )}
       </div>
@@ -255,9 +278,25 @@ function createEngine(
   // Cube state
   let cubeRotX = -0.4;
   let cubeRotY = 0.6;
+  let cubeVelX = 0;
+  let cubeVelY = 0;
+  let cubeScale = 1;
+  let cubeTargetScale = 1;
   let prevPalmX = -1;
   let prevPalmY = -1;
   let cubeHandActive = false;
+  // Zoom gesture state
+  let zoomPinched = false;
+  let zoomHoldStart = 0;
+  let zoomDirection: 'none' | 'in' | 'out' = 'none';
+  let zoomBaselineDist = 0;
+  let zoomBaselineScale = 1;
+  let zoomPeakDist = 0; // ratchet: max dist for 'in', min dist for 'out'
+  // Zone-crossing swipe state
+  let swipePhase: 'none' | 'outside' | 'crossing' = 'none';
+  let swipeEntryPalmX = 0;
+  let swipeEntryPalmY = 0;
+  let swipeEntryTime = 0;
 
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
   const MAX_PARTICLES = isMobile ? 1000 : 3000;
@@ -435,10 +474,9 @@ function createEngine(
     return pts;
   }
 
-  // =========== 3D Cube Geometry ===========
-  const CUBE_SIZE = isMobile ? 100 : 150;
+  // =========== 3D Shape Geometry ===========
+  const SHAPE_SCALE = isMobile ? 100 : 150;
 
-  // Pre-generate particle points on cube faces and edges
   interface CubePoint {
     x: number; y: number; z: number;
     isEdge: boolean;
@@ -446,19 +484,24 @@ function createEngine(
     twinkle: number;
   }
 
-  function generateCubePoints(): CubePoint[] {
-    const S = CUBE_SIZE;
-    const pts: CubePoint[] = [];
-    // 6 faces defined as: origin corner + two edge vectors
-    const faces: { o: [number, number, number]; u: [number, number, number]; v: [number, number, number] }[] = [
-      { o: [-S, -S, -S], u: [2 * S, 0, 0], v: [0, 2 * S, 0] }, // back  (z=-S)
-      { o: [-S, -S, S], u: [2 * S, 0, 0], v: [0, 2 * S, 0] },  // front (z=+S)
-      { o: [-S, -S, -S], u: [2 * S, 0, 0], v: [0, 0, 2 * S] }, // bottom(y=-S)
-      { o: [-S, S, -S], u: [2 * S, 0, 0], v: [0, 0, 2 * S] },  // top   (y=+S)
-      { o: [-S, -S, -S], u: [0, 2 * S, 0], v: [0, 0, 2 * S] }, // left  (x=-S)
-      { o: [S, -S, -S], u: [0, 2 * S, 0], v: [0, 0, 2 * S] },  // right (x=+S)
-    ];
+  interface ShapeData {
+    points: CubePoint[];
+    colors: { r: number; g: number; b: number }[];
+    normals: [number, number, number][];
+  }
 
+  // ---- Cube ----
+  function generateCubePoints(): ShapeData {
+    const S = SHAPE_SCALE;
+    const pts: CubePoint[] = [];
+    const faces: { o: [number, number, number]; u: [number, number, number]; v: [number, number, number] }[] = [
+      { o: [-S, -S, -S], u: [2 * S, 0, 0], v: [0, 2 * S, 0] },
+      { o: [-S, -S, S], u: [2 * S, 0, 0], v: [0, 2 * S, 0] },
+      { o: [-S, -S, -S], u: [2 * S, 0, 0], v: [0, 0, 2 * S] },
+      { o: [-S, S, -S], u: [2 * S, 0, 0], v: [0, 0, 2 * S] },
+      { o: [-S, -S, -S], u: [0, 2 * S, 0], v: [0, 0, 2 * S] },
+      { o: [S, -S, -S], u: [0, 2 * S, 0], v: [0, 0, 2 * S] },
+    ];
     const gridN = isMobile ? 10 : 14;
     for (let fi = 0; fi < faces.length; fi++) {
       const f = faces[fi];
@@ -470,26 +513,260 @@ function createEngine(
             x: f.o[0] + f.u[0] * u + f.v[0] * v,
             y: f.o[1] + f.u[1] * u + f.v[1] * v,
             z: f.o[2] + f.u[2] * u + f.v[2] * v,
-            isEdge,
-            faceIdx: fi,
-            twinkle: Math.random() * Math.PI * 2,
+            isEdge, faceIdx: fi, twinkle: Math.random() * Math.PI * 2,
           });
         }
       }
     }
-    return pts;
+    return {
+      points: pts,
+      colors: [
+        { r: 200, g: 200, b: 210 }, { r: 180, g: 200, b: 230 },
+        { r: 200, g: 210, b: 190 }, { r: 210, g: 195, b: 210 },
+        { r: 195, g: 205, b: 215 }, { r: 215, g: 205, b: 195 },
+      ],
+      normals: [[0, 0, -1], [0, 0, 1], [0, -1, 0], [0, 1, 0], [-1, 0, 0], [1, 0, 0]],
+    };
   }
 
-  const cubePoints = generateCubePoints();
+  // ---- Sphere ----
+  function generateSpherePoints(): ShapeData {
+    const R = SHAPE_SCALE;
+    const pts: CubePoint[] = [];
+    const latBands = 8;
+    const lonSteps = isMobile ? 18 : 26;
+    const latSteps = isMobile ? 12 : 18;
+    for (let i = 0; i <= latSteps; i++) {
+      const phi = (i / latSteps) * Math.PI;
+      const isEdgeLat = i === 0 || i === latSteps;
+      const band = Math.min(latBands - 1, Math.floor((i / latSteps) * latBands));
+      for (let j = 0; j < lonSteps; j++) {
+        const theta = (j / lonSteps) * Math.PI * 2;
+        pts.push({
+          x: R * Math.sin(phi) * Math.cos(theta),
+          y: R * Math.cos(phi),
+          z: R * Math.sin(phi) * Math.sin(theta),
+          isEdge: isEdgeLat || j % Math.floor(lonSteps / 4) === 0,
+          faceIdx: band, twinkle: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+    const colors = [];
+    const normals: [number, number, number][] = [];
+    for (let b = 0; b < latBands; b++) {
+      const t = b / (latBands - 1);
+      colors.push({ r: Math.round(180 + 30 * t), g: Math.round(195 + 15 * Math.sin(t * Math.PI)), b: Math.round(220 - 30 * t) });
+      const midPhi = ((b + 0.5) / latBands) * Math.PI;
+      normals.push([0, Math.cos(midPhi), Math.sin(midPhi)]);
+    }
+    return { points: pts, colors, normals };
+  }
 
-  const cubeFaceColors = [
-    { r: 200, g: 200, b: 210 }, // back  - neutral white
-    { r: 180, g: 200, b: 230 }, // front - cool blue-white
-    { r: 200, g: 210, b: 190 }, // bottom- warm green-white
-    { r: 210, g: 195, b: 210 }, // top   - soft purple-white
-    { r: 195, g: 205, b: 215 }, // left  - steel blue
-    { r: 215, g: 205, b: 195 }, // right - warm cream
-  ];
+  // ---- Pyramid ----
+  function generatePyramidPoints(): ShapeData {
+    const S = SHAPE_SCALE;
+    const H = S * 1.4;
+    const pts: CubePoint[] = [];
+    const gridN = isMobile ? 10 : 14;
+    const apex: [number, number, number] = [0, -H, 0];
+    const base: [number, number, number][] = [[-S, H * 0.4, -S], [S, H * 0.4, -S], [S, H * 0.4, S], [-S, H * 0.4, S]];
+    // 4 side faces
+    for (let fi = 0; fi < 4; fi++) {
+      const b0 = base[fi], b1 = base[(fi + 1) % 4];
+      for (let i = 0; i <= gridN; i++) {
+        for (let j = 0; j <= gridN; j++) {
+          const u = i / gridN, v = j / gridN;
+          const edgeU = u * (1 - v);
+          const bx = b0[0] + (b1[0] - b0[0]) * edgeU;
+          const by = b0[1] + (b1[1] - b0[1]) * edgeU;
+          const bz = b0[2] + (b1[2] - b0[2]) * edgeU;
+          pts.push({
+            x: bx + (apex[0] - bx) * v,
+            y: by + (apex[1] - by) * v,
+            z: bz + (apex[2] - bz) * v,
+            isEdge: i === 0 || i === gridN || j === 0 || j === gridN,
+            faceIdx: fi, twinkle: Math.random() * Math.PI * 2,
+          });
+        }
+      }
+    }
+    // Base face
+    for (let i = 0; i <= gridN; i++) {
+      for (let j = 0; j <= gridN; j++) {
+        const u = i / gridN, v = j / gridN;
+        pts.push({
+          x: -S + 2 * S * u, y: H * 0.4, z: -S + 2 * S * v,
+          isEdge: i === 0 || i === gridN || j === 0 || j === gridN,
+          faceIdx: 4, twinkle: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+    const sideNormals: [number, number, number][] = [[0, 0.4, -1], [1, 0.4, 0], [0, 0.4, 1], [-1, 0.4, 0]];
+    const normals: [number, number, number][] = sideNormals.map(n => {
+      const len = Math.sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
+      return [n[0] / len, n[1] / len, n[2] / len];
+    });
+    normals.push([0, 1, 0]);
+    return {
+      points: pts,
+      colors: [
+        { r: 220, g: 195, b: 180 }, { r: 195, g: 210, b: 200 },
+        { r: 200, g: 195, b: 220 }, { r: 210, g: 210, b: 195 },
+        { r: 190, g: 200, b: 210 },
+      ],
+      normals,
+    };
+  }
+
+  // ---- Cylinder ----
+  function generateCylinderPoints(): ShapeData {
+    const R = SHAPE_SCALE * 0.7;
+    const H = SHAPE_SCALE;
+    const pts: CubePoint[] = [];
+    const segments = 6;
+    const angSteps = isMobile ? 20 : 30;
+    const hSteps = isMobile ? 10 : 16;
+    // Side surface
+    for (let i = 0; i <= hSteps; i++) {
+      const y = -H + (2 * H * i) / hSteps;
+      for (let j = 0; j < angSteps; j++) {
+        const theta = (j / angSteps) * Math.PI * 2;
+        const seg = Math.min(segments - 1, Math.floor((j / angSteps) * segments));
+        pts.push({
+          x: R * Math.cos(theta), y, z: R * Math.sin(theta),
+          isEdge: i === 0 || i === hSteps,
+          faceIdx: seg, twinkle: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+    // Top and bottom caps
+    const capSteps = isMobile ? 6 : 10;
+    for (let cap = 0; cap < 2; cap++) {
+      const cy = cap === 0 ? -H : H;
+      const fi = segments + cap;
+      for (let ri = 0; ri <= capSteps; ri++) {
+        const r = (ri / capSteps) * R;
+        const count = Math.max(1, Math.floor(angSteps * (ri / capSteps)));
+        for (let j = 0; j < count; j++) {
+          const theta = (j / count) * Math.PI * 2;
+          pts.push({
+            x: r * Math.cos(theta), y: cy, z: r * Math.sin(theta),
+            isEdge: ri === capSteps,
+            faceIdx: fi, twinkle: Math.random() * Math.PI * 2,
+          });
+        }
+      }
+    }
+    const colors = [];
+    const normals: [number, number, number][] = [];
+    for (let s = 0; s < segments; s++) {
+      const t = s / segments;
+      colors.push({ r: Math.round(190 + 25 * Math.cos(t * Math.PI * 2)), g: Math.round(200 + 15 * Math.sin(t * Math.PI * 2)), b: Math.round(210 + 10 * Math.cos(t * Math.PI)) });
+      const midTheta = ((s + 0.5) / segments) * Math.PI * 2;
+      normals.push([Math.cos(midTheta), 0, Math.sin(midTheta)]);
+    }
+    colors.push({ r: 195, g: 205, b: 220 }); normals.push([0, -1, 0]); // bottom cap
+    colors.push({ r: 210, g: 200, b: 195 }); normals.push([0, 1, 0]);  // top cap
+    return { points: pts, colors, normals };
+  }
+
+  // ---- Torus ----
+  function generateTorusPoints(): ShapeData {
+    const majorR = SHAPE_SCALE * 0.8;
+    const minorR = SHAPE_SCALE * 0.35;
+    const pts: CubePoint[] = [];
+    const segments = 6;
+    const majSteps = isMobile ? 20 : 32;
+    const minSteps = isMobile ? 10 : 16;
+    for (let i = 0; i < majSteps; i++) {
+      const phi = (i / majSteps) * Math.PI * 2;
+      const seg = Math.min(segments - 1, Math.floor((i / majSteps) * segments));
+      for (let j = 0; j <= minSteps; j++) {
+        const theta = (j / minSteps) * Math.PI * 2;
+        const r = majorR + minorR * Math.cos(theta);
+        pts.push({
+          x: r * Math.cos(phi),
+          y: minorR * Math.sin(theta),
+          z: r * Math.sin(phi),
+          isEdge: j === 0 || j === minSteps,
+          faceIdx: seg, twinkle: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+    const colors = [];
+    const normals: [number, number, number][] = [];
+    for (let s = 0; s < segments; s++) {
+      const t = s / segments;
+      colors.push({ r: Math.round(200 + 20 * Math.sin(t * Math.PI * 2)), g: Math.round(195 + 20 * Math.cos(t * Math.PI)), b: Math.round(210 + 15 * Math.sin(t * Math.PI * 3)) });
+      const midPhi = ((s + 0.5) / segments) * Math.PI * 2;
+      normals.push([Math.cos(midPhi), 0, Math.sin(midPhi)]);
+    }
+    return { points: pts, colors, normals };
+  }
+
+  // ---- Cone ----
+  function generateConePoints(): ShapeData {
+    const R = SHAPE_SCALE * 0.8;
+    const H = SHAPE_SCALE * 1.3;
+    const pts: CubePoint[] = [];
+    const segments = 6;
+    const angSteps = isMobile ? 20 : 30;
+    const hSteps = isMobile ? 12 : 18;
+    // Side surface (radius tapers to 0 at top)
+    for (let i = 0; i <= hSteps; i++) {
+      const t = i / hSteps;
+      const y = H * 0.5 - H * t;
+      const r = R * (1 - t);
+      if (r < 1 && i < hSteps) continue;
+      const count = Math.max(1, Math.floor(angSteps * Math.max(0.1, 1 - t)));
+      for (let j = 0; j < count; j++) {
+        const theta = (j / count) * Math.PI * 2;
+        const seg = Math.min(segments - 1, Math.floor((j / count) * segments));
+        pts.push({
+          x: r * Math.cos(theta), y, z: r * Math.sin(theta),
+          isEdge: i === 0 || i === hSteps || j % Math.floor(count / 4) === 0,
+          faceIdx: seg, twinkle: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+    // Base cap
+    const capSteps = isMobile ? 6 : 10;
+    for (let ri = 0; ri <= capSteps; ri++) {
+      const r = (ri / capSteps) * R;
+      const count = Math.max(1, Math.floor(angSteps * (ri / capSteps)));
+      for (let j = 0; j < count; j++) {
+        const theta = (j / count) * Math.PI * 2;
+        pts.push({
+          x: r * Math.cos(theta), y: H * 0.5, z: r * Math.sin(theta),
+          isEdge: ri === capSteps,
+          faceIdx: segments, twinkle: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+    const colors = [];
+    const normals: [number, number, number][] = [];
+    const slopeAngle = Math.atan2(R, H);
+    for (let s = 0; s < segments; s++) {
+      const t = s / segments;
+      colors.push({ r: Math.round(205 + 15 * Math.cos(t * Math.PI * 2)), g: Math.round(200 + 15 * Math.sin(t * Math.PI * 2)), b: Math.round(195 + 20 * t) });
+      const midTheta = ((s + 0.5) / segments) * Math.PI * 2;
+      normals.push([Math.cos(midTheta) * Math.cos(slopeAngle), -Math.sin(slopeAngle), Math.sin(midTheta) * Math.cos(slopeAngle)]);
+    }
+    colors.push({ r: 195, g: 205, b: 215 }); normals.push([0, 1, 0]); // base
+    return { points: pts, colors, normals };
+  }
+
+  // ---- Shape registry ----
+  const allShapes: Record<string, ShapeData> = {
+    cube: generateCubePoints(),
+    sphere: generateSpherePoints(),
+    pyramid: generatePyramidPoints(),
+    cylinder: generateCylinderPoints(),
+    torus: generateTorusPoints(),
+    cone: generateConePoints(),
+  };
+  let currentShapeName = 'cube';
+  let activeShape: ShapeData = allShapes.cube;
 
   function rotateXMat(p: [number, number, number], a: number): [number, number, number] {
     const c = Math.cos(a), s = Math.sin(a);
@@ -501,41 +778,33 @@ function createEngine(
     return [p[0] * c + p[2] * s, p[1], -p[0] * s + p[2] * c];
   }
 
-  function renderCube() {
+  function renderShape() {
     const W = pCanvas.width, H = pCanvas.height;
     const cx = W / 2, cy = H / 2;
-    const fl = Math.min(W, H) * 2.5; // high focal length = minimal distortion
+    const S = SHAPE_SCALE;
+    const shape = activeShape;
 
     pCtx.clearRect(0, 0, W, H);
     pCtx.globalCompositeOperation = 'lighter';
 
     const now = performance.now();
 
-    // Compute face normals to do backface culling
-    const S = CUBE_SIZE;
-    const faceNormals: [number, number, number][] = [
-      [0, 0, -1], [0, 0, 1], [0, -1, 0], [0, 1, 0], [-1, 0, 0], [1, 0, 0],
-    ];
-    const rotatedNormals = faceNormals.map(n => {
+    // Compute rotated face normals for face brightness
+    const rotatedNormals = shape.normals.map(n => {
       let r = rotateXMat(n, cubeRotX);
       r = rotateYMat(r, cubeRotY);
       return r;
     });
-    // Face is visible if normal points toward camera (z < 0 in our coord system)
-    const faceVisible = rotatedNormals.map(n => n[2] < 0.1);
+    const faceFacing = rotatedNormals.map(n => -n[2]);
 
-    // Transform, depth-sort, and render all points
     const transformed: { sx: number; sy: number; z: number; isEdge: boolean; faceIdx: number; twinkle: number }[] = [];
 
-    for (const pt of cubePoints) {
-      if (!faceVisible[pt.faceIdx]) continue;
-
+    for (const pt of shape.points) {
       let r = rotateXMat([pt.x, pt.y, pt.z], cubeRotX);
       r = rotateYMat(r, cubeRotY);
-      const scale = fl / (fl + r[2]);
       transformed.push({
-        sx: cx + r[0] * scale,
-        sy: cy + r[1] * scale,
+        sx: cx + r[0] * cubeScale,
+        sy: cy + r[1] * cubeScale,
         z: r[2],
         isEdge: pt.isEdge,
         faceIdx: pt.faceIdx,
@@ -543,19 +812,21 @@ function createEngine(
       });
     }
 
-    // Sort back-to-front
     transformed.sort((a, b) => a.z - b.z);
 
     for (const pt of transformed) {
-      const depthNorm = (pt.z + S) / (2 * S); // 0=far, 1=near
-      const depthScale = 0.4 + 1.6 * Math.max(0, Math.min(1, depthNorm));
-      const depthAlpha = 0.3 + 0.7 * Math.max(0, Math.min(1, depthNorm));
+      const depthNorm = (pt.z + S) / (2 * S);
+      const depthScale = 0.3 + 1.7 * Math.max(0, Math.min(1, depthNorm));
+      const depthAlpha = 0.2 + 0.8 * Math.max(0, Math.min(1, depthNorm));
       const twinkleVal = 0.7 + 0.3 * Math.sin(pt.twinkle + now * 0.003);
 
-      const fc = cubeFaceColors[pt.faceIdx];
+      const facing = Math.max(0, faceFacing[pt.faceIdx] ?? 0);
+      const faceAlpha = 0.15 + 0.85 * facing;
+
+      const fc = shape.colors[pt.faceIdx] ?? shape.colors[0];
       const baseSize = pt.isEdge ? 2.0 : 1.2;
       const size = baseSize * depthScale;
-      const alpha = (pt.isEdge ? 1.0 : 0.6) * depthAlpha * twinkleVal;
+      const alpha = (pt.isEdge ? 1.0 : 0.6) * depthAlpha * twinkleVal * faceAlpha;
 
       pCtx.globalAlpha = alpha;
       pCtx.fillStyle = `rgb(${fc.r}, ${fc.g}, ${fc.b})`;
@@ -564,24 +835,133 @@ function createEngine(
       pCtx.fill();
     }
 
-    pCtx.globalAlpha = 1;
+    // Draw subtle zone indicator
     pCtx.globalCompositeOperation = 'source-over';
+    const zoneRadius = Math.min(W, H) * 0.15;
+    pCtx.globalAlpha = 0.08;
+    pCtx.strokeStyle = '#fff';
+    pCtx.lineWidth = 1;
+    pCtx.setLineDash([6, 6]);
+    pCtx.beginPath();
+    pCtx.arc(cx, cy, zoneRadius, 0, Math.PI * 2);
+    pCtx.stroke();
+    pCtx.setLineDash([]);
+
+    pCtx.globalAlpha = 1;
   }
 
   function processCubeHand(lm: { x: number; y: number }[], W: number, H: number) {
     const palmX = (1 - lm[9].x) * W;
     const palmY = lm[9].y * H;
+    const cx = W / 2;
+    const cy = H / 2;
 
-    if (prevPalmX >= 0 && prevPalmY >= 0) {
-      const dx = palmX - prevPalmX;
-      const dy = palmY - prevPalmY;
-      const sensitivity = 0.005;
-      cubeRotY += dx * sensitivity;
-      cubeRotX -= dy * sensitivity;
+    // Zone-crossing swipe rotation
+    const zoneRadius = Math.min(W, H) * 0.15;
+    const distFromCenter = Math.hypot(palmX - cx, palmY - cy);
+    const isInZone = distFromCenter < zoneRadius;
+
+    if (prevPalmX < 0) {
+      // First frame: initialize swipe phase
+      swipePhase = isInZone ? 'none' : 'outside';
+    } else {
+      if (swipePhase === 'none') {
+        // Waiting for hand to be outside zone first
+        if (!isInZone) swipePhase = 'outside';
+      } else if (swipePhase === 'outside') {
+        if (isInZone) {
+          // Hand entered zone from outside — start tracking
+          swipePhase = 'crossing';
+          swipeEntryPalmX = palmX;
+          swipeEntryPalmY = palmY;
+          swipeEntryTime = performance.now();
+        }
+      } else if (swipePhase === 'crossing') {
+        if (!isInZone) {
+          // Hand exited zone — check if it crossed to the opposite side
+          const entryRelX = swipeEntryPalmX - cx;
+          const entryRelY = swipeEntryPalmY - cy;
+          const exitRelX = palmX - cx;
+          const exitRelY = palmY - cy;
+
+          const crossedX = (entryRelX * exitRelX) < 0;
+          const crossedY = (entryRelY * exitRelY) < 0;
+
+          if (crossedX || crossedY) {
+            // Valid swipe! Calculate impulse from speed
+            const elapsed = Math.max(50, performance.now() - swipeEntryTime);
+            const swipeDist = Math.hypot(palmX - swipeEntryPalmX, palmY - swipeEntryPalmY);
+            const speed = swipeDist / elapsed; // px per ms
+
+            const impulseBase = 0.012;
+            const impulseMax = 0.07;
+            const impulse = Math.min(impulseMax, impulseBase + speed * 0.01);
+
+            if (crossedX) {
+              cubeVelY += (exitRelX > 0 ? 1 : -1) * impulse;
+            }
+            if (crossedY) {
+              cubeVelX += (exitRelY > 0 ? -1 : 1) * impulse;
+            }
+
+            // Cap velocity
+            const maxVel = 0.1;
+            cubeVelX = Math.max(-maxVel, Math.min(maxVel, cubeVelX));
+            cubeVelY = Math.max(-maxVel, Math.min(maxVel, cubeVelY));
+          }
+
+          swipePhase = 'outside';
+        }
+      }
     }
+
+    // Detect palm movement speed
+    const palmSpeed = prevPalmX >= 0 ? Math.hypot(palmX - prevPalmX, palmY - prevPalmY) : 0;
+    const palmStill = palmSpeed < 25; // px per frame — generous for natural hand tremor
 
     prevPalmX = palmX;
     prevPalmY = palmY;
+
+    // Zoom: only works when palm is stationary
+    // pinch 1s → zoom-in mode, open 1s → zoom-out mode
+    // Once active: each pinch→open = +10% (in mode), each open→pinch = -10% (out mode)
+    const pinchDist = Math.hypot(lm[4].x - lm[8].x, lm[4].y - lm[8].y);
+    const isPinched = pinchDist < 0.06;
+    const now = performance.now();
+
+    if (!palmStill) {
+      // Palm moving — reset zoom hold timer, don't process zoom
+      zoomHoldStart = 0;
+    } else {
+      if (isPinched !== zoomPinched) {
+        const wasPinched = zoomPinched;
+        zoomPinched = isPinched;
+        zoomHoldStart = now;
+
+        // If zoom mode already active, apply step on each transition
+        if (zoomDirection === 'in' && wasPinched && !isPinched) {
+          cubeTargetScale = Math.min(3.0, cubeTargetScale * 1.1);
+        } else if (zoomDirection === 'out' && !wasPinched && isPinched) {
+          cubeTargetScale = Math.max(0.3, cubeTargetScale / 1.1);
+        }
+      }
+
+      if (zoomDirection === 'none') {
+        if (zoomHoldStart > 0 && now - zoomHoldStart >= 1000) {
+          zoomDirection = isPinched ? 'in' : 'out';
+          zoomHoldStart = 0;
+        }
+      } else {
+        if (zoomDirection === 'in' && !isPinched && zoomHoldStart > 0 && now - zoomHoldStart >= 1000) {
+          zoomDirection = 'out';
+          zoomHoldStart = 0;
+        } else if (zoomDirection === 'out' && isPinched && zoomHoldStart > 0 && now - zoomHoldStart >= 1000) {
+          zoomDirection = 'in';
+          zoomHoldStart = 0;
+        }
+      }
+    }
+
     cubeHandActive = true;
   }
 
@@ -841,6 +1221,8 @@ function createEngine(
       handState[0].gesture = 'none'; handState[1].gesture = 'none';
       attractTarget = null; twoHandMidpoint = null; textFormation = null; snowMode = false;
       prevPalmX = -1; prevPalmY = -1; cubeHandActive = false;
+      zoomPinched = false; zoomHoldStart = 0; zoomDirection = 'none';
+      swipePhase = 'none';
       return;
     }
 
@@ -1298,12 +1680,21 @@ function createEngine(
       if (!isMobile) handleCollisions();
       renderParticles();
     } else {
-      if (!cubeHandActive) {
-        cubeRotY += 0.003;
-        cubeRotX += 0.001;
+      // Apply angular velocity (inertia)
+      cubeRotX += cubeVelX;
+      cubeRotY += cubeVelY;
+      // Friction: high values → cube spins longer after swipe
+      const friction = cubeHandActive ? 0.99 : 0.985;
+      cubeVelX *= friction;
+      cubeVelY *= friction;
+      // Smooth zoom
+      cubeScale += (cubeTargetScale - cubeScale) * 0.3;
+      // Gentle auto-spin only when fully stopped and no hand
+      if (!cubeHandActive && Math.abs(cubeVelX) < 0.0002 && Math.abs(cubeVelY) < 0.0002) {
+        cubeVelY = 0.003;
       }
       cubeHandActive = false;
-      renderCube();
+      renderShape();
     }
 
     animId = requestAnimationFrame(loop);
@@ -1366,9 +1757,15 @@ function createEngine(
         pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
         cubeRotX = -0.4;
         cubeRotY = 0.6;
+        cubeVelX = 0;
+        cubeVelY = 0;
+        cubeScale = 1;
+        cubeTargetScale = 1;
         prevPalmX = -1;
         prevPalmY = -1;
+        zoomPinched = false; zoomHoldStart = 0; zoomDirection = 'none';
         cubeHandActive = false;
+        swipePhase = 'none';
         attractTarget = null;
         twoHandMidpoint = null;
         textFormation = null;
@@ -1379,6 +1776,12 @@ function createEngine(
         prevPalmY = -1;
         particles = [];
         spawnTextParticles();
+      }
+    },
+    setShape(name: string) {
+      if (allShapes[name]) {
+        currentShapeName = name;
+        activeShape = allShapes[name];
       }
     },
   };

@@ -322,7 +322,7 @@ export function Services() {
         >
           <Link
             href="/studio/price"
-            className="btn-outline inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base font-medium transition-colors cursor-pointer"
+            className="btn-outline inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base font-medium transition-colors cursor-pointer min-w-[150px] sm:min-w-[210px]"
           >
             {t('calcPrice')}
           </Link>
@@ -335,7 +335,7 @@ export function Services() {
                 element.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="btn-outline inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base font-medium transition-colors cursor-pointer"
+            className="btn-outline inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base font-medium transition-colors cursor-pointer min-w-[150px] sm:min-w-[210px]"
           >
             {t('freeConsultation')}
           </a>
