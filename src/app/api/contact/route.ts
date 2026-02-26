@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,8 +21,11 @@ export async function POST(request: NextRequest) {
     // Save to Google Sheets via Apps Script
     const sheetsResult = await saveToGoogleSheets(name, phone, message, timestamp);
 
-    if (!telegramResult.success && !sheetsResult.success) {
-      console.error('Both services failed - Telegram:', telegramResult.success, 'Sheets:', sheetsResult.success);
+    // Send email notification
+    const emailResult = await sendEmail(name, phone, message, timestamp, order);
+
+    if (!telegramResult.success && !sheetsResult.success && !emailResult.success) {
+      console.error('All services failed - Telegram:', telegramResult.success, 'Sheets:', sheetsResult.success, 'Email:', emailResult.success);
       return NextResponse.json(
         { error: 'Xatolik yuz berdi. Iltimos qaytadan urinib ko\'ring.' },
         { status: 500 }
@@ -125,6 +129,64 @@ async function saveToGoogleSheets(name: string, phone: string, message: string, 
     return { success: response.ok };
   } catch (error) {
     console.error('Google Sheets error:', error);
+    return { success: false };
+  }
+}
+
+async function sendEmail(name: string, phone: string, message: string, timestamp: string, order?: Record<string, string>) {
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailPassword = process.env.GMAIL_APP_PASSWORD;
+
+  if (!gmailUser || !gmailPassword) {
+    console.error('Gmail credentials not configured - USER:', !!gmailUser, 'PASSWORD:', !!gmailPassword);
+    return { success: false };
+  }
+
+  let orderHtml = '';
+  if (order) {
+    const lines: string[] = [];
+    if (order.type) lines.push(`<li><strong>Sayt turi:</strong> ${order.type}</li>`);
+    if (order.features) lines.push(`<li><strong>Funksiyalar:</strong> ${order.features.split(',').join(', ')}</li>`);
+    if (order.design) lines.push(`<li><strong>Dizayn:</strong> ${order.design}</li>`);
+    if (order.price) lines.push(`<li><strong>Narx:</strong> $${order.price}</li>`);
+    if (order.days) lines.push(`<li><strong>Muddat:</strong> ${order.days} kun</li>`);
+    if (lines.length > 0) {
+      orderHtml = `<h3>📋 Kalkulyator buyurtmasi:</h3><ul>${lines.join('')}</ul>`;
+    }
+  }
+
+  const html = `
+    <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+      <h2>🆕 Yangi ariza!</h2>
+      <table style="border-collapse: collapse; width: 100%;">
+        <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>👤 Ism:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${name}</td></tr>
+        <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>📱 Telefon:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${phone}</td></tr>
+        <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>💬 Xabar:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${message}</td></tr>
+        <tr><td style="padding: 8px;"><strong>🕐 Vaqt:</strong></td><td style="padding: 8px;">${timestamp}</td></tr>
+      </table>
+      ${orderHtml}
+    </div>
+  `;
+
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: gmailUser,
+        pass: gmailPassword,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"KATOV.UZ" <${gmailUser}>`,
+      to: gmailUser,
+      subject: `Yangi ariza: ${name}`,
+      html,
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error('Email error:', error);
     return { success: false };
   }
 }

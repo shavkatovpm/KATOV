@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Bot, Instagram, Send, Check, AlertTriangle } from 'lucide-react';
+import { Phone, Bot, Instagram, Send, Check, AlertTriangle, Mail } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
 // Custom Telegram icon (minimal style)
@@ -101,6 +101,11 @@ export function Contact() {
       icon: Phone,
       value: '+998 33 888 01 33',
       href: 'tel:+998338880133',
+    },
+    {
+      icon: Mail,
+      value: 'katov.web@gmail.com',
+      href: 'mailto:katov.web@gmail.com',
     },
     {
       icon: Bot,
