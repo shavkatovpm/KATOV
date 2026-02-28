@@ -122,13 +122,12 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
   const order = useRef(Array.from({ length: childArr.length }, (_, i) => i));
   const tlRef = useRef<gsap.core.Timeline | null>(null);
-  const intervalRef = useRef<number | undefined>(undefined);
+  const delayedRef = useRef<gsap.core.Tween | null>(null);
   const container = useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
-    // Prevent GSAP from jumping after mobile scroll throttle pauses rAF
-    gsap.ticker.lagSmoothing(0);
+    // Smooth out lag spikes from mobile scroll throttling (cap 500ms gaps)
+    gsap.ticker.lagSmoothing(500, 33);
 
     const total = refs.length;
 
@@ -142,18 +141,22 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
     const swap = () => {
       if (order.current.length < 2) return;
-      // Skip if previous animation is still running (e.g. during mobile scroll throttle)
-      if (tlRef.current && tlRef.current.isActive()) return;
+
+      // If previous animation is still running, finish it instantly
+      if (tlRef.current && tlRef.current.isActive()) {
+        tlRef.current.progress(1).kill();
+      }
 
       const [front, ...rest] = order.current;
       const elFront = refs[front].current;
       if (!elFront) return;
 
-      // Kill any leftover timeline before starting fresh
-      if (tlRef.current) {
-        tlRef.current.kill();
-      }
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // Schedule next swap via GSAP ticker (syncs with rAF, pauses with it)
+          delayedRef.current = gsap.delayedCall(delay / 1000, swap);
+        },
+      });
       tlRef.current = tl;
 
       tl.to(elFront, {
@@ -226,31 +229,33 @@ const CardSwap: React.FC<CardSwapProps> = ({
       });
     };
 
-    swap();
-    intervalRef.current = window.setInterval(swap, delay);
+    // Start first swap after short delay
+    delayedRef.current = gsap.delayedCall(0.5, swap);
 
     if (pauseOnHover) {
       const node = container.current;
       if (!node) return;
       const pause = () => {
         tlRef.current?.pause();
-        if (intervalRef.current) clearInterval(intervalRef.current);
+        delayedRef.current?.pause();
       };
       const resume = () => {
-        tlRef.current?.play();
-        intervalRef.current = window.setInterval(swap, delay);
+        tlRef.current?.resume();
+        delayedRef.current?.resume();
       };
       node.addEventListener("mouseenter", pause);
       node.addEventListener("mouseleave", resume);
       return () => {
         node.removeEventListener("mouseenter", pause);
         node.removeEventListener("mouseleave", resume);
-        if (intervalRef.current) clearInterval(intervalRef.current);
+        delayedRef.current?.kill();
+        tlRef.current?.kill();
       };
     }
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      delayedRef.current?.kill();
+      tlRef.current?.kill();
     };
   }, [
     cardDistance,
