@@ -125,6 +125,24 @@ const CardSwap: React.FC<CardSwapProps> = ({
   const intervalRef = useRef<number | undefined>(undefined);
   const container = useRef<HTMLDivElement>(null);
 
+  // Block all touch events so fingers don't interfere with GSAP animation
+  useEffect(() => {
+    const node = container.current;
+    if (!node) return;
+    const block = (e: TouchEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
+    node.addEventListener("touchstart", block, { passive: false });
+    node.addEventListener("touchmove", block, { passive: false });
+    node.addEventListener("touchend", block, { passive: false });
+    return () => {
+      node.removeEventListener("touchstart", block);
+      node.removeEventListener("touchmove", block);
+      node.removeEventListener("touchend", block);
+    };
+  }, []);
+
   useEffect(() => {
     const total = refs.length;
 

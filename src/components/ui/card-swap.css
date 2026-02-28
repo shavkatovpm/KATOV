@@ -2,6 +2,13 @@
   position: relative;
   perspective: 1200px;
   overflow: visible;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.card-swap-card {
+  pointer-events: none;
 }
 
 .card-swap-card {
