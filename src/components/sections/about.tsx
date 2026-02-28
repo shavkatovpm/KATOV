@@ -159,7 +159,7 @@ export function About() {
 
             {/* Approach Section — mobile: below stats, desktop: right side */}
             <div className="md:w-1/2">
-              <div className="relative h-[400px] sm:h-[420px] md:h-[480px] overflow-hidden flex items-center justify-center">
+              <div className="relative h-[400px] sm:h-[420px] md:h-[480px] overflow-hidden flex items-center justify-center pointer-events-none">
                 <CardSwap
                   width={cardSize.w}
                   height={cardSize.h}

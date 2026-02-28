@@ -127,6 +127,9 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
 
   useEffect(() => {
+    // Prevent GSAP from jumping after mobile scroll throttle pauses rAF
+    gsap.ticker.lagSmoothing(0);
+
     const total = refs.length;
 
     refs.forEach((r, i) =>
@@ -139,11 +142,17 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
     const swap = () => {
       if (order.current.length < 2) return;
+      // Skip if previous animation is still running (e.g. during mobile scroll throttle)
+      if (tlRef.current && tlRef.current.isActive()) return;
 
       const [front, ...rest] = order.current;
       const elFront = refs[front].current;
       if (!elFront) return;
 
+      // Kill any leftover timeline before starting fresh
+      if (tlRef.current) {
+        tlRef.current.kill();
+      }
       const tl = gsap.timeline();
       tlRef.current = tl;
 
