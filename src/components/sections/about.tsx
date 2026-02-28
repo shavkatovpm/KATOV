@@ -59,7 +59,7 @@ function CounterValue({ value }: { value: string }) {
   }, [isInView, animate]);
 
   return (
-    <div ref={ref} className="text-2xl sm:text-3xl md:text-3xl font-bold leading-none mb-0.5">
+    <div ref={ref} className="text-2xl sm:text-3xl md:text-3xl font-bold leading-none mb-3">
       {isInView ? display : `0${suffix}`}
     </div>
   );
@@ -168,7 +168,7 @@ export function About() {
 
             {/* Approach Section — mobile: below stats, desktop: right side */}
             <div className="md:w-1/2">
-              <div className="relative h-[400px] sm:h-[420px] md:h-[480px] overflow-x-hidden overflow-y-visible md:overflow-hidden flex items-center justify-center">
+              <div className="relative h-[400px] sm:h-[420px] md:h-[480px] overflow-hidden flex items-center justify-center">
                 <CardSwap
                   width={cardSize.w}
                   height={cardSize.h}
