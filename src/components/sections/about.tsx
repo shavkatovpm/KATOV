@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
-import { FolderCheck, CalendarDays, Headset, CircleCheckBig, PenTool, ShieldCheck, Target, Users } from 'lucide-react';
+import { PenTool, ShieldCheck, Target, Users } from 'lucide-react';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import CardSwap, { Card } from '@/components/ui/card-swap';
 
@@ -87,10 +87,10 @@ export function About() {
   }, []);
 
   const stats = [
-    { value: t('stat1Value'), label: t('stat1Label'), icon: FolderCheck },
-    { value: t('stat2Value'), label: t('stat2Label'), icon: CalendarDays },
-    { value: t('stat3Value'), label: t('stat3Label'), icon: Headset },
-    { value: t('stat4Value'), label: t('stat4Label'), icon: CircleCheckBig },
+    { value: t('stat1Value'), label: t('stat1Label') },
+    { value: t('stat2Value'), label: t('stat2Label') },
+    { value: t('stat3Value'), label: t('stat3Label') },
+    { value: t('stat4Value'), label: t('stat4Label') },
   ];
 
   const approaches = [
@@ -143,27 +143,18 @@ export function About() {
               viewport={{ once: true }}
               variants={containerVariants}
             >
-              {stats.map((stat, i) => {
-                const Icon = stat.icon;
-                return (
+              {stats.map((stat, i) => (
                   <motion.div
                     key={i}
-                    className="about-stat-card card p-4 sm:p-5 md:px-6 md:py-10 relative overflow-hidden text-center"
+                    className="about-stat-card card p-4 sm:p-5 md:px-6 md:py-10 text-center"
                     variants={fadeUp}
                   >
-                    <Icon
-                      strokeWidth={0.8}
-                      className="absolute top-2 left-2 opacity-[0.15] pointer-events-none size-10 sm:size-14 md:size-16"
-                    />
-                    <div className="relative z-10">
-                      <CounterValue value={stat.value} />
-                      <div className="text-muted text-xs sm:text-sm">
-                        {stat.label}
-                      </div>
+                    <CounterValue value={stat.value} />
+                    <div className="text-muted text-xs sm:text-sm">
+                      {stat.label}
                     </div>
                   </motion.div>
-                );
-              })}
+                ))}
             </motion.div>
 
             {/* Approach Section — mobile: below stats, desktop: right side */}
