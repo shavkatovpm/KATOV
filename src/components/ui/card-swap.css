@@ -6,7 +6,7 @@
 
 .card-swap-card {
   position: absolute;
-  top: 60%;
+  top: 70%;
   left: 50%;
   border-radius: 1rem;
   border: 1px solid var(--color-border);
@@ -20,7 +20,7 @@
 
 @media (max-width: 639px) {
   .card-swap-card {
-    top: 62%;
-    left: 45%;
+    top: 68%;
+    left: 48%;
   }
 }

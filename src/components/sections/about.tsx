@@ -78,7 +78,7 @@ export function About() {
         const cardH = Math.round(cardW * 0.65);
         setCardSize({ w: cardW, h: cardH, dist: 10, vDist: 40 });
       } else {
-        setCardSize({ w: 300, h: 260, dist: 20, vDist: 50 });
+        setCardSize({ w: 350, h: 260, dist: 20, vDist: 50 });
       }
     };
     update();
