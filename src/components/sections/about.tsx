@@ -76,7 +76,7 @@ export function About() {
       if (w < 640) {
         const cardW = w - 64; // har tomondan 32px masofa
         const cardH = Math.round(cardW * 0.65);
-        setCardSize({ w: cardW, h: cardH, dist: 15, vDist: 40 });
+        setCardSize({ w: cardW, h: cardH, dist: 10, vDist: 40 });
       } else {
         setCardSize({ w: 300, h: 260, dist: 20, vDist: 50 });
       }
