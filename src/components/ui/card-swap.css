@@ -2,7 +2,7 @@
   position: relative;
   perspective: 1200px;
   overflow: visible;
-  touch-action: none;
+  touch-action: pan-y;
   -webkit-user-select: none;
   user-select: none;
 }
