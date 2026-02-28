@@ -304,6 +304,64 @@ button {
   border-color: color-mix(in srgb, var(--color-fg) 20%, transparent);
 }
 
+/* About stat card — rotating border glow */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotateBorder {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.about-stat-card {
+  position: relative;
+  border-color: transparent !important;
+}
+
+.about-stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--border-angle),
+    #333333 0%,
+    #333333 65%,
+    #555555 78%,
+    #666666 80%,
+    #555555 82%,
+    #333333 95%,
+    #333333 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotateBorder 8s linear infinite;
+  pointer-events: none;
+}
+
+.about-stat-card:nth-child(2)::before {
+  animation-delay: -1s;
+}
+
+.about-stat-card:nth-child(3)::before {
+  animation-delay: -2s;
+}
+
+.about-stat-card:nth-child(4)::before {
+  animation-delay: -3s;
+}
+
 /* Prose for Blog */
 .prose {
   color: var(--color-fg);
