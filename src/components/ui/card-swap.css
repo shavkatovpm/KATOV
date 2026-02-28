@@ -1,7 +1,7 @@
 .card-swap-container {
   position: relative;
   perspective: 1200px;
-  overflow: hidden;
+  overflow: visible;
   touch-action: pan-y;
   -webkit-user-select: none;
   user-select: none;

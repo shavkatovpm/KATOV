@@ -126,7 +126,21 @@ const CardSwap: React.FC<CardSwapProps> = ({
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Smooth out lag spikes from mobile scroll throttling (cap 500ms gaps)
+    // Mobile browsers throttle rAF during scroll, freezing GSAP animations.
+    // Solution: stop GSAP's built-in rAF loop and drive it with setTimeout,
+    // which is NOT throttled during scroll.
+    gsap.ticker.sleep();
+    let tickTimer: ReturnType<typeof setTimeout>;
+    let lastTime = Date.now();
+    const manualTick = () => {
+      const now = Date.now();
+      const delta = (now - lastTime) / 1000;
+      lastTime = now;
+      gsap.updateRoot(gsap.ticker.time + delta);
+      tickTimer = setTimeout(manualTick, 16); // ~60fps
+    };
+    manualTick();
+
     gsap.ticker.lagSmoothing(500, 33);
 
     const total = refs.length;
@@ -250,12 +264,16 @@ const CardSwap: React.FC<CardSwapProps> = ({
         node.removeEventListener("mouseleave", resume);
         delayedRef.current?.kill();
         tlRef.current?.kill();
+        clearTimeout(tickTimer);
+        gsap.ticker.wake();
       };
     }
 
     return () => {
       delayedRef.current?.kill();
       tlRef.current?.kill();
+      clearTimeout(tickTimer);
+      gsap.ticker.wake();
     };
   }, [
     cardDistance,
