@@ -2,8 +2,9 @@
 
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
-import { FolderCheck, CalendarDays, Headset, CircleCheckBig } from 'lucide-react';
+import { FolderCheck, CalendarDays, Headset, CircleCheckBig, PenTool, ShieldCheck, Target, Users } from 'lucide-react';
 import { useRef, useState, useEffect, useCallback } from 'react';
+import CardSwap, { Card } from '@/components/ui/card-swap';
 
 const containerVariants = {
   hidden: {},
@@ -23,14 +24,6 @@ const fadeUp = {
   },
 };
 
-const fadeLeft = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.5, ease: 'easeOut' as const },
-  },
-};
 
 function CounterValue({ value }: { value: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -75,6 +68,24 @@ function CounterValue({ value }: { value: string }) {
 export function About() {
   const t = useTranslations('about');
 
+  const [cardSize, setCardSize] = useState({ w: 300, h: 260, dist: 20, vDist: 50 });
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 640) {
+        const cardW = w - 64; // har tomondan 32px masofa
+        const cardH = Math.round(cardW * 0.65);
+        setCardSize({ w: cardW, h: cardH, dist: 15, vDist: 40 });
+      } else {
+        setCardSize({ w: 300, h: 260, dist: 20, vDist: 50 });
+      }
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
   const stats = [
     { value: t('stat1Value'), label: t('stat1Label'), icon: FolderCheck },
     { value: t('stat2Value'), label: t('stat2Label'), icon: CalendarDays },
@@ -83,10 +94,10 @@ export function About() {
   ];
 
   const approaches = [
-    { title: t('step1Title'), desc: t('step1Desc') },
-    { title: t('step2Title'), desc: t('step2Desc') },
-    { title: t('step3Title'), desc: t('step3Desc') },
-    { title: t('step4Title'), desc: t('step4Desc') },
+    { title: t('step1Title'), desc: t('step1Desc'), icon: PenTool },
+    { title: t('step2Title'), desc: t('step2Desc'), icon: ShieldCheck },
+    { title: t('step3Title'), desc: t('step3Desc'), icon: Target },
+    { title: t('step4Title'), desc: t('step4Desc'), icon: Users },
   ];
 
   return (
@@ -119,73 +130,75 @@ export function About() {
             <br className="md:hidden" />
             {t('description2') ? ` ${t('description2')}` : ' '}
             <br className="hidden md:block" />
-            {t('description3')}
+            {` ${t('description3')}`}
           </motion.p>
 
-          {/* Stats Grid */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10 md:mb-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
-            {stats.map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={i}
-                  className="about-stat-card card p-4 sm:p-5 md:p-6 relative overflow-hidden text-center"
-                  variants={fadeUp}
-                >
-                  <Icon
-                    strokeWidth={0.8}
-                    className="absolute top-2 left-2 opacity-[0.15] pointer-events-none size-10 sm:size-14 md:size-16"
-                  />
-                  <div className="relative z-10">
-                    <CounterValue value={stat.value} />
-                    <div className="text-muted text-xs sm:text-sm">
-                      {stat.label}
+          {/* Desktop: Stats left + CardSwap right | Mobile: stacked */}
+          <div className="md:flex md:items-center md:gap-8">
+            {/* Stats Grid — mobile: 2x2 full width, desktop: 2x2 left side */}
+            <motion.div
+              className="grid grid-cols-2 gap-3 md:gap-4 mb-16 md:mb-0 md:w-1/2 md:shrink-0"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+            >
+              {stats.map((stat, i) => {
+                const Icon = stat.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    className="about-stat-card card p-4 sm:p-5 md:px-6 md:py-10 relative overflow-hidden text-center"
+                    variants={fadeUp}
+                  >
+                    <Icon
+                      strokeWidth={0.8}
+                      className="absolute top-2 left-2 opacity-[0.15] pointer-events-none size-10 sm:size-14 md:size-16"
+                    />
+                    <div className="relative z-10">
+                      <CounterValue value={stat.value} />
+                      <div className="text-muted text-xs sm:text-sm">
+                        {stat.label}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
 
-          {/* Approach Section */}
-          <motion.p
-            className="text-muted text-sm sm:text-base md:text-base mb-5 md:mb-6 text-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-          >
-            {t('processTitle')}
-          </motion.p>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
-            {approaches.map((item, i) => (
-              <motion.div
-                key={i}
-                className="card p-4 sm:p-5 md:p-6"
-                variants={fadeLeft}
-              >
-                <h3 className="text-lg sm:text-xl md:text-xl font-bold mb-1.5 md:mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-muted text-xs sm:text-sm md:text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* Approach Section — mobile: below stats, desktop: right side */}
+            <div className="md:w-1/2">
+              <div className="relative h-[400px] sm:h-[420px] md:h-[480px] overflow-x-hidden overflow-y-visible md:overflow-hidden flex items-center justify-center">
+                <CardSwap
+                  width={cardSize.w}
+                  height={cardSize.h}
+                  cardDistance={cardSize.dist}
+                  verticalDistance={cardSize.vDist}
+                  delay={4000}
+                  pauseOnHover={false}
+                  skewAmount={1.5}
+                  easing="smooth"
+                >
+                  {approaches.map((item, i) => {
+                    const ApproachIcon = item.icon;
+                    return (
+                      <Card key={i} className="p-3 sm:p-4 md:p-5 flex flex-col">
+                        <h3 className="text-base sm:text-lg md:text-lg font-bold mb-1">
+                          {item.title}
+                        </h3>
+                        <div className="flex-1 flex items-center justify-center">
+                          <ApproachIcon strokeWidth={1} className="size-20 sm:size-24 md:size-20" />
+                        </div>
+                        <p className="text-muted text-sm sm:text-base md:text-xs leading-relaxed line-clamp-4">
+                          {item.desc}
+                        </p>
+                      </Card>
+                    );
+                  })}
+                </CardSwap>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -29,7 +29,7 @@
     "title": "KATOV kim?",
     "description1": "Biznesingizni avtomatlashtiradigan va o'sishga",
     "description2": "olib chiqadigan",
-    "description3": "raqamli platformalar quramiz.",
+    "description3": "raqamli platformalar quramiz",
     "stat1Value": "15+",
     "stat1Label": "Muvaffaqiyatli loyiha",
     "stat2Value": "3+",
@@ -40,13 +40,13 @@
     "stat4Label": "O'z vaqtida topshirish",
     "processTitle": "Nega aynan biz?",
     "step1Title": "Strategik dizayn",
-    "step1Desc": "Har bir loyiha chuqur tahlil va strategiyadan boshlanadi. Avval maqsadni aniqlaymiz, keyin mos dizayn qilamiz.",
+    "step1Desc": "Har bir qadam strategiyaga asoslangan.",
     "step2Title": "Kafolatlangan sifat",
-    "step2Desc": "Har bir detalga e'tibor berib ishlaymiz. Natijada tez va sifatli ishlaydigan loyihani qabul qilasiz.",
+    "step2Desc": "Barcha detallarga e'tibor, sifatni oshirish.",
     "step3Title": "O'lchanadigan natija",
-    "step3Desc": "Website chiroyli bo'lishi yetarli emas. U lead olib kelishi, sotuvni oshirishi kerak. Natijani raqamlarda o'lchaymiz.",
+    "step3Desc": "Lead va sotuv olib kelishi uchun tahlil.",
     "step4Title": "Doimiy hamkorlik",
-    "step4Desc": "Loyiha topshirilgandan keyin kamida 1 yillik support va texnik yordam beramiz."
+    "step4Desc": "Kamida 1 yil support va texnik yordam."
   },
   "services": {
     "title": "Xizmatlarimiz",
