@@ -73,13 +73,14 @@ export function About() {
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      if (w < 640) {
-        const cardW = w - 64; // har tomondan 32px masofa
-        const cardH = Math.round(cardW * 0.65);
-        setCardSize({ w: cardW, h: cardH, dist: 10, vDist: 40 });
-      } else {
-        setCardSize({ w: 350, h: 260, dist: 20, vDist: 50 });
-      }
+      const next = w < 640
+        ? { w: w - 64, h: Math.round((w - 64) * 0.65), dist: 10, vDist: 40 }
+        : { w: 350, h: 260, dist: 20, vDist: 50 };
+      setCardSize(prev =>
+        prev.w === next.w && prev.h === next.h && prev.dist === next.dist && prev.vDist === next.vDist
+          ? prev
+          : next
+      );
     };
     update();
     window.addEventListener('resize', update);

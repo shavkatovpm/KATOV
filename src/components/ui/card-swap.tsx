@@ -94,24 +94,25 @@ const CardSwap: React.FC<CardSwapProps> = ({
   easing = "elastic",
   children,
 }) => {
-  const config =
-    easing === "elastic"
-      ? {
-          ease: "elastic.out(0.6,0.9)",
-          durDrop: 2,
-          durMove: 2,
-          durReturn: 2,
-          promoteOverlap: 0.9,
-          returnDelay: 0.05,
-        }
-      : {
-          ease: "power2.out",
-          durDrop: 0.4,
-          durMove: 0.4,
-          durReturn: 0.4,
-          promoteOverlap: 0.6,
-          returnDelay: 0.15,
-        };
+  // Memoize config so it only changes when easing prop changes,
+  // preventing useEffect from re-running on every parent render
+  const config = useMemo(
+    () =>
+      easing === "elastic"
+        ? {
+            ease: "elastic.out(0.6,0.9)",
+            durDrop: 2,
+            durMove: 2,
+            durReturn: 2,
+          }
+        : {
+            ease: "power2.out",
+            durDrop: 0.4,
+            durMove: 0.4,
+            durReturn: 0.4,
+          },
+    [easing]
+  );
 
   const childArr = useMemo(() => Children.toArray(children), [children]);
   const refs = useMemo(
@@ -122,42 +123,47 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
   const order = useRef(Array.from({ length: childArr.length }, (_, i) => i));
   const tlRef = useRef<gsap.core.Timeline | null>(null);
-  const delayedRef = useRef<gsap.core.Tween | null>(null);
+  const swapTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Mobile browsers throttle rAF during scroll, freezing GSAP animations.
-    // Solution: stop GSAP's built-in rAF loop and drive it with setTimeout,
-    // which is NOT throttled during scroll.
+    // Drive GSAP with setTimeout which is NOT throttled during scroll.
     gsap.ticker.sleep();
     let tickTimer: ReturnType<typeof setTimeout>;
-    let lastTime = Date.now();
+    // Use absolute time tracking instead of delta-based to prevent drift
+    const startWall = Date.now();
+    const startGsap = gsap.ticker.time;
     const manualTick = () => {
-      const now = Date.now();
-      const delta = (now - lastTime) / 1000;
-      lastTime = now;
-      gsap.updateRoot(gsap.ticker.time + delta);
-      tickTimer = setTimeout(manualTick, 16); // ~60fps
+      const elapsed = (Date.now() - startWall) / 1000;
+      gsap.updateRoot(startGsap + elapsed);
+      tickTimer = setTimeout(manualTick, 16);
     };
     manualTick();
 
-    gsap.ticker.lagSmoothing(500, 33);
-
     const total = refs.length;
 
-    refs.forEach((r, i) =>
+    // Place cards based on current order (preserves state across effect re-runs)
+    order.current.forEach((cardIdx, slotIdx) =>
       placeNow(
-        r.current,
-        makeSlot(i, cardDistance, verticalDistance, total),
+        refs[cardIdx].current,
+        makeSlot(slotIdx, cardDistance, verticalDistance, total),
         skewAmount,
       )
     );
 
+    const scheduleSwap = (ms: number) => {
+      clearTimeout(swapTimerRef.current);
+      swapTimerRef.current = setTimeout(swap, ms);
+    };
+
     const swap = () => {
       if (order.current.length < 2) return;
 
-      // If previous animation is still running, finish it instantly
+      // If previous animation is still running, snap to completion
       if (tlRef.current && tlRef.current.isActive()) {
+        // Remove onComplete to prevent double-scheduling
+        tlRef.current.eventCallback("onComplete", null);
         tlRef.current.progress(1).kill();
       }
 
@@ -167,12 +173,12 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
       const tl = gsap.timeline({
         onComplete: () => {
-          // Schedule next swap via GSAP ticker (syncs with rAF, pauses with it)
-          delayedRef.current = gsap.delayedCall(delay / 1000, swap);
+          scheduleSwap(delay);
         },
       });
       tlRef.current = tl;
 
+      // Phase 1: Drop front card to the right
       tl.to(elFront, {
         x: "+=550",
         y: "-=30",
@@ -183,6 +189,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
       tl.set(elFront, { zIndex: -1 });
 
+      // Phase 2: Promote remaining cards forward
       tl.addLabel("promote", `-=${config.durDrop * 0.3}`);
       rest.forEach((idx, i) => {
         const el = refs[idx].current;
@@ -203,10 +210,15 @@ const CardSwap: React.FC<CardSwapProps> = ({
           `promote+=${i * 0.15}`
         );
         if (h3) {
-          tl.to(h3, { opacity: slot.opacity, duration: config.durMove, ease: config.ease }, `promote+=${i * 0.15}`);
+          tl.to(
+            h3,
+            { opacity: slot.opacity, duration: config.durMove, ease: config.ease },
+            `promote+=${i * 0.15}`
+          );
         }
       });
 
+      // Phase 3: Return front card to back position
       const backSlot = makeSlot(
         refs.length - 1,
         cardDistance,
@@ -214,13 +226,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
         refs.length
       );
       tl.addLabel("return", `${config.durDrop}`);
-      tl.call(
-        () => {
-          gsap.set(elFront, { zIndex: backSlot.zIndex });
-        },
-        undefined,
-        "return"
-      );
+      tl.set(elFront, { zIndex: backSlot.zIndex }, "return");
       tl.to(
         elFront,
         {
@@ -235,56 +241,54 @@ const CardSwap: React.FC<CardSwapProps> = ({
       );
       const frontH3 = elFront.querySelector("h3");
       if (frontH3) {
-        tl.to(frontH3, { opacity: backSlot.opacity, duration: config.durReturn, ease: config.ease }, "return");
+        tl.to(
+          frontH3,
+          { opacity: backSlot.opacity, duration: config.durReturn, ease: config.ease },
+          "return"
+        );
       }
 
+      // Update card order after animation completes
       tl.call(() => {
         order.current = [...rest, front];
       });
     };
 
     // Start first swap after short delay
-    delayedRef.current = gsap.delayedCall(0.5, swap);
+    scheduleSwap(500);
 
     if (pauseOnHover) {
       const node = container.current;
       if (!node) return;
       const pause = () => {
         tlRef.current?.pause();
-        delayedRef.current?.pause();
+        clearTimeout(swapTimerRef.current);
       };
       const resume = () => {
         tlRef.current?.resume();
-        delayedRef.current?.resume();
+        if (!tlRef.current?.isActive()) {
+          scheduleSwap(delay);
+        }
       };
       node.addEventListener("mouseenter", pause);
       node.addEventListener("mouseleave", resume);
       return () => {
         node.removeEventListener("mouseenter", pause);
         node.removeEventListener("mouseleave", resume);
-        delayedRef.current?.kill();
         tlRef.current?.kill();
         clearTimeout(tickTimer);
+        clearTimeout(swapTimerRef.current);
         gsap.ticker.wake();
       };
     }
 
     return () => {
-      delayedRef.current?.kill();
       tlRef.current?.kill();
       clearTimeout(tickTimer);
+      clearTimeout(swapTimerRef.current);
       gsap.ticker.wake();
     };
-  }, [
-    cardDistance,
-    verticalDistance,
-    delay,
-    pauseOnHover,
-    skewAmount,
-    easing,
-    config,
-    refs,
-  ]);
+  }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, config, refs]);
 
   const rendered = childArr.map((child, i) =>
     isValidElement(child)
