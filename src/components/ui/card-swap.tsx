@@ -94,8 +94,6 @@ const CardSwap: React.FC<CardSwapProps> = ({
   easing = "elastic",
   children,
 }) => {
-  // Memoize config so it only changes when easing prop changes,
-  // preventing useEffect from re-running on every parent render
   const config = useMemo(
     () =>
       easing === "elastic"
@@ -123,49 +121,24 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
   const order = useRef(Array.from({ length: childArr.length }, (_, i) => i));
   const tlRef = useRef<gsap.core.Timeline | null>(null);
-  const swapTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Mobile browsers throttle rAF during scroll, freezing GSAP animations.
-    // Drive GSAP with setTimeout which is NOT throttled during scroll.
-    gsap.ticker.sleep();
-    let tickTimer: ReturnType<typeof setTimeout>;
-    // Use absolute time tracking instead of delta-based to prevent drift
-    const startWall = Date.now();
-    const startGsap = gsap.ticker.time;
-    const manualTick = () => {
-      const elapsed = (Date.now() - startWall) / 1000;
-      gsap.updateRoot(startGsap + elapsed);
-      tickTimer = setTimeout(manualTick, 16);
-    };
-    manualTick();
-
     const total = refs.length;
 
-    // Place cards based on current order (preserves state across effect re-runs)
-    order.current.forEach((cardIdx, slotIdx) =>
+    refs.forEach((r, i) =>
       placeNow(
-        refs[cardIdx].current,
-        makeSlot(slotIdx, cardDistance, verticalDistance, total),
+        r.current,
+        makeSlot(i, cardDistance, verticalDistance, total),
         skewAmount,
       )
     );
+    order.current = Array.from({ length: total }, (_, i) => i);
 
-    const scheduleSwap = (ms: number) => {
-      clearTimeout(swapTimerRef.current);
-      swapTimerRef.current = setTimeout(swap, ms);
-    };
+    let timer: ReturnType<typeof setTimeout>;
 
     const swap = () => {
       if (order.current.length < 2) return;
-
-      // If previous animation is still running, snap to completion
-      if (tlRef.current && tlRef.current.isActive()) {
-        // Remove onComplete to prevent double-scheduling
-        tlRef.current.eventCallback("onComplete", null);
-        tlRef.current.progress(1).kill();
-      }
 
       const [front, ...rest] = order.current;
       const elFront = refs[front].current;
@@ -173,7 +146,8 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
       const tl = gsap.timeline({
         onComplete: () => {
-          scheduleSwap(delay);
+          order.current = [...rest, front];
+          timer = setTimeout(swap, delay);
         },
       });
       tlRef.current = tl;
@@ -210,11 +184,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
           `promote+=${i * 0.15}`
         );
         if (h3) {
-          tl.to(
-            h3,
-            { opacity: slot.opacity, duration: config.durMove, ease: config.ease },
-            `promote+=${i * 0.15}`
-          );
+          tl.to(h3, { opacity: slot.opacity, duration: config.durMove, ease: config.ease }, `promote+=${i * 0.15}`);
         }
       });
 
@@ -226,7 +196,13 @@ const CardSwap: React.FC<CardSwapProps> = ({
         refs.length
       );
       tl.addLabel("return", `${config.durDrop}`);
-      tl.set(elFront, { zIndex: backSlot.zIndex }, "return");
+      tl.call(
+        () => {
+          gsap.set(elFront, { zIndex: backSlot.zIndex });
+        },
+        undefined,
+        "return"
+      );
       tl.to(
         elFront,
         {
@@ -241,34 +217,20 @@ const CardSwap: React.FC<CardSwapProps> = ({
       );
       const frontH3 = elFront.querySelector("h3");
       if (frontH3) {
-        tl.to(
-          frontH3,
-          { opacity: backSlot.opacity, duration: config.durReturn, ease: config.ease },
-          "return"
-        );
+        tl.to(frontH3, { opacity: backSlot.opacity, duration: config.durReturn, ease: config.ease }, "return");
       }
-
-      // Update card order after animation completes
-      tl.call(() => {
-        order.current = [...rest, front];
-      });
     };
 
-    // Start first swap after short delay
-    scheduleSwap(500);
+    timer = setTimeout(swap, 500);
 
     if (pauseOnHover) {
       const node = container.current;
       if (!node) return;
       const pause = () => {
         tlRef.current?.pause();
-        clearTimeout(swapTimerRef.current);
       };
       const resume = () => {
         tlRef.current?.resume();
-        if (!tlRef.current?.isActive()) {
-          scheduleSwap(delay);
-        }
       };
       node.addEventListener("mouseenter", pause);
       node.addEventListener("mouseleave", resume);
@@ -276,17 +238,13 @@ const CardSwap: React.FC<CardSwapProps> = ({
         node.removeEventListener("mouseenter", pause);
         node.removeEventListener("mouseleave", resume);
         tlRef.current?.kill();
-        clearTimeout(tickTimer);
-        clearTimeout(swapTimerRef.current);
-        gsap.ticker.wake();
+        clearTimeout(timer);
       };
     }
 
     return () => {
       tlRef.current?.kill();
-      clearTimeout(tickTimer);
-      clearTimeout(swapTimerRef.current);
-      gsap.ticker.wake();
+      clearTimeout(timer);
     };
   }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, config, refs]);
 
