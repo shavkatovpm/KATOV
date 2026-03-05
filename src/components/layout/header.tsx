@@ -8,6 +8,7 @@ import { IoLogoInstagram } from 'react-icons/io5';
 import { PiTelegramLogo } from 'react-icons/pi';
 import { siteConfig } from '@/config/site';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export function Header() {
   const t = useTranslations('nav');
@@ -57,10 +58,12 @@ export function Header() {
         left: 0,
         right: 0,
         zIndex: 9999,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'var(--color-nav-bg)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         borderBottom: 'none',
+        color: 'var(--color-nav-fg)',
+        transition: 'background-color 0.3s, color 0.3s',
       }}
     >
       <div className="container-custom">
@@ -77,8 +80,8 @@ export function Header() {
             }}
             className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase cursor-pointer"
           >
-            <span className="logo-icon text-2xl sm:text-3xl cursor-pointer" style={{ color: '#f5f5f5' }}>|&lt;</span>
-            <span className="cursor-pointer" style={{ color: '#f5f5f5' }}>{siteConfig.name}</span>
+            <span className="logo-icon text-2xl sm:text-3xl cursor-pointer" style={{ color: 'var(--color-nav-fg)' }}>|&lt;</span>
+            <span className="cursor-pointer" style={{ color: 'var(--color-nav-fg)' }}>{siteConfig.name}</span>
           </a>
 
           <div className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
@@ -123,6 +126,7 @@ export function Header() {
           </div>
 
           <div className="hidden lg:flex items-center gap-0.5">
+            <ThemeToggle />
             <LanguageSwitcher />
           </div>
 
@@ -227,7 +231,7 @@ export function Header() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 cursor-pointer transition-colors hover:text-white"
-                      style={{ color: '#f5f5f5' }}
+                      style={{ color: 'var(--color-nav-fg)' }}
                       aria-label="Telegram"
                     >
                       <PiTelegramLogo size={20} />
@@ -237,7 +241,7 @@ export function Header() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 cursor-pointer transition-colors hover:text-white"
-                      style={{ color: '#f5f5f5' }}
+                      style={{ color: 'var(--color-nav-fg)' }}
                       aria-label="Instagram"
                     >
                       <IoLogoInstagram size={20} />
@@ -247,10 +251,11 @@ export function Header() {
                     <a
                       href="tel:+998338880133"
                       className="px-4 py-2 cursor-pointer transition-colors hover:text-white"
-                      style={{ color: '#f5f5f5' }}
+                      style={{ color: 'var(--color-nav-fg)' }}
                     >
                       <span>+998 33 888 01 33</span>
                     </a>
+                    <ThemeToggle />
                     <LanguageSwitcher />
                   </div>
                 </motion.div>

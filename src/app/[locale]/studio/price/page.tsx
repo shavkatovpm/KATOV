@@ -164,7 +164,7 @@ export default function PriceCalculator() {
                       style={{
                         backgroundColor: selectedType === type.id
                           ? 'color-mix(in srgb, var(--color-fg) 15%, transparent)'
-                          : '#000000',
+                          : 'var(--color-bg)',
                         border: `1px solid ${selectedType === type.id ? 'var(--color-fg)' : 'var(--color-border)'}`,
                       }}
                     >
@@ -211,7 +211,7 @@ export default function PriceCalculator() {
                       style={{
                         backgroundColor: selectedFeatures.includes(feature.id)
                           ? 'color-mix(in srgb, var(--color-fg) 15%, transparent)'
-                          : '#000000',
+                          : 'var(--color-bg)',
                         border: `1px solid ${selectedFeatures.includes(feature.id) ? 'var(--color-fg)' : 'var(--color-border)'}`,
                       }}
                     >
@@ -278,7 +278,7 @@ export default function PriceCalculator() {
                       style={{
                         backgroundColor: selectedDesign === design.id
                           ? 'color-mix(in srgb, var(--color-fg) 15%, transparent)'
-                          : '#000000',
+                          : 'var(--color-bg)',
                         border: `1px solid ${selectedDesign === design.id ? 'var(--color-fg)' : 'var(--color-border)'}`,
                       }}
                     >
@@ -325,7 +325,7 @@ export default function PriceCalculator() {
                 <div
                   className="rounded-xl sm:rounded-2xl p-5 sm:p-8 flex flex-col flex-1 min-h-0"
                   style={{
-                    backgroundColor: '#000000',
+                    backgroundColor: 'var(--color-bg)',
                     border: '1px solid var(--color-border)',
                   }}
                 >

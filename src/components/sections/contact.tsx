@@ -208,7 +208,7 @@ export function Contact() {
               <div
                 className="mb-5 p-4 rounded-xl text-sm"
                 style={{
-                  backgroundColor: '#000000',
+                  backgroundColor: 'var(--color-bg)',
                   border: '1px solid var(--color-border)',
                 }}
               >
@@ -246,7 +246,7 @@ export function Contact() {
                     const target = e.target as HTMLInputElement;
                     target.setCustomValidity('');
                   }}
-                  className="w-full px-4 py-3 rounded-xl bg-transparent transition-colors focus:outline-none focus:border-[#767676]"
+                  className="w-full px-4 py-3 rounded-xl bg-transparent transition-colors focus:outline-none focus:border-muted"
                   style={{ border: '1px solid var(--color-border)' }}
                   placeholder={t('form.namePlaceholder')}
                 />
@@ -260,7 +260,7 @@ export function Contact() {
                   className="flex items-center rounded-xl overflow-hidden"
                   style={{ border: '1px solid var(--color-border)' }}
                 >
-                  <span className="pl-4 py-3 bg-transparent" style={{ color: '#f5f5f5' }}>
+                  <span className="pl-4 py-3 bg-transparent" style={{ color: 'var(--color-fg)' }}>
                     +998
                   </span>
                   <input
@@ -315,7 +315,7 @@ export function Contact() {
                     const target = e.target as HTMLTextAreaElement;
                     target.setCustomValidity('');
                   }}
-                  className="w-full px-4 py-3 rounded-xl bg-transparent transition-colors focus:outline-none focus:border-[#767676] resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-transparent transition-colors focus:outline-none focus:border-muted resize-none"
                   style={{ border: '1px solid var(--color-border)' }}
                   placeholder={t('form.messagePlaceholder')}
                 />
@@ -355,9 +355,9 @@ export function Contact() {
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-2rem)] sm:w-auto px-6 py-4 rounded-xl shadow-lg flex items-center gap-3"
               style={{
-                backgroundColor: '#000000',
-                color: '#ffffff',
-                border: '1px solid rgba(255,255,255,0.1)',
+                backgroundColor: 'var(--color-bg)',
+                color: 'var(--color-fg)',
+                border: '1px solid var(--color-border)',
               }}
             >
               {submitted ? (

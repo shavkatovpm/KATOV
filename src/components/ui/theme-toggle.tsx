@@ -16,7 +16,7 @@ export function ThemeToggle() {
     return (
       <button
         className="p-2 rounded-lg"
-        style={{ border: '1px solid var(--color-border)' }}
+        style={{ opacity: 0.3 }}
         aria-label="Theme"
       >
         <div className="w-5 h-5" />
@@ -28,7 +28,7 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className="p-2 rounded-lg transition-opacity hover:opacity-70"
-      style={{ border: '1px solid var(--color-border)' }}
+      style={{ opacity: 0.3 }}
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}

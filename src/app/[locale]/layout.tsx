@@ -68,6 +68,9 @@ export default async function LocaleLayout({
               html, body, #__next, main {
                 background-color: #000000 !important;
               }
+              html.light, html.light body, html.light #__next, html.light main {
+                background-color: #ffffff !important;
+              }
               html::before {
                 content: '';
                 position: fixed;
@@ -78,6 +81,9 @@ export default async function LocaleLayout({
                 background-color: #000000;
                 z-index: -9999;
                 pointer-events: none;
+              }
+              html.light::before {
+                background-color: #ffffff;
               }
             `,
           }}

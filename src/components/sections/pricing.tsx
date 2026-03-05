@@ -48,10 +48,10 @@ export function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}
-              initial={{ opacity: 0, borderColor: plan.popular ? '#dddddd' : 'var(--color-border)' }}
+              initial={{ opacity: 0, borderColor: plan.popular ? 'var(--color-fg)' : 'var(--color-border)' }}
               whileInView={{ opacity: 1 }}
               animate={plan.popular ? {
-                borderColor: ['#dddddd', '#767676', '#dddddd'],
+                borderColor: ['var(--color-fg)', 'var(--color-muted)', 'var(--color-fg)'],
               } : {}}
               viewport={{ once: true }}
               transition={plan.popular ? {
@@ -136,10 +136,10 @@ export function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}
-              initial={{ opacity: 0, borderColor: plan.popular ? '#dddddd' : 'var(--color-border)' }}
+              initial={{ opacity: 0, borderColor: plan.popular ? 'var(--color-fg)' : 'var(--color-border)' }}
               whileInView={{ opacity: 1 }}
               animate={plan.popular ? {
-                borderColor: ['#dddddd', '#767676', '#dddddd'],
+                borderColor: ['var(--color-fg)', 'var(--color-muted)', 'var(--color-fg)'],
               } : {}}
               viewport={{ once: true }}
               transition={plan.popular ? {

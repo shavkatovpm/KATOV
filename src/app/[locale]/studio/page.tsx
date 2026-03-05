@@ -139,16 +139,14 @@ export default function StudioPage() {
                       href={`/studio/${tool.id}`}
                       className="group block rounded-2xl p-6 sm:p-8 transition-all duration-300"
                       style={{
-                        backgroundColor: '#000000',
+                        backgroundColor: 'var(--color-bg)',
                         border: '1px solid var(--color-border)',
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = '#dddddd';
-                        e.currentTarget.style.color = '#dddddd';
+                        e.currentTarget.style.borderColor = 'var(--color-fg)';
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.borderColor = 'var(--color-border)';
-                        e.currentTarget.style.color = '';
                       }}
                     >
                       <tool.icon size={32} className="mb-4 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -186,16 +184,14 @@ export default function StudioPage() {
                       href={`/studio/${post.slug}`}
                       className="group block rounded-2xl p-6 sm:p-8 transition-all duration-300 h-full"
                       style={{
-                        backgroundColor: '#000000',
+                        backgroundColor: 'var(--color-bg)',
                         border: '1px solid var(--color-border)',
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = '#dddddd';
-                        e.currentTarget.style.color = '#dddddd';
+                        e.currentTarget.style.borderColor = 'var(--color-fg)';
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.borderColor = 'var(--color-border)';
-                        e.currentTarget.style.color = '';
                       }}
                     >
                         <div className="flex items-center gap-2 text-muted text-xs sm:text-sm mb-4">

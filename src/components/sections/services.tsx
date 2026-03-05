@@ -117,7 +117,7 @@ export function Services() {
                 x: plan.popular ? (hoveredCard === plan.id ? 0 : [0, -2, 2, -2, 2, 0]) : 0,
                 filter: hoveredCard && hoveredCard !== plan.id ? 'blur(5px)' : 'blur(0px)',
                 opacity: hoveredCard && hoveredCard !== plan.id ? 0 : 1,
-                borderColor: hoveredCard === plan.id ? '#dddddd' : 'var(--color-border)',
+                borderColor: hoveredCard === plan.id ? 'var(--color-fg)' : 'var(--color-border)',
               }}
               viewport={{ once: true }}
               transition={{
@@ -201,7 +201,7 @@ export function Services() {
               whileInView={{ opacity: 1 }}
               animate={
                 expandedCard === plan.id
-                  ? { borderColor: '#dddddd' }
+                  ? { borderColor: 'var(--color-fg)' }
                   : plan.popular && !expandedCard
                     ? { x: [0, -2, 2, -2, 2, 0] }
                     : {}

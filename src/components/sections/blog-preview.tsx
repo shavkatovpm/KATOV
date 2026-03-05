@@ -38,12 +38,12 @@ export function BlogPreview() {
               href="/studio/price"
               className="group block rounded-2xl p-6 sm:p-8 transition-all duration-300"
               style={{
-                backgroundColor: '#000000',
+                backgroundColor: 'var(--color-bg)',
                 border: '1px solid var(--color-border)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#dddddd';
-                e.currentTarget.style.color = '#dddddd';
+                e.currentTarget.style.borderColor = 'var(--color-fg)';
+                e.currentTarget.style.color = 'var(--color-fg)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = 'var(--color-border)';

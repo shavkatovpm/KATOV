@@ -75,7 +75,14 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
   }, [showOtherElements]);
 
   return (
-    <section className="relative py-32 sm:py-40 md:py-48 lg:py-56">
+    <section
+      className="relative py-32 sm:py-40 md:py-48 lg:py-56"
+      style={{
+        backgroundColor: 'var(--color-hero-bg)',
+        color: 'var(--color-hero-fg)',
+        transition: 'background-color 0.3s ease, color 0.3s ease',
+      }}
+    >
       <div className="container-custom text-center">
         <div className="relative inline-block">
           <motion.h1
@@ -101,7 +108,8 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, filter: 'blur(10px)' }}
               transition={{ duration: 0.5 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative text-[#dddddd]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium font-creative"
+              style={{ color: 'var(--color-hero-fg)' }}
             >
               {blurTexts[textIndex]}
             </motion.span>
@@ -111,14 +119,15 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
         <div
           className="mb-20 h-10 sm:h-12 flex items-center justify-center relative mt-4"
           style={{
-            backgroundColor: '#000000',
-            boxShadow: '0 -8px 12px 8px #000000',
-            zIndex: 50
+            backgroundColor: 'var(--color-hero-bg)',
+            boxShadow: '0 -8px 12px 8px var(--color-hero-bg)',
+            zIndex: 50,
+            transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
           }}
         >
           <span
             className="text-2xl sm:text-3xl md:text-4xl font-script inline-block"
-            style={{ color: '#767676' }}
+            style={{ color: 'var(--color-hero-muted)' }}
           >
             {title.split('').map((char, index) => (
               <motion.span
@@ -157,7 +166,7 @@ export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void
             transition={{
               x: { duration: 0.5, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' },
             }}
-            className="btn-outline inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-full transition-colors cursor-pointer"
+            className="hero-cta btn-outline inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-full transition-colors cursor-pointer"
           >
             {t('cta')}
           </motion.a>

@@ -102,7 +102,7 @@ export default function HandParticlesPage() {
             <div
               className="rounded-xl sm:rounded-2xl p-6 sm:p-10 text-center w-full max-w-md"
               style={{
-                backgroundColor: '#000000',
+                backgroundColor: 'var(--color-bg)',
                 border: '1px solid var(--color-border)',
               }}
             >

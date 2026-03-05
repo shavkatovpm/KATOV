@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode, useEffect } from 'react';
+import { ThemeProvider } from 'next-themes';
 
 interface ProvidersProps {
   children: ReactNode;
@@ -22,5 +23,9 @@ export function Providers({ children }: ProvidersProps) {
     };
   }, []);
 
-  return <>{children}</>;
+  return (
+    <ThemeProvider attribute="class" defaultTheme="system">
+      {children}
+    </ThemeProvider>
+  );
 }

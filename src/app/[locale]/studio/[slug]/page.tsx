@@ -25,7 +25,7 @@ function GrowthChart() {
   const strokeWidth = 16;
 
   return (
-    <div className="growth-chart-wrap" style={{ margin: '2em 0', padding: '1.5em 2em', borderRadius: '1em', backgroundColor: '#000000', border: '1px solid var(--color-border)' }}>
+    <div className="growth-chart-wrap" style={{ margin: '2em 0', padding: '1.5em 2em', borderRadius: '1em', backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)' }}>
       <p className="gc-title" style={{ fontSize: '1.275em', color: 'var(--color-fg)', marginBottom: '1.5em', textAlign: 'center' }}>
         O'zbekiston, 2025-yil
       </p>
@@ -188,7 +188,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   function PriceCTA() {
     return (
-      <div id="price-cta" className="price-cta-wrap" style={{ margin: '2em 0', padding: '1.5em 2em', borderRadius: '1em', backgroundColor: '#000000', border: '1px solid var(--color-border)', textAlign: 'center' }}>
+      <div id="price-cta" className="price-cta-wrap" style={{ margin: '2em 0', padding: '1.5em 2em', borderRadius: '1em', backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)', textAlign: 'center' }}>
         <p style={{ fontSize: '1.1em', fontWeight: 600, marginBottom: '0.5em', color: 'var(--color-fg)' }}>{ctaText.question}</p>
         <p style={{ fontSize: '0.7em', color: 'color-mix(in srgb, var(--color-fg) 35%, transparent)', marginBottom: '1em' }}>{ctaText.note}</p>
         <a

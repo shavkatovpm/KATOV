@@ -45,7 +45,7 @@ export function LanguageSwitcher() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1 px-3 py-2 text-sm font-medium cursor-pointer transition-colors hover:text-white"
-        style={{ color: '#f5f5f5' }}
+        style={{ color: 'var(--color-nav-fg)' }}
       >
         <span className="text-lg">{flagEmojis[locale]}</span>
         <ChevronDown
@@ -69,7 +69,7 @@ export function LanguageSwitcher() {
               className={`w-full px-4 py-2 text-left cursor-pointer transition-colors hover:text-white ${
                 locale === loc ? 'font-medium' : ''
               }`}
-              style={{ color: '#f5f5f5' }}
+              style={{ color: 'var(--color-nav-fg)' }}
             >
               <span className="text-lg">{flagEmojis[loc]}</span>
             </button>
