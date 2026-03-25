@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const slugs = blogPosts[locale] || [];
     slugs.forEach((slug) => {
       sitemapEntries.push({
-        url: `${baseUrl}/${locale}/studio/${slug}`,
+        url: `${baseUrl}/${locale}/blog/${slug}`,
         lastModified: now,
         changeFrequency: 'monthly',
         priority: 0.6,

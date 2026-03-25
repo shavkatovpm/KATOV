@@ -8,6 +8,13 @@ import { CircleDollarSign, Sparkles } from 'lucide-react';
 
 const blogPostsUz = [
   {
+    slug: 'website-narxi-uzbekistonda',
+    title: "Website yasatish qancha turadi O'zbekistonda? To'liq narx tahlili",
+    description: "Sayt narxi, landing page, korporativ sayt, internet do'kon narxlari — to'liq tahlil.",
+    date: '2026-03-25',
+    readingTime: 12,
+  },
+  {
     slug: 'sayt-yaratish-xizmati',
     title: "Sayt yaratish xizmati: narxlar, turlar va buyurtma berish jarayoni",
     description: "O'zbekistonda biznes uchun sayt yaratish xizmati haqida to'liq qo'llanma.",
@@ -18,6 +25,13 @@ const blogPostsUz = [
 
 const blogPostsRu = [
   {
+    slug: 'skolko-stoit-sozdanie-sayta-uzbekistan',
+    title: "Сколько стоит создание сайта в Узбекистане? Полный анализ цен",
+    description: "Цены на лендинг, корпоративный сайт, интернет-магазин — полный анализ.",
+    date: '2026-03-25',
+    readingTime: 12,
+  },
+  {
     slug: 'sozdanie-sayta-uslugi',
     title: "Создание сайта: цены, виды и процесс заказа",
     description: "Полное руководство по созданию сайтов для бизнеса в Узбекистане.",
@@ -27,6 +41,13 @@ const blogPostsRu = [
 ];
 
 const blogPostsEn = [
+  {
+    slug: 'website-cost-in-uzbekistan',
+    title: "How Much Does It Cost to Build a Website in Uzbekistan?",
+    description: "Landing page, corporate site, e-commerce prices and factors that affect pricing.",
+    date: '2026-03-25',
+    readingTime: 12,
+  },
   {
     slug: 'website-creation-services',
     title: "Website Creation Services: Prices, Types, and How to Order",
@@ -181,7 +202,7 @@ export default function StudioPage() {
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
                   >
                     <Link
-                      href={`/studio/${post.slug}`}
+                      href={`/blog/${post.slug}`}
                       className="group block rounded-2xl p-6 sm:p-8 transition-all duration-300 h-full"
                       style={{
                         backgroundColor: 'var(--color-bg)',

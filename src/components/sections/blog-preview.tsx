@@ -76,7 +76,7 @@ export function BlogPreview() {
           className="text-center mt-12"
         >
           <Link
-            href="/studio"
+            href="/blog"
             className="btn-outline inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm sm:text-base font-medium transition-colors"
           >
             {t('viewAll')}

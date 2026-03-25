@@ -105,7 +105,7 @@ export function Header() {
                 >
                   {t(item.key)}
                 </a>
-              ) : (
+              ) : item.href === '/' ? (
                 <a
                   key={item.key}
                   href={`/${locale}`}
@@ -116,6 +116,18 @@ export function Header() {
                     } else {
                       router.push(`/${locale}`);
                     }
+                  }}
+                  className="text-sm font-medium nav-link cursor-pointer"
+                >
+                  {t(item.key)}
+                </a>
+              ) : (
+                <a
+                  key={item.key}
+                  href={`/${locale}${item.href}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push(`/${locale}${item.href}`);
                   }}
                   className="text-sm font-medium nav-link cursor-pointer"
                 >
@@ -199,7 +211,7 @@ export function Header() {
                       >
                         {t(item.key)}
                       </a>
-                    ) : (
+                    ) : item.href === '/' ? (
                       <a
                         href={`/${locale}`}
                         onClick={(e) => {
@@ -210,6 +222,18 @@ export function Header() {
                           } else {
                             router.push(`/${locale}`);
                           }
+                        }}
+                        className="py-3 text-base font-medium nav-link text-right block cursor-pointer"
+                      >
+                        {t(item.key)}
+                      </a>
+                    ) : (
+                      <a
+                        href={`/${locale}${item.href}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsOpen(false);
+                          router.push(`/${locale}${item.href}`);
                         }}
                         className="py-3 text-base font-medium nav-link text-right block cursor-pointer"
                       >
