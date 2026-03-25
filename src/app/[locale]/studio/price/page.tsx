@@ -6,7 +6,7 @@ import { useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Check, RotateCcw } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 
 type Step = 'type' | 'features' | 'design' | 'result';
 

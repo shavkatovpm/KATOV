@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { ArrowRight, CircleDollarSign } from 'lucide-react';
 
 export function BlogPreview() {

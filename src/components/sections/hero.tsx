@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export function Hero({ onAnimationComplete }: { onAnimationComplete?: () => void }) {
   const t = useTranslations('hero');
-  const blurTexts = [t('blur1'), t('blur2'), t('blur3'), t('blur4'), t('blur5')];
+  const blurTexts = [t('blur1'), t('blur2'), t('blur3'), t('blur4'), t('blur5'), t('blur6')];
   const [textIndex, setTextIndex] = useState(0);
   const [displayedTitle, setDisplayedTitle] = useState('');
   const [showTypewriter, setShowTypewriter] = useState(false);

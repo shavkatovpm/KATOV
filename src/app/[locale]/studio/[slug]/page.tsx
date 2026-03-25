@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { Locale, locales, defaultLocale } from '@/i18n/config';
 import { getBlogPost, getAllBlogSlugs } from '@/lib/blog';
 import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import ScrollToAnchor from '@/components/ScrollToAnchor';
