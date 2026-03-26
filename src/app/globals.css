@@ -516,6 +516,16 @@ button {
 .prose table {
   width: 100%;
   border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 640px) {
+  .prose table {
+    display: table;
+    overflow-x: visible;
+  }
 }
 
 .prose th, .prose td {
