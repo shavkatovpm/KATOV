@@ -66,6 +66,9 @@ const slugMap: Record<string, Record<string, string>> = {
   'website-narxi-uzbekistonda': { uz: 'website-narxi-uzbekistonda', ru: 'skolko-stoit-sozdanie-sayta-uzbekistan', en: 'website-cost-in-uzbekistan' },
   'skolko-stoit-sozdanie-sayta-uzbekistan': { uz: 'website-narxi-uzbekistonda', ru: 'skolko-stoit-sozdanie-sayta-uzbekistan', en: 'website-cost-in-uzbekistan' },
   'website-cost-in-uzbekistan': { uz: 'website-narxi-uzbekistonda', ru: 'skolko-stoit-sozdanie-sayta-uzbekistan', en: 'website-cost-in-uzbekistan' },
+  'backlink-va-google-ranking': { uz: 'backlink-va-google-ranking', ru: 'backlink-i-google-ranking', en: 'backlink-and-google-ranking' },
+  'backlink-i-google-ranking': { uz: 'backlink-va-google-ranking', ru: 'backlink-i-google-ranking', en: 'backlink-and-google-ranking' },
+  'backlink-and-google-ranking': { uz: 'backlink-va-google-ranking', ru: 'backlink-i-google-ranking', en: 'backlink-and-google-ranking' },
 };
 
 interface BlogPostPageProps {

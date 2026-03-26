@@ -8,6 +8,13 @@ import { CircleDollarSign, Sparkles } from 'lucide-react';
 
 const blogPostsUz = [
   {
+    slug: 'backlink-va-google-ranking',
+    title: "Backlink nima va u Google rankingga qanday ta'sir qiladi",
+    description: "Backlink, domen yoshi, domain authority va yangi sayt SEO strategiyasi — chuqur tahlil.",
+    date: '2026-03-26',
+    readingTime: 10,
+  },
+  {
     slug: 'website-narxi-uzbekistonda',
     title: "Website yasatish qancha turadi O'zbekistonda? To'liq narx tahlili",
     description: "Sayt narxi, landing page, korporativ sayt, internet do'kon narxlari — to'liq tahlil.",
@@ -25,6 +32,13 @@ const blogPostsUz = [
 
 const blogPostsRu = [
   {
+    slug: 'backlink-i-google-ranking',
+    title: "Что такое бэклинк и как он влияет на ранжирование в Google",
+    description: "Бэклинки, возраст домена, domain authority и стратегия SEO для новых сайтов.",
+    date: '2026-03-26',
+    readingTime: 10,
+  },
+  {
     slug: 'skolko-stoit-sozdanie-sayta-uzbekistan',
     title: "Сколько стоит создание сайта в Узбекистане? Полный анализ цен",
     description: "Цены на лендинг, корпоративный сайт, интернет-магазин — полный анализ.",
@@ -41,6 +55,13 @@ const blogPostsRu = [
 ];
 
 const blogPostsEn = [
+  {
+    slug: 'backlink-and-google-ranking',
+    title: "What Is a Backlink and How Does It Affect Google Ranking?",
+    description: "Backlinks, domain age, domain authority and SEO strategy for new sites — deep analysis.",
+    date: '2026-03-26',
+    readingTime: 10,
+  },
   {
     slug: 'website-cost-in-uzbekistan',
     title: "How Much Does It Cost to Build a Website in Uzbekistan?",
