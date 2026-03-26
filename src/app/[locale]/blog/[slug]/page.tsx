@@ -69,6 +69,9 @@ const slugMap: Record<string, Record<string, string>> = {
   'backlink-va-google-ranking': { uz: 'backlink-va-google-ranking', ru: 'backlink-i-google-ranking', en: 'backlink-and-google-ranking' },
   'backlink-i-google-ranking': { uz: 'backlink-va-google-ranking', ru: 'backlink-i-google-ranking', en: 'backlink-and-google-ranking' },
   'backlink-and-google-ranking': { uz: 'backlink-va-google-ranking', ru: 'backlink-i-google-ranking', en: 'backlink-and-google-ranking' },
+  'crm-tizimini-ishlab-chiqish-uzbekiston': { uz: 'crm-tizimini-ishlab-chiqish-uzbekiston', ru: 'razrabotka-crm-sistemy-uzbekistan', en: 'crm-system-development-uzbekistan' },
+  'razrabotka-crm-sistemy-uzbekistan': { uz: 'crm-tizimini-ishlab-chiqish-uzbekiston', ru: 'razrabotka-crm-sistemy-uzbekistan', en: 'crm-system-development-uzbekistan' },
+  'crm-system-development-uzbekistan': { uz: 'crm-tizimini-ishlab-chiqish-uzbekiston', ru: 'razrabotka-crm-sistemy-uzbekistan', en: 'crm-system-development-uzbekistan' },
 };
 
 interface BlogPostPageProps {

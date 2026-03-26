@@ -8,6 +8,13 @@ import { CircleDollarSign, Sparkles } from 'lucide-react';
 
 const blogPostsUz = [
   {
+    slug: 'crm-tizimini-ishlab-chiqish-uzbekiston',
+    title: "O'zbekistonda CRM tizimini noldan ishlab chiqish: qayerdan buyurtma berish mumkin",
+    description: "CRM narxi, tayyor vs custom tizim farqi va qayerdan buyurtma berish — to'liq qo'llanma.",
+    date: '2026-03-26',
+    readingTime: 11,
+  },
+  {
     slug: 'backlink-va-google-ranking',
     title: "Backlink nima va u Google rankingga qanday ta'sir qiladi",
     description: "Backlink, domen yoshi, domain authority va yangi sayt SEO strategiyasi — chuqur tahlil.",
@@ -32,6 +39,13 @@ const blogPostsUz = [
 
 const blogPostsRu = [
   {
+    slug: 'razrabotka-crm-sistemy-uzbekistan',
+    title: "Разработка CRM-системы с нуля в Узбекистане: где заказать",
+    description: "Стоимость CRM, сравнение готовых и кастомных решений, где заказать — полное руководство.",
+    date: '2026-03-26',
+    readingTime: 11,
+  },
+  {
     slug: 'backlink-i-google-ranking',
     title: "Что такое бэклинк и как он влияет на ранжирование в Google",
     description: "Бэклинки, возраст домена, domain authority и стратегия SEO для новых сайтов.",
@@ -55,6 +69,13 @@ const blogPostsRu = [
 ];
 
 const blogPostsEn = [
+  {
+    slug: 'crm-system-development-uzbekistan',
+    title: "CRM System Development from Scratch in Uzbekistan: Where to Order",
+    description: "Custom CRM pricing, ready vs custom comparison, and where to order — complete guide.",
+    date: '2026-03-26',
+    readingTime: 11,
+  },
   {
     slug: 'backlink-and-google-ranking',
     title: "What Is a Backlink and How Does It Affect Google Ranking?",
