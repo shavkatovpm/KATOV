@@ -72,6 +72,9 @@ const slugMap: Record<string, Record<string, string>> = {
   'crm-tizimini-ishlab-chiqish-uzbekiston': { uz: 'crm-tizimini-ishlab-chiqish-uzbekiston', ru: 'razrabotka-crm-sistemy-uzbekistan', en: 'crm-system-development-uzbekistan' },
   'razrabotka-crm-sistemy-uzbekistan': { uz: 'crm-tizimini-ishlab-chiqish-uzbekiston', ru: 'razrabotka-crm-sistemy-uzbekistan', en: 'crm-system-development-uzbekistan' },
   'crm-system-development-uzbekistan': { uz: 'crm-tizimini-ishlab-chiqish-uzbekiston', ru: 'razrabotka-crm-sistemy-uzbekistan', en: 'crm-system-development-uzbekistan' },
+  'website-buyurtma-berish-toshkent': { uz: 'website-buyurtma-berish-toshkent', ru: 'zakazat-sayt-tashkent', en: 'order-website-tashkent' },
+  'zakazat-sayt-tashkent': { uz: 'website-buyurtma-berish-toshkent', ru: 'zakazat-sayt-tashkent', en: 'order-website-tashkent' },
+  'order-website-tashkent': { uz: 'website-buyurtma-berish-toshkent', ru: 'zakazat-sayt-tashkent', en: 'order-website-tashkent' },
 };
 
 interface BlogPostPageProps {
