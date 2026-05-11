@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { getAllServiceSlugs } from '@/data/services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://katov.uz';
@@ -42,6 +43,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
+    });
+  });
+
+  // Service pages (dynamic from data)
+  const serviceSlugs = getAllServiceSlugs();
+  locales.forEach((locale) => {
+    serviceSlugs.forEach((slug) => {
+      sitemapEntries.push({
+        url: `${baseUrl}/${locale}/services/${slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.9,
+      });
     });
   });
 
