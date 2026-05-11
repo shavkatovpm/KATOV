@@ -691,7 +691,7 @@ export const servicesCatalog: ServiceCatalogItem[] = [
   {
     slug: 'erp-tizimi',
     icon: 'Layers',
-    basePrice: 2500,
+    basePrice: 1000,
     priceSuffix: '',
     demand: 3,
     card: {
