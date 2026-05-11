@@ -46,7 +46,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // Service pages (dynamic from data)
+  // Services index page (per locale)
+  locales.forEach((locale) => {
+    sitemapEntries.push({
+      url: `${baseUrl}/${locale}/services`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    });
+  });
+
+  // Service detail pages (dynamic from data)
   const serviceSlugs = getAllServiceSlugs();
   locales.forEach((locale) => {
     serviceSlugs.forEach((slug) => {

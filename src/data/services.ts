@@ -510,3 +510,346 @@ export function getServiceData(slug: string, locale: Locale): { service: Service
 export function getAllServiceSlugs(): string[] {
   return Object.keys(servicesData);
 }
+
+export interface ServiceCatalogCard {
+  title: string;
+  description: string;
+}
+
+export interface ServiceCatalogItem {
+  slug: string;
+  icon: IconName;
+  basePrice: number;
+  priceSuffix: string;
+  demand: 1 | 2 | 3 | 4 | 5;
+  card: Record<Locale, ServiceCatalogCard>;
+}
+
+export const servicesCatalog: ServiceCatalogItem[] = [
+  {
+    slug: 'landing-page',
+    icon: 'Rocket',
+    basePrice: 270,
+    priceSuffix: '',
+    demand: 5,
+    card: {
+      uz: {
+        title: 'Landing Page',
+        description: 'Konversiyaga yo\'naltirilgan bir sahifali sayt — Next.js, Lighthouse 95+.',
+      },
+      ru: {
+        title: 'Landing Page',
+        description: 'Одностраничный сайт с фокусом на конверсию — Next.js, Lighthouse 95+.',
+      },
+      en: {
+        title: 'Landing Page',
+        description: 'Conversion-focused one-page site — Next.js, Lighthouse 95+.',
+      },
+    },
+  },
+  {
+    slug: 'korporativ-sayt',
+    icon: 'Building2',
+    basePrice: 870,
+    priceSuffix: '',
+    demand: 5,
+    card: {
+      uz: {
+        title: 'Korporativ sayt',
+        description: 'Kompaniyangiz uchun professional veb-sayt — xizmatlar, portfolio, blog.',
+      },
+      ru: {
+        title: 'Корпоративный сайт',
+        description: 'Профессиональный сайт для компании — услуги, портфолио, блог.',
+      },
+      en: {
+        title: 'Corporate Website',
+        description: 'Professional website for your company — services, portfolio, blog.',
+      },
+    },
+  },
+  {
+    slug: 'internet-dokon',
+    icon: 'ShoppingCart',
+    basePrice: 1700,
+    priceSuffix: '',
+    demand: 5,
+    card: {
+      uz: {
+        title: 'Internet do\'kon',
+        description: 'E-commerce platforma — Click, Payme, mahsulot katalogi va admin panel.',
+      },
+      ru: {
+        title: 'Интернет-магазин',
+        description: 'E-commerce платформа — Click, Payme, каталог товаров и админка.',
+      },
+      en: {
+        title: 'E-commerce',
+        description: 'E-commerce platform — Click, Payme, product catalog, admin panel.',
+      },
+    },
+  },
+  {
+    slug: 'telegram-bot',
+    icon: 'Bot',
+    basePrice: 400,
+    priceSuffix: '',
+    demand: 5,
+    card: {
+      uz: {
+        title: 'Telegram bot',
+        description: 'Biznes uchun avtomatlashtirilgan bot — buyurtma, to\'lov, mijoz xizmati.',
+      },
+      ru: {
+        title: 'Telegram-бот',
+        description: 'Автоматизированный бот для бизнеса — заказы, оплата, поддержка.',
+      },
+      en: {
+        title: 'Telegram Bot',
+        description: 'Automated bot for business — orders, payments, customer support.',
+      },
+    },
+  },
+  {
+    slug: 'restoran-sayti',
+    icon: 'Utensils',
+    basePrice: 600,
+    priceSuffix: '',
+    demand: 4,
+    card: {
+      uz: {
+        title: 'Restoran sayti',
+        description: 'Menu, QR-kod, onlayn buyurtma va stol bron qilish tizimi.',
+      },
+      ru: {
+        title: 'Сайт ресторана',
+        description: 'Меню, QR-код, онлайн-заказ и бронирование столиков.',
+      },
+      en: {
+        title: 'Restaurant Website',
+        description: 'Menu, QR code, online ordering and table reservations.',
+      },
+    },
+  },
+  {
+    slug: 'sayt-redesign',
+    icon: 'RefreshCw',
+    basePrice: 500,
+    priceSuffix: '',
+    demand: 4,
+    card: {
+      uz: {
+        title: 'Sayt redesign',
+        description: 'Eski saytni zamonaviy ko\'rinishga — tezlik, mobile, SEO yangilanadi.',
+      },
+      ru: {
+        title: 'Редизайн сайта',
+        description: 'Современный вид старому сайту — скорость, mobile, SEO обновляются.',
+      },
+      en: {
+        title: 'Website Redesign',
+        description: 'Modernize legacy sites — speed, mobile, and SEO all refreshed.',
+      },
+    },
+  },
+  {
+    slug: 'crm-tizimi',
+    icon: 'Database',
+    basePrice: 1000,
+    priceSuffix: '',
+    demand: 4,
+    card: {
+      uz: {
+        title: 'CRM tizimi',
+        description: 'Mijoz va sotuv boshqaruvi — bizneuingizga moslashtirilgan custom CRM.',
+      },
+      ru: {
+        title: 'CRM-система',
+        description: 'Управление клиентами и продажами — custom CRM под ваш бизнес.',
+      },
+      en: {
+        title: 'CRM System',
+        description: 'Customer and sales management — custom CRM tailored to your business.',
+      },
+    },
+  },
+  {
+    slug: 'seo-xizmati',
+    icon: 'Search',
+    basePrice: 300,
+    priceSuffix: '/oy',
+    demand: 4,
+    card: {
+      uz: {
+        title: 'SEO xizmati',
+        description: 'Organik trafikni oshirish — texnik audit, kontent va kalit so\'zlar.',
+      },
+      ru: {
+        title: 'SEO услуги',
+        description: 'Рост органического трафика — техаудит, контент и ключевые слова.',
+      },
+      en: {
+        title: 'SEO Services',
+        description: 'Organic traffic growth — technical audit, content, and keyword strategy.',
+      },
+    },
+  },
+  {
+    slug: 'erp-tizimi',
+    icon: 'Layers',
+    basePrice: 2500,
+    priceSuffix: '',
+    demand: 3,
+    card: {
+      uz: {
+        title: 'ERP tizimi',
+        description: 'Korxona avtomatlashtirish — moliya, ombor, HR bir tizimda.',
+      },
+      ru: {
+        title: 'ERP-система',
+        description: 'Автоматизация предприятия — финансы, склад, HR в одной системе.',
+      },
+      en: {
+        title: 'ERP System',
+        description: 'Enterprise automation — finance, inventory, HR in one platform.',
+      },
+    },
+  },
+  {
+    slug: 'portfolio-sayt',
+    icon: 'User',
+    basePrice: 270,
+    priceSuffix: '',
+    demand: 3,
+    card: {
+      uz: {
+        title: 'Portfolio sayt',
+        description: 'Shaxsiy brending — mutaxassis, freelancer va kreator uchun.',
+      },
+      ru: {
+        title: 'Портфолио-сайт',
+        description: 'Личный бренд — для специалистов, фрилансеров и креаторов.',
+      },
+      en: {
+        title: 'Portfolio Site',
+        description: 'Personal brand — for specialists, freelancers, and creators.',
+      },
+    },
+  },
+  {
+    slug: 'admin-panel',
+    icon: 'LayoutDashboard',
+    basePrice: 800,
+    priceSuffix: '',
+    demand: 3,
+    card: {
+      uz: {
+        title: 'Admin panel',
+        description: 'Custom dashboard — ma\'lumot, hisobot va boshqaruv bir joyda.',
+      },
+      ru: {
+        title: 'Админ-панель',
+        description: 'Custom dashboard — данные, отчёты и управление в одном месте.',
+      },
+      en: {
+        title: 'Admin Panel',
+        description: 'Custom dashboard — data, reports, and management in one place.',
+      },
+    },
+  },
+  {
+    slug: 'hosting-support',
+    icon: 'Server',
+    basePrice: 50,
+    priceSuffix: '/oy',
+    demand: 3,
+    card: {
+      uz: {
+        title: 'Hosting va support',
+        description: 'KATOV loyihalari uchun oylik xizmat — deploy, monitoring, yangilanish.',
+      },
+      ru: {
+        title: 'Хостинг и поддержка',
+        description: 'Ежемесячный сервис для проектов KATOV — деплой, мониторинг, обновления.',
+      },
+      en: {
+        title: 'Hosting & Support',
+        description: 'Monthly service for KATOV-built projects — deploy, monitoring, updates.',
+      },
+    },
+  },
+  {
+    slug: 'ui-ux-dizayn',
+    icon: 'Palette',
+    basePrice: 400,
+    priceSuffix: '',
+    demand: 3,
+    card: {
+      uz: {
+        title: 'UI/UX dizayn',
+        description: 'Figma\'da sayt va ilova dizayni — kodsiz, faqat vizual yechim.',
+      },
+      ru: {
+        title: 'UI/UX дизайн',
+        description: 'Дизайн сайтов и приложений в Figma — без кода, только визуал.',
+      },
+      en: {
+        title: 'UI/UX Design',
+        description: 'Web and app design in Figma — design-only, no code.',
+      },
+    },
+  },
+];
+
+export interface ServicesIndexCopy {
+  title: string;
+  metaDescription: string;
+  h1: string;
+  subtitle: string;
+  comingSoonBadge: string;
+  fromLabel: string;
+  cardCta: string;
+}
+
+export const servicesIndexCopy: Record<Locale, ServicesIndexCopy> = {
+  uz: {
+    title: 'Xizmatlar — Web, Bot, CRM, ERP va Boshqalar',
+    metaDescription:
+      'KATOV xizmatlari: landing page, korporativ sayt, internet do\'kon, Telegram bot, CRM, ERP, SEO va boshqalar. $50 dan, 3 til (uz/ru/en).',
+    h1: 'KATOV xizmatlari',
+    subtitle:
+      'Veb-sayt, bot, CRM va boshqa raqamli yechimlar — bitta jamoadan, real narxlar va shaffof jarayonda.',
+    comingSoonBadge: 'Tez orada',
+    fromLabel: 'dan',
+    cardCta: 'Batafsil',
+  },
+  ru: {
+    title: 'Услуги — Сайты, Боты, CRM, ERP и Другое',
+    metaDescription:
+      'Услуги KATOV: landing page, корпоративные сайты, интернет-магазины, Telegram-боты, CRM, ERP, SEO и др. От $50, 3 языка (uz/ru/en).',
+    h1: 'Услуги KATOV',
+    subtitle:
+      'Сайты, боты, CRM и другие digital-решения — одной командой, с реальными ценами и прозрачным процессом.',
+    comingSoonBadge: 'Скоро',
+    fromLabel: 'от',
+    cardCta: 'Подробнее',
+  },
+  en: {
+    title: 'Services — Websites, Bots, CRM, ERP & More',
+    metaDescription:
+      'KATOV services: landing pages, corporate websites, e-commerce, Telegram bots, CRM, ERP, SEO and more. From $50, 3 languages (uz/ru/en).',
+    h1: 'KATOV services',
+    subtitle:
+      'Websites, bots, CRM, and other digital solutions — from one team, with real pricing and a transparent process.',
+    comingSoonBadge: 'Coming soon',
+    fromLabel: 'from',
+    cardCta: 'Details',
+  },
+};
+
+export function getServicesCatalog(): Array<ServiceCatalogItem & { available: boolean }> {
+  return servicesCatalog.map((item) => ({
+    ...item,
+    available: !!servicesData[item.slug],
+  }));
+}

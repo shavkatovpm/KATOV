@@ -20,7 +20,7 @@ export const siteConfig = {
 
   navigation: [
     { key: 'home', href: '/' },
-    { key: 'services', href: '#services' },
+    { key: 'services', href: '/services' },
     { key: 'portfolio', href: '#portfolio' },
     { key: 'blog', href: '/blog' },
     { key: 'contact', href: '#contact' },
