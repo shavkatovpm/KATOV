@@ -95,7 +95,7 @@ export const servicesData: Record<string, ServiceData> = {
       uz: {
         title: 'Landing Page Yaratish — Narxi va Misollar',
         metaDescription:
-          'Konversiyaga yo\'naltirilgan landing page yaratish — Next.js 16, mobile-first, Lighthouse 95+. 5–10 kun, $270 dan. Click/Payme integratsiya tayyor.',
+          'Sotuvchi landing page yaratish — zamonaviy texnologiya, mobilga mos. 5–10 kun, $270 dan. Click va Payme to\'lov integratsiyasi.',
         h1: 'Landing Page Yaratish: 5–10 Kunda Sotuvchi Sayt',
         heroSubtitle:
           'Sotuvchi, tezkor va SEO-mos landing\'lar. Zamonaviy texnologiya bilan, mobilga mos.',
@@ -103,12 +103,12 @@ export const servicesData: Record<string, ServiceData> = {
           {
             icon: 'Zap',
             title: 'Tezkor',
-            description: 'Lighthouse 95+, FCP < 1.5s — har 1 soniya tezlik = 7% konversiya o\'sishi.',
+            description: 'Sayt tez ochiladi — bu mijoz qoldirib ketishini kamaytiradi va sotuvni oshiradi.',
           },
           {
             icon: 'Target',
-            title: 'Konversiyali',
-            description: 'Tahlil asosidagi UX, A/B test tayyor, lead form va aniq CTA.',
+            title: 'Sotuvchi',
+            description: 'Dizayn mijozni so\'rov yuborishga yo\'naltiradi — raqamlar asosida qurilgan.',
           },
           {
             icon: 'CreditCard',
@@ -189,17 +189,17 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Landing page yaratish narxi qancha turadi?',
             answer:
-              'KATOV\'da landing page narxi $270 dan boshlanadi. Aniq narx funksiyalar va integratsiyalar soniga qarab belgilanadi: oddiy lead-capture landing $270–$400, to\'lov integratsiyasi bilan $400–$700, murakkab funnel va animatsiyalar bilan $700–$1200. Brief jarayonida aniq narx beriladi va keyin o\'zgarmaydi.',
+              'KATOV\'da landing page narxi $270 dan boshlanadi. Aniq narx funksiyalar va integratsiyalar soniga qarab belgilanadi: oddiy so\'rov formasi bilan landing $270–$400, to\'lov integratsiyasi bilan $400–$700, murakkab sotuv yo\'li va animatsiyalar bilan $700–$1200. Konsultatsiya jarayonida aniq narx beriladi va keyin o\'zgarmaydi.',
           },
           {
             question: 'Landing page necha kunda tayyor bo\'ladi?',
             answer:
-              'Standart muddat — 5–10 ish kuni. Bunga brief (1 kun), UI/UX dizayn (2–3 kun), development va integratsiya (2–4 kun), launch (1 kun) kiradi. Tezroq variant: oddiy landing 3–5 kunda ham yetkazib beriladi.',
+              'Standart muddat — 5–10 ish kuni. Bunga konsultatsiya (1 kun), UI/UX dizayn (2–3 kun), kod va integratsiya (2–4 kun), ishga tushirish (1 kun) kiradi. Tezroq variant: oddiy landing 3–5 kunda ham yetkazib beriladi.',
           },
           {
             question: 'Domen va hosting alohida to\'lanadimi?',
             answer:
-              'Hosting (Vercel) bepul plan\'da KATOV tomonidan sozlanadi va ulanadi. Domen (.uz, .com va h.k.) sizning nomingizga ro\'yxat qilinadi — bu yillik to\'lov ($10–$30/yil .uz uchun), to\'g\'ridan-to\'g\'ri ro\'yxatchilarga to\'lanadi. Domen sizning egaligingizda qoladi.',
+              'Hosting KATOV tomonidan sozlanadi va ulanadi — qo\'shimcha to\'lovsiz. Domen (.uz, .com va h.k.) sizning nomingizga ro\'yxat qilinadi — bu yillik to\'lov ($10–$30/yil .uz uchun), to\'g\'ridan-to\'g\'ri ro\'yxatchilarga to\'lanadi. Domen sizning egaligingizda qoladi.',
           },
           {
             question: 'Click va Payme integratsiyasi tayyor keladimi?',
@@ -212,9 +212,9 @@ export const servicesData: Record<string, ServiceData> = {
               'Landing\'da admin panel yo\'q. Kontent yangilash kerak bo\'lsa, KATOV o\'zi qiladi — bepul support davrida bepul, keyinchalik kelishilgan narxda.',
           },
           {
-            question: 'Mobil va dark mode tayyor keladimi?',
+            question: 'Sayt telefonda yaxshi ko\'rinadimi?',
             answer:
-              'Ha, har bir landing 320px (mobil) dan 4K\'gacha to\'liq responsiv. Dark va light mode toggle\'i ikkalasi ham tayyor (siz xohlasangiz, faqat bittasini qoldirish ham mumkin). Lighthouse mobile va desktop ikkalasida 95+ kafolatlanadi.',
+              'Ha, har bir landing telefon va boshqa qurilmalarda to\'liq mos ishlaydi. Google\'ning sifat testidan ham yuqori baho oladi.',
           },
         ],
         ctaTitle: 'Landing\'ingiz uchun bepul konsultatsiya',
@@ -228,7 +228,7 @@ export const servicesData: Record<string, ServiceData> = {
       ru: {
         title: 'Создание Landing Page — Цена и Сроки',
         metaDescription:
-          'Создание landing page с фокусом на конверсию — Next.js 16, mobile-first, Lighthouse 95+. 5–10 дней, от $270. Интеграция Click и Payme готова.',
+          'Создание продающего landing page — современные технологии, адаптация под мобильные. 5–10 дней, от $270. Интеграция Click и Payme.',
         h1: 'Создание Landing Page: Продающий Сайт за 5–10 Дней',
         heroSubtitle:
           'Продающие, быстрые и SEO-оптимизированные landing. Современные технологии, адаптация под мобильные.',
@@ -236,12 +236,12 @@ export const servicesData: Record<string, ServiceData> = {
           {
             icon: 'Zap',
             title: 'Быстрый',
-            description: 'Lighthouse 95+, FCP < 1.5с — каждая секунда скорости = +7% конверсии.',
+            description: 'Сайт грузится быстро — это снижает уход посетителей и повышает продажи.',
           },
           {
             icon: 'Target',
-            title: 'Конверсионный',
-            description: 'UX на основе аналитики, готовность к A/B тестам, lead-форма и чёткий CTA.',
+            title: 'Продающий',
+            description: 'Дизайн направляет клиента к отправке заявки — построен на данных, а не на догадках.',
           },
           {
             icon: 'CreditCard',
@@ -322,17 +322,17 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Сколько стоит создание landing page?',
             answer:
-              'В KATOV landing page начинается от $270. Точная цена зависит от функций и интеграций: простой lead-capture $270–$400, с платёжной интеграцией $400–$700, со сложной воронкой и анимациями $700–$1200. Точная цена фиксируется на этапе брифа и не меняется.',
+              'В KATOV landing page начинается от $270. Точная цена зависит от функций и интеграций: простая форма заявки $270–$400, с платёжной интеграцией $400–$700, со сложной воронкой продаж и анимациями $700–$1200. Точная цена фиксируется на этапе консультации и не меняется.',
           },
           {
             question: 'За сколько дней готов landing page?',
             answer:
-              'Стандартный срок — 5–10 рабочих дней: бриф (1 день), UI/UX (2–3 дня), разработка (2–4 дня), запуск (1 день). Ускоренный вариант: простой landing — за 3–5 дней.',
+              'Стандартный срок — 5–10 рабочих дней: консультация (1 день), UI/UX (2–3 дня), разработка (2–4 дня), запуск (1 день). Ускоренный вариант: простой landing — за 3–5 дней.',
           },
           {
             question: 'Домен и хостинг оплачиваются отдельно?',
             answer:
-              'Хостинг (Vercel) настраивает и подключает KATOV на бесплатном плане. Домен (.uz, .com и др.) регистрируется на ваше имя — это годовая оплата ($10–$30/год для .uz), напрямую регистраторам. Домен остаётся в вашем владении.',
+              'Хостинг настраивает и подключает KATOV — без дополнительных платежей. Домен (.uz, .com и др.) регистрируется на ваше имя — это годовая оплата ($10–$30/год для .uz), напрямую регистраторам. Домен остаётся в вашем владении.',
           },
           {
             question: 'Интеграция Click и Payme включена?',
@@ -345,9 +345,9 @@ export const servicesData: Record<string, ServiceData> = {
               'У landing нет admin panel. Если нужно обновить контент, KATOV делает это сам — бесплатно во время поддержки, дальше по согласованной цене.',
           },
           {
-            question: 'Готова ли мобильная и тёмная тема?',
+            question: 'Хорошо ли сайт смотрится на телефоне?',
             answer:
-              'Да, каждый landing адаптивен от 320px (мобайл) до 4K. Светлая и тёмная темы переключаются (можно оставить только одну). Lighthouse 95+ гарантирован и на мобильных, и на десктопе.',
+              'Да, каждый landing полностью адаптирован под телефон и другие устройства. Google также оценивает качество сайта высоко.',
           },
         ],
         ctaTitle: 'Бесплатная консультация для вашего landing',
@@ -361,7 +361,7 @@ export const servicesData: Record<string, ServiceData> = {
       en: {
         title: 'Landing Page Development — Price & Timeline',
         metaDescription:
-          'Conversion-focused landing page development — Next.js 16, mobile-first, Lighthouse 95+. 5–10 days, from $270. Click & Payme integration ready.',
+          'Sales-focused landing page development — modern technology, mobile-friendly. 5–10 days, from $270. Click & Payme integration.',
         h1: 'Landing Page Development: Sales-Ready Site in 5–10 Days',
         heroSubtitle:
           'High-performing, fast, SEO-optimized landings. Modern technology, mobile-friendly.',
@@ -369,12 +369,12 @@ export const servicesData: Record<string, ServiceData> = {
           {
             icon: 'Zap',
             title: 'Fast',
-            description: 'Lighthouse 95+, FCP < 1.5s — every second of load time = +7% conversion.',
+            description: 'Site loads fast — this reduces bounce and lifts sales.',
           },
           {
             icon: 'Target',
-            title: 'Conversion-focused',
-            description: 'Analytics-driven UX, A/B-test ready, lead form and clear CTA.',
+            title: 'Sales-focused',
+            description: 'Design guides the visitor to send a request — built on data, not guesses.',
           },
           {
             icon: 'CreditCard',
@@ -455,17 +455,17 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'How much does a landing page cost?',
             answer:
-              'At KATOV, landing pages start from $270. The exact price depends on features and integrations: a simple lead-capture landing $270–$400, with payment integration $400–$700, with complex funnel and animations $700–$1200. The final price is locked during the brief and never changes.',
+              'At KATOV, landing pages start from $270. The exact price depends on features and integrations: a simple request form $270–$400, with payment integration $400–$700, with complex sales funnel and animations $700–$1200. The final price is locked during the consultation and never changes.',
           },
           {
             question: 'How long does it take to build a landing page?',
             answer:
-              'Standard timeline is 5–10 business days: brief (1 day), UI/UX design (2–3 days), development (2–4 days), launch (1 day). Express option: simple landing in 3–5 days.',
+              'Standard timeline is 5–10 business days: consultation (1 day), UI/UX design (2–3 days), development (2–4 days), launch (1 day). Express option: simple landing in 3–5 days.',
           },
           {
             question: 'Are domain and hosting charged separately?',
             answer:
-              'Hosting (Vercel) is set up and connected by KATOV on the free plan. Domain (.uz, .com, etc.) is registered in your name — this is a yearly fee ($10–$30/year for .uz) paid directly to registrars. The domain stays under your ownership.',
+              'Hosting is set up and connected by KATOV — no extra fees. Domain (.uz, .com, etc.) is registered in your name — this is a yearly fee ($10–$30/year for .uz) paid directly to registrars. The domain stays under your ownership.',
           },
           {
             question: 'Are Click and Payme integrations included?',
@@ -478,9 +478,9 @@ export const servicesData: Record<string, ServiceData> = {
               'Landings don\'t include an admin panel. KATOV handles content updates — free during the support period, then at an agreed price.',
           },
           {
-            question: 'Are mobile and dark mode included?',
+            question: 'Does the site look good on mobile?',
             answer:
-              'Yes, every landing is fully responsive from 320px (mobile) to 4K. Light and dark mode toggle is built in (you can keep just one if preferred). Lighthouse 95+ is guaranteed on both mobile and desktop.',
+              'Yes, every landing is fully responsive on phones and other devices. It also scores well on Google\'s quality tests.',
           },
         ],
         ctaTitle: 'Free consultation for your landing page',
@@ -529,15 +529,15 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     card: {
       uz: {
         title: 'Landing Page',
-        description: 'Konversiyaga yo\'naltirilgan bir sahifali sayt — Next.js, Lighthouse 95+.',
+        description: 'Sotuvchi bir sahifali sayt — tezkor va Google\'da yaxshi ko\'rinadi.',
       },
       ru: {
         title: 'Landing Page',
-        description: 'Одностраничный сайт с фокусом на конверсию — Next.js, Lighthouse 95+.',
+        description: 'Одностраничный продающий сайт — быстрый и хорошо ранжируется в Google.',
       },
       en: {
         title: 'Landing Page',
-        description: 'Conversion-focused one-page site — Next.js, Lighthouse 95+.',
+        description: 'Sales-focused one-page site — fast and Google-friendly.',
       },
     },
   },

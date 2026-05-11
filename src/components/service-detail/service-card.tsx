@@ -64,11 +64,12 @@ export function ServiceCard({
         style={{ borderTop: '1px solid var(--color-border)' }}
       >
         <div className="text-sm">
-          <span className="text-muted">{fromLabel} </span>
+          {fromLabel !== 'dan' && <span className="text-muted">{fromLabel} </span>}
           <span className="font-semibold">
             ${basePrice}
             {priceSuffix}
           </span>
+          {fromLabel === 'dan' && <span className="text-muted"> {fromLabel}</span>}
         </div>
         {available && (
           <span className="inline-flex items-center gap-1 text-xs lg:text-sm font-medium opacity-70 group-hover:opacity-100 transition-opacity">
