@@ -17,6 +17,7 @@ export function ServiceFAQ({ content }: ServiceFAQProps) {
           {content.faq.map((item) => (
             <details
               key={item.question}
+              name="service-faq"
               className="group rounded-2xl px-5 sm:px-6 py-4"
               style={{
                 backgroundColor: 'var(--color-bg)',

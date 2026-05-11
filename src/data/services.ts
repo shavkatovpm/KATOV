@@ -96,9 +96,9 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'Landing Page Yaratish — Narxi va Misollar',
         metaDescription:
           'Konversiyaga yo\'naltirilgan landing page yaratish — Next.js 16, mobile-first, Lighthouse 95+. 5–10 kun, $270 dan. Click/Payme integratsiya tayyor.',
-        h1: 'Landing Page Yaratish: 5–10 Kunda Konversiyali Sayt',
+        h1: 'Landing Page Yaratish: 5–10 Kunda Sotuvchi Sayt',
         heroSubtitle:
-          'Sotuvchi, tezkor va SEO-mos landing\'lar. Next.js 16 asosida, mobil va dark mode tayyor.',
+          'Sotuvchi, tezkor va SEO-mos landing\'lar. Zamonaviy texnologiya bilan, mobilga mos.',
         benefits: [
           {
             icon: 'Zap',
@@ -113,7 +113,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             icon: 'CreditCard',
             title: 'Click & Payme',
-            description: 'O\'zbekiston to\'lov tizimlari integratsiyasi tayyor keladi.',
+            description: 'O\'zbekiston to\'lov tizimlari integratsiyasi.',
           },
         ],
         forWhoTitle: 'Kimga mos',
@@ -137,15 +137,13 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         deliverablesTitle: 'Xizmatga nima kiradi',
         deliverables: [
-          'Maxsus UI/UX dizayn (Figma\'da, template emas)',
-          'Unikal kod — Next.js 16 + React 19',
-          'Mobile-first responsive (320px–4K)',
-          'Lighthouse 95+ (Performance / SEO / Accessibility)',
+          'Maxsus UI/UX dizayn',
+          'Mobile-first responsive (telefonga moslashuvchan)',
           'Click va Payme to\'lov integratsiyasi (kerak bo\'lsa)',
-          'Lead form + email/Telegram bildirishnoma',
-          'Google Analytics 4 + Microsoft Clarity',
-          'Texnik SEO bazasi (meta, schema, sitemap, robots)',
-          'Vercel deploy + domen ulash',
+          'So\'rov formasi + email/Telegram bildirishnoma',
+          'Analitika integratsiyasi (Google)',
+          'Texnik SEO bazasi',
+          'Saytni ishga tushirish va domen ulash',
           'Ishga tushgandan keyin 1 oy bepul support',
         ],
         processTitle: 'Jarayon',
@@ -153,7 +151,7 @@ export const servicesData: Record<string, ServiceData> = {
         process: [
           {
             step: 1,
-            title: 'Brief va strategiya',
+            title: 'Konsultatsiya va strategiya',
             description: 'Bizneing, target audience va asosiy maqsadlarni aniqlaymiz. Raqobatchi tahlili.',
             duration: '1 kun',
           },
@@ -166,24 +164,24 @@ export const servicesData: Record<string, ServiceData> = {
           {
             step: 3,
             title: 'Development',
-            description: 'Kod, animatsiya, integratsiya (to\'lov, analytics, form). Test environment\'da ko\'rasiz.',
+            description: 'Kod, animatsiya, integratsiya (to\'lov, analytics, form).',
             duration: '2–4 kun',
           },
           {
             step: 4,
-            title: 'Launch va polish',
-            description: 'Domen ulash, Lighthouse audit, SEO tekshiruvi, ishga tushirish va qabul.',
+            title: 'Ishga tushirish',
+            description: 'Domen ulash, SEO tekshiruvi va saytni ishga tushirish.',
             duration: '1 kun',
           },
         ],
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
-          'Lighthouse 95+ ko\'rsatkichi kafolat — har bir landing\'imizda',
-          'Zamonaviy stack: Next.js 16, React 19, Tailwind 4 (template emas)',
+          'Googleda topda chiqish va sotuvni oshirish uchun moslashish',
+          'Eng mos va zamonaviy texnologiyalar',
           '3 til (uz/ru/en) tayyor — agar kerak bo\'lsa, narx o\'zgarmaydi',
-          'Microsoft Clarity bilan foydalanuvchi xulqi monitoring',
+          'Saytingizni o\'zingiz nazorat qila olasiz',
           '10+ muvaffaqiyatli loyiha (Darslinker, Getolog, Uzbektype va boshqalar)',
-          'Yopiq narx — $270 dan, qo\'shimcha to\'lov yo\'q',
+          'Shaffof narx',
         ],
         portfolioTitle: 'Real loyihalarimiz',
         faqTitle: 'Tez-tez beriladigan savollar',
@@ -211,7 +209,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Keyin o\'zim tahrir qila olamanmi (kontent yangilash)?',
             answer:
-              'Ha. Landing\'da admin panel (sodda CMS) qo\'shilishi mumkin — matnlar, rasmlar, narxlarni o\'zingiz tahrirlaysiz, kod bilmasdan. Bu opsion: agar kontent kam o\'zgaradigan bo\'lsa, admin panel yo\'q (narxda arzonroq), tahrir kerak bo\'lganda KATOV o\'zi qiladi (bepul support davrida).',
+              'Landing\'da admin panel yo\'q. Kontent yangilash kerak bo\'lsa, KATOV o\'zi qiladi — bepul support davrida bepul, keyinchalik kelishilgan narxda.',
           },
           {
             question: 'Mobil va dark mode tayyor keladimi?',
@@ -219,9 +217,9 @@ export const servicesData: Record<string, ServiceData> = {
               'Ha, har bir landing 320px (mobil) dan 4K\'gacha to\'liq responsiv. Dark va light mode toggle\'i ikkalasi ham tayyor (siz xohlasangiz, faqat bittasini qoldirish ham mumkin). Lighthouse mobile va desktop ikkalasida 95+ kafolatlanadi.',
           },
         ],
-        ctaTitle: 'Landing\'ingiz uchun bepul brief',
+        ctaTitle: 'Landing\'ingiz uchun bepul konsultatsiya',
         ctaSubtitle:
-          'Ma\'lumotlarni qoldiring, 1 ish kuni ichida bog\'lanamiz. Brief bepul, hech qanday majburiyat yo\'q.',
+          'Ma\'lumotlarni qoldiring, 1 ish kuni ichida bog\'lanamiz. Konsultatsiya bepul, hech qanday majburiyat yo\'q.',
         ctaPrimary: 'Loyihani boshlash',
         breadcrumbServices: 'Xizmatlar',
         priceLabel: 'Narxi',
@@ -231,9 +229,9 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'Создание Landing Page — Цена и Сроки',
         metaDescription:
           'Создание landing page с фокусом на конверсию — Next.js 16, mobile-first, Lighthouse 95+. 5–10 дней, от $270. Интеграция Click и Payme готова.',
-        h1: 'Создание Landing Page: Конверсионный Сайт за 5–10 Дней',
+        h1: 'Создание Landing Page: Продающий Сайт за 5–10 Дней',
         heroSubtitle:
-          'Продающие, быстрые и SEO-оптимизированные landing на Next.js 16. Мобильная и тёмная темы готовы.',
+          'Продающие, быстрые и SEO-оптимизированные landing. Современные технологии, адаптация под мобильные.',
         benefits: [
           {
             icon: 'Zap',
@@ -248,7 +246,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             icon: 'CreditCard',
             title: 'Click и Payme',
-            description: 'Интеграция платёжных систем Узбекистана готова из коробки.',
+            description: 'Интеграция платёжных систем Узбекистана.',
           },
         ],
         forWhoTitle: 'Для кого',
@@ -272,15 +270,13 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         deliverablesTitle: 'Что входит в услугу',
         deliverables: [
-          'Индивидуальный UI/UX дизайн (Figma, не шаблон)',
-          'Уникальный код — Next.js 16 + React 19',
-          'Mobile-first адаптив (320px–4K)',
-          'Lighthouse 95+ (Performance / SEO / Accessibility)',
+          'Индивидуальный UI/UX дизайн',
+          'Mobile-first адаптив (под мобильные)',
           'Интеграция Click и Payme (при необходимости)',
-          'Lead-форма + email/Telegram уведомления',
-          'Google Analytics 4 + Microsoft Clarity',
-          'Техническая SEO-база (meta, schema, sitemap, robots)',
-          'Деплой на Vercel + подключение домена',
+          'Форма заявки + уведомления на email/Telegram',
+          'Интеграция аналитики (Google)',
+          'Техническая SEO-база',
+          'Запуск сайта и подключение домена',
           'Бесплатная поддержка 1 месяц после запуска',
         ],
         processTitle: 'Процесс',
@@ -288,7 +284,7 @@ export const servicesData: Record<string, ServiceData> = {
         process: [
           {
             step: 1,
-            title: 'Бриф и стратегия',
+            title: 'Консультация и стратегия',
             description: 'Определяем бизнес, целевую аудиторию и ключевые цели. Анализ конкурентов.',
             duration: '1 день',
           },
@@ -301,24 +297,24 @@ export const servicesData: Record<string, ServiceData> = {
           {
             step: 3,
             title: 'Разработка',
-            description: 'Код, анимации, интеграции (оплаты, аналитика, формы). Покажем на тестовом окружении.',
+            description: 'Код, анимации, интеграции (оплаты, аналитика, формы).',
             duration: '2–4 дня',
           },
           {
             step: 4,
-            title: 'Запуск и полировка',
-            description: 'Подключение домена, Lighthouse-аудит, SEO-проверка, запуск и приёмка.',
+            title: 'Запуск',
+            description: 'Подключение домена, SEO-проверка и запуск.',
             duration: '1 день',
           },
         ],
         whyUsTitle: 'Почему KATOV',
         whyUs: [
-          'Гарантия Lighthouse 95+ — на каждом нашем landing',
-          'Современный стек: Next.js 16, React 19, Tailwind 4 (не шаблоны)',
+          'Топ в Google и адаптация под рост продаж',
+          'Современные и подходящие технологии',
           '3 языка (uz/ru/en) готовы — при необходимости, без доп. стоимости',
-          'Поведенческая аналитика с Microsoft Clarity',
+          'Вы сами контролируете свой сайт',
           '10+ успешных проектов (Darslinker, Getolog, Uzbektype и др.)',
-          'Фиксированная цена — от $270, без скрытых доплат',
+          'Прозрачная цена',
         ],
         portfolioTitle: 'Наши проекты',
         faqTitle: 'Часто задаваемые вопросы',
@@ -346,7 +342,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Смогу ли я сам редактировать контент позже?',
             answer:
-              'Да. По желанию добавляем простую CMS (admin panel) — вы сами правите тексты, картинки и цены без кода. Это опция: если контент редко меняется, можно без admin panel (дешевле), а правки делает KATOV в рамках бесплатной поддержки.',
+              'У landing нет admin panel. Если нужно обновить контент, KATOV делает это сам — бесплатно во время поддержки, дальше по согласованной цене.',
           },
           {
             question: 'Готова ли мобильная и тёмная тема?',
@@ -354,9 +350,9 @@ export const servicesData: Record<string, ServiceData> = {
               'Да, каждый landing адаптивен от 320px (мобайл) до 4K. Светлая и тёмная темы переключаются (можно оставить только одну). Lighthouse 95+ гарантирован и на мобильных, и на десктопе.',
           },
         ],
-        ctaTitle: 'Бесплатный бриф для вашего landing',
+        ctaTitle: 'Бесплатная консультация для вашего landing',
         ctaSubtitle:
-          'Оставьте данные — свяжемся в течение 1 рабочего дня. Бриф бесплатный, без обязательств.',
+          'Оставьте данные — свяжемся в течение 1 рабочего дня. Консультация бесплатная, без обязательств.',
         ctaPrimary: 'Начать проект',
         breadcrumbServices: 'Услуги',
         priceLabel: 'Цена',
@@ -366,9 +362,9 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'Landing Page Development — Price & Timeline',
         metaDescription:
           'Conversion-focused landing page development — Next.js 16, mobile-first, Lighthouse 95+. 5–10 days, from $270. Click & Payme integration ready.',
-        h1: 'Landing Page Development: Conversion-Ready Site in 5–10 Days',
+        h1: 'Landing Page Development: Sales-Ready Site in 5–10 Days',
         heroSubtitle:
-          'High-performing, fast, SEO-optimized landings on Next.js 16. Mobile and dark mode out of the box.',
+          'High-performing, fast, SEO-optimized landings. Modern technology, mobile-friendly.',
         benefits: [
           {
             icon: 'Zap',
@@ -383,7 +379,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             icon: 'CreditCard',
             title: 'Click & Payme',
-            description: 'Uzbekistan payment systems integration ready out of the box.',
+            description: 'Uzbekistan payment systems integration.',
           },
         ],
         forWhoTitle: 'Who it\'s for',
@@ -407,15 +403,13 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         deliverablesTitle: 'What\'s included',
         deliverables: [
-          'Custom UI/UX design (in Figma, not a template)',
-          'Unique code — Next.js 16 + React 19',
-          'Mobile-first responsive (320px–4K)',
-          'Lighthouse 95+ (Performance / SEO / Accessibility)',
+          'Custom UI/UX design',
+          'Mobile-first responsive (mobile-friendly)',
           'Click & Payme payment integration (if needed)',
-          'Lead form + email/Telegram notifications',
-          'Google Analytics 4 + Microsoft Clarity',
-          'Technical SEO foundation (meta, schema, sitemap, robots)',
-          'Vercel deploy + domain connection',
+          'Request form + email/Telegram notifications',
+          'Analytics integration (Google)',
+          'Technical SEO foundation',
+          'Site launch & domain connection',
           '1 month free support after launch',
         ],
         processTitle: 'Process',
@@ -423,7 +417,7 @@ export const servicesData: Record<string, ServiceData> = {
         process: [
           {
             step: 1,
-            title: 'Brief & strategy',
+            title: 'Consultation & strategy',
             description: 'We identify your business, target audience and key goals. Competitor research.',
             duration: '1 day',
           },
@@ -436,24 +430,24 @@ export const servicesData: Record<string, ServiceData> = {
           {
             step: 3,
             title: 'Development',
-            description: 'Code, animations, integrations (payments, analytics, forms). Preview on staging.',
+            description: 'Code, animations, integrations (payments, analytics, forms).',
             duration: '2–4 days',
           },
           {
             step: 4,
-            title: 'Launch & polish',
-            description: 'Domain connection, Lighthouse audit, SEO check, go-live and handover.',
+            title: 'Launch',
+            description: 'Domain connection, SEO check, and go-live.',
             duration: '1 day',
           },
         ],
         whyUsTitle: 'Why KATOV',
         whyUs: [
-          'Lighthouse 95+ guarantee — on every landing we ship',
-          'Modern stack: Next.js 16, React 19, Tailwind 4 (no templates)',
+          'Top Google rankings and conversion-tuned for sales',
+          'Modern, fit-for-purpose technology',
           '3 languages (uz/ru/en) ready — no extra cost if needed',
-          'User behavior monitoring with Microsoft Clarity',
+          'You stay in control of your own site',
           '10+ successful projects (Darslinker, Getolog, Uzbektype, etc.)',
-          'Fixed price — from $270, no hidden fees',
+          'Transparent pricing',
         ],
         portfolioTitle: 'Our projects',
         faqTitle: 'Frequently asked questions',
@@ -481,7 +475,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Can I edit the content myself later?',
             answer:
-              'Yes. We can optionally add a simple CMS (admin panel) — edit text, images, and prices without code. It\'s optional: if content rarely changes, you can skip the admin panel (cheaper), and KATOV will make updates during the free support period.',
+              'Landings don\'t include an admin panel. KATOV handles content updates — free during the support period, then at an agreed price.',
           },
           {
             question: 'Are mobile and dark mode included?',
@@ -489,9 +483,9 @@ export const servicesData: Record<string, ServiceData> = {
               'Yes, every landing is fully responsive from 320px (mobile) to 4K. Light and dark mode toggle is built in (you can keep just one if preferred). Lighthouse 95+ is guaranteed on both mobile and desktop.',
           },
         ],
-        ctaTitle: 'Free brief for your landing page',
+        ctaTitle: 'Free consultation for your landing page',
         ctaSubtitle:
-          'Leave your details — we\'ll get back within 1 business day. The brief is free, no commitment.',
+          'Leave your details — we\'ll get back within 1 business day. The consultation is free, no commitment.',
         ctaPrimary: 'Start project',
         breadcrumbServices: 'Services',
         priceLabel: 'From',
