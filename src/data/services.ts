@@ -571,15 +571,15 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     card: {
       uz: {
         title: 'Internet do\'kon',
-        description: 'E-commerce platforma — Click, Payme, mahsulot katalogi va admin panel.',
+        description: 'Onlayn savdo sayti — Click va Payme to\'lov, mahsulot katalogi, buyurtmalarni boshqarish.',
       },
       ru: {
         title: 'Интернет-магазин',
-        description: 'E-commerce платформа — Click, Payme, каталог товаров и админка.',
+        description: 'Сайт онлайн-продаж — оплата Click и Payme, каталог товаров, управление заказами.',
       },
       en: {
         title: 'E-commerce',
-        description: 'E-commerce platform — Click, Payme, product catalog, admin panel.',
+        description: 'Online store — Click and Payme payments, product catalog, order management.',
       },
     },
   },
@@ -655,15 +655,15 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     card: {
       uz: {
         title: 'CRM tizimi',
-        description: 'Mijoz va sotuv boshqaruvi — bizneuingizga moslashtirilgan custom CRM.',
+        description: 'Mijoz va sotuv boshqaruvi tizimi — biznesingizning ehtiyojiga moslashtirib quramiz.',
       },
       ru: {
         title: 'CRM-система',
-        description: 'Управление клиентами и продажами — custom CRM под ваш бизнес.',
+        description: 'Управление клиентами и продажами — собираем под ваш бизнес индивидуально.',
       },
       en: {
         title: 'CRM System',
-        description: 'Customer and sales management — custom CRM tailored to your business.',
+        description: 'Customer and sales management — built around your business needs.',
       },
     },
   },
@@ -739,15 +739,15 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     card: {
       uz: {
         title: 'Admin panel',
-        description: 'Custom dashboard — ma\'lumot, hisobot va boshqaruv bir joyda.',
+        description: 'Biznes ma\'lumotlarini boshqarish tizimi — mahsulot, mijoz va hisobotlar bir joyda.',
       },
       ru: {
         title: 'Админ-панель',
-        description: 'Custom dashboard — данные, отчёты и управление в одном месте.',
+        description: 'Система управления данными бизнеса — товары, клиенты и отчёты в одном месте.',
       },
       en: {
         title: 'Admin Panel',
-        description: 'Custom dashboard — data, reports, and management in one place.',
+        description: 'Business data management system — products, customers, and reports in one place.',
       },
     },
   },
@@ -760,15 +760,15 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     card: {
       uz: {
         title: 'Hosting va support',
-        description: 'KATOV loyihalari uchun oylik xizmat — deploy, monitoring, yangilanish.',
+        description: 'KATOV qurgan loyihalar uchun oylik xizmat — sayt doim ishlaydi, kontentni yangilab beramiz.',
       },
       ru: {
         title: 'Хостинг и поддержка',
-        description: 'Ежемесячный сервис для проектов KATOV — деплой, мониторинг, обновления.',
+        description: 'Ежемесячный сервис для проектов KATOV — сайт работает стабильно, обновляем контент за вас.',
       },
       en: {
         title: 'Hosting & Support',
-        description: 'Monthly service for KATOV-built projects — deploy, monitoring, updates.',
+        description: 'Monthly service for KATOV-built projects — your site stays up, content updates handled.',
       },
     },
   },
@@ -781,15 +781,15 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     card: {
       uz: {
         title: 'UI/UX dizayn',
-        description: 'Figma\'da sayt va ilova dizayni — kodsiz, faqat vizual yechim.',
+        description: 'Sayt va ilova vizual dizayni — Figma\'da, kodsiz. Boshqa kompaniya kod yozadi.',
       },
       ru: {
         title: 'UI/UX дизайн',
-        description: 'Дизайн сайтов и приложений в Figma — без кода, только визуал.',
+        description: 'Визуальный дизайн сайтов и приложений — в Figma, без кода. Программирует другая команда.',
       },
       en: {
         title: 'UI/UX Design',
-        description: 'Web and app design in Figma — design-only, no code.',
+        description: 'Visual design for web and apps — in Figma, no code. Another team handles coding.',
       },
     },
   },
