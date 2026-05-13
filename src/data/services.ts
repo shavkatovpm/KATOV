@@ -85,6 +85,456 @@ export interface ServiceData {
 }
 
 export const servicesData: Record<string, ServiceData> = {
+  'korporativ-sayt': {
+    slug: 'korporativ-sayt',
+    icon: 'Building2',
+    basePrice: 870,
+    priceSuffix: '',
+    demand: 5,
+    content: {
+      uz: {
+        title: 'Korporativ Sayt Yaratish — $870 dan',
+        metaDescription:
+          'Korporativ sayt yaratish — kompaniyangiz uchun ko\'p sahifali professional sayt. 3 til, admin panel, $870 dan. 10–20 kunda tayyor.',
+        h1: 'Korporativ Sayt Yaratish: Kompaniyangiz Uchun To\'liq Yechim',
+        heroSubtitle:
+          'Kompaniyangizni onlayn taqdim etadigan ko\'p sahifali sayt — xizmatlar, jamoa, portfolio va aloqa bir joyda.',
+        benefits: [
+          {
+            icon: 'ShieldCheck',
+            title: 'Ishonch quradi',
+            description:
+              'Yaxshi qilingan sayt mijozda kompaniyangizga ishonch tug\'diradi — bu sotuvni tezlashtiradi.',
+          },
+          {
+            icon: 'Search',
+            title: 'Google\'da topiladi',
+            description:
+              'SEO bazasi bilan keladi — mijozlar Google orqali sizning kompaniyangizni qidirib topadi.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'O\'zingiz boshqarasiz',
+            description:
+              'Admin panel orqali matn, rasm va xizmatlarni o\'zingiz yangilaysiz — har safar bizga murojaat qilmasdan.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'O\'rta va katta biznes',
+            description:
+              'Kompaniyangizni to\'liq taqdim etish, xizmatlar va jamoa haqida ma\'lumot, ishonchli imidj qurish.',
+          },
+          {
+            title: 'Xizmat ko\'rsatuvchi kompaniyalar',
+            description:
+              'Yuridik, hisob-kitob, IT, marketing, qurilish va boshqa professional xizmatlar uchun.',
+          },
+          {
+            title: 'Ishlab chiqaruvchi va distributorlar',
+            description:
+              'Mahsulot katalogi, hamkorlar uchun ma\'lumot va B2B savdo so\'rovlari uchun.',
+          },
+          {
+            title: 'Tashkilot va fondlar',
+            description:
+              'Loyiha, missiya, jamoa va yangiliklarni mijoz va hamkorlarga taqdim etish.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Bosh sahifa — kompaniya, asosiy xizmatlar va aloqa',
+          '"Biz haqimizda" sahifa — kompaniya tarixi, qadriyatlar, jamoa',
+          'Xizmatlar sahifasi (har birini batafsil ham qilish mumkin)',
+          'Portfolio yoki holatlar sahifasi',
+          'Yangiliklar yoki blog bo\'limi',
+          'Aloqa sahifasi — xarita, telefon, forma',
+          'Telefon va boshqa qurilmalarga moslashuv',
+          'Admin panel — kontentni o\'zingiz yangilaysiz',
+          '3 til (uz/ru/en) tayyor — qo\'shimcha narxsiz',
+          'Saytni ishga tushirish va domen ulash',
+          '1 oy bepul support',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '10–20 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Konsultatsiya va strategiya',
+            description:
+              'Kompaniya, mijoz va asosiy maqsadlarni aniqlaymiz. Qaysi sahifalar, qaysi xizmatlar ko\'rsatiladi.',
+            duration: '2 kun',
+          },
+          {
+            step: 2,
+            title: 'UI/UX dizayn',
+            description:
+              'Har sahifa Figma\'da dizayn qilinadi. Ikki bosqichli revizyon kiradi.',
+            duration: '4–6 kun',
+          },
+          {
+            step: 3,
+            title: 'Development',
+            description:
+              'Kod, kontent integratsiyasi, admin panel sozlash. 3 til kerak bo\'lsa shu yerda quriladi.',
+            duration: '5–10 kun',
+          },
+          {
+            step: 4,
+            title: 'Ishga tushirish',
+            description:
+              'Domen ulash, SEO tekshiruvi va saytni rasmiy ishga tushirish.',
+            duration: '1–2 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          '3 til (uz/ru/en) tayyor — qo\'shimcha narxsiz',
+          'Admin panel orqali matn va rasmlarni o\'zingiz yangilaysiz',
+          'Saytni Google\'da chiqarish uchun tayyor — texnik SEO bazasi bilan',
+          '10+ muvaffaqiyatli loyiha (Darslinker, Getolog, Uzbektype va boshqalar)',
+          'Shaffof narx — $870 dan, qo\'shimcha to\'lov yo\'q',
+          'Ishga tushgandan keyin 1 oy bepul support',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Korporativ sayt yaratish narxi qancha turadi?',
+            answer:
+              'KATOV\'da korporativ sayt narxi $870 dan boshlanadi. Bu standart paket: bosh sahifa, biz haqimizda, xizmatlar, portfolio, blog va aloqa sahifalari, admin panel va 3 til (uz/ru/en). Murakkab loyihalar uchun (ko\'p xizmatlar, custom funksiyalar, integratsiyalar) $1200–$2500 oralig\'ida. Aniq narx konsultatsiyada belgilanadi va keyin o\'zgarmaydi.',
+          },
+          {
+            question: 'Korporativ sayt necha kunda tayyor bo\'ladi?',
+            answer:
+              'Standart muddat — 10–20 ish kuni. Konsultatsiya (2 kun), UI/UX dizayn (4–6 kun), development (5–10 kun), ishga tushirish (1–2 kun). Tezroq variant — 7–10 kun (oddiy kontent va 4–5 sahifa bilan).',
+          },
+          {
+            question: 'Sayt necha sahifadan iborat bo\'ladi?',
+            answer:
+              'Standart paketda 6–8 sahifa: bosh sahifa, biz haqimizda, xizmatlar, portfolio/holatlar, blog yoki yangiliklar, aloqa, va 1–2 qo\'shimcha (masalan jamoa, narxlar). Qo\'shimcha sahifalar yoki har xizmat uchun alohida sahifa kerak bo\'lsa, narxga ta\'sir qiladi.',
+          },
+          {
+            question: 'Admin panel orqali nima qilolaman?',
+            answer:
+              'Admin panel sodda — matnlarni tahrirlash, rasm yuklash, xizmatlar va blog yangiliklari qo\'shish, aloqa ma\'lumotlarini yangilash. Kod yozish kerak emas. Murakkab o\'zgartirishlar kerak bo\'lsa, KATOV qiladi (support davrida bepul).',
+          },
+          {
+            question: '3 til (uz/ru/en) qo\'shimcha narxdami?',
+            answer:
+              'Yo\'q. Standart paketda 3 til parallel keladi — narx o\'zgarmaydi. Sizga faqat har tilda kontent berish kerak (yoki tarjima kerak bo\'lsa, kelishilgan narxda KATOV qiladi).',
+          },
+          {
+            question: 'Kontentni KATOV yozadimi yoki men taqdim etishim kerak?',
+            answer:
+              'Standart paketda kontent (matn, rasm, xizmat tavsifi) siz tomondan beriladi. Agar kerak bo\'lsa, KATOV kontent strategiyasi va asosiy matnlarni yozib bera oladi — bu alohida xizmat sifatida narxlanadi.',
+          },
+        ],
+        ctaTitle: 'Korporativ sayt uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Ma\'lumotlarni qoldiring, 1 ish kuni ichida bog\'lanamiz. Konsultatsiya bepul, hech qanday majburiyat yo\'q.',
+        ctaPrimary: 'Loyihani boshlash',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Разработка Корпоративного Сайта — от $870',
+        metaDescription:
+          'Разработка корпоративного сайта — многостраничный сайт для компании. 3 языка, админ-панель, от $870. Готов за 10–20 дней.',
+        h1: 'Корпоративный Сайт: Полное Решение для Вашей Компании',
+        heroSubtitle:
+          'Многостраничный сайт, представляющий вашу компанию онлайн — услуги, команда, портфолио и контакты в одном месте.',
+        benefits: [
+          {
+            icon: 'ShieldCheck',
+            title: 'Строит доверие',
+            description:
+              'Качественный сайт вызывает у клиента доверие к компании — это ускоряет продажи.',
+          },
+          {
+            icon: 'Search',
+            title: 'Находят через Google',
+            description:
+              'Идёт с SEO-базой — клиенты находят вашу компанию через поиск Google.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'Управляете сами',
+            description:
+              'Через админ-панель сами обновляете тексты, фото и услуги — без обращений к нам.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Средний и крупный бизнес',
+            description:
+              'Полное представление компании, информация об услугах и команде, формирование имиджа.',
+          },
+          {
+            title: 'Сервисные компании',
+            description:
+              'Юриспруденция, бухгалтерия, IT, маркетинг, строительство и другие профессиональные услуги.',
+          },
+          {
+            title: 'Производители и дистрибьюторы',
+            description:
+              'Каталог продукции, информация для партнёров и заявки B2B-продаж.',
+          },
+          {
+            title: 'Организации и фонды',
+            description:
+              'Представление проектов, миссии, команды и новостей клиентам и партнёрам.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'Главная страница — компания, основные услуги и контакты',
+          'Страница «О нас» — история, ценности, команда',
+          'Страница услуг (каждую можно вынести отдельно)',
+          'Портфолио или раздел кейсов',
+          'Новости или блог',
+          'Контакты — карта, телефон, форма',
+          'Адаптация под телефоны и другие устройства',
+          'Админ-панель — обновляете контент сами',
+          '3 языка (uz/ru/en) готовы — без доп. стоимости',
+          'Запуск сайта и подключение домена',
+          'Бесплатная поддержка 1 месяц',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '10–20 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Консультация и стратегия',
+            description:
+              'Определяем компанию, клиента и ключевые цели. Какие страницы, какие услуги показываются.',
+            duration: '2 дня',
+          },
+          {
+            step: 2,
+            title: 'UI/UX дизайн',
+            description:
+              'Каждая страница в Figma. Включены две правки.',
+            duration: '4–6 дней',
+          },
+          {
+            step: 3,
+            title: 'Разработка',
+            description:
+              'Код, интеграция контента, настройка админ-панели. Если нужно — 3 языка собираем здесь.',
+            duration: '5–10 дней',
+          },
+          {
+            step: 4,
+            title: 'Запуск',
+            description:
+              'Подключение домена, SEO-проверка и официальный запуск.',
+            duration: '1–2 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          '3 языка (uz/ru/en) готовы — без доп. стоимости',
+          'Через админ-панель сами обновляете тексты и фото',
+          'Сайт готов к продвижению в Google — техническая SEO-база',
+          '10+ успешных проектов (Darslinker, Getolog, Uzbektype и др.)',
+          'Прозрачная цена — от $870, без скрытых доплат',
+          'Бесплатная поддержка 1 месяц после запуска',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Сколько стоит разработка корпоративного сайта?',
+            answer:
+              'В KATOV корпоративный сайт начинается от $870. Это стандартный пакет: главная, о нас, услуги, портфолио, блог и контакты, админ-панель и 3 языка (uz/ru/en). Для сложных проектов (много услуг, кастомные функции, интеграции) — $1200–$2500. Точная цена фиксируется на этапе консультации и не меняется.',
+          },
+          {
+            question: 'За сколько дней готов корпоративный сайт?',
+            answer:
+              'Стандартный срок — 10–20 рабочих дней: консультация (2 дня), UI/UX дизайн (4–6 дней), разработка (5–10 дней), запуск (1–2 дня). Ускоренный вариант — 7–10 дней (простой контент и 4–5 страниц).',
+          },
+          {
+            question: 'Сколько страниц будет на сайте?',
+            answer:
+              'Стандартный пакет: 6–8 страниц — главная, о нас, услуги, портфолио/кейсы, блог или новости, контакты и 1–2 дополнительные (команда, цены). Если нужны отдельные страницы для каждой услуги или больше разделов, это влияет на цену.',
+          },
+          {
+            question: 'Что можно делать через админ-панель?',
+            answer:
+              'Админ-панель простая — редактировать тексты, загружать фото, добавлять услуги и новости в блоге, обновлять контакты. Код не нужен. Сложные изменения делает KATOV (во время поддержки — бесплатно).',
+          },
+          {
+            question: '3 языка (uz/ru/en) идут за доплату?',
+            answer:
+              'Нет. В стандартный пакет 3 языка входят без доплаты. От вас нужен контент на каждом языке (или мы переводим — это отдельная услуга по согласованной цене).',
+          },
+          {
+            question: 'KATOV пишет контент или его предоставляю я?',
+            answer:
+              'В стандартном пакете контент (тексты, фото, описания услуг) предоставляете вы. Если нужно — KATOV напишет контент-стратегию и основные тексты, это отдельная услуга с отдельной ценой.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по корпоративному сайту',
+        ctaSubtitle:
+          'Оставьте данные — свяжемся в течение 1 рабочего дня. Консультация бесплатная, без обязательств.',
+        ctaPrimary: 'Начать проект',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Corporate Website Development — From $870',
+        metaDescription:
+          'Corporate website development — multi-page site for your company. 3 languages, admin panel, from $870. Ready in 10–20 days.',
+        h1: 'Corporate Website: A Complete Solution for Your Company',
+        heroSubtitle:
+          'A multi-page site that presents your company online — services, team, portfolio, and contacts all in one place.',
+        benefits: [
+          {
+            icon: 'ShieldCheck',
+            title: 'Builds trust',
+            description:
+              'A well-built site earns customer trust in your company — that speeds up sales.',
+          },
+          {
+            icon: 'Search',
+            title: 'Found on Google',
+            description:
+              'Ships with an SEO foundation — customers find your company through Google search.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'You stay in control',
+            description:
+              'Update texts, images, and services yourself through the admin panel — no need to come back to us.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Mid-size and large business',
+            description:
+              'Present your company in full, share information about services and team, build a credible image.',
+          },
+          {
+            title: 'Service companies',
+            description:
+              'Legal, accounting, IT, marketing, construction, and other professional services.',
+          },
+          {
+            title: 'Manufacturers & distributors',
+            description:
+              'Product catalog, partner information, and B2B sales inquiries.',
+          },
+          {
+            title: 'Organizations & foundations',
+            description:
+              'Present projects, mission, team, and news to customers and partners.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Home page — company, key services, and contacts',
+          'About page — history, values, team',
+          'Services page (each can be a dedicated page too)',
+          'Portfolio or case studies',
+          'News or blog section',
+          'Contact page — map, phone, form',
+          'Mobile and other-device friendly',
+          'Admin panel — update content yourself',
+          '3 languages (uz/ru/en) ready — no extra cost',
+          'Site launch and domain connection',
+          '1 month free support',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '10–20 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Consultation & strategy',
+            description:
+              'We identify the company, customer, and key goals. Which pages, which services to feature.',
+            duration: '2 days',
+          },
+          {
+            step: 2,
+            title: 'UI/UX design',
+            description:
+              'Each page designed in Figma. Two rounds of revisions included.',
+            duration: '4–6 days',
+          },
+          {
+            step: 3,
+            title: 'Development',
+            description:
+              'Code, content integration, admin panel setup. 3-language version built here if needed.',
+            duration: '5–10 days',
+          },
+          {
+            step: 4,
+            title: 'Launch',
+            description:
+              'Domain connection, SEO check, and official go-live.',
+            duration: '1–2 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          '3 languages (uz/ru/en) ready — no extra cost',
+          'Update texts and images yourself via the admin panel',
+          'Site is Google-ready out of the box — technical SEO foundation',
+          '10+ successful projects (Darslinker, Getolog, Uzbektype, etc.)',
+          'Transparent pricing — from $870, no hidden fees',
+          '1 month free support after launch',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How much does a corporate website cost?',
+            answer:
+              'At KATOV, corporate websites start from $870. This standard package includes: home, about, services, portfolio, blog, contact pages, admin panel, and 3 languages (uz/ru/en). For complex projects (many services, custom features, integrations), $1200–$2500. The final price is locked during the consultation and never changes.',
+          },
+          {
+            question: 'How long does a corporate website take?',
+            answer:
+              'Standard timeline is 10–20 business days: consultation (2 days), UI/UX design (4–6 days), development (5–10 days), launch (1–2 days). Express option: 7–10 days for simpler content and 4–5 pages.',
+          },
+          {
+            question: 'How many pages will the site have?',
+            answer:
+              'Standard package: 6–8 pages — home, about, services, portfolio/cases, blog or news, contact, plus 1–2 extras (team, pricing). If you need dedicated pages for each service or more sections, it affects the price.',
+          },
+          {
+            question: 'What can I do through the admin panel?',
+            answer:
+              'The admin panel is simple — edit text, upload photos, add services and blog posts, update contact information. No code needed. For complex changes, KATOV handles them (free during the support period).',
+          },
+          {
+            question: 'Are 3 languages (uz/ru/en) charged extra?',
+            answer:
+              'No. The standard package includes 3 languages at no extra cost. You provide the content in each language (or we translate it — that\'s a separate service at an agreed price).',
+          },
+          {
+            question: 'Does KATOV write the content or do I provide it?',
+            answer:
+              'In the standard package, you provide the content (text, photos, service descriptions). If you need it, KATOV can write content strategy and core texts — billed as a separate service.',
+          },
+        ],
+        ctaTitle: 'Free consultation for your corporate website',
+        ctaSubtitle:
+          'Leave your details — we\'ll get back within 1 business day. The consultation is free, no commitment.',
+        ctaPrimary: 'Start project',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
   'landing-page': {
     slug: 'landing-page',
     icon: 'Rocket',
