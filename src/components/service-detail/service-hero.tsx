@@ -7,7 +7,6 @@ interface ServiceHeroProps {
   priceSuffix: string;
   content: ServiceLocalizedContent;
   ctaHref: string;
-  portfolioHref: string;
 }
 
 export function ServiceHero({
@@ -16,7 +15,6 @@ export function ServiceHero({
   priceSuffix,
   content,
   ctaHref,
-  portfolioHref,
 }: ServiceHeroProps) {
   const ServiceIcon = iconMap[icon];
 
@@ -77,7 +75,7 @@ export function ServiceHero({
           })}
         </div>
 
-        {/* CTA buttons */}
+        {/* CTA button */}
         <div className="flex flex-wrap gap-3">
           <a
             href={ctaHref}
@@ -88,12 +86,6 @@ export function ServiceHero({
             }}
           >
             {content.ctaPrimary}
-          </a>
-          <a
-            href={portfolioHref}
-            className="btn-outline inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm sm:text-base font-medium"
-          >
-            {content.portfolioTitle}
           </a>
         </div>
       </div>

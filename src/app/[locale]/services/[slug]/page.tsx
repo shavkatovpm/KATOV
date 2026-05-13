@@ -118,7 +118,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
         priceSuffix={service.priceSuffix}
         content={content}
         ctaHref="#contact"
-        portfolioHref="#portfolio"
       />
 
       <ServiceForWho content={content} />
