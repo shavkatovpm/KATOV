@@ -85,6 +85,462 @@ export interface ServiceData {
 }
 
 export const servicesData: Record<string, ServiceData> = {
+  'internet-dokon': {
+    slug: 'internet-dokon',
+    icon: 'ShoppingCart',
+    basePrice: 1700,
+    priceSuffix: '',
+    demand: 5,
+    content: {
+      uz: {
+        title: 'Internet Do\'kon Yaratish — Click, Payme, Yetkazib Berish',
+        metaDescription:
+          'Internet do\'kon yaratish — mahsulot katalogi, Click va Payme to\'lov, buyurtma boshqaruvi. 15–25 kun, $1700 dan. Onlayn savdoni boshlang.',
+        h1: 'Internet Do\'kon Yaratish: Onlayn Savdoni Boshlash',
+        heroSubtitle:
+          'Mahsulot katalogi, Click va Payme to\'lov, buyurtmalarni boshqarish — onlayn savdoning hammasi bitta saytda.',
+        benefits: [
+          {
+            icon: 'CreditCard',
+            title: 'Click va Payme tayyor',
+            description:
+              'Mijoz sayt orqali to\'lov qiladi — pul sizning hisobingizga avtomatik tushadi.',
+          },
+          {
+            icon: 'LayoutDashboard',
+            title: 'Buyurtmalar bir joyda',
+            description:
+              'Admin panelda har bir buyurtma ko\'rinadi: kim sotib oldi, qaysi mahsulot, qancha to\'ladi, qaysi statusda.',
+          },
+          {
+            icon: 'Smartphone',
+            title: 'Telefonda mukammal',
+            description:
+              'Mijoz katalogni telefonda ko\'radi, mahsulotni tanlaydi va shu yerda to\'laydi.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Brand va magazinlar',
+            description:
+              'O\'z mahsulotingizni onlayn sotib, Instagram\'dagi savdoni kengaytirish va do\'kon ochish.',
+          },
+          {
+            title: 'Distributorlar',
+            description:
+              'Ulgurji savdo, hamkorlar uchun katalog va buyurtma qabul qilish tizimi.',
+          },
+          {
+            title: 'Restoran va kulinariya',
+            description:
+              'Onlayn buyurtma va yetkazib berish — taom katalogi, savatcha va to\'lov.',
+          },
+          {
+            title: 'Xizmat ko\'rsatuvchilar',
+            description:
+              'Onlayn kurs, paket, mahsulotni saytda sotish va to\'lov yig\'ish.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Mahsulot katalogi — kategoriyalar, filtr, qidiruv',
+          'Mahsulot sahifasi — rasm, tavsif, narx, qoldiq',
+          'Savatcha va checkout (buyurtma berish jarayoni)',
+          'Click va Payme to\'lov integratsiyasi',
+          'Yetkazib berish hududlari va narxlari sozlash',
+          'Buyurtmalar admin paneli — status, tarix, hisobotlar',
+          'Mahsulot va qoldiq boshqaruvi',
+          'Email va Telegram bildirishnomalari (yangi buyurtma, to\'lov)',
+          'Telefon va boshqa qurilmalarga moslashuv',
+          '3 til (uz/ru/en) tayyor — qo\'shimcha narxsiz',
+          'Saytni ishga tushirish va domen ulash',
+          '1 oy bepul support',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '15–25 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Konsultatsiya va strategiya',
+            description:
+              'Mahsulot turlari, kategoriyalar, to\'lov va yetkazib berish shartlari. Click/Payme akkauntlar mavjudligi.',
+            duration: '2 kun',
+          },
+          {
+            step: 2,
+            title: 'UI/UX dizayn',
+            description:
+              'Katalog, mahsulot, savatcha, checkout va admin panel — Figma\'da dizayn. Ikki revizyon.',
+            duration: '5–7 kun',
+          },
+          {
+            step: 3,
+            title: 'Development',
+            description:
+              'Kod, to\'lov integratsiyasi (Click + Payme), admin panel, bildirishnomalar.',
+            duration: '7–14 kun',
+          },
+          {
+            step: 4,
+            title: 'Ishga tushirish',
+            description:
+              'Domen ulash, mahsulot ma\'lumotlarini yuklash, to\'lov test, rasmiy ishga tushirish.',
+            duration: '1–2 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Click va Payme — O\'zbekiston to\'lov tizimlari to\'liq integratsiyalanadi',
+          'Admin panel orqali mahsulot, narx va qoldiqni o\'zingiz boshqarasiz',
+          '3 til (uz/ru/en) tayyor — qo\'shimcha narxsiz',
+          'Sayt Google va Yandex\'da chiqishi uchun tayyor — texnik SEO bazasi',
+          '10+ muvaffaqiyatli loyiha (Darslinker, Getolog, Uzbektype va boshqalar)',
+          'Shaffof narx — $1700 dan, qo\'shimcha to\'lov yo\'q',
+          'Ishga tushgandan keyin 1 oy bepul support',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Internet do\'kon yaratish qancha turadi?',
+            answer:
+              'KATOV\'da internet do\'kon $1700 dan boshlanadi. Standart paket: katalog (200 gacha mahsulot), savatcha, Click va Payme to\'lov, admin panel va 3 til. Murakkab loyihalar (ko\'p kategoriyalar, integratsiyalar, custom funksiyalar) $2500–$5000 oralig\'ida. Aniq narx konsultatsiyada belgilanadi va keyin o\'zgarmaydi.',
+          },
+          {
+            question: 'Internet do\'kon necha kunda tayyor bo\'ladi?',
+            answer:
+              'Standart muddat — 15–25 ish kuni. Konsultatsiya (2 kun), dizayn (5–7 kun), kod va to\'lov integratsiyasi (7–14 kun), ishga tushirish (1–2 kun). Mahsulotlar soni va integratsiyalar muddatga ta\'sir qiladi.',
+          },
+          {
+            question: 'Click va Payme\'ni qanday qo\'shamiz?',
+            answer:
+              'KATOV Click va Payme merchant API\'lariga integratsiya qiladi — mijoz sayt orqali to\'lov qiladi, sizga avtomatik tasdiq keladi. Sizning Click va Payme merchant akkauntingiz bo\'lishi kerak. Agar yo\'q bo\'lsa, KATOV ularni ochishda yordam beradi.',
+          },
+          {
+            question: 'Mahsulotlarni qanday qo\'shaman va boshqaraman?',
+            answer:
+              'Admin panel orqali — yangi mahsulot qo\'shish, rasm yuklash, narx va qoldiq yangilash, kategoriyalar yaratish. Kod yozish kerak emas. Buyurtmalar ham shu yerda ko\'rinadi: kim, qachon, qancha — barchasi statistika bilan.',
+          },
+          {
+            question: 'Yetkazib berish va manzil qanday ishlaydi?',
+            answer:
+              'Yetkazib berish hududlari (masalan Toshkent ichida, viloyatlar, butun O\'zbekiston) admin panel orqali sozlanadi — har birining narxi va vaqti alohida. Mijoz checkout\'da hududni tanlaydi va narx avtomatik hisoblanadi. Hududsiz "olib ketish" varianti ham mumkin.',
+          },
+          {
+            question: 'Telegram orqali bildirishnoma keladimi?',
+            answer:
+              'Ha. Har yangi buyurtma, to\'lov tasdiqi yoki muhim hodisa Telegram\'ga (sizning shaxsiy yoki ish guruhingizga) avtomatik kelishi mumkin. Bu boshqa funksiyalardan ortda emas, narxga qo\'shimcha emas.',
+          },
+        ],
+        ctaTitle: 'Internet do\'kon uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Ma\'lumotlarni qoldiring, 1 ish kuni ichida bog\'lanamiz. Konsultatsiya bepul, hech qanday majburiyat yo\'q.',
+        ctaPrimary: 'Loyihani boshlash',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Разработка Интернет-Магазина — Под Ключ',
+        metaDescription:
+          'Разработка интернет-магазина — каталог, Click и Payme, управление заказами. 15–25 дней, от $1700. Запустите онлайн-продажи.',
+        h1: 'Разработка Интернет-Магазина: Запустить Онлайн-Продажи',
+        heroSubtitle:
+          'Каталог товаров, оплата Click и Payme, управление заказами — всё для онлайн-продаж в одном сайте.',
+        benefits: [
+          {
+            icon: 'CreditCard',
+            title: 'Click и Payme готовы',
+            description:
+              'Клиент оплачивает через сайт — деньги поступают на ваш счёт автоматически.',
+          },
+          {
+            icon: 'LayoutDashboard',
+            title: 'Заказы в одном месте',
+            description:
+              'В админ-панели виден каждый заказ: кто купил, какой товар, сколько оплатил, в каком статусе.',
+          },
+          {
+            icon: 'Smartphone',
+            title: 'Идеально на телефоне',
+            description:
+              'Клиент смотрит каталог с телефона, выбирает товар и сразу оплачивает.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Бренды и магазины',
+            description:
+              'Продавайте свой товар онлайн, выходите за рамки Instagram и открывайте свой магазин.',
+          },
+          {
+            title: 'Дистрибьюторы',
+            description:
+              'Оптовая продажа, каталог и приём заказов для партнёров.',
+          },
+          {
+            title: 'Рестораны и кулинария',
+            description:
+              'Онлайн-заказ и доставка — каталог блюд, корзина и оплата.',
+          },
+          {
+            title: 'Сервисные компании',
+            description:
+              'Онлайн-курсы, пакеты, цифровые продукты — продаёте и принимаете оплату прямо на сайте.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'Каталог товаров — категории, фильтры, поиск',
+          'Карточка товара — фото, описание, цена, остаток',
+          'Корзина и оформление заказа',
+          'Интеграция Click и Payme',
+          'Зоны и стоимость доставки',
+          'Админ-панель заказов — статус, история, отчёты',
+          'Управление товарами и остатками',
+          'Уведомления на email и Telegram (новый заказ, оплата)',
+          'Адаптация под телефоны и другие устройства',
+          '3 языка (uz/ru/en) — без доп. стоимости',
+          'Запуск сайта и подключение домена',
+          'Бесплатная поддержка 1 месяц',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '15–25 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Консультация и стратегия',
+            description:
+              'Типы товаров, категории, условия оплаты и доставки. Наличие аккаунтов Click/Payme.',
+            duration: '2 дня',
+          },
+          {
+            step: 2,
+            title: 'UI/UX дизайн',
+            description:
+              'Каталог, товар, корзина, оформление и админ-панель — дизайн в Figma. Две правки.',
+            duration: '5–7 дней',
+          },
+          {
+            step: 3,
+            title: 'Разработка',
+            description:
+              'Код, интеграция оплаты (Click + Payme), админ-панель, уведомления.',
+            duration: '7–14 дней',
+          },
+          {
+            step: 4,
+            title: 'Запуск',
+            description:
+              'Подключение домена, загрузка товаров, тестирование оплаты, официальный запуск.',
+            duration: '1–2 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Click и Payme — платёжные системы Узбекистана полностью интегрированы',
+          'Через админ-панель сами управляете товарами, ценами и остатками',
+          '3 языка (uz/ru/en) — без доп. стоимости',
+          'Сайт готов к продвижению в Google и Yandex — техническая SEO-база',
+          '10+ успешных проектов (Darslinker, Getolog, Uzbektype и др.)',
+          'Прозрачная цена — от $1700, без скрытых доплат',
+          'Бесплатная поддержка 1 месяц после запуска',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Сколько стоит разработка интернет-магазина?',
+            answer:
+              'В KATOV интернет-магазин начинается от $1700. Стандартный пакет: каталог (до 200 товаров), корзина, оплата Click и Payme, админ-панель и 3 языка. Для сложных проектов (много категорий, интеграции, кастом) — $2500–$5000. Точная цена фиксируется на этапе консультации и не меняется.',
+          },
+          {
+            question: 'За сколько дней готов интернет-магазин?',
+            answer:
+              'Стандартный срок — 15–25 рабочих дней. Консультация (2 дня), дизайн (5–7 дней), код и платёжная интеграция (7–14 дней), запуск (1–2 дня). Количество товаров и интеграции влияют на срок.',
+          },
+          {
+            question: 'Как подключаются Click и Payme?',
+            answer:
+              'KATOV интегрирует merchant API Click и Payme — клиент оплачивает через сайт, вам приходит автоматическое подтверждение. Нужны ваши merchant-аккаунты Click и Payme. Если их нет — KATOV поможет оформить.',
+          },
+          {
+            question: 'Как добавлять и управлять товарами?',
+            answer:
+              'Через админ-панель — добавить новый товар, загрузить фото, обновить цену и остаток, создать категории. Код не нужен. Здесь же видны заказы: кто, когда, сколько — со статистикой.',
+          },
+          {
+            question: 'Как работает доставка и адреса?',
+            answer:
+              'Зоны доставки (например по Ташкенту, по регионам, по всему Узбекистану) настраиваются в админ-панели — у каждой своя цена и срок. Клиент выбирает зону на оформлении, цена считается автоматически. Можно также вариант "самовывоз".',
+          },
+          {
+            question: 'Приходят ли уведомления в Telegram?',
+            answer:
+              'Да. Каждый новый заказ, подтверждение оплаты и важное событие может приходить в Telegram (личный или рабочий чат) автоматически. Это входит в пакет — без доплаты.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по интернет-магазину',
+        ctaSubtitle:
+          'Оставьте данные — свяжемся в течение 1 рабочего дня. Консультация бесплатная, без обязательств.',
+        ctaPrimary: 'Начать проект',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'E-commerce Website Development — Click & Payme',
+        metaDescription:
+          'E-commerce website development — product catalog, Click and Payme payments, order management. 15–25 days, from $1700. Start selling online.',
+        h1: 'E-commerce Website: Start Selling Online',
+        heroSubtitle:
+          'Product catalog, Click and Payme payments, and order management — everything you need to sell online in one site.',
+        benefits: [
+          {
+            icon: 'CreditCard',
+            title: 'Click & Payme ready',
+            description:
+              'Customers pay through the site — funds land in your account automatically.',
+          },
+          {
+            icon: 'LayoutDashboard',
+            title: 'Orders in one place',
+            description:
+              'The admin panel shows every order: who bought, which product, how much they paid, and the status.',
+          },
+          {
+            icon: 'Smartphone',
+            title: 'Perfect on mobile',
+            description:
+              'Customers browse the catalog on their phone, pick a product, and pay on the spot.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Brands & retailers',
+            description:
+              'Sell your products online, scale past Instagram, and run your own store.',
+          },
+          {
+            title: 'Distributors',
+            description:
+              'Wholesale, partner-facing catalogs, and an order intake system.',
+          },
+          {
+            title: 'Restaurants & food businesses',
+            description:
+              'Online ordering and delivery — menu, cart, and payments built in.',
+          },
+          {
+            title: 'Service providers',
+            description:
+              'Online courses, packages, digital products — sell and collect payments on the site.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Product catalog — categories, filters, search',
+          'Product page — images, description, price, stock',
+          'Cart and checkout',
+          'Click and Payme payment integration',
+          'Delivery zones and pricing',
+          'Order admin panel — status, history, reports',
+          'Product and stock management',
+          'Email and Telegram notifications (new order, payment)',
+          'Mobile and other-device friendly',
+          '3 languages (uz/ru/en) — no extra cost',
+          'Site launch and domain connection',
+          '1 month free support',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '15–25 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Consultation & strategy',
+            description:
+              'Product types, categories, payment and delivery conditions. Whether you already have Click/Payme accounts.',
+            duration: '2 days',
+          },
+          {
+            step: 2,
+            title: 'UI/UX design',
+            description:
+              'Catalog, product, cart, checkout, and admin panel — designed in Figma. Two rounds of revisions.',
+            duration: '5–7 days',
+          },
+          {
+            step: 3,
+            title: 'Development',
+            description:
+              'Code, payment integration (Click + Payme), admin panel, notifications.',
+            duration: '7–14 days',
+          },
+          {
+            step: 4,
+            title: 'Launch',
+            description:
+              'Domain connection, product upload, payment testing, official launch.',
+            duration: '1–2 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Click and Payme — Uzbekistan payment systems fully integrated',
+          'You manage products, pricing, and stock via the admin panel',
+          '3 languages (uz/ru/en) ready — no extra cost',
+          'Google and Yandex-ready out of the box — technical SEO foundation',
+          '10+ successful projects (Darslinker, Getolog, Uzbektype, etc.)',
+          'Transparent pricing — from $1700, no hidden fees',
+          '1 month free support after launch',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How much does an e-commerce website cost?',
+            answer:
+              'At KATOV, e-commerce websites start from $1700. The standard package includes catalog (up to 200 products), cart, Click and Payme payments, admin panel, and 3 languages. Complex projects (many categories, integrations, custom features) run $2500–$5000. The final price is locked during the consultation and never changes.',
+          },
+          {
+            question: 'How long does an e-commerce site take?',
+            answer:
+              'Standard timeline is 15–25 business days: consultation (2 days), design (5–7 days), code and payment integration (7–14 days), launch (1–2 days). Product count and integrations affect the timeline.',
+          },
+          {
+            question: 'How are Click and Payme connected?',
+            answer:
+              'KATOV integrates Click and Payme merchant APIs — customers pay through the site, you get automatic confirmation. You\'ll need your own Click and Payme merchant accounts. If you don\'t have them, KATOV can help you set them up.',
+          },
+          {
+            question: 'How do I add and manage products?',
+            answer:
+              'Through the admin panel — add new products, upload photos, update price and stock, create categories. No code needed. Orders also appear here: who, when, how much — with statistics.',
+          },
+          {
+            question: 'How does delivery and address work?',
+            answer:
+              'Delivery zones (e.g. within Tashkent, across regions, all of Uzbekistan) are configured in the admin panel — each with its own price and timing. Customers select a zone at checkout and the price is calculated automatically. A "pickup" option is also possible.',
+          },
+          {
+            question: 'Do Telegram notifications work?',
+            answer:
+              'Yes. Every new order, payment confirmation, and important event can be sent to Telegram (your personal or team chat) automatically. It\'s included in the package — no extra cost.',
+          },
+        ],
+        ctaTitle: 'Free consultation for your e-commerce site',
+        ctaSubtitle:
+          'Leave your details — we\'ll get back within 1 business day. The consultation is free, no commitment.',
+        ctaPrimary: 'Start project',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
   'korporativ-sayt': {
     slug: 'korporativ-sayt',
     icon: 'Building2',
