@@ -102,9 +102,9 @@ export const servicesData: Record<string, ServiceData> = {
         benefits: [
           {
             icon: 'CreditCard',
-            title: 'Click va Payme tayyor',
+            title: 'Click va Payme ulab beriladi',
             description:
-              'Mijoz sayt orqali to\'lov qiladi — pul sizning hisobingizga avtomatik tushadi.',
+              'KATOV ulaydi: mijoz sayt orqali to\'lov qiladi va pul sizning hisobingizga avtomatik tushadi.',
           },
           {
             icon: 'LayoutDashboard',
@@ -191,7 +191,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
-          'Click va Payme — O\'zbekiston to\'lov tizimlari to\'liq integratsiyalanadi',
+          'Click va Payme — O\'zbekiston to\'lov tizimlarini KATOV o\'zi ulab beradi',
           'Admin panel orqali mahsulot, narx va qoldiqni o\'zingiz boshqarasiz',
           '3 til (uz/ru/en) tayyor — qo\'shimcha narxsiz',
           'Sayt Google va Yandex\'da chiqishi uchun tayyor — texnik SEO bazasi',
@@ -251,9 +251,9 @@ export const servicesData: Record<string, ServiceData> = {
         benefits: [
           {
             icon: 'CreditCard',
-            title: 'Click и Payme готовы',
+            title: 'Подключаем Click и Payme',
             description:
-              'Клиент оплачивает через сайт — деньги поступают на ваш счёт автоматически.',
+              'KATOV подключает: клиент оплачивает через сайт, деньги поступают на ваш счёт автоматически.',
           },
           {
             icon: 'LayoutDashboard',
@@ -340,7 +340,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Почему KATOV',
         whyUs: [
-          'Click и Payme — платёжные системы Узбекистана полностью интегрированы',
+          'Click и Payme — платёжные системы Узбекистана подключаем сами',
           'Через админ-панель сами управляете товарами, ценами и остатками',
           '3 языка (uz/ru/en) — без доп. стоимости',
           'Сайт готов к продвижению в Google и Yandex — техническая SEO-база',
@@ -400,9 +400,9 @@ export const servicesData: Record<string, ServiceData> = {
         benefits: [
           {
             icon: 'CreditCard',
-            title: 'Click & Payme ready',
+            title: 'We connect Click & Payme',
             description:
-              'Customers pay through the site — funds land in your account automatically.',
+              'KATOV sets it up: customers pay through the site and funds land in your account automatically.',
           },
           {
             icon: 'LayoutDashboard',
@@ -489,7 +489,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Why KATOV',
         whyUs: [
-          'Click and Payme — Uzbekistan payment systems fully integrated',
+          'Click and Payme — we connect Uzbekistan payment systems for you',
           'You manage products, pricing, and stock via the admin panel',
           '3 languages (uz/ru/en) ready — no extra cost',
           'Google and Yandex-ready out of the box — technical SEO foundation',
@@ -1108,9 +1108,9 @@ export const servicesData: Record<string, ServiceData> = {
               'Hosting KATOV tomonidan sozlanadi va ulanadi — qo\'shimcha to\'lovsiz. Domen (.uz, .com va h.k.) sizning nomingizga ro\'yxat qilinadi — bu yillik to\'lov ($10–$30/yil .uz uchun), to\'g\'ridan-to\'g\'ri ro\'yxatchilarga to\'lanadi. Domen sizning egaligingizda qoladi.',
           },
           {
-            question: 'Click va Payme integratsiyasi tayyor keladimi?',
+            question: 'Click va Payme to\'lov tizimi qanday qo\'shiladi?',
             answer:
-              'Ha, agar kerak bo\'lsa. Click va Payme merchant API\'lari integratsiya qilinadi: mijoz sayt orqali to\'lov qiladi, sizga avtomatik tasdiq keladi. Buning uchun sizning Click va Payme merchant akkauntingiz bo\'lishi kerak (yoki KATOV qo\'lga olishida yordam beradi).',
+              'KATOV Click va Payme to\'lov tizimini saytga ulab beradi (oldindan tayyor emas — har loyihada alohida sozlanadi). Mijoz sayt orqali to\'lov qiladi, sizga avtomatik tasdiq keladi. Buning uchun sizning Click va Payme merchant akkauntingiz bo\'lishi kerak (yo\'q bo\'lsa, KATOV ochishda yordam beradi).',
           },
           {
             question: 'Keyin o\'zim tahrir qila olamanmi (kontent yangilash)?',
@@ -1241,9 +1241,9 @@ export const servicesData: Record<string, ServiceData> = {
               'Хостинг настраивает и подключает KATOV — без дополнительных платежей. Домен (.uz, .com и др.) регистрируется на ваше имя — это годовая оплата ($10–$30/год для .uz), напрямую регистраторам. Домен остаётся в вашем владении.',
           },
           {
-            question: 'Интеграция Click и Payme включена?',
+            question: 'Как подключается оплата Click и Payme?',
             answer:
-              'Да, если нужно. Интегрируем merchant API Click и Payme: клиент оплачивает через сайт, вам приходит подтверждение. Нужны ваши merchant-аккаунты Click и Payme (или KATOV поможет их оформить).',
+              'KATOV подключает Click и Payme на проекте (заранее не "готовы" — настраиваем под каждый сайт). Клиент оплачивает через сайт, вам приходит подтверждение. Нужны ваши merchant-аккаунты Click и Payme (если их нет — KATOV поможет оформить).',
           },
           {
             question: 'Смогу ли я сам редактировать контент позже?',
@@ -1374,9 +1374,9 @@ export const servicesData: Record<string, ServiceData> = {
               'Hosting is set up and connected by KATOV — no extra fees. Domain (.uz, .com, etc.) is registered in your name — this is a yearly fee ($10–$30/year for .uz) paid directly to registrars. The domain stays under your ownership.',
           },
           {
-            question: 'Are Click and Payme integrations included?',
+            question: 'How are Click and Payme payments connected?',
             answer:
-              'Yes, if needed. We integrate Click and Payme merchant APIs: customers pay via the site, you receive automatic confirmation. You\'ll need your own merchant accounts (or KATOV can help you set them up).',
+              'KATOV connects Click and Payme on each project (they aren\'t "pre-built" — we set them up per site). Customers pay through the site and you get an automatic confirmation. You\'ll need your own Click and Payme merchant accounts (if you don\'t have them, KATOV can help set them up).',
           },
           {
             question: 'Can I edit the content myself later?',
