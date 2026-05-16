@@ -12,6 +12,7 @@ import { ServicePortfolio } from '@/components/service-detail/service-portfolio'
 import { ServiceFAQ } from '@/components/service-detail/service-faq';
 import { ServiceContactForm } from '@/components/service-detail/service-contact-form';
 import { ServiceSchema } from '@/components/service-detail/service-schema';
+import { ServiceRelated } from '@/components/service-detail/service-related';
 
 const SITE_URL = 'https://katov.uz';
 
@@ -132,6 +133,18 @@ export default async function ServicePage({ params }: ServicePageProps) {
       />
 
       <ServiceFAQ content={content} />
+
+      <ServiceRelated
+        currentSlug={slug}
+        locale={locale as Locale}
+        title={
+          locale === 'uz'
+            ? 'Boshqa xizmatlarimiz'
+            : locale === 'ru'
+            ? 'Другие наши услуги'
+            : 'Other services'
+        }
+      />
 
       <ServiceContactForm
         serviceTitle={content.h1}

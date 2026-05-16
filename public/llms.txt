@@ -1,0 +1,65 @@
+# KATOV
+
+> KATOV — IT xizmatlar agentligi O'zbekistonda. Veb-sayt, Telegram bot, CRM, ERP va boshqa raqamli yechimlar. 3 til (uz/ru/en), shaffof narx, individual yondashuv.
+
+Site: https://katov.uz
+Contact: hello@katov.uz · +998 33 888 01 33 · @katov_uz
+Founded: 2024
+Languages: Uzbek, Russian, English
+Areas served: Uzbekistan
+
+## Services
+
+- [Landing Page Yaratish](https://katov.uz/uz/services/landing-page): Sotuvchi bir sahifali sayt. Click va Payme to'lov, mobil-mos. 5–10 kun, $270 dan.
+- [Korporativ Sayt](https://katov.uz/uz/services/korporativ-sayt): Kompaniya uchun ko'p sahifali sayt — xizmatlar, jamoa, portfolio, blog. 3 til, admin panel. 10–20 kun, $870 dan.
+- [Internet Do'kon](https://katov.uz/uz/services/internet-dokon): E-commerce sayt — mahsulot katalogi, Click va Payme to'lov, buyurtma boshqaruvi, yetkazib berish. 15–25 kun, $1700 dan.
+- [Telegram Bot](https://katov.uz/uz/services/telegram-bot): Biznes uchun bot — buyurtma, to'lov, mijoz xizmati. 7–14 kun, $400 dan.
+- [Restoran va Kafe Sayti](https://katov.uz/uz/services/restoran-sayti): QR menyu, onlayn buyurtma, stol bron. 7–14 kun, $600 dan.
+- [SEO Xizmati](https://katov.uz/uz/services/seo-xizmati): Texnik audit, kalit so'zlar, kontent, backlink. $300/oy dan, oylik hisobot.
+- [Sayt Redesign](https://katov.uz/uz/services/sayt-redesign): Eski saytni yangilash — dizayn, tezlik, mobil, SEO. $500 dan.
+- [CRM Tizimi](https://katov.uz/uz/services/crm-tizimi): Custom mijoz va sotuv boshqaruvi tizimi. $1000 dan.
+- [ERP Tizimi](https://katov.uz/uz/services/erp-tizimi): Korxona avtomatlashtirish — moliya, ombor, HR. $2500 dan.
+- [Portfolio Sayt](https://katov.uz/uz/services/portfolio-sayt): Shaxsiy brending — mutaxassis, freelancer. $270 dan.
+- [Admin Panel](https://katov.uz/uz/services/admin-panel): Custom dashboard va boshqaruv tizimi. $800 dan.
+- [Hosting va Support](https://katov.uz/uz/services/hosting-support): Faqat KATOV qurgan loyihalar uchun oylik xizmat. $50/oy dan.
+
+## Pricing
+
+- Minimal paket: $270 (oddiy landing yoki portfolio)
+- Standart paket: $870 (korporativ/business sayt)
+- Individual paket: $1700+ (e-commerce, CRM, custom)
+
+## Process
+
+Har bir loyiha 4 bosqichli:
+1. Konsultatsiya va strategiya (bizneing, target, maqsadlar)
+2. UI/UX dizayn (Figma'da prototip, 2 revizyon kiradi)
+3. Development (kod, integratsiya, test)
+4. Ishga tushirish (domen, SEO tekshiruvi, launch)
+
+## Portfolio
+
+- [Darslinker](https://darslinker.uz) — Onlayn ta'limni tizimlashtirish platformasi
+- [Getolog](https://getolog.uz) — Yopiq Telegram kanallarini avtomatlashtirish
+- [Uzbektype](https://uzbektype.uz) — Tez va to'g'ri yozishni tekshirish
+
+## Brand principles
+
+- Yolg'on da'vo yo'q (foundingDate 2024, real 10+ loyiha)
+- Texnik mubolag'a yo'q (Google #1 100% kafolat yo'q)
+- Faqat ko'rsatadigan xizmatlar haqida yozish
+- Tech stack mijozga ko'rsatilmaydi (raqobatchilarga sirimizni oshkor qilmaymiz)
+- "Tayyor / ready" yo'q — "ulab beriladi / we connect" formati
+- Har loyihaga alohida yondashuv (template emas, custom)
+
+## Languages
+
+- [Uzbek (uz)](https://katov.uz/uz) — asosiy
+- [Russian (ru)](https://katov.uz/ru)
+- [English (en)](https://katov.uz/en)
+
+## Optional
+
+- [Sitemap](https://katov.uz/sitemap.xml)
+- [Blog](https://katov.uz/uz/blog) — IT, sayt yaratish, SEO va biznes mavzulari
+- [Studio](https://katov.uz/uz/studio) — KATOV laboratoriyasi va vositalari

@@ -50,7 +50,10 @@ export function ServiceHero({
         <h1 className="text-[1.625rem] leading-[1.2] sm:text-4xl sm:leading-tight md:text-5xl lg:text-6xl font-bold mb-5 text-balance">
           {content.h1}
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-muted max-w-3xl leading-relaxed mb-10">
+        <p
+          className="text-base sm:text-lg md:text-xl text-muted max-w-3xl leading-relaxed mb-10"
+          data-aeo-speakable
+        >
           {content.heroSubtitle}
         </p>
 
