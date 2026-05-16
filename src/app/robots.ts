@@ -32,7 +32,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Diffbot', allow: '/' },           // Diffbot (knowledge graph)
       { userAgent: 'Amazonbot', allow: '/' },         // Amazon Alexa
     ],
-    sitemap: 'https://katov.uz/sitemap.xml',
-    host: 'https://katov.uz',
+    sitemap: 'https://www.katov.uz/sitemap.xml',
+    host: 'https://www.katov.uz',
   };
 }

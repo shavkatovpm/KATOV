@@ -28,13 +28,13 @@ export function ServiceSchema({
     '@id': `${url}#service`,
     name: content.h1,
     description: content.metaDescription,
-    image: 'https://katov.uz/og-image.png',
+    image: 'https://www.katov.uz/og-image.png',
     provider: {
       '@type': 'Organization',
-      '@id': 'https://katov.uz/#organization',
+      '@id': 'https://www.katov.uz/#organization',
       name: 'KATOV',
-      url: 'https://katov.uz',
-      logo: 'https://katov.uz/og-image.png',
+      url: 'https://www.katov.uz',
+      logo: 'https://www.katov.uz/og-image.png',
     },
     areaServed: {
       '@type': 'Country',
@@ -72,6 +72,7 @@ export function ServiceSchema({
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
     itemListElement: [
       {
         '@type': 'ListItem',
@@ -123,10 +124,10 @@ export function ServiceSchema({
     name: content.title,
     description: content.metaDescription,
     inLanguage: locale,
-    isPartOf: { '@id': 'https://katov.uz/#website' },
+    isPartOf: { '@id': 'https://www.katov.uz/#website' },
     about: { '@id': `${url}#service` },
     breadcrumb: { '@id': `${url}#breadcrumb` },
-    primaryImageOfPage: 'https://katov.uz/og-image.png',
+    primaryImageOfPage: 'https://www.katov.uz/og-image.png',
     dateModified: SERVICES_LAST_MODIFIED,
     speakable: {
       '@type': 'SpeakableSpecification',

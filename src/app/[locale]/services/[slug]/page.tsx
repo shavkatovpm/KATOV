@@ -13,8 +13,7 @@ import { ServiceFAQ } from '@/components/service-detail/service-faq';
 import { ServiceContactForm } from '@/components/service-detail/service-contact-form';
 import { ServiceSchema } from '@/components/service-detail/service-schema';
 import { ServiceRelated } from '@/components/service-detail/service-related';
-
-const SITE_URL = 'https://katov.uz';
+import { localizedUrl } from '@/lib/urls';
 
 interface ServicePageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -39,12 +38,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   if (!data) return {};
 
   const { content } = data;
-  const canonical = `${SITE_URL}/${locale}/services/${slug}`;
+  const canonical = localizedUrl(locale as Locale, `/services/${slug}`);
   const languages: Record<string, string> = {};
   for (const loc of locales) {
-    languages[loc] = `${SITE_URL}/${loc}/services/${slug}`;
+    languages[loc] = localizedUrl(loc, `/services/${slug}`);
   }
-  languages['x-default'] = `${SITE_URL}/uz/services/${slug}`;
+  languages['x-default'] = localizedUrl('uz', `/services/${slug}`);
 
   return {
     title: content.title,
@@ -95,9 +94,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
   if (!data) notFound();
 
   const { service, content } = data;
-  const url = `${SITE_URL}/${locale}/services/${slug}`;
-  const homeUrl = `${SITE_URL}/${locale}`;
-  const servicesIndexUrl = `${SITE_URL}/${locale}/services`;
+  const url = localizedUrl(locale as Locale, `/services/${slug}`);
+  const homeUrl = localizedUrl(locale as Locale);
+  const servicesIndexUrl = localizedUrl(locale as Locale, '/services');
 
   const categoryLabel = (id: string) =>
     portfolioCategoryLabels[locale as Locale]?.[id] ?? id;
@@ -127,7 +126,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <ServiceWhyUs content={content} />
 
       <ServicePortfolio
-        serviceSlug={slug}
         content={content}
         categoryLabel={categoryLabel}
       />

@@ -1,35 +1,34 @@
 import { MetadataRoute } from 'next';
 import { getAllServiceSlugs } from '@/data/services';
+import { locales, type Locale } from '@/i18n/config';
+import { localizedUrl, SITE_URL } from '@/lib/urls';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://katov.uz';
-  const locales = ['uz', 'ru', 'en'];
   const now = new Date();
-
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
-  // Root URL
+  // Root URL (apex of canonical host)
   sitemapEntries.push({
-    url: baseUrl,
+    url: SITE_URL,
     lastModified: now,
     changeFrequency: 'weekly',
     priority: 1,
   });
 
-  // Main pages per locale
+  // Main pages per locale (UZ collapses to root, others get /{locale})
   locales.forEach((locale) => {
     sitemapEntries.push({
-      url: `${baseUrl}/${locale}`,
+      url: localizedUrl(locale as Locale),
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1,
     });
   });
 
-  // Studio page
+  // Studio
   locales.forEach((locale) => {
     sitemapEntries.push({
-      url: `${baseUrl}/${locale}/studio`,
+      url: localizedUrl(locale as Locale, '/studio'),
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.8,
@@ -39,29 +38,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Price calculator
   locales.forEach((locale) => {
     sitemapEntries.push({
-      url: `${baseUrl}/${locale}/studio/price`,
+      url: localizedUrl(locale as Locale, '/studio/price'),
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
     });
   });
 
-  // Services index page (per locale)
+  // Services index
   locales.forEach((locale) => {
     sitemapEntries.push({
-      url: `${baseUrl}/${locale}/services`,
+      url: localizedUrl(locale as Locale, '/services'),
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
     });
   });
 
-  // Service detail pages (dynamic from data)
+  // Service detail pages
   const serviceSlugs = getAllServiceSlugs();
   locales.forEach((locale) => {
     serviceSlugs.forEach((slug) => {
       sitemapEntries.push({
-        url: `${baseUrl}/${locale}/services/${slug}`,
+        url: localizedUrl(locale as Locale, `/services/${slug}`),
         lastModified: now,
         changeFrequency: 'monthly',
         priority: 0.9,
@@ -80,7 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const slugs = blogPosts[locale] || [];
     slugs.forEach((slug) => {
       sitemapEntries.push({
-        url: `${baseUrl}/${locale}/blog/${slug}`,
+        url: localizedUrl(locale as Locale, `/blog/${slug}`),
         lastModified: now,
         changeFrequency: 'monthly',
         priority: 0.6,

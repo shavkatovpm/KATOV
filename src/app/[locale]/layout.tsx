@@ -99,16 +99,16 @@ export default async function LocaleLayout({
               '@graph': [
                 {
                   '@type': ['Organization', 'ProfessionalService'],
-                  '@id': 'https://katov.uz/#organization',
+                  '@id': 'https://www.katov.uz/#organization',
                   name: 'KATOV',
-                  url: 'https://katov.uz',
+                  url: 'https://www.katov.uz',
                   logo: {
                     '@type': 'ImageObject',
-                    url: 'https://katov.uz/og-image.png',
+                    url: 'https://www.katov.uz/og-image.png',
                     width: 1200,
                     height: 1200,
                   },
-                  image: 'https://katov.uz/og-image.png',
+                  image: 'https://www.katov.uz/og-image.png',
                   description:
                     'KATOV — IT xizmatlar agentligi O\'zbekistonda: veb-sayt, landing page, korporativ sayt, Internet do\'kon, Telegram bot, CRM, ERP, SEO. 3 til (uz/ru/en).',
                   foundingDate: '2024',
@@ -149,27 +149,27 @@ export default async function LocaleLayout({
                     'Payme payment integration',
                   ],
                   makesOffer: [
-                    { '@type': 'Offer', name: 'Landing Page Yaratish', url: 'https://katov.uz/uz/services/landing-page', price: 270, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Korporativ Sayt Yaratish', url: 'https://katov.uz/uz/services/korporativ-sayt', price: 870, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Internet Do\'kon Yaratish', url: 'https://katov.uz/uz/services/internet-dokon', price: 1700, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Telegram Bot Yaratish', url: 'https://katov.uz/uz/services/telegram-bot', price: 400, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'SEO Xizmati', url: 'https://katov.uz/uz/services/seo-xizmati', price: 300, priceCurrency: 'USD' },
+                    { '@type': 'Offer', name: 'Landing Page Yaratish', url: 'https://www.katov.uz/services/landing-page', price: 270, priceCurrency: 'USD' },
+                    { '@type': 'Offer', name: 'Korporativ Sayt Yaratish', url: 'https://www.katov.uz/services/korporativ-sayt', price: 870, priceCurrency: 'USD' },
+                    { '@type': 'Offer', name: 'Internet Do\'kon Yaratish', url: 'https://www.katov.uz/services/internet-dokon', price: 1700, priceCurrency: 'USD' },
+                    { '@type': 'Offer', name: 'Telegram Bot Yaratish', url: 'https://www.katov.uz/services/telegram-bot', price: 400, priceCurrency: 'USD' },
+                    { '@type': 'Offer', name: 'SEO Xizmati', url: 'https://www.katov.uz/services/seo-xizmati', price: 300, priceCurrency: 'USD' },
                   ],
                 },
                 {
                   '@type': 'WebSite',
-                  '@id': 'https://katov.uz/#website',
-                  url: 'https://katov.uz',
+                  '@id': 'https://www.katov.uz/#website',
+                  url: 'https://www.katov.uz',
                   name: 'KATOV',
                   description:
                     'IT xizmatlar agentligi O\'zbekistonda — veb-sayt, bot, CRM, ERP va boshqalar.',
-                  publisher: { '@id': 'https://katov.uz/#organization' },
+                  publisher: { '@id': 'https://www.katov.uz/#organization' },
                   inLanguage: ['uz', 'ru', 'en'],
                   potentialAction: {
                     '@type': 'SearchAction',
                     target: {
                       '@type': 'EntryPoint',
-                      urlTemplate: 'https://katov.uz/uz/blog?q={search_term_string}',
+                      urlTemplate: 'https://www.katov.uz/blog?q={search_term_string}',
                     },
                     'query-input': 'required name=search_term_string',
                   },

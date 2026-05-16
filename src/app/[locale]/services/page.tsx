@@ -7,8 +7,7 @@ import {
   servicesIndexCopy,
 } from '@/data/services';
 import { ServiceCard } from '@/components/service-detail/service-card';
-
-const SITE_URL = 'https://katov.uz';
+import { localizedUrl } from '@/lib/urls';
 
 interface ServicesIndexProps {
   params: Promise<{ locale: string }>;
@@ -19,12 +18,12 @@ export async function generateMetadata({ params }: ServicesIndexProps): Promise<
   if (!hasLocale(locales, locale)) return {};
 
   const copy = servicesIndexCopy[locale as Locale];
-  const canonical = `${SITE_URL}/${locale}/services`;
+  const canonical = localizedUrl(locale as Locale, '/services');
   const languages: Record<string, string> = {};
   for (const loc of locales) {
-    languages[loc] = `${SITE_URL}/${loc}/services`;
+    languages[loc] = localizedUrl(loc, '/services');
   }
-  languages['x-default'] = `${SITE_URL}/uz/services`;
+  languages['x-default'] = localizedUrl('uz', '/services');
 
   return {
     title: copy.title,
@@ -57,8 +56,8 @@ export default async function ServicesIndexPage({ params }: ServicesIndexProps) 
   const loc = locale as Locale;
   const copy = servicesIndexCopy[loc];
   const catalog = getServicesCatalog();
-  const url = `${SITE_URL}/${locale}/services`;
-  const homeUrl = `${SITE_URL}/${locale}`;
+  const url = localizedUrl(loc, '/services');
+  const homeUrl = localizedUrl(loc);
 
   const itemListSchema = {
     '@context': 'https://schema.org',
@@ -69,7 +68,7 @@ export default async function ServicesIndexPage({ params }: ServicesIndexProps) 
     itemListElement: catalog.map((item, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
-      url: `${SITE_URL}/${locale}/services/${item.slug}`,
+      url: localizedUrl(loc, `/services/${item.slug}`),
       name: item.card[loc].title,
     })),
   };

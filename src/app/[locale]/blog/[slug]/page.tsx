@@ -7,6 +7,7 @@ import { Link } from '@/i18n/routing';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import ScrollToAnchor from '@/components/ScrollToAnchor';
+import { localizedUrl, SITE_URL } from '@/lib/urls';
 
 function DonutRing({ value, size, strokeWidth }: { value: number; size: number; strokeWidth: number }) {
   const radius = (size - strokeWidth) / 2;
@@ -108,14 +109,14 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     return { title: 'Not Found' };
   }
 
-  const baseUrl = 'https://katov.uz';
-  const url = `${baseUrl}/${locale}/blog/${slug}`;
+  const url = localizedUrl(locale as Locale, `/blog/${slug}`);
+  const ogImage = `${SITE_URL}/og-image.png`;
 
   const alternateLanguages: Record<string, string> = {};
   if (mapping) {
     for (const loc of locales) {
       if (mapping[loc]) {
-        alternateLanguages[loc] = `${baseUrl}/${loc}/blog/${mapping[loc]}`;
+        alternateLanguages[loc] = localizedUrl(loc, `/blog/${mapping[loc]}`);
       }
     }
   }
@@ -138,7 +139,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       locale: locale === 'ru' ? 'ru_RU' : locale === 'en' ? 'en_US' : 'uz_UZ',
       images: [
         {
-          url: `${baseUrl}/og-image.png`,
+          url: ogImage,
           width: 1200,
           height: 1200,
           alt: post.title,
@@ -149,7 +150,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       card: 'summary_large_image' as const,
       title: post.title,
       description: post.description,
-      images: [`${baseUrl}/og-image.png`],
+      images: [ogImage],
     },
   };
 }
@@ -243,7 +244,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const mdxComponents = { GrowthChart, PriceCTA };
 
-  const baseUrl = 'https://katov.uz';
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -253,20 +253,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     author: {
       '@type': 'Organization',
       name: 'KATOV',
-      url: baseUrl,
+      url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
       name: 'KATOV',
-      url: baseUrl,
+      url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/og-image.png`,
+        url: `${SITE_URL}/og-image.png`,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${baseUrl}/${locale}/blog/${slug}`,
+      '@id': localizedUrl(locale as Locale, `/blog/${slug}`),
     },
     inLanguage: locale === 'ru' ? 'ru' : locale === 'en' ? 'en' : 'uz',
     keywords: post.tags.join(', '),

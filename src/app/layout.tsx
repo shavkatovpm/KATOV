@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'KATOV' }],
   creator: 'KATOV',
-  metadataBase: new URL('https://katov.uz'),
+  metadataBase: new URL('https://www.katov.uz'),
   openGraph: {
     type: 'website',
     locale: 'uz_UZ',
-    url: 'https://katov.uz',
+    url: 'https://www.katov.uz',
     siteName: 'KATOV',
     title: 'KATOV - Kreativ website xizmatlari',
     description:
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     languages: {
-      uz: '/uz',
+      uz: '/',
       ru: '/ru',
       en: '/en',
     },

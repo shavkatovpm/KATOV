@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: ServiceLayoutProps) {
   if (!slugData) return {};
 
   const data = slugData[locale] || slugData.uz;
-  const baseUrl = 'https://katov.uz';
+  const baseUrl = 'https://www.katov.uz';
 
   const alternateLanguages: Record<string, string> = {};
   for (const loc of locales) {

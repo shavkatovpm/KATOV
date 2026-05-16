@@ -27,7 +27,7 @@ const seoData: Record<string, { title: string; description: string; keywords: st
 export async function generateMetadata({ params }: StudioLayoutProps) {
   const { locale } = await params;
   const data = seoData[locale] || seoData.uz;
-  const baseUrl = 'https://katov.uz';
+  const baseUrl = 'https://www.katov.uz';
 
   const alternateLanguages: Record<string, string> = {};
   for (const loc of locales) {

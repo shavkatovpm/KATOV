@@ -1,16 +1,15 @@
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
-import { getPortfolioForService } from '@/data/portfolio';
+import { portfolioItems } from '@/data/portfolio';
 import type { ServiceLocalizedContent } from '@/data/services';
 
 interface ServicePortfolioProps {
-  serviceSlug: string;
   content: ServiceLocalizedContent;
   categoryLabel: (id: string) => string;
 }
 
-export function ServicePortfolio({ serviceSlug, content, categoryLabel }: ServicePortfolioProps) {
-  const items = getPortfolioForService(serviceSlug);
+export function ServicePortfolio({ content, categoryLabel }: ServicePortfolioProps) {
+  const items = portfolioItems;
   if (items.length === 0) return null;
 
   return (

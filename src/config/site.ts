@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'KATOV',
-  url: 'https://katov.uz',
+  url: 'https://www.katov.uz',
   author: 'Katov',
   description: 'Kreativ veb-sayt xizmatlari',
 
