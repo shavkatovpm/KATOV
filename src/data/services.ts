@@ -191,6 +191,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
           'Click va Payme — O\'zbekiston to\'lov tizimlarini KATOV o\'zi ulab beradi',
           'Admin panel orqali mahsulot, narx va qoldiqni o\'zingiz boshqarasiz',
           '3 til (uz/ru/en) tayyor — qo\'shimcha narxsiz',
@@ -340,6 +341,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Почему KATOV',
         whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
           'Click и Payme — платёжные системы Узбекистана подключаем сами',
           'Через админ-панель сами управляете товарами, ценами и остатками',
           '3 языка (uz/ru/en) — без доп. стоимости',
@@ -489,6 +491,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Why KATOV',
         whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
           'Click and Payme — we connect Uzbekistan payment systems for you',
           'You manage products, pricing, and stock via the admin panel',
           '3 languages (uz/ru/en) ready — no extra cost',
@@ -646,6 +649,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
           '3 til (uz/ru/en) tayyor — qo\'shimcha narxsiz',
           'Admin panel orqali matn va rasmlarni o\'zingiz yangilaysiz',
           'Saytni Google\'da chiqarish uchun tayyor — texnik SEO bazasi bilan',
@@ -793,6 +797,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Почему KATOV',
         whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
           '3 языка (uz/ru/en) готовы — без доп. стоимости',
           'Через админ-панель сами обновляете тексты и фото',
           'Сайт готов к продвижению в Google — техническая SEO-база',
@@ -940,6 +945,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Why KATOV',
         whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
           '3 languages (uz/ru/en) ready — no extra cost',
           'Update texts and images yourself via the admin panel',
           'Site is Google-ready out of the box — technical SEO foundation',
@@ -1082,6 +1088,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
           'Googleda topda chiqish va sotuvni oshirish uchun moslashish',
           'Eng mos va zamonaviy texnologiyalar',
           '3 til (uz/ru/en) tayyor — agar kerak bo\'lsa, narx o\'zgarmaydi',
@@ -1215,6 +1222,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Почему KATOV',
         whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
           'Топ в Google и адаптация под рост продаж',
           'Современные и подходящие технологии',
           '3 языка (uz/ru/en) готовы — при необходимости, без доп. стоимости',
@@ -1348,6 +1356,7 @@ export const servicesData: Record<string, ServiceData> = {
         ],
         whyUsTitle: 'Why KATOV',
         whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
           'Top Google rankings and conversion-tuned for sales',
           'Modern, fit-for-purpose technology',
           '3 languages (uz/ru/en) ready — no extra cost if needed',
