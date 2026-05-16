@@ -47,7 +47,7 @@ export function ServiceHero({
           </div>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5">
+        <h1 className="text-[1.625rem] leading-[1.2] sm:text-4xl sm:leading-tight md:text-5xl lg:text-6xl font-bold mb-5 text-balance">
           {content.h1}
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-muted max-w-3xl leading-relaxed mb-10">

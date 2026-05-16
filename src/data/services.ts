@@ -96,7 +96,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'Internet Do\'kon Yaratish — Click, Payme, Yetkazib Berish',
         metaDescription:
           'Internet do\'kon yaratish — mahsulot katalogi, Click va Payme to\'lov, buyurtma boshqaruvi. 15–25 kun, $1700 dan. Onlayn savdoni boshlang.',
-        h1: 'Internet Do\'kon Yaratish: Onlayn Savdoni Boshlash',
+        h1: 'Internet Do\'kon Yaratish Xizmati: Onlayn Savdoni Boshlash',
         heroSubtitle:
           'Mahsulot katalogi, Click va Payme to\'lov, buyurtmalarni boshqarish — onlayn savdoning hammasi bitta saytda.',
         benefits: [
@@ -237,7 +237,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Internet do\'kon uchun bepul konsultatsiya',
         ctaSubtitle:
           'Ma\'lumotlarni qoldiring, 1 ish kuni ichida bog\'lanamiz. Konsultatsiya bepul, hech qanday majburiyat yo\'q.',
-        ctaPrimary: 'Loyihani boshlash',
+        ctaPrimary: 'Buyurtma berish',
         breadcrumbServices: 'Xizmatlar',
         priceLabel: 'Narxi',
         priceSuffix: 'dan',
@@ -387,7 +387,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Бесплатная консультация по интернет-магазину',
         ctaSubtitle:
           'Оставьте данные — свяжемся в течение 1 рабочего дня. Консультация бесплатная, без обязательств.',
-        ctaPrimary: 'Начать проект',
+        ctaPrimary: 'Заказать',
         breadcrumbServices: 'Услуги',
         priceLabel: 'Цена',
         priceSuffix: 'от',
@@ -537,7 +537,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Free consultation for your e-commerce site',
         ctaSubtitle:
           'Leave your details — we\'ll get back within 1 business day. The consultation is free, no commitment.',
-        ctaPrimary: 'Start project',
+        ctaPrimary: 'Place order',
         breadcrumbServices: 'Services',
         priceLabel: 'From',
         priceSuffix: '',
@@ -555,7 +555,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'Korporativ Sayt Yaratish — $870 dan',
         metaDescription:
           'Korporativ sayt yaratish — kompaniyangiz uchun ko\'p sahifali professional sayt. 3 til, admin panel, $870 dan. 10–20 kunda tayyor.',
-        h1: 'Korporativ Sayt Yaratish: Kompaniyangiz Uchun To\'liq Yechim',
+        h1: 'Korporativ Sayt Yaratish Xizmati: Kompaniyangiz Uchun To\'liq Yechim',
         heroSubtitle:
           'Kompaniyangizni onlayn taqdim etadigan ko\'p sahifali sayt — xizmatlar, jamoa, portfolio va aloqa bir joyda.',
         benefits: [
@@ -694,7 +694,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Korporativ sayt uchun bepul konsultatsiya',
         ctaSubtitle:
           'Ma\'lumotlarni qoldiring, 1 ish kuni ichida bog\'lanamiz. Konsultatsiya bepul, hech qanday majburiyat yo\'q.',
-        ctaPrimary: 'Loyihani boshlash',
+        ctaPrimary: 'Buyurtma berish',
         breadcrumbServices: 'Xizmatlar',
         priceLabel: 'Narxi',
         priceSuffix: 'dan',
@@ -842,7 +842,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Бесплатная консультация по корпоративному сайту',
         ctaSubtitle:
           'Оставьте данные — свяжемся в течение 1 рабочего дня. Консультация бесплатная, без обязательств.',
-        ctaPrimary: 'Начать проект',
+        ctaPrimary: 'Заказать',
         breadcrumbServices: 'Услуги',
         priceLabel: 'Цена',
         priceSuffix: 'от',
@@ -990,7 +990,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Free consultation for your corporate website',
         ctaSubtitle:
           'Leave your details — we\'ll get back within 1 business day. The consultation is free, no commitment.',
-        ctaPrimary: 'Start project',
+        ctaPrimary: 'Place order',
         breadcrumbServices: 'Services',
         priceLabel: 'From',
         priceSuffix: '',
@@ -1008,7 +1008,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'Landing Page Yaratish — Narxi va Misollar',
         metaDescription:
           'Sotuvchi landing page yaratish — zamonaviy texnologiya, mobilga mos. 5–10 kun, $270 dan. Click va Payme to\'lov integratsiyasi.',
-        h1: 'Landing Page Yaratish: 5–10 Kunda Sotuvchi Sayt',
+        h1: 'Landing Page Yaratish Xizmati: 5–10 Kunda Sotuvchi Sayt',
         heroSubtitle:
           'Sotuvchi, tezkor va SEO-mos landing\'lar. Zamonaviy texnologiya bilan, mobilga mos.',
         benefits: [
@@ -1133,7 +1133,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Landing\'ingiz uchun bepul konsultatsiya',
         ctaSubtitle:
           'Ma\'lumotlarni qoldiring, 1 ish kuni ichida bog\'lanamiz. Konsultatsiya bepul, hech qanday majburiyat yo\'q.',
-        ctaPrimary: 'Loyihani boshlash',
+        ctaPrimary: 'Buyurtma berish',
         breadcrumbServices: 'Xizmatlar',
         priceLabel: 'Narxi',
         priceSuffix: 'dan',
@@ -1267,7 +1267,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Бесплатная консультация для вашего landing',
         ctaSubtitle:
           'Оставьте данные — свяжемся в течение 1 рабочего дня. Консультация бесплатная, без обязательств.',
-        ctaPrimary: 'Начать проект',
+        ctaPrimary: 'Заказать',
         breadcrumbServices: 'Услуги',
         priceLabel: 'Цена',
         priceSuffix: 'от',
@@ -1401,7 +1401,1345 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Free consultation for your landing page',
         ctaSubtitle:
           'Leave your details — we\'ll get back within 1 business day. The consultation is free, no commitment.',
-        ctaPrimary: 'Start project',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
+  'restoran-sayti': {
+    slug: 'restoran-sayti',
+    icon: 'Utensils',
+    basePrice: 600,
+    priceSuffix: '',
+    demand: 4,
+    content: {
+      uz: {
+        title: 'Restoran va Kafe Sayti Yaratish — Menu, QR, Buyurtma',
+        metaDescription:
+          'Restoran va kafe uchun sayt: QR menyu, onlayn buyurtma, Click/Payme to\'lov, stol bron qilish. 7–14 kunda tayyor. Narxi $600 dan.',
+        h1: 'Restoran va Kafe Sayti Yaratish Xizmati: QR Menyu, Onlayn Buyurtma va Stol Bron Qilish',
+        heroSubtitle:
+          'Mijoz telefoni orqali menyuni ko\'radi, ovqat tanlaydi, Click yoki Payme bilan to\'laydi yoki stol bron qiladi — restoraningiz onlayn ham ishlaydi.',
+        benefits: [
+          {
+            icon: 'Smartphone',
+            title: 'Mobil-first',
+            description:
+              'Mijozlarning 91% qarashi mobil orqali. Sayt har telefonda tez va sof ochiladi — menyu va buyurtma asosiy.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Click va Payme onlayn',
+            description:
+              'O\'zbekistondagi asosiy to\'lov tizimlari ulanadi — mijoz saytdan turib to\'lab oladi, naqdsiz buyurtma standartga aylanadi.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'O\'zingiz boshqarasiz',
+            description:
+              'Menyu, narx va "stop-list"ni kassirning telefonidan yangilaysiz — qaytadan dasturchiga murojaat shart emas.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Restoran va kofeyniya tarmoqlari',
+            description:
+              'Bir nechta filiali bor restoran va kafelar uchun — yagona menyu, har filial bo\'yicha alohida buyurtma va yetkazib berish zonalari.',
+          },
+          {
+            title: 'Yangi ochilgan kafe va restoranlar',
+            description:
+              'Toshkentda yangi ochilgan joy — Google va Yandex\'da topilishi va birinchi mijozlarni jalb qilishi uchun sayt birinchi qadam.',
+          },
+          {
+            title: 'Lavash, burger, pizza nuqtalari',
+            description:
+              'Yetkazib berishga tayanadigan kichik nuqtalar uchun — onlayn buyurtma, Click/Payme to\'lov, kuryer jo\'natish flow\'i.',
+          },
+          {
+            title: 'Yetkazib berish (cloud kitchen)',
+            description:
+              'Zali yo\'q, faqat yetkazib berish bilan ishlaydigan oshxonalar uchun — menyu, savatcha, zonalar va vaqt hisoblash.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Bosh sahifa — restoran atmosferasi, asosiy CTA va bog\'lanish',
+          'Menyu sahifasi — kategoriyalar, foto, narx, tarkib va allergen ma\'lumotlari',
+          'QR menyu — har stol uchun shaxsiy kod, oson skanerlanadigan',
+          'Onlayn buyurtma + savatcha — yetkazib berish yoki olib ketish',
+          'Click va Payme to\'lov integratsiyasi',
+          'Stol bron qilish formasi — sana, vaqt va mehmonlar soni',
+          'Yetkazib berish zonalari va narxni avtomatik hisoblash',
+          'Telegram bot integratsiyasi — yangi buyurtma kassir telefoniga keladi',
+          'Admin panel — menyu, narx va "stop-list"ni o\'zingiz yangilaysiz',
+          '3 til (uz/ru/en) standart — qo\'shimcha narxsiz',
+          'Google Business profil sozlash va Google Maps ulanishi',
+          '1 oy bepul support va kichik o\'zgartirishlar',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '7–14 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Konsultatsiya va kontent yig\'ish',
+            description:
+              'Menyu, foto, narx va yetkazib berish zonalarini yig\'amiz. Joy yo\'q bo\'lsa, foto va menyu strukturasini birga tuzamiz.',
+            duration: '1–2 kun',
+          },
+          {
+            step: 2,
+            title: 'Dizayn',
+            description:
+              'Bosh sahifa va menyu Figma\'da. Restoraningiz brendi va atmosferasi asosida. Ikki bosqichli revizyon kiradi.',
+            duration: '3–4 kun',
+          },
+          {
+            step: 3,
+            title: 'Development va integratsiyalar',
+            description:
+              'Sayt, admin panel, Click/Payme to\'lov, Telegram bot, QR kod generatsiya va stol bron formasi quriladi.',
+            duration: '3–5 kun',
+          },
+          {
+            step: 4,
+            title: 'Test va ishga tushirish',
+            description:
+              'Buyurtma va to\'lov sinab ko\'riladi, QR kodlar chop etishga tayyorlanadi, domen ulanadi va sayt rasmiy ishga tushadi.',
+            duration: '1–2 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Click va Payme bilan rasmiy ulanish tajribasi — to\'lov birinchi kundanoq ishlaydi',
+          'Telegram bot orqali buyurtmalar kassir telefoniga sekundlarda yetib boradi',
+          'Menyu va narxlarni kassirning o\'zi telefondan yangilaydi — dasturchi shart emas',
+          '3 til (uz/ru/en) standart — Toshkent bozori va mehmonlar uchun bir vaqtda',
+          'Sayt tezkor ochiladi va Google\'da yaxshi pozitsiya oladi — texnik SEO bazasi bilan',
+          '1 oy bepul support — birinchi mijozlardan keladigan savollarda yordam',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Click va Payme to\'lov tizimlarini saytga ulaysizmi?',
+            answer:
+              'Ha, ikkalasi ham standart paketga kiradi. Click va Payme rasmiy integratsiyasi sayt ishga tushishi bilan ishlaydi — mijoz saytda buyurtma berib, Click yoki Payme tugmasi bilan to\'laydi, pul to\'g\'ridan-to\'g\'ri sizning hisobingizga keladi. Uzum to\'lov yoki naqd opsiyasi ham qo\'shilishi mumkin.',
+          },
+          {
+            question: 'QR menyu qanday ishlaydi va mijoz uni qanday ochadi?',
+            answer:
+              'Har stol uchun alohida QR kod chop etiladi (yoki menyu uchun yagona kod). Mijoz telefon kamerasi bilan skanerlaydi va saytning menyu sahifasi to\'g\'ridan-to\'g\'ri ochiladi — ilova yuklash shart emas. Buyurtma o\'sha yerdan beriladi va kassirga keladi. Kod yo\'qolsa yoki menyu o\'zgarsa, yangisini admin panel orqali bir tugma bilan generatsiya qilasiz.',
+          },
+          {
+            question: 'Menyu va narxlarni o\'zim yangilashim mumkinmi?',
+            answer:
+              'Ha, bu sahifaning asosiy g\'oyasi. Admin panelga kirib taom qo\'shasiz, narxni o\'zgartirasiz, "stop-list"ka tushirasiz (bugun tugagan bo\'lsa) yoki yangi kategoriya qo\'shasiz — hammasi telefondan, kod yozmasdan. Bu kassir yoki menejer ishi, dasturchi kerak emas.',
+          },
+          {
+            question: 'Stol bron qilish funksiyasi qanday ishlaydi?',
+            answer:
+              'Saytda alohida forma — sana, vaqt, mehmonlar soni va telefon raqami. Mijoz formani to\'ldiradi, bron Telegram orqali sizning kassir yoki menejeringizga keladi. Tasdiqlasangiz, mijozga SMS yoki Telegram orqali tasdiq yuboriladi. Kerak bo\'lsa, ish vaqti va stol soni asosida avtomatik bron qabul qilish ham sozlanadi.',
+          },
+          {
+            question: 'Sayt necha kunda tayyor bo\'ladi va boshlanish narxi qancha?',
+            answer:
+              'Standart paket $600 dan boshlanadi va 7–14 ish kunida tayyor bo\'ladi. Bunga: sayt (bosh sahifa va menyu), QR menyu, onlayn buyurtma, Click/Payme to\'lov, stol bron qilish, admin panel va 3 til kiradi. Yetkazib berish zonalari, Telegram bot kengaytmalari yoki ko\'p filial uchun narx $800–$1200 oralig\'iga ko\'tariladi. Aniq narx konsultatsiyada belgilanadi va loyiha davomida o\'zgarmaydi.',
+          },
+        ],
+        ctaTitle: 'Restoran sayti uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Restoraningizning ehtiyojlari va menyu strukturasini birga ko\'rib chiqamiz. Konsultatsiya bepul, 1 ish kuni ichida bog\'lanamiz.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Сайт для Ресторана и Кафе — Меню, QR, Онлайн-заказ',
+        metaDescription:
+          'Сайт для ресторана и кафе: QR-меню, онлайн-заказы, оплата Click/Payme, бронь столиков. Запуск за 7–14 дней. От $600.',
+        h1: 'Сайт для Ресторана и Кафе: QR-меню, Онлайн-заказы и Бронирование Столиков',
+        heroSubtitle:
+          'Клиент смотрит меню в телефоне, выбирает блюда, оплачивает Click или Payme, бронирует столик — ваш ресторан работает онлайн.',
+        benefits: [
+          {
+            icon: 'Smartphone',
+            title: 'Mobile-first',
+            description:
+              '91% клиентов смотрят меню с телефона. Сайт открывается быстро на любом устройстве — меню и заказ всегда под рукой.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Click и Payme онлайн',
+            description:
+              'Основные платёжные системы Узбекистана подключены — клиент оплачивает прямо на сайте, бесконтактный заказ становится стандартом.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'Управляете сами',
+            description:
+              'Меню, цены и «стоп-лист» обновляете с телефона кассира — без обращения к разработчику.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Сети ресторанов и кофеен',
+            description:
+              'Для ресторанов и кафе с несколькими филиалами — единое меню, заказы и зоны доставки отдельно по каждой точке.',
+          },
+          {
+            title: 'Новые кафе и рестораны',
+            description:
+              'Новое заведение в Ташкенте — сайт нужен, чтобы появиться в Google и Yandex и привлечь первых клиентов.',
+          },
+          {
+            title: 'Точки лаваш, бургер, пицца',
+            description:
+              'Малые точки, ориентированные на доставку — онлайн-заказ, оплата Click/Payme, флоу отправки курьера.',
+          },
+          {
+            title: 'Доставка (cloud kitchen)',
+            description:
+              'Кухни без зала, работающие только на доставку — меню, корзина, зоны и расчёт времени.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'Главная страница — атмосфера ресторана, основной CTA и контакты',
+          'Страница меню — категории, фото, цены, состав и аллергены',
+          'QR-меню — индивидуальный код на каждый столик, удобное сканирование',
+          'Онлайн-заказ + корзина — доставка или самовывоз',
+          'Интеграция оплаты Click и Payme',
+          'Форма бронирования столика — дата, время, количество гостей',
+          'Зоны доставки и автоматический расчёт стоимости',
+          'Интеграция Telegram-бота — новый заказ приходит на телефон кассиру',
+          'Админ-панель — меню, цены и «стоп-лист» обновляете сами',
+          '3 языка (uz/ru/en) стандартно — без доплаты',
+          'Настройка Google Business профиля и подключение к Google Maps',
+          'Бесплатная поддержка 1 месяц и небольшие правки',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '7–14 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Консультация и сбор контента',
+            description:
+              'Собираем меню, фото, цены и зоны доставки. Если нет своих — структуру меню и съёмку планируем вместе.',
+            duration: '1–2 дня',
+          },
+          {
+            step: 2,
+            title: 'Дизайн',
+            description:
+              'Главная и меню в Figma — на основе бренда и атмосферы ресторана. Включены две правки.',
+            duration: '3–4 дня',
+          },
+          {
+            step: 3,
+            title: 'Разработка и интеграции',
+            description:
+              'Сайт, админ-панель, Click/Payme, Telegram-бот, генерация QR-кодов и форма брони столика.',
+            duration: '3–5 дней',
+          },
+          {
+            step: 4,
+            title: 'Тест и запуск',
+            description:
+              'Тестируем заказ и оплату, готовим QR-коды к печати, подключаем домен и официально запускаем сайт.',
+            duration: '1–2 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Опыт официальных интеграций Click и Payme — оплата работает с первого дня',
+          'Заказы приходят в Telegram кассиру за секунды',
+          'Меню и цены обновляет сам кассир с телефона — разработчик не нужен',
+          '3 языка (uz/ru/en) стандартно — для рынка Ташкента и гостей сразу',
+          'Сайт быстро открывается и хорошо позиционируется в Google — техническая SEO-база',
+          'Бесплатная поддержка 1 месяц — помогаем с первыми вопросами клиентов',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Подключаете ли Click и Payme к сайту?',
+            answer:
+              'Да, обе системы входят в стандартный пакет. Официальная интеграция Click и Payme работает сразу после запуска — клиент оформляет заказ на сайте и оплачивает кнопкой Click или Payme, деньги поступают напрямую на ваш счёт. По запросу можно добавить Uzum и оплату наличными при получении.',
+          },
+          {
+            question: 'Как работает QR-меню и как клиент его открывает?',
+            answer:
+              'На каждый столик печатается отдельный QR-код (или один общий код на меню). Клиент сканирует камерой телефона — открывается страница меню сайта, никакое приложение ставить не нужно. Заказ оформляется тут же и приходит кассиру. Если код потерялся или меню обновилось, новый код генерируется в админ-панели одной кнопкой.',
+          },
+          {
+            question: 'Могу ли я сам обновлять меню и цены?',
+            answer:
+              'Да, это ключевая идея сайта. В админ-панели вы добавляете блюда, меняете цены, переводите позиции в «стоп-лист» (если на сегодня закончилось), добавляете категории — всё с телефона, без кода. Это работа кассира или менеджера, разработчик не нужен.',
+          },
+          {
+            question: 'Как работает бронь столика?',
+            answer:
+              'На сайте — отдельная форма: дата, время, количество гостей и телефон. Заявка приходит в Telegram кассиру или менеджеру. После подтверждения клиенту уходит SMS или сообщение в Telegram. По запросу настраивается автоматическое принятие брони по графику работы и количеству столов.',
+          },
+          {
+            question: 'За сколько дней готов сайт и сколько это стоит?',
+            answer:
+              'Стандартный пакет — от $600, готов за 7–14 рабочих дней. Включено: сайт (главная и меню), QR-меню, онлайн-заказ, оплата Click/Payme, бронь столика, админ-панель и 3 языка. Зоны доставки, расширения Telegram-бота или мультифилиальная версия — $800–$1200. Финальная цена фиксируется на консультации и не меняется до запуска.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по сайту ресторана',
+        ctaSubtitle:
+          'Разберём задачи вашего ресторана и структуру меню. Консультация бесплатная — свяжемся в течение 1 рабочего дня.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Restaurant & Cafe Website — Menu, QR, Online Ordering',
+        metaDescription:
+          'Restaurant and cafe website with QR menu, online ordering, Click/Payme checkout, table booking. Launches in 7–14 days. From $600.',
+        h1: 'Restaurant & Cafe Website: QR Menu, Online Ordering and Table Booking',
+        heroSubtitle:
+          'Customers browse the menu on their phone, place an order, pay via Click or Payme, or book a table — your restaurant works online.',
+        benefits: [
+          {
+            icon: 'Smartphone',
+            title: 'Mobile-first',
+            description:
+              '91% of customers browse menus on their phone. The site loads fast on any device — menu and ordering always within reach.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Click & Payme online',
+            description:
+              'Uzbekistan\'s main payment systems are wired in — customers pay right on the site, making cashless orders the default.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'You stay in control',
+            description:
+              'Update the menu, prices, and stop-list from the cashier\'s phone — no need to come back to the developer.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Restaurant & coffee chains',
+            description:
+              'For multi-location restaurants and cafes — shared menu, separate ordering and delivery zones per branch.',
+          },
+          {
+            title: 'New cafes and restaurants',
+            description:
+              'A newly opened place in Tashkent — a site is the first step to showing up in Google and Yandex and pulling in first customers.',
+          },
+          {
+            title: 'Lavash, burger, pizza spots',
+            description:
+              'Small delivery-driven spots — online ordering, Click/Payme checkout, and a courier dispatch flow.',
+          },
+          {
+            title: 'Delivery (cloud kitchen)',
+            description:
+              'Kitchens without a dining room, running delivery only — menu, cart, zones, and time estimates.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Home page — restaurant atmosphere, main CTA, and contacts',
+          'Menu page — categories, photos, prices, ingredients, and allergens',
+          'QR menu — unique code per table, easy to scan',
+          'Online ordering + cart — delivery or pickup',
+          'Click and Payme payment integration',
+          'Table booking form — date, time, party size',
+          'Delivery zones with automatic fee calculation',
+          'Telegram bot integration — new orders reach the cashier\'s phone',
+          'Admin panel — update menu, prices, and stop-list yourself',
+          '3 languages (uz/ru/en) standard — no extra cost',
+          'Google Business profile setup and Google Maps connection',
+          '1 month free support and small edits',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '7–14 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Consultation and content',
+            description:
+              'We collect the menu, photos, prices, and delivery zones. If you don\'t have them, we plan the menu structure and shoot together.',
+            duration: '1–2 days',
+          },
+          {
+            step: 2,
+            title: 'Design',
+            description:
+              'Home and menu in Figma — based on your restaurant\'s brand and atmosphere. Two rounds of revisions included.',
+            duration: '3–4 days',
+          },
+          {
+            step: 3,
+            title: 'Development & integrations',
+            description:
+              'Site, admin panel, Click/Payme, Telegram bot, QR code generation, and table booking form.',
+            duration: '3–5 days',
+          },
+          {
+            step: 4,
+            title: 'Test and launch',
+            description:
+              'We test ordering and payment, prepare QR codes for printing, connect the domain, and officially go live.',
+            duration: '1–2 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'Hands-on experience with official Click and Payme integration — payments work from day one',
+          'New orders reach the cashier in Telegram within seconds',
+          'Menu and prices updated by the cashier from their phone — no developer needed',
+          '3 languages (uz/ru/en) standard — Tashkent market and international guests at once',
+          'Site loads fast and ranks well on Google — technical SEO foundation included',
+          '1 month free support — we help with questions from your first customers',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'Do you integrate Click and Payme into the site?',
+            answer:
+              'Yes, both come in the standard package. Official Click and Payme integration works the day the site launches — the customer places an order on the site and pays with the Click or Payme button, with funds going straight to your account. Uzum payment or cash-on-delivery can be added on request.',
+          },
+          {
+            question: 'How does the QR menu work and how does the customer open it?',
+            answer:
+              'Each table gets its own printed QR code (or one shared menu code). The customer scans it with their phone camera and the menu page opens directly — no app to install. Orders are placed right there and reach the cashier. If a code is lost or the menu changes, you generate a new one from the admin panel with a single click.',
+          },
+          {
+            question: 'Can I update the menu and prices myself?',
+            answer:
+              'Yes — that\'s the whole point of the site. In the admin panel you add dishes, change prices, move items to the stop-list (if you\'ve run out for the day), and add new categories — all from your phone, with no code. It\'s the cashier\'s or manager\'s job, no developer required.',
+          },
+          {
+            question: 'How does table booking work?',
+            answer:
+              'A dedicated form on the site: date, time, party size, and phone number. The booking lands in Telegram for the cashier or manager. Once confirmed, the customer gets an SMS or Telegram confirmation. On request, we can set up automatic acceptance based on opening hours and available tables.',
+          },
+          {
+            question: 'How long does it take and how much does it cost?',
+            answer:
+              'The standard package starts at $600 and is delivered in 7–14 business days. It includes the site (home and menu), QR menu, online ordering, Click/Payme payments, table booking, admin panel, and 3 languages. Delivery zones, Telegram bot extensions, or multi-location versions land at $800–$1200. The final price is locked during the consultation and stays unchanged through launch.',
+          },
+        ],
+        ctaTitle: 'Free consultation for your restaurant website',
+        ctaSubtitle:
+          'We\'ll walk through your restaurant\'s needs and menu structure together. The consultation is free — we\'ll reach out within 1 business day.',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
+  'seo-xizmati': {
+    slug: 'seo-xizmati',
+    icon: 'Search',
+    basePrice: 300,
+    priceSuffix: '/oy',
+    demand: 4,
+    content: {
+      uz: {
+        title: 'SEO Xizmati — Saytni Google TOP-ga Chiqarish',
+        metaDescription:
+          'SEO xizmati Toshkentda — texnik audit, kalit so\'zlar, kontent va backlink. $300/oy dan, oylik hisobot. KATOV bloggi Google\'da #2 — real dalil.',
+        h1: 'SEO Xizmati: Organik Trafik va Pozitsiyalarni Oshirish',
+        heroSubtitle:
+          'Texnik audit, kalit so\'zlar, kontent va backlink — to\'liq SEO paket. KATOV o\'z bloggi hozir Google qidiruvida 2-o\'rinda — bu va\'da emas, real dalil.',
+        benefits: [
+          {
+            icon: 'Search',
+            title: 'Texnik audit',
+            description:
+              'Saytingizdagi har bir SEO muammoni topib tuzatamiz — bo\'sh sahifa, sekin yuklanish, noto\'g\'ri struktura.',
+          },
+          {
+            icon: 'BarChart3',
+            title: 'Organik trafik',
+            description:
+              'Reklamasiz mijoz topish — Google\'dan bepul o\'sib boruvchi trafik bilan.',
+          },
+          {
+            icon: 'ShieldCheck',
+            title: 'Shaffof hisobot',
+            description:
+              'Har oy raqamlar bilan ko\'rsatamiz — pozitsiyalar, trafik o\'sishi, real natija.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Internet do\'konlar',
+            description:
+              'Mahsulot kartochkalari Google\'da ko\'rinmasa — sotuv yo\'qoladi. SEO orqali har sahifa o\'z mijozini topadi.',
+          },
+          {
+            title: 'Xizmat ko\'rsatuvchi biznes',
+            description:
+              'Stomatologiya, advokat, ko\'chmas mulk — lokal qidiruvda yuqorida bo\'lish kerak. "Toshkentda X xizmati" so\'rovida sizni topishadi.',
+          },
+          {
+            title: 'B2B va korporativ',
+            description:
+              'Uzun sotuv yo\'li biznesi — qaror qabul qiluvchilar Google\'dan boshlaydi. SEO sizni qidiruvda topib oladi.',
+          },
+          {
+            title: 'Blog va kontent loyihalar',
+            description:
+              'Onlayn kursdan tortib mediagacha — kontent Google\'da rank bo\'lsa, reklamasiz auditoriya o\'sadi.',
+          },
+        ],
+        deliverablesTitle: 'SEO paketga nima kiradi',
+        deliverables: [
+          'To\'liq SEO audit — texnik, kontent va backlink tahlili',
+          'Kalit so\'zlar tadqiqoti — uz/ru/en, lokal qidiruvga moslashtirilgan',
+          'Texnik SEO tuzatish — sayt tezligi, meta teglar, sayt strukturasi',
+          'Schema.org markup ulanadi — Service, FAQ, LocalBusiness, Article',
+          'Sahifa va blog kontentini optimallashtirish',
+          'Internal linking strategiyasi va sitemap',
+          'Backlink yig\'ish — oyiga 3+ sifatli manba',
+          'Google Search Console va Yandex Webmaster monitoring',
+          'Raqobatchi tahlili — kvartalda bir marta',
+          'Oylik hisobot — pozitsiyalar, trafik, konversiya raqamlari',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: 'Birinchi natija 2–3 oy, stabil natija 6–12 oy',
+        process: [
+          {
+            step: 1,
+            title: 'Audit va strategiya',
+            description:
+              'Sayt tahlili, kalit so\'zlar tadqiqoti, raqobatchi tekshiruvi. Strategiya hujjati bilan yakunlanadi.',
+            duration: '1–2 hafta',
+          },
+          {
+            step: 2,
+            title: 'Texnik SEO',
+            description:
+              'Sayt tezligi, meta teglar, struktura, schema. Google\'ning sifat testidan o\'tkazamiz.',
+            duration: '2–4 hafta',
+          },
+          {
+            step: 3,
+            title: 'Kontent va kalit so\'zlar',
+            description:
+              'Mavjud sahifa va bloglarni optimallashtirish, yangi kalit so\'zlar uchun kontent qo\'shish.',
+            duration: 'Har oy davomida',
+          },
+          {
+            step: 4,
+            title: 'Monitoring va hisobot',
+            description:
+              'Pozitsiya, organik trafik va konversiya kuzatuvi. Har oy raqamli hisobot.',
+            duration: 'Har oy',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Bizning bloggimiz hozir Google qidiruvida 2-o\'rinda — "landing page yaratish narxi" so\'rovi uchun. SEO biz uchun amaliyot, nazariya emas',
+          'Yolg\'on kafolat yo\'q — "Google #1 100% chiqaramiz" demaymiz. Faqat real raqam va shaffof hisobot',
+          'SEO + sayt + kontent — bitta jamoa. Saytni va blogni KATOV o\'zi qiladi, qism-qism qildirib o\'tirmasiz',
+          'Lokalga moslashgan — O\'zbekiston Google, Yandex, uz/ru/en kalit so\'zlar bo\'yicha tajriba',
+          'Oylik raqamli hisobot — pozitsiyalar, trafik o\'sishi, taqqoslash',
+          'Shaffof narx — $300/oy dan boshlanadi, har sayt uchun aniq narx oldindan kelishiladi',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'SEO xizmati narxi qancha turadi?',
+            answer:
+              'KATOV\'da SEO $300/oy dan boshlanadi. O\'zbekiston bozorida SEO odatda $200–$1500/oy oralig\'ida — sayt hajmi, raqobat darajasi, kalit so\'zlar soni va tillar soniga qarab. KATOV paketlari: kichik biznes $300/oy, o\'rta biznes $500–$800/oy, e-commerce yoki katta korporativ $1000+/oy. Aniq narx audit jarayonida belgilanadi va shartnomada yoziladi.',
+          },
+          {
+            question: 'SEO natija qachon ko\'rinadi?',
+            answer:
+              'Birinchi natijalar — pozitsiyalar o\'sishi, trafik o\'zgarishi — 2–3 oydan keyin ko\'rinadi. Stabil organik trafik va biznes uchun real natija (lid, sotuv) odatda 6–12 oyda keladi. SEO uzoq muddatli investitsiya: birinchi 3 oy texnik bazani qurish, 4–6 oy kontent va backlink, 6+ oy stabil o\'sish bosqichi.',
+          },
+          {
+            question: 'Google\'da #1 o\'ringa chiqishni kafolatlay olasizmi?',
+            answer:
+              'Yo\'q — va kim "100% Google #1 kafolat" desa, u sizni aldayapti. Google algoritmi 200+ omilga qaraydi va doim o\'zgarib turadi. Lekin KATOV nima qila olishi: aniq kalit so\'zlar bo\'yicha pozitsiyalar o\'sishi, organik trafik o\'sishi, texnik SEO 100% to\'g\'ri ishlatilishi. Misol uchun — KATOV\'ning o\'zining `website-narxi-uzbekistonda` bloggi hozir "landing page yaratish narxi" qidiruvida Google\'da 2-o\'rinda. Bu real, sizning brauzerda ham ko\'rinadi.',
+          },
+          {
+            question: 'KATOV qaysi loyihalarda SEO qilgan?',
+            answer:
+              'Eng yaqqol misol — katov.uz o\'zi. Bizning blog Google\'da bir nechta lokal kalit so\'zlar bo\'yicha TOP-5\'da turadi ("landing page yaratish narxi" — #2). Bu nazariya emas, ko\'rsatib bera olamiz. KATOV\'ning mijoz loyihalari uchun SEO ham boshlangan — natijalar hozir to\'planmoqda, har mijoz uchun shaxsiy hisobot beriladi.',
+          },
+          {
+            question: 'SEO faqat tekstmi yoki saytda ham o\'zgarishlar bo\'ladimi?',
+            answer:
+              'Ikkalasi ham. SEO — bu nafaqat kalit so\'zlar va kontent, balki sayt strukturasi, sahifa tezligi, mobil moslik, meta teglar va schema markup. KATOV avval texnik tomonni tuzatadi (sayt tez ochiladigan, Google to\'g\'ri o\'qiydigan bo\'ladi), keyin kontent va kalit so\'zlar ustida ishlaydi. Har ikkalasini birga qilamiz — alohida emas.',
+          },
+          {
+            question: 'Saytim boshqa kompaniyada qilingan — KATOV uni SEO\'ga olishi mumkinmi?',
+            answer:
+              'Ha, mumkin. KATOV birinchi navbatda audit qiladi — saytning texnik holati, qaysi platformada qurilgan, qancha o\'zgarish kerakligi aniqlanadi. Ba\'zi hollarda mavjud saytda SEO qilish foydali bo\'lmaydi (eski texnologiya, juda sekin yuklanadi) — bu holda saytni yangidan qurish tavsiya etiladi. Audit natijasi bo\'yicha ochiq tavsiya beramiz: SEO\'mi yoki redesign + SEO.',
+          },
+        ],
+        ctaTitle: 'Saytingiz uchun bepul SEO audit',
+        ctaSubtitle:
+          'Saytingizning hozirgi SEO holatini bepul tekshiramiz. Ma\'lumotlarni qoldiring, 2 ish kuni ichida audit hisobotini yuboramiz.',
+        ctaPrimary: 'Bepul audit olish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'SEO Продвижение — Вывод Сайта в ТОП Google и Yandex',
+        metaDescription:
+          'SEO услуги в Ташкенте — техаудит, ключевые слова, контент и backlink. От $300/мес, ежемесячный отчёт. Наш блог в Google #2 — реальное доказательство.',
+        h1: 'SEO Продвижение: Рост Органического Трафика и Позиций',
+        heroSubtitle:
+          'Техаудит, ключевые слова, контент и backlink — полный SEO-пакет. Блог KATOV сейчас на 2-й позиции в Google — не обещание, а реальное доказательство.',
+        benefits: [
+          {
+            icon: 'Search',
+            title: 'Технический аудит',
+            description:
+              'Найдём и исправим все SEO-проблемы — пустые страницы, медленная загрузка, неправильная структура.',
+          },
+          {
+            icon: 'BarChart3',
+            title: 'Органический трафик',
+            description:
+              'Клиенты без рекламы — за счёт постоянно растущего бесплатного трафика из Google.',
+          },
+          {
+            icon: 'ShieldCheck',
+            title: 'Прозрачный отчёт',
+            description:
+              'Каждый месяц цифры: позиции, рост трафика, реальный результат.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Интернет-магазины',
+            description:
+              'Если карточки товаров не видны в Google — продажи теряются. SEO выводит каждую страницу к её покупателю.',
+          },
+          {
+            title: 'Сервисный бизнес',
+            description:
+              'Стоматология, юристы, недвижимость — в локальном поиске нужно быть наверху. По запросу "X в Ташкенте" находят именно вас.',
+          },
+          {
+            title: 'B2B и корпоративный',
+            description:
+              'Долгий цикл сделки — лица, принимающие решения, начинают с Google. SEO выводит вас в поиске на нужном этапе.',
+          },
+          {
+            title: 'Блоги и контент-проекты',
+            description:
+              'От онлайн-курсов до медиа — если контент ранжируется в Google, аудитория растёт без рекламы.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в SEO-пакет',
+        deliverables: [
+          'Полный SEO-аудит — технический, контентный, ссылочный анализ',
+          'Исследование ключевых слов — uz/ru/en, адаптация под локальный поиск',
+          'Технический SEO — скорость сайта, мета-теги, структура',
+          'Подключение Schema.org разметки — Service, FAQ, LocalBusiness, Article',
+          'Оптимизация существующих страниц и блога',
+          'Стратегия внутренней перелинковки и sitemap',
+          'Сбор backlink — 3+ качественных источника в месяц',
+          'Мониторинг Google Search Console и Yandex Webmaster',
+          'Анализ конкурентов — раз в квартал',
+          'Ежемесячный отчёт — позиции, трафик, цифры по конверсиям',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: 'Первые результаты — 2–3 месяца, стабильные — 6–12 месяцев',
+        process: [
+          {
+            step: 1,
+            title: 'Аудит и стратегия',
+            description:
+              'Анализ сайта, исследование ключевых слов, разбор конкурентов. На выходе — стратегический документ.',
+            duration: '1–2 недели',
+          },
+          {
+            step: 2,
+            title: 'Технический SEO',
+            description:
+              'Скорость сайта, мета-теги, структура, schema. Проходим оценку качества Google.',
+            duration: '2–4 недели',
+          },
+          {
+            step: 3,
+            title: 'Контент и ключевые слова',
+            description:
+              'Оптимизация существующих страниц и блога, добавление контента под новые ключевые слова.',
+            duration: 'В течение месяца',
+          },
+          {
+            step: 4,
+            title: 'Мониторинг и отчёт',
+            description:
+              'Отслеживание позиций, органического трафика и конверсий. Ежемесячный отчёт с цифрами.',
+            duration: 'Каждый месяц',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Наш собственный блог сейчас на 2-й позиции в Google по запросу "landing page yaratish narxi". SEO для нас — практика, а не теория',
+          'Без ложных гарантий — мы не говорим "выведем в Google #1 на 100%". Только реальные цифры и прозрачные отчёты',
+          'SEO + сайт + контент — одна команда. Сайт и блог делает KATOV, не нужно разбивать работу между подрядчиками',
+          'Локальная адаптация — опыт работы с Google и Yandex в Узбекистане, на uz/ru/en ключевых словах',
+          'Ежемесячный отчёт с цифрами — позиции, рост трафика, сравнения',
+          'Прозрачная цена — от $300/мес, точная стоимость по каждому сайту фиксируется заранее',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Сколько стоит SEO-продвижение?',
+            answer:
+              'В KATOV SEO начинается от $300/мес. На рынке Узбекистана SEO обычно стоит $200–$1500/мес — зависит от объёма сайта, уровня конкуренции, числа ключевых слов и языков. Пакеты KATOV: малый бизнес $300/мес, средний $500–$800/мес, e-commerce или крупный корпоративный $1000+/мес. Точная цена определяется после аудита и фиксируется в договоре.',
+          },
+          {
+            question: 'Когда будут видны результаты SEO?',
+            answer:
+              'Первые результаты — рост позиций, изменения трафика — видны через 2–3 месяца. Стабильный органический трафик и реальный бизнес-результат (лиды, продажи) обычно приходят за 6–12 месяцев. SEO — долгосрочная инвестиция: первые 3 месяца строим техническую базу, 4–6 — контент и ссылки, 6+ — фаза стабильного роста.',
+          },
+          {
+            question: 'Можете гарантировать ТОП-1 в Google?',
+            answer:
+              'Нет — и тот, кто обещает "100% Google #1", обманывает. Алгоритм Google учитывает 200+ факторов и постоянно меняется. Что KATOV может: рост позиций по конкретным ключевым словам, рост органического трафика, корректное техническое SEO. Пример — наш собственный блог `website-narxi-uzbekistonda` сейчас на 2-й позиции в Google по запросу "landing page yaratish narxi". Это реально, проверяется в вашем браузере.',
+          },
+          {
+            question: 'На каких проектах KATOV делал SEO?',
+            answer:
+              'Самый наглядный пример — сам katov.uz. Наш блог в Google занимает позиции в ТОП-5 по нескольким локальным ключевым словам ("landing page yaratish narxi" — #2). Это не теория, мы можем показать. SEO для клиентских проектов KATOV также запущено — результаты накапливаются, по каждому клиенту даём индивидуальный отчёт.',
+          },
+          {
+            question: 'SEO — это только тексты или сайт тоже меняется?',
+            answer:
+              'И то, и другое. SEO — это не только ключевые слова и контент, но и структура сайта, скорость страниц, мобильная адаптация, мета-теги и schema-разметка. KATOV сначала исправляет техническую часть (сайт быстро открывается, Google корректно его читает), затем работает над контентом и ключевыми словами. Делаем оба направления вместе, не по отдельности.',
+          },
+          {
+            question: 'Сайт сделан другой компанией — KATOV возьмёт его на SEO?',
+            answer:
+              'Да, можно. Сначала KATOV проводит аудит — техническое состояние, на какой платформе сайт, сколько потребуется правок. Иногда SEO на существующем сайте невыгодно (устаревшие технологии, слишком медленная загрузка) — в этом случае рекомендуем сделать сайт заново. По результатам аудита даём честную рекомендацию: только SEO или редизайн + SEO.',
+          },
+        ],
+        ctaTitle: 'Бесплатный SEO-аудит для вашего сайта',
+        ctaSubtitle:
+          'Проведём бесплатную проверку текущего SEO-состояния сайта. Оставьте данные — пришлём отчёт по аудиту в течение 2 рабочих дней.',
+        ctaPrimary: 'Получить бесплатный аудит',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'SEO Services Uzbekistan — Google Top Rankings',
+        metaDescription:
+          'SEO services in Tashkent — technical audit, keywords, content, and backlinks. From $300/mo, monthly reports. KATOV blog ranks #2 on Google — real proof.',
+        h1: 'SEO Services: Growing Organic Traffic and Rankings',
+        heroSubtitle:
+          'Technical audit, keywords, content, and backlinks — a complete SEO package. KATOV\'s own blog currently ranks #2 on Google — not a promise, real proof.',
+        benefits: [
+          {
+            icon: 'Search',
+            title: 'Technical audit',
+            description:
+              'We find and fix every SEO issue on your site — empty pages, slow loading, poor structure.',
+          },
+          {
+            icon: 'BarChart3',
+            title: 'Organic traffic',
+            description:
+              'Customers without ads — through steadily growing free traffic from Google.',
+          },
+          {
+            icon: 'ShieldCheck',
+            title: 'Transparent reports',
+            description:
+              'Every month, numbers: rankings, traffic growth, real outcomes.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'E-commerce stores',
+            description:
+              'If product pages aren\'t visible in Google, sales are lost. SEO brings every page to its buyer.',
+          },
+          {
+            title: 'Service businesses',
+            description:
+              'Dental, legal, real estate — you need to be on top in local search. Customers find you with "X in Tashkent" queries.',
+          },
+          {
+            title: 'B2B and corporate',
+            description:
+              'Long sales cycles — decision-makers start with Google. SEO surfaces you at the right stage.',
+          },
+          {
+            title: 'Blogs and content projects',
+            description:
+              'From online courses to media — if content ranks on Google, your audience grows without ads.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Full SEO audit — technical, content, and backlink analysis',
+          'Keyword research — uz/ru/en, adapted to local search',
+          'Technical SEO fixes — site speed, meta tags, site structure',
+          'Schema.org markup setup — Service, FAQ, LocalBusiness, Article',
+          'On-page and blog content optimization',
+          'Internal linking strategy and sitemap',
+          'Backlink building — 3+ quality sources per month',
+          'Google Search Console and Yandex Webmaster monitoring',
+          'Competitor analysis — once per quarter',
+          'Monthly report — rankings, traffic, conversion numbers',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: 'First results in 2–3 months, stable results in 6–12 months',
+        process: [
+          {
+            step: 1,
+            title: 'Audit & strategy',
+            description:
+              'Site analysis, keyword research, competitor review. Delivered as a strategy document.',
+            duration: '1–2 weeks',
+          },
+          {
+            step: 2,
+            title: 'Technical SEO',
+            description:
+              'Site speed, meta tags, structure, schema. We pass Google\'s quality checks.',
+            duration: '2–4 weeks',
+          },
+          {
+            step: 3,
+            title: 'Content & keywords',
+            description:
+              'Optimize existing pages and blog, add content for new target keywords.',
+            duration: 'Ongoing monthly',
+          },
+          {
+            step: 4,
+            title: 'Monitoring & reporting',
+            description:
+              'Track rankings, organic traffic, and conversions. Monthly report with real numbers.',
+            duration: 'Every month',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'Our own blog currently ranks #2 on Google for "landing page yaratish narxi". SEO is practice for us, not theory',
+          'No false guarantees — we don\'t promise "100% Google #1". Only real numbers and transparent reporting',
+          'SEO + website + content — one team. KATOV builds the site and blog, no juggling multiple vendors',
+          'Locally adapted — experience with Google and Yandex in Uzbekistan, across uz/ru/en keywords',
+          'Monthly numerical reports — rankings, traffic growth, comparisons',
+          'Transparent pricing — from $300/mo, exact cost fixed upfront per site',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How much do SEO services cost?',
+            answer:
+              'At KATOV, SEO starts from $300/month. In the Uzbekistan market, SEO usually ranges from $200–$1500/month — depending on site size, competition level, keyword count, and number of languages. KATOV packages: small business $300/mo, mid-market $500–$800/mo, e-commerce or large corporate $1000+/mo. The exact price is set after the audit and locked in the contract.',
+          },
+          {
+            question: 'When do SEO results show up?',
+            answer:
+              'First results — rank movement, traffic shifts — show up after 2–3 months. Stable organic traffic and real business outcomes (leads, sales) usually take 6–12 months. SEO is a long-term investment: months 1–3 build the technical foundation, months 4–6 are content and backlinks, month 6+ is the stable growth phase.',
+          },
+          {
+            question: 'Can you guarantee Google #1 rankings?',
+            answer:
+              'No — and anyone who promises "100% Google #1" is misleading you. Google\'s algorithm uses 200+ ranking factors and changes constantly. What KATOV can deliver: ranking growth for specific target keywords, organic traffic growth, technically correct SEO implementation. Example — KATOV\'s own `website-narxi-uzbekistonda` blog post currently ranks #2 on Google for "landing page yaratish narxi". You can verify this in your own browser.',
+          },
+          {
+            question: 'Which projects has KATOV done SEO for?',
+            answer:
+              'The clearest example is katov.uz itself. Our blog ranks in the top 5 on Google for several local keywords ("landing page yaratish narxi" — #2). This isn\'t theory — we can show it. SEO for client projects has also launched — results are accumulating, and each client gets an individual report.',
+          },
+          {
+            question: 'Is SEO just text, or does the site itself change too?',
+            answer:
+              'Both. SEO isn\'t just keywords and content — it\'s also site structure, page speed, mobile responsiveness, meta tags, and schema markup. KATOV first fixes the technical side (site loads fast, Google reads it correctly), then works on content and keywords. Both happen together, not separately.',
+          },
+          {
+            question: 'My site was built by another company — can KATOV take it on for SEO?',
+            answer:
+              'Yes. KATOV starts with an audit — technical state, what platform the site runs on, how many fixes are needed. Sometimes SEO on an existing site isn\'t worthwhile (outdated tech, very slow loading) — in that case we recommend a fresh build. Based on audit results, we give an honest recommendation: SEO only or redesign + SEO.',
+          },
+        ],
+        ctaTitle: 'Free SEO audit for your site',
+        ctaSubtitle:
+          'We\'ll check your site\'s current SEO state for free. Leave your details — we\'ll send the audit report within 2 business days.',
+        ctaPrimary: 'Get a free audit',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
+  'telegram-bot': {
+    slug: 'telegram-bot',
+    icon: 'Bot',
+    basePrice: 400,
+    priceSuffix: '',
+    demand: 5,
+    content: {
+      uz: {
+        title: 'Telegram Bot Yaratish — Biznes Uchun, Click/Payme bilan',
+        metaDescription:
+          'Biznes uchun Telegram bot yaratish — buyurtma qabul qilish, Click va Payme to\'lov, 24/7 ishlaydi. 7–14 kunda, $400 dan, 3 tilda (uz/ru/en).',
+        h1: 'Telegram Bot Yaratish Xizmati: Buyurtma, To\'lov va Mijozlar bilan Aloqa Bir Botda',
+        heroSubtitle:
+          'Biznesingiz uchun avtomatik bot — mijoz so\'rovini qabul qiladi, mahsulot ko\'rsatadi, Click yoki Payme orqali to\'lov oladi. 24/7 sotuvchidek ishlaydi.',
+        benefits: [
+          {
+            icon: 'Zap',
+            title: '24/7 ishlaydi',
+            description:
+              'Mijoz tun-kun buyurtma berolasi — siz uxlasangiz ham, dam olish kunlari ham bot sotuvni davom ettiradi.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Click va Payme to\'lov',
+            description:
+              'Mijoz bot ichida to\'g\'ri to\'laydi, pul sizning hisobingizga keladi. Naqd va qog\'ozli chek bilan ovoragarchilik yo\'q.',
+          },
+          {
+            icon: 'LayoutDashboard',
+            title: 'Bitta admin panel',
+            description:
+              'Buyurtma, mijoz va mahsulotlarni bir joydan boshqarasiz. Excel\'ga eksport, statistika, qidiruv — barchasi bir panelda.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Onlayn do\'kon va savdo',
+            description:
+              'Mahsulot katalogi, savatcha, buyurtma va to\'lov — sayt o\'rniga yoki sayt bilan birga Telegram bot orqali.',
+          },
+          {
+            title: 'Restoran va kafe',
+            description:
+              'Menu, taom buyurtmasi, yetkazib berish va stol bron qilish — mijoz birinchi tugmadan to\'lovgacha botdan chiqmasdan.',
+          },
+          {
+            title: 'Xizmat ko\'rsatuvchilar',
+            description:
+              'Yozilish, narx-navo so\'rash, vaqt bron qilish — go\'zallik saloni, klinika, repetitor, ustaxona uchun.',
+          },
+          {
+            title: 'Mahalliy va offline biznes',
+            description:
+              'Mijoz xizmati, FAQ avtomati, lid yig\'ish, takroriy mijozlarga eslatma — qo\'ng\'iroqlar sonini kamaytirish uchun.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Bot scenariy va menu strukturasi (mijozga qulay yo\'naltirish)',
+          'Inline va reply tugmalar — mijoz hech narsa yozmasdan boshqaradi',
+          'Click va Payme to\'lov integratsiyasi',
+          'Buyurtma boshqaruvi — mijoz va admin tomonlari ajratilgan',
+          'Mahsulot katalogi (rasm, narx, kategoriya)',
+          'Admin panel — buyurtma, mahsulot, mijoz boshqaruv',
+          'Google Sheets yoki CRM bilan ulash (kerak bo\'lsa)',
+          '24/7 server — hosting kiradi, alohida to\'lov yo\'q',
+          'Botni 3 tilda ishlatish imkoniyati (uz/ru/en)',
+          '1 oy bepul support',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '7–14 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Konsultatsiya va scenariy',
+            description:
+              'Bot nimaga xizmat qilishini aniqlaymiz: kim mijoz, qaysi tugmalar, qaysi to\'lov yo\'li. Scenariy yoziladi va siz tasdiqlaysiz.',
+            duration: '1–2 kun',
+          },
+          {
+            step: 2,
+            title: 'Bot flow va dizayn',
+            description:
+              'Menu strukturasi, tugmalar, ekranlar va xabar matnlari tayyorlanadi. Mijoz tajribasi botda qanday borishi — bosqichma-bosqich.',
+            duration: '2–3 kun',
+          },
+          {
+            step: 3,
+            title: 'Development va integratsiya',
+            description:
+              'Bot kodi, admin panel, Click/Payme va boshqa integratsiyalar shu yerda quriladi.',
+            duration: '3–7 kun',
+          },
+          {
+            step: 4,
+            title: 'Test va ishga tushirish',
+            description:
+              'To\'lov, buyurtma va admin tomon test qilinadi. Hammasi to\'g\'ri ishlasa, bot rasmiy ishga tushadi.',
+            duration: '1–2 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Click va Payme to\'lov tizimi ulab beriladi — mahalliy ekspertiza, har loyihada alohida sozlanadi',
+          '10+ muvaffaqiyatli loyiha (Getolog bot va admin panel)',
+          'AI/ChatGPT integratsiya tajribasi mavjud (qo\'shimcha funksiya sifatida)',
+          'Bot 3 tilda (uz/ru/en) — qo\'shimcha narxsiz',
+          'Shaffof narx — $400 dan, ishga tushgandan keyin 1 oy bepul support',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Telegram bot yaratish narxi qancha turadi?',
+            answer:
+              'KATOV\'da Telegram bot narxi $400 dan boshlanadi. Oddiy info bot $400–$700, mahsulot katalogi va buyurtma bilan $700–$1200, Click/Payme to\'lov va admin panel bilan $1200–$2000, CRM integratsiyasi va AI funksiyalari bilan $2000 dan. Aniq narx konsultatsiyada belgilanadi va keyin o\'zgarmaydi.',
+          },
+          {
+            question: 'Telegram bot necha kunda tayyor bo\'ladi?',
+            answer:
+              'Standart muddat — 7–14 ish kuni: konsultatsiya va scenariy (1–2 kun), bot flow va dizayn (2–3 kun), development va integratsiya (3–7 kun), test va ishga tushirish (1–2 kun). Oddiy info bot 5–7 kunda ham tayyor bo\'ladi. Murakkab loyihalar (CRM, AI, ko\'p tilli katalog) 3–4 hafta olishi mumkin.',
+          },
+          {
+            question: 'Click va Payme orqali to\'lov bo\'ladimi?',
+            answer:
+              'Ha. Click va Payme merchant API\'lari botga integratsiya qilinadi: mijoz bot ichida to\'g\'ri to\'laydi, sizga avtomatik tasdiq keladi va pul sizning hisobingizga o\'tadi. Buning uchun sizning Click va Payme merchant akkauntlaringiz bo\'lishi kerak (yoki KATOV qo\'lga olishida yordam beradi).',
+          },
+          {
+            question: 'Bot 24/7 ishlashi uchun nima kerak?',
+            answer:
+              'Bot 24/7 ishlash uchun server (hosting) kerak — bu xizmatga kiradi, sizga alohida sozlash kerak emas. Bir yil hosting bepul, undan keyin oylik xizmat (KATOV hosting va support paketi) yoki o\'z hostingingizga ko\'chirib oling.',
+          },
+          {
+            question: 'AI yoki ChatGPT integratsiyasi qo\'sha olamizmi?',
+            answer:
+              'Ha, AI/ChatGPT integratsiyasi qo\'shimcha xizmat sifatida mavjud. Bot mijoz savollariga avtomatik javob beradi, savollarni tasniflaydi yoki kontent tayyorlaydi. Bu OpenAI yoki shunga o\'xshash API\'lar orqali quriladi (API to\'lovi alohida, lekin arzon).',
+          },
+          {
+            question: 'Bot uchun admin panel beriladi?',
+            answer:
+              'Ha. Admin panel orqali buyurtmalarni ko\'rasiz, mijozlar ro\'yxati, mahsulot qo\'shish va tahrirlash, statistika va Excel\'ga eksport — barchasi bir panelda. Kod yozish kerak emas. Murakkab o\'zgartirishlar kerak bo\'lsa, KATOV qiladi (support davrida bepul).',
+          },
+        ],
+        ctaTitle: 'Telegram bot uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Ma\'lumotlarni qoldiring, 1 ish kuni ichida bog\'lanamiz. Konsultatsiya bepul, hech qanday majburiyat yo\'q.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Разработка Telegram-бота — Для Бизнеса, с Click/Payme',
+        metaDescription:
+          'Разработка Telegram-бота для бизнеса — приём заказов, оплата Click/Payme, работа 24/7. 7–14 дней, от $400. 3 языка (uz/ru/en).',
+        h1: 'Разработка Telegram-бота: Заказы, Оплата и Поддержка в Одном Боте',
+        heroSubtitle:
+          'Автоматический бот для вашего бизнеса — принимает заказы, показывает товары, проводит оплату через Click или Payme. Работает как продавец 24/7.',
+        benefits: [
+          {
+            icon: 'Zap',
+            title: 'Работает 24/7',
+            description:
+              'Клиент может заказать ночью или в выходные — бот продолжает продавать, пока вы отдыхаете.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Оплата Click и Payme',
+            description:
+              'Клиент платит прямо в боте — деньги поступают вам на счёт. Никаких наличных и бумажных чеков.',
+          },
+          {
+            icon: 'LayoutDashboard',
+            title: 'Единая админ-панель',
+            description:
+              'Заказы, клиенты и товары — всё управляется из одного места. Экспорт в Excel, статистика, поиск.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Онлайн-магазины',
+            description:
+              'Каталог товаров, корзина, заказ и оплата — вместо сайта или вместе с ним через Telegram-бота.',
+          },
+          {
+            title: 'Рестораны и кафе',
+            description:
+              'Меню, заказ блюд, доставка и бронирование столиков — клиент проходит весь путь от кнопки до оплаты, не выходя из бота.',
+          },
+          {
+            title: 'Сервисные компании',
+            description:
+              'Запись, узнать цену, бронирование времени — для салонов красоты, клиник, репетиторов и мастерских.',
+          },
+          {
+            title: 'Локальный и офлайн-бизнес',
+            description:
+              'Поддержка клиентов, FAQ-автомат, сбор лидов, напоминания постоянным клиентам — чтобы снизить количество звонков.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'Сценарий бота и структура меню (удобная навигация для клиента)',
+          'Inline и reply-кнопки — клиент управляет без ввода текста',
+          'Интеграция оплаты Click и Payme',
+          'Управление заказами — стороны клиента и админа разделены',
+          'Каталог товаров (фото, цена, категории)',
+          'Админ-панель — заказы, товары, клиенты',
+          'Интеграция с Google Sheets или CRM (при необходимости)',
+          '24/7 сервер — хостинг включён, без отдельной оплаты',
+          'Возможность работы бота на 3 языках (uz/ru/en)',
+          'Бесплатная поддержка 1 месяц',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '7–14 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Консультация и сценарий',
+            description:
+              'Определяем для чего бот: кто клиент, какие кнопки, какой способ оплаты. Сценарий пишется и вы согласовываете.',
+            duration: '1–2 дня',
+          },
+          {
+            step: 2,
+            title: 'Flow и дизайн бота',
+            description:
+              'Структура меню, кнопки, экраны и тексты сообщений. Опыт клиента в боте — шаг за шагом.',
+            duration: '2–3 дня',
+          },
+          {
+            step: 3,
+            title: 'Разработка и интеграция',
+            description:
+              'Код бота, админ-панель, Click/Payme и другие интеграции собираются здесь.',
+            duration: '3–7 дней',
+          },
+          {
+            step: 4,
+            title: 'Тестирование и запуск',
+            description:
+              'Проверяем оплату, заказы и админ-сторону. Если всё работает — бот официально запускается.',
+            duration: '1–2 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Подключаем оплату Click и Payme — локальная экспертиза, настраиваем под каждый проект',
+          '10+ успешных проектов (Getolog — бот и админ-панель)',
+          'Опыт интеграции AI/ChatGPT (как дополнительная функция)',
+          'Бот на 3 языках (uz/ru/en) — без доп. стоимости',
+          'Прозрачная цена — от $400, бесплатная поддержка 1 месяц после запуска',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Сколько стоит разработка Telegram-бота?',
+            answer:
+              'В KATOV Telegram-бот начинается от $400. Простой info-бот $400–$700, бот с каталогом товаров и заказами $700–$1200, бот с оплатой Click/Payme и админ-панелью $1200–$2000, бот с CRM и AI-функциями от $2000. Точная цена фиксируется на этапе консультации и не меняется.',
+          },
+          {
+            question: 'За сколько дней готов Telegram-бот?',
+            answer:
+              'Стандартный срок — 7–14 рабочих дней: консультация и сценарий (1–2 дня), flow и дизайн (2–3 дня), разработка и интеграции (3–7 дней), тест и запуск (1–2 дня). Простой info-бот можно сделать за 5–7 дней. Сложные проекты (CRM, AI, многоязычный каталог) могут занять 3–4 недели.',
+          },
+          {
+            question: 'Будет ли оплата через Click и Payme?',
+            answer:
+              'Да. Merchant API Click и Payme интегрируются в бота: клиент платит прямо в боте, вы получаете автоматическое подтверждение, деньги поступают на ваш счёт. Нужны ваши merchant-аккаунты Click и Payme (или KATOV поможет их оформить).',
+          },
+          {
+            question: 'Что нужно, чтобы бот работал 24/7?',
+            answer:
+              'Для работы бота 24/7 нужен сервер (хостинг) — он включён в услугу, отдельно настраивать ничего не нужно. Первый год хостинг бесплатный, дальше — ежемесячный сервис (пакет хостинга и поддержки KATOV) или перенос на ваш хостинг.',
+          },
+          {
+            question: 'Можно ли добавить AI или ChatGPT?',
+            answer:
+              'Да, интеграция AI/ChatGPT доступна как дополнительная услуга. Бот может автоматически отвечать на вопросы клиентов, классифицировать обращения или генерировать контент. Делается через OpenAI или аналогичные API (оплата API отдельно, но недорого).',
+          },
+          {
+            question: 'Будет ли админ-панель?',
+            answer:
+              'Да. Через админ-панель вы видите заказы, список клиентов, добавляете и редактируете товары, смотрите статистику и экспортируете в Excel — всё в одной панели. Код не нужен. Сложные изменения делает KATOV (во время поддержки — бесплатно).',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по Telegram-боту',
+        ctaSubtitle:
+          'Оставьте данные — свяжемся в течение 1 рабочего дня. Консультация бесплатная, без обязательств.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Telegram Bot Development — For Business, with Click/Payme',
+        metaDescription:
+          'Telegram bot development for business — orders, Click/Payme payments, 24/7 operation. 7–14 days, from $400. 3 languages (uz/ru/en).',
+        h1: 'Telegram Bot Development: Orders, Payments, and Support in One Bot',
+        heroSubtitle:
+          'Automated bot for your business — takes orders, shows products, processes payments via Click or Payme. Works like a salesperson 24/7.',
+        benefits: [
+          {
+            icon: 'Zap',
+            title: 'Works 24/7',
+            description:
+              'Customers order at night or on weekends — the bot keeps selling while you rest.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Click & Payme payments',
+            description:
+              'Customers pay inside the bot — money lands in your account. No cash or paper receipts.',
+          },
+          {
+            icon: 'LayoutDashboard',
+            title: 'One admin panel',
+            description:
+              'Orders, customers, and products — all managed from one place. Excel export, stats, search included.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Online stores',
+            description:
+              'Product catalog, cart, orders, and payment — instead of a site or alongside one, via Telegram bot.',
+          },
+          {
+            title: 'Restaurants & cafés',
+            description:
+              'Menu, food orders, delivery, and table booking — the customer goes from button to payment without leaving the bot.',
+          },
+          {
+            title: 'Service providers',
+            description:
+              'Bookings, price inquiries, time reservations — for beauty salons, clinics, tutors, and workshops.',
+          },
+          {
+            title: 'Local & offline business',
+            description:
+              'Customer support, FAQ automation, lead capture, reminders for returning customers — to cut down on phone calls.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Bot scenario and menu structure (easy navigation for customers)',
+          'Inline and reply buttons — customers navigate without typing',
+          'Click & Payme payment integration',
+          'Order management — separated customer and admin sides',
+          'Product catalog (photos, prices, categories)',
+          'Admin panel — orders, products, customers',
+          'Google Sheets or CRM integration (if needed)',
+          '24/7 server — hosting included, no separate fee',
+          'Bot available in 3 languages (uz/ru/en)',
+          '1 month free support',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '7–14 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Consultation & scenario',
+            description:
+              'We define what the bot does: who the customer is, which buttons, which payment flow. Scenario is written and you approve it.',
+            duration: '1–2 days',
+          },
+          {
+            step: 2,
+            title: 'Bot flow & design',
+            description:
+              'Menu structure, buttons, screens, and message texts. The customer experience inside the bot — step by step.',
+            duration: '2–3 days',
+          },
+          {
+            step: 3,
+            title: 'Development & integrations',
+            description:
+              'Bot code, admin panel, Click/Payme, and other integrations built here.',
+            duration: '3–7 days',
+          },
+          {
+            step: 4,
+            title: 'Testing & launch',
+            description:
+              'We test payments, orders, and the admin side. If everything works — the bot goes live.',
+            duration: '1–2 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'We connect Click & Payme payments — local expertise, configured per project',
+          '10+ successful projects (Getolog — bot and admin panel)',
+          'AI/ChatGPT integration experience (as an add-on)',
+          'Bot in 3 languages (uz/ru/en) — no extra cost',
+          'Transparent pricing — from $400, 1 month free support after launch',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How much does Telegram bot development cost?',
+            answer:
+              'At KATOV, Telegram bots start from $400. A simple info bot $400–$700, a catalog bot with orders $700–$1200, a bot with Click/Payme payments and admin panel $1200–$2000, a bot with CRM and AI features from $2000. The final price is locked during the consultation and never changes.',
+          },
+          {
+            question: 'How long does Telegram bot development take?',
+            answer:
+              'Standard timeline is 7–14 business days: consultation and scenario (1–2 days), flow and design (2–3 days), development and integrations (3–7 days), testing and launch (1–2 days). A simple info bot can be ready in 5–7 days. Complex projects (CRM, AI, multilingual catalog) may take 3–4 weeks.',
+          },
+          {
+            question: 'Can the bot accept Click and Payme payments?',
+            answer:
+              'Yes. Click and Payme merchant APIs are integrated into the bot: customers pay inside the bot, you get automatic confirmation, and money lands in your account. You\'ll need your own Click and Payme merchant accounts (or KATOV can help you set them up).',
+          },
+          {
+            question: 'What\'s needed for the bot to run 24/7?',
+            answer:
+              'A server (hosting) is needed for 24/7 operation — it\'s included in the service, no separate setup. First year of hosting is free; after that, monthly service (KATOV hosting & support plan) or you can move to your own hosting.',
+          },
+          {
+            question: 'Can we add AI or ChatGPT?',
+            answer:
+              'Yes, AI/ChatGPT integration is available as an add-on. The bot can auto-reply to customer questions, classify inquiries, or generate content. Built via OpenAI or similar APIs (API fees billed separately but inexpensive).',
+          },
+          {
+            question: 'Is an admin panel included?',
+            answer:
+              'Yes. Through the admin panel you see orders, the customer list, add and edit products, view statistics, and export to Excel — everything in one panel. No code required. For complex changes, KATOV handles them (free during the support period).',
+          },
+        ],
+        ctaTitle: 'Free consultation for your Telegram bot',
+        ctaSubtitle:
+          'Leave your details — we\'ll get back within 1 business day. The consultation is free, no commitment.',
+        ctaPrimary: 'Place order',
         breadcrumbServices: 'Services',
         priceLabel: 'From',
         priceSuffix: '',
