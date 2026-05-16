@@ -1222,27 +1222,6 @@ export const servicesCatalog: ServiceCatalogItem[] = [
       },
     },
   },
-  {
-    slug: 'ui-ux-dizayn',
-    icon: 'Palette',
-    basePrice: 400,
-    priceSuffix: '',
-    demand: 3,
-    card: {
-      uz: {
-        title: 'UI/UX dizayn',
-        description: 'Sayt va ilova vizual dizayni — Figma\'da, kodsiz. Boshqa kompaniya kod yozadi.',
-      },
-      ru: {
-        title: 'UI/UX дизайн',
-        description: 'Визуальный дизайн сайтов и приложений — в Figma, без кода. Программирует другая команда.',
-      },
-      en: {
-        title: 'UI/UX Design',
-        description: 'Visual design for web and apps — in Figma, no code. Another team handles coding.',
-      },
-    },
-  },
 ];
 
 export interface ServicesIndexCopy {
