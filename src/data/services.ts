@@ -1849,6 +1849,444 @@ export const servicesData: Record<string, ServiceData> = {
       },
     },
   },
+  'sayt-redesign': {
+    slug: 'sayt-redesign',
+    icon: 'RefreshCw',
+    basePrice: 500,
+    priceSuffix: '',
+    demand: 4,
+    content: {
+      uz: {
+        title: 'Sayt Redesign — Eski Saytni Yangilash Xizmati | KATOV',
+        metaDescription:
+          'Eski saytni qayta quramiz: mobile-first, tez ochiladigan, Google\'da pozitsiya saqlangan. 301 redirect bilan SEO yo\'qolmaydi. 7–14 kun, $500 dan.',
+        h1: 'Sayt Redesign Xizmati: Eski Saytni Tezkor, Mobile va Google\'ga Mos Qayta Quramiz',
+        heroSubtitle:
+          'Eski saytingiz sekin ochilsa, mobilda buziladi yoki Google\'da pasaygan bo\'lsa — biz 7–14 kunda zamonaviy ko\'rinishga keltirib, tez ochiladigan va qidiruv tizimlariga mos sayt qaytarib beramiz.',
+        benefits: [
+          {
+            icon: 'Smartphone',
+            title: 'Mobile-first qayta qurish',
+            description:
+              'Sayt har telefonda — kichik, o\'rta yoki katta — buzilmasdan ochiladi. Foydalanuvchilarning 91%i mobil orqali keladi, bu standartga aylantiriladi.',
+          },
+          {
+            icon: 'Zap',
+            title: 'Tezlik va SEO qaytariladi',
+            description:
+              'Sayt soniyalarda ochiladi, rasm va shriftlar optimallashtiriladi. Google qaytadan indekslaydi va pasaygan pozitsiyalar tiklanish imkoniyatini oladi.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'Kontentni o\'zingiz boshqarasiz',
+            description:
+              'Yangi admin panel ulab beriladi (oldin yo\'q bo\'lsa). Matn, rasm va sahifalarni telefondan yangilaysiz — dasturchi shart emas.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: '3–5 yil oldin yaratilgan biznes saytlari',
+            description:
+              'Sayt eski ko\'rinishda, mobilga moslashmagan yoki kontentni yangilab bo\'lmaydigan holatda — to\'liq qayta quramiz, lekin domen va eski URL\'lar saqlanadi.',
+          },
+          {
+            title: 'Google\'da pozitsiyasi pasaygan saytlar',
+            description:
+              'Avval yaxshi ranking bo\'lgan, lekin so\'nggi yillarda pasaygan saytlar uchun — texnik SEO va kontent strukturasi yangilanadi, 301 redirect bilan trafik saqlanadi.',
+          },
+          {
+            title: 'Boshqa studiya yoki freelancer qurgan saytlar',
+            description:
+              'Asl ishlab chiquvchi bog\'lanmaydigan yoki saytni yangilash imkonsiz bo\'lgan holatlar — kod yangidan yoziladi va sayt to\'liq KATOV qo\'l ostiga o\'tadi.',
+          },
+          {
+            title: 'WordPress, Tilda yoki shablon saytlar',
+            description:
+              'Tezligi past, qo\'shimcha plaginlar bilan og\'ir bo\'lgan saytlar — yengil va tezkor sayt qaytarib quramiz, ortiqcha narsalarsiz.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Joriy sayt texnik va SEO auditi — muammolar ro\'yxati va prioritet',
+          'Yangi dizayn Figma\'da — brendingiz saqlanadi, vizual zamonaviy bo\'ladi',
+          'To\'liq qayta qurish — kod yangidan yoziladi, eski sayt mirosi qoldirilmaydi',
+          'Mavjud kontent migratsiyasi (matn, rasm, sahifalar) — yo\'qotmaslik kafolati',
+          'Mobile-first responsive — telefon, planshet va kompyuterda bir xil mos',
+          'Tezlik optimallashtirish — rasm, shrift va loading qayta qurilgan',
+          'SEO o\'tkazish + eski URL\'larga 301 redirect — Google pozitsiyalari saqlanadi',
+          'Admin panel ulab beriladi — kontentni o\'zingiz yangilaysiz',
+          '3 til (uz/ru/en) — agar oldin yo\'q bo\'lgan bo\'lsa qo\'shiladi',
+          '1 oy bepul support va kichik o\'zgartirishlar',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '7–14 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Audit va strategiya',
+            description:
+              'Joriy saytingizni texnik, SEO va UX nuqtai nazardan tahlil qilamiz — nima saqlanadi, nima o\'zgaradi va qaysi URL\'lar redirect bo\'ladi.',
+            duration: '1–2 kun',
+          },
+          {
+            step: 2,
+            title: 'Dizayn',
+            description:
+              'Bosh sahifa va asosiy ichki sahifalar Figma\'da — brendingiz saqlangan holda zamonaviy ko\'rinish. Ikki bosqichli revizyon kiradi.',
+            duration: '3–4 kun',
+          },
+          {
+            step: 3,
+            title: 'Development va kontent migratsiyasi',
+            description:
+              'Yangi kod yoziladi, eski saytdan kontent (matn, rasm, sahifalar) ko\'chiriladi. Kerak bo\'lsa admin panel, Click/Payme yoki Telegram bot ulab beriladi.',
+            duration: '3–6 kun',
+          },
+          {
+            step: 4,
+            title: '301 redirect, test va ishga tushirish',
+            description:
+              'Eski URL\'lar yangi sahifalarga 301 redirect bilan ulanadi (SEO yo\'qotilmaydi), to\'liq test o\'tkaziladi va sayt ishga tushadi.',
+            duration: '1–2 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          '301 redirect strategiyasi bilan eski Google pozitsiyalari saqlanadi — trafikingiz yo\'qolmaydi',
+          'Kod yangidan yoziladi — eski texnik qarz va xavfsizlik bo\'shliqlari yo\'qotiladi',
+          'Mobilga to\'liq moslashtirish standart — har telefonda saytingiz buzilmasdan ochiladi',
+          'Eski kontentni biz ko\'chiramiz — siz uchun qo\'shimcha ish yo\'q',
+          '3 til (uz/ru/en) standart — agar oldin yo\'q bo\'lgan bo\'lsa, paket tarkibida qo\'shiladi',
+          'Click/Payme va Telegram bot redesign jarayonida ulab beriladi — kerak bo\'lsa',
+          '1 oy bepul support — ishga tushgandan keyin keladigan savollar va kichik o\'zgartirishlar',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Eski saytdagi Google pozitsiyalarini yo\'qotmaymanmi?',
+            answer:
+              'Yo\'q, agar 301 redirect to\'g\'ri sozlansa. Biz audit bosqichida har bir eski URL\'ni ro\'yxatga olamiz va yangi sahifaga mos keladigan 301 redirect quramiz. Google bir necha hafta ichida yangi sahifalarni eski rankingda qaytadan indekslaydi. Backlink\'lar ham yo\'qolmaydi, chunki ular eski URL orqali yangi sahifaga o\'tadi.',
+          },
+          {
+            question: 'Eski saytdan kontentni o\'zim ko\'chirishim kerakmi?',
+            answer:
+              'Yo\'q, biz qilamiz — bu paket tarkibida. Matn, rasm, sahifalar, blog postlari — barchasi yangi saytga ko\'chiriladi. Sizdan faqat saytga kirish (admin yoki FTP) yoki kontentni bizga jo\'natish kerak bo\'ladi. Agar kontent yangilanishi kerak bo\'lsa, qaysi qism o\'zgarishi haqida birga kelishamiz.',
+          },
+          {
+            question: 'Domen va hosting o\'zgaradimi?',
+            answer:
+              'Domen o\'sha qoladi — saytingiz manzili o\'zgarmaydi. Hostingga kelsak, joriy hosting yetarli bo\'lsa o\'sha yerda qoladi yoki KATOV hostingiga o\'tkazamiz (alohida xizmat, $50/oy dan). Tavsiya odatda o\'tkazishga beriladi, chunki redesign qilingan sayt KATOV hostingida tezroq ishlaydi.',
+          },
+          {
+            question: 'Eski sayt qaysi platformada qurilgan bo\'lsa ham qabul qilasizmi?',
+            answer:
+              'Ha — WordPress, Tilda, Wix, Bitrix, custom kod yoki boshqa har qanday platforma. Redesign\'da biz eski platformani saqlamaymiz: kod yangidan yoziladi va sayt to\'liq KATOV qo\'l ostiga o\'tadi. Bu eski platformadagi cheklovlar, xavfsizlik bo\'shliqlari va sekinlik muammolarini bir vaqtning o\'zida hal qiladi.',
+          },
+          {
+            question: 'Redesign muddati va boshlanish narxi qancha?',
+            answer:
+              'Standart redesign $500 dan boshlanadi va 7–14 ish kunida tayyor bo\'ladi. Bunga: audit, yangi dizayn, to\'liq qayta qurish, mavjud kontent migratsiyasi, mobile-first, 301 redirect va admin panel kiradi. Sahifa soni ko\'p bo\'lsa yoki e-commerce/CRM integratsiyalari kerak bo\'lsa narx $800–$1500 oralig\'iga ko\'tariladi. Aniq narx audit oxirida belgilanadi va loyiha davomida o\'zgarmaydi.',
+          },
+        ],
+        ctaTitle: 'Sayt redesign uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Joriy saytingizni birga ko\'rib chiqamiz va nimani yangilash kerakligini aniqlaymiz. Konsultatsiya bepul, 1 ish kuni ichida bog\'lanamiz.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Редизайн Сайта — Модернизация и Обновление | KATOV',
+        metaDescription:
+          'Перестраиваем старый сайт: mobile-first, быстрая загрузка, позиции в Google сохраняются. 301-редиректы защищают SEO. 7–14 дней, от $500.',
+        h1: 'Редизайн Сайта: Перестраиваем Старый Сайт под Mobile, Скорость и Google',
+        heroSubtitle:
+          'Если ваш сайт медленно открывается, ломается на мобильных или потерял позиции в Google — за 7–14 дней мы возвращаем его в современный вид: быстрый и оптимизированный под поисковые системы.',
+        benefits: [
+          {
+            icon: 'Smartphone',
+            title: 'Mobile-first перестройка',
+            description:
+              'Сайт открывается без поломок на любом телефоне — маленьком, среднем или большом. 91% пользователей приходят с мобильного, и это становится стандартом.',
+          },
+          {
+            icon: 'Zap',
+            title: 'Скорость и SEO восстанавливаются',
+            description:
+              'Сайт открывается за секунды, изображения и шрифты оптимизированы. Google переиндексирует страницы, и потерянные позиции получают шанс на восстановление.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'Управляете контентом сами',
+            description:
+              'Подключаем новую админ-панель (если её не было). Тексты, изображения и страницы обновляете с телефона — без разработчика.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Бизнес-сайты возрастом 3–5 лет',
+            description:
+              'Сайт выглядит устаревшим, не адаптирован под мобильные или контент невозможно обновлять — перестраиваем полностью, но домен и старые URL сохраняются.',
+          },
+          {
+            title: 'Сайты с упавшими позициями в Google',
+            description:
+              'Раньше ранжировались хорошо, но в последние годы позиции упали — обновляем техническую SEO-базу и структуру контента, трафик сохраняется через 301-редиректы.',
+          },
+          {
+            title: 'Сайты других студий или фрилансеров',
+            description:
+              'Когда исходного разработчика не найти или обновлять сайт стало невозможно — пишем код заново, и сайт полностью переходит под управление KATOV.',
+          },
+          {
+            title: 'WordPress, Tilda или шаблонные сайты',
+            description:
+              'Медленные, перегруженные плагинами сайты — перестраиваем на собственном коде, без лишнего, остаётся лёгкий и быстрый сайт.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'Технический и SEO-аудит текущего сайта — список проблем и приоритеты',
+          'Новый дизайн в Figma — бренд сохраняется, визуал становится современным',
+          'Полная перестройка — код пишется заново, наследие старого сайта не остаётся',
+          'Миграция существующего контента (тексты, изображения, страницы) — гарантия сохранности',
+          'Mobile-first адаптация — телефон, планшет и компьютер одинаково хорошо',
+          'Оптимизация скорости — изображения, шрифты и загрузка переделаны',
+          'Перенос SEO + 301-редиректы со старых URL — позиции в Google сохраняются',
+          'Подключение админ-панели — контент обновляете сами',
+          '3 языка (uz/ru/en) — если раньше не было, добавляем',
+          'Бесплатная поддержка 1 месяц и небольшие правки',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '7–14 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Аудит и стратегия',
+            description:
+              'Анализируем сайт по техническим, SEO и UX-критериям — что сохраняем, что меняем и какие URL уйдут в редирект.',
+            duration: '1–2 дня',
+          },
+          {
+            step: 2,
+            title: 'Дизайн',
+            description:
+              'Главная и основные внутренние страницы в Figma — современный вид с сохранением бренда. Две правки включены.',
+            duration: '3–4 дня',
+          },
+          {
+            step: 3,
+            title: 'Разработка и миграция контента',
+            description:
+              'Пишем код заново, переносим контент (тексты, изображения, страницы). По необходимости подключаем админ-панель, Click/Payme или Telegram-бот.',
+            duration: '3–6 дней',
+          },
+          {
+            step: 4,
+            title: '301-редиректы, тест и запуск',
+            description:
+              'Старые URL связываем 301-редиректами с новыми страницами (SEO не теряется), проводим полный тест и запускаем сайт.',
+            duration: '1–2 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Стратегия 301-редиректов сохраняет старые позиции в Google — трафик не теряется',
+          'Код пишется заново — старый технический долг и уязвимости убираются',
+          'Полная mobile-first адаптация стандартно — сайт открывается без поломок на любом телефоне',
+          'Контент мигрируем мы — никакой дополнительной работы с вашей стороны',
+          '3 языка (uz/ru/en) стандартно — если раньше не было, добавляем в рамках пакета',
+          'Click/Payme и Telegram-бот подключаем при редизайне — если нужно',
+          'Бесплатная поддержка 1 месяц — вопросы и небольшие правки после запуска',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Не потеряю ли я позиции старого сайта в Google?',
+            answer:
+              'Нет, если 301-редиректы настроены правильно. На этапе аудита мы составляем карту всех старых URL и связываем каждый с соответствующей новой страницей через 301-редирект. Google в течение нескольких недель переиндексирует страницы и сохраняет прежний ранкинг. Бэклинки тоже не теряются — они через старый URL ведут на новую страницу.',
+          },
+          {
+            question: 'Контент я переношу сам или это делаете вы?',
+            answer:
+              'Переносим мы — это входит в пакет. Тексты, изображения, страницы, посты блога — всё переносится на новый сайт. От вас — доступ к сайту (админка или FTP) или передача контента нам. Если контент требует обновления, обсуждаем заранее, что изменится.',
+          },
+          {
+            question: 'Меняется ли домен и хостинг?',
+            answer:
+              'Домен остаётся прежним — адрес сайта не меняется. По хостингу: если текущий тянет — оставляем; если нет — переносим на хостинг KATOV (отдельная услуга, от $50/мес). Обычно рекомендуем перенос: на хостинге KATOV редизайн-сайт работает быстрее.',
+          },
+          {
+            question: 'Принимаете ли вы сайт на любой платформе?',
+            answer:
+              'Да — WordPress, Tilda, Wix, Bitrix, собственный код или любая другая платформа. При редизайне старую платформу не сохраняем: пишем код заново и сайт полностью переходит под управление KATOV. Это сразу убирает ограничения старой платформы, уязвимости и проблемы со скоростью.',
+          },
+          {
+            question: 'Сколько занимает редизайн и сколько стоит?',
+            answer:
+              'Стандартный редизайн от $500, готов за 7–14 рабочих дней. Включает: аудит, новый дизайн, полную перестройку, миграцию контента, mobile-first, 301-редиректы и админ-панель. Если страниц много или нужны интеграции e-commerce/CRM — $800–$1500. Финальная цена фиксируется после аудита и не меняется до запуска.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по редизайну',
+        ctaSubtitle:
+          'Разберём ваш текущий сайт вместе и определим, что обновить. Консультация бесплатная — свяжемся в течение 1 рабочего дня.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Website Redesign — Modernization Service | KATOV',
+        metaDescription:
+          'Rebuild a legacy site: mobile-first, fast loading, Google rankings preserved. 301 redirects protect SEO. 7–14 days, from $500.',
+        h1: 'Website Redesign: Rebuild Legacy Sites for Mobile, Speed and Google',
+        heroSubtitle:
+          'If your site loads slowly, breaks on mobile, or has lost Google rankings — in 7–14 days we rebuild it into a modern, fast-loading site optimized for search engines.',
+        benefits: [
+          {
+            icon: 'Smartphone',
+            title: 'Mobile-first rebuild',
+            description:
+              'The site opens flawlessly on any phone — small, mid, or large. 91% of users arrive on mobile, and that becomes the default.',
+          },
+          {
+            icon: 'Zap',
+            title: 'Speed and SEO restored',
+            description:
+              'Pages load in seconds, images and fonts are optimized. Google re-indexes and lost rankings get a chance to recover.',
+          },
+          {
+            icon: 'Sparkles',
+            title: 'You manage the content',
+            description:
+              'A new admin panel is connected (if there wasn\'t one). Update texts, images, and pages from your phone — no developer needed.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Business sites built 3–5 years ago',
+            description:
+              'The site looks outdated, isn\'t mobile-friendly, or the content can\'t be updated — we rebuild it fully while keeping the domain and old URLs.',
+          },
+          {
+            title: 'Sites with dropped Google rankings',
+            description:
+              'Used to rank well but slipped in recent years — we refresh the technical SEO foundation and content structure, with 301 redirects to keep traffic.',
+          },
+          {
+            title: 'Sites built by other studios or freelancers',
+            description:
+              'When the original developer is unreachable or the site can\'t be updated — we rewrite the code, and the site moves fully under KATOV.',
+          },
+          {
+            title: 'WordPress, Tilda or template sites',
+            description:
+              'Slow, plugin-heavy sites — we rebuild on custom code, dropping the bloat, leaving a light and fast site.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Technical and SEO audit of the current site — issues and priorities',
+          'New design in Figma — brand kept, visual modernized',
+          'Full rebuild — code is rewritten, no legacy carried over',
+          'Migration of existing content (text, images, pages) — nothing is lost',
+          'Mobile-first responsive — phone, tablet, and desktop equally',
+          'Speed optimization — images, fonts, and loading reworked',
+          'SEO transfer + 301 redirects from old URLs — Google rankings preserved',
+          'Admin panel connected — you update content yourself',
+          '3 languages (uz/ru/en) — added if not there before',
+          '1 month free support and small edits',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '7–14 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Audit and strategy',
+            description:
+              'We analyze your current site on technical, SEO, and UX dimensions — what stays, what changes, and which URLs need to redirect.',
+            duration: '1–2 days',
+          },
+          {
+            step: 2,
+            title: 'Design',
+            description:
+              'Home and main inner pages in Figma — modern look while keeping your brand. Two rounds of revisions included.',
+            duration: '3–4 days',
+          },
+          {
+            step: 3,
+            title: 'Development and content migration',
+            description:
+              'New code is written, content is moved over (text, images, pages). If needed, we connect an admin panel, Click/Payme, or Telegram bot.',
+            duration: '3–6 days',
+          },
+          {
+            step: 4,
+            title: '301 redirects, test and launch',
+            description:
+              'Old URLs are mapped to new pages via 301 redirects (no SEO lost), full testing is done, and the site goes live.',
+            duration: '1–2 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          '301 redirect strategy preserves old Google rankings — your traffic doesn\'t disappear',
+          'Code is rewritten — old technical debt and security gaps are removed',
+          'Full mobile-first adaptation is standard — the site opens flawlessly on any phone',
+          'We handle the content migration — no extra work on your side',
+          '3 languages (uz/ru/en) standard — added in the package if not there before',
+          'Click/Payme and Telegram bot connected during redesign — if needed',
+          '1 month free support — questions and small edits after launch',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'Will I lose my old Google rankings?',
+            answer:
+              'No — if 301 redirects are set up correctly. During the audit we map every old URL and link it to the matching new page via a 301 redirect. Google re-indexes pages within a few weeks and the previous ranking is preserved. Backlinks aren\'t lost either — they flow through the old URL to the new page.',
+          },
+          {
+            question: 'Do I migrate the content myself or do you?',
+            answer:
+              'We do — it\'s part of the package. Text, images, pages, blog posts — everything is moved to the new site. All you need to provide is access to the site (admin or FTP) or send us the content. If anything needs rewriting, we agree what changes upfront.',
+          },
+          {
+            question: 'Does the domain or hosting change?',
+            answer:
+              'The domain stays the same — your address doesn\'t change. For hosting: if your current one is sufficient, it stays; if not, we move it to KATOV hosting (a separate service, from $50/month). We usually recommend the move — redesigned sites run faster on KATOV hosting.',
+          },
+          {
+            question: 'Do you accept sites on any platform?',
+            answer:
+              'Yes — WordPress, Tilda, Wix, Bitrix, custom code, or any other platform. With a redesign we don\'t keep the old platform: code is rewritten and the site moves fully under KATOV. This removes the old platform\'s limits, security gaps, and speed issues in one go.',
+          },
+          {
+            question: 'How long does redesign take and how much does it cost?',
+            answer:
+              'A standard redesign starts at $500 and ships in 7–14 business days. It includes: audit, new design, full rebuild, content migration, mobile-first, 301 redirects, and an admin panel. If page count is large or e-commerce/CRM integrations are needed, the price lands at $800–$1500. The final price is locked after the audit and stays unchanged through launch.',
+          },
+        ],
+        ctaTitle: 'Free consultation for your redesign',
+        ctaSubtitle:
+          'We\'ll review your current site together and pin down what to update. The consultation is free — we\'ll reach out within 1 business day.',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
   'seo-xizmati': {
     slug: 'seo-xizmati',
     icon: 'Search',
