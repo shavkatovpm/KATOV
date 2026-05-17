@@ -4,12 +4,12 @@ import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { locales, localeNames, type Locale } from '@/i18n/config';
+import { locales, type Locale } from '@/i18n/config';
 
-const flagEmojis: Record<Locale, string> = {
-  uz: '🇺🇿',
-  ru: '🇷🇺',
-  en: '🇬🇧',
+const localeLabels: Record<Locale, string> = {
+  uz: 'UZ',
+  ru: 'RU',
+  en: 'EN',
 };
 
 export function LanguageSwitcher() {
@@ -47,7 +47,7 @@ export function LanguageSwitcher() {
         className="flex items-center gap-1 px-3 py-2 text-sm font-medium cursor-pointer transition-colors hover:text-white"
         style={{ color: 'var(--color-nav-fg)' }}
       >
-        <span className="text-lg">{flagEmojis[locale]}</span>
+        <span className="text-sm font-semibold tracking-wide">{localeLabels[locale]}</span>
         <ChevronDown
           size={14}
           className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -71,7 +71,7 @@ export function LanguageSwitcher() {
               }`}
               style={{ color: 'var(--color-nav-fg)' }}
             >
-              <span className="text-lg">{flagEmojis[loc]}</span>
+              <span className="text-sm font-semibold tracking-wide">{localeLabels[loc]}</span>
             </button>
           ))}
         </div>
