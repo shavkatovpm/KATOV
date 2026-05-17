@@ -7,6 +7,7 @@ import { locales, Locale } from '@/i18n/config';
 import { Providers } from '@/components/providers';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { ContactPrompt } from '@/components/contact-prompt';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -190,6 +191,7 @@ export default async function LocaleLayout({
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
+            <ContactPrompt locale={locale as Locale} />
           </Providers>
         </NextIntlClientProvider>
       </body>

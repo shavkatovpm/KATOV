@@ -13,7 +13,6 @@ import { ServiceFAQ } from '@/components/service-detail/service-faq';
 import { ServiceContactForm } from '@/components/service-detail/service-contact-form';
 import { ServiceSchema } from '@/components/service-detail/service-schema';
 import { ServiceRelated } from '@/components/service-detail/service-related';
-import { ContactPrompt } from '@/components/contact-prompt';
 import { localizedUrl } from '@/lib/urls';
 
 interface ServicePageProps {
@@ -152,8 +151,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
         priceSuffix={service.priceSuffix}
         content={content}
       />
-
-      <ContactPrompt locale={locale as Locale} />
     </>
   );
 }
