@@ -2738,10 +2738,10 @@ export const servicesData: Record<string, ServiceData> = {
       uz: {
         title: 'SEO Xizmati — Saytni Google TOP-ga Chiqarish',
         metaDescription:
-          'SEO xizmati Toshkentda — texnik audit, kalit so\'zlar, kontent va backlink. $300/oy dan, oylik hisobot. KATOV bloggi Google\'da #2 — real dalil.',
+          'SEO xizmati Toshkentda — texnik audit, kalit so\'zlar, kontent va backlink. $300/oy dan, oylik hisobot, shaffof raqamlar.',
         h1: 'SEO Xizmati: Organik Trafik va Pozitsiyalarni Oshirish',
         heroSubtitle:
-          'Texnik audit, kalit so\'zlar, kontent va backlink — to\'liq SEO paket. KATOV o\'z bloggi hozir Google qidiruvida 2-o\'rinda — bu va\'da emas, real dalil.',
+          'Texnik audit, kalit so\'zlar, kontent va backlink — to\'liq SEO paket. Yolg\'on kafolatsiz, har oy raqamli hisobot bilan.',
         benefits: [
           {
             icon: 'Search',
@@ -2833,7 +2833,6 @@ export const servicesData: Record<string, ServiceData> = {
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
           'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
-          'Bizning bloggimiz hozir Google qidiruvida 2-o\'rinda — "landing page yaratish narxi" so\'rovi uchun. SEO biz uchun amaliyot, nazariya emas',
           'Yolg\'on kafolat yo\'q — "Google #1 100% chiqaramiz" demaymiz. Faqat real raqam va shaffof hisobot',
           'SEO + sayt + kontent — bitta jamoa. Saytni va blogni KATOV o\'zi qiladi, qism-qism qildirib o\'tirmasiz',
           'Lokalga moslashgan — O\'zbekiston Google, Yandex, uz/ru/en kalit so\'zlar bo\'yicha tajriba',
@@ -2856,12 +2855,12 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Google\'da #1 o\'ringa chiqishni kafolatlay olasizmi?',
             answer:
-              'Yo\'q — va kim "100% Google #1 kafolat" desa, u sizni aldayapti. Google algoritmi 200+ omilga qaraydi va doim o\'zgarib turadi. Lekin KATOV nima qila olishi: aniq kalit so\'zlar bo\'yicha pozitsiyalar o\'sishi, organik trafik o\'sishi, texnik SEO 100% to\'g\'ri ishlatilishi. Misol uchun — KATOV\'ning o\'zining `website-narxi-uzbekistonda` bloggi hozir "landing page yaratish narxi" qidiruvida Google\'da 2-o\'rinda. Bu real, sizning brauzerda ham ko\'rinadi.',
+              'Yo\'q — va kim "100% Google #1 kafolat" desa, u sizni aldayapti. Google algoritmi 200+ omilga qaraydi va doim o\'zgarib turadi. Lekin KATOV nima qila olishi: aniq kalit so\'zlar bo\'yicha pozitsiyalar o\'sishi, organik trafik o\'sishi, texnik SEO 100% to\'g\'ri ishlatilishi. Har oy raqamli hisobot bilan progress ko\'rinadi.',
           },
           {
             question: 'KATOV qaysi loyihalarda SEO qilgan?',
             answer:
-              'Eng yaqqol misol — katov.uz o\'zi. Bizning blog Google\'da bir nechta lokal kalit so\'zlar bo\'yicha TOP-5\'da turadi ("landing page yaratish narxi" — #2). Bu nazariya emas, ko\'rsatib bera olamiz. KATOV\'ning mijoz loyihalari uchun SEO ham boshlangan — natijalar hozir to\'planmoqda, har mijoz uchun shaxsiy hisobot beriladi.',
+              'KATOV\'ning mijoz loyihalari uchun SEO boshlangan — natijalar hozir to\'planmoqda, har mijoz uchun shaxsiy raqamli hisobot beriladi. Shartnoma bosqichida o\'tgan loyihalardagi case\'larni ko\'rsatib o\'tamiz.',
           },
           {
             question: 'SEO faqat tekstmi yoki saytda ham o\'zgarishlar bo\'ladimi?',
@@ -2885,10 +2884,10 @@ export const servicesData: Record<string, ServiceData> = {
       ru: {
         title: 'SEO Продвижение — Вывод Сайта в ТОП Google и Yandex',
         metaDescription:
-          'SEO услуги в Ташкенте — техаудит, ключевые слова, контент и backlink. От $300/мес, ежемесячный отчёт. Наш блог в Google #2 — реальное доказательство.',
+          'SEO услуги в Ташкенте — техаудит, ключевые слова, контент и backlink. От $300/мес, ежемесячный отчёт, прозрачные цифры.',
         h1: 'SEO Продвижение: Рост Органического Трафика и Позиций',
         heroSubtitle:
-          'Техаудит, ключевые слова, контент и backlink — полный SEO-пакет. Блог KATOV сейчас на 2-й позиции в Google — не обещание, а реальное доказательство.',
+          'Техаудит, ключевые слова, контент и backlink — полный SEO-пакет. Без ложных гарантий, с ежемесячным отчётом в цифрах.',
         benefits: [
           {
             icon: 'Search',
@@ -2980,7 +2979,6 @@ export const servicesData: Record<string, ServiceData> = {
         whyUsTitle: 'Почему KATOV',
         whyUs: [
           'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
-          'Наш собственный блог сейчас на 2-й позиции в Google по запросу "landing page yaratish narxi". SEO для нас — практика, а не теория',
           'Без ложных гарантий — мы не говорим "выведем в Google #1 на 100%". Только реальные цифры и прозрачные отчёты',
           'SEO + сайт + контент — одна команда. Сайт и блог делает KATOV, не нужно разбивать работу между подрядчиками',
           'Локальная адаптация — опыт работы с Google и Yandex в Узбекистане, на uz/ru/en ключевых словах',
@@ -3003,12 +3001,12 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Можете гарантировать ТОП-1 в Google?',
             answer:
-              'Нет — и тот, кто обещает "100% Google #1", обманывает. Алгоритм Google учитывает 200+ факторов и постоянно меняется. Что KATOV может: рост позиций по конкретным ключевым словам, рост органического трафика, корректное техническое SEO. Пример — наш собственный блог `website-narxi-uzbekistonda` сейчас на 2-й позиции в Google по запросу "landing page yaratish narxi". Это реально, проверяется в вашем браузере.',
+              'Нет — и тот, кто обещает "100% Google #1", обманывает. Алгоритм Google учитывает 200+ факторов и постоянно меняется. Что KATOV может: рост позиций по конкретным ключевым словам, рост органического трафика, корректное техническое SEO. Прогресс виден каждый месяц в отчёте с цифрами.',
           },
           {
             question: 'На каких проектах KATOV делал SEO?',
             answer:
-              'Самый наглядный пример — сам katov.uz. Наш блог в Google занимает позиции в ТОП-5 по нескольким локальным ключевым словам ("landing page yaratish narxi" — #2). Это не теория, мы можем показать. SEO для клиентских проектов KATOV также запущено — результаты накапливаются, по каждому клиенту даём индивидуальный отчёт.',
+              'SEO для клиентских проектов KATOV запущено — результаты накапливаются, по каждому клиенту даём индивидуальный отчёт с цифрами. На этапе договора показываем кейсы из прошлых проектов.',
           },
           {
             question: 'SEO — это только тексты или сайт тоже меняется?',
@@ -3032,10 +3030,10 @@ export const servicesData: Record<string, ServiceData> = {
       en: {
         title: 'SEO Services Uzbekistan — Google Top Rankings',
         metaDescription:
-          'SEO services in Tashkent — technical audit, keywords, content, and backlinks. From $300/mo, monthly reports. KATOV blog ranks #2 on Google — real proof.',
+          'SEO services in Tashkent — technical audit, keywords, content, and backlinks. From $300/mo, monthly reports with transparent numbers.',
         h1: 'SEO Services: Growing Organic Traffic and Rankings',
         heroSubtitle:
-          'Technical audit, keywords, content, and backlinks — a complete SEO package. KATOV\'s own blog currently ranks #2 on Google — not a promise, real proof.',
+          'Technical audit, keywords, content, and backlinks — a complete SEO package. No false guarantees — just monthly reports with real numbers.',
         benefits: [
           {
             icon: 'Search',
@@ -3127,7 +3125,6 @@ export const servicesData: Record<string, ServiceData> = {
         whyUsTitle: 'Why KATOV',
         whyUs: [
           'Individual approach to every project — a solution tailored to your business and customers',
-          'Our own blog currently ranks #2 on Google for "landing page yaratish narxi". SEO is practice for us, not theory',
           'No false guarantees — we don\'t promise "100% Google #1". Only real numbers and transparent reporting',
           'SEO + website + content — one team. KATOV builds the site and blog, no juggling multiple vendors',
           'Locally adapted — experience with Google and Yandex in Uzbekistan, across uz/ru/en keywords',
@@ -3150,12 +3147,12 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Can you guarantee Google #1 rankings?',
             answer:
-              'No — and anyone who promises "100% Google #1" is misleading you. Google\'s algorithm uses 200+ ranking factors and changes constantly. What KATOV can deliver: ranking growth for specific target keywords, organic traffic growth, technically correct SEO implementation. Example — KATOV\'s own `website-narxi-uzbekistonda` blog post currently ranks #2 on Google for "landing page yaratish narxi". You can verify this in your own browser.',
+              'No — and anyone who promises "100% Google #1" is misleading you. Google\'s algorithm uses 200+ ranking factors and changes constantly. What KATOV can deliver: ranking growth for specific target keywords, organic traffic growth, technically correct SEO implementation. Progress is visible every month in a report with real numbers.',
           },
           {
             question: 'Which projects has KATOV done SEO for?',
             answer:
-              'The clearest example is katov.uz itself. Our blog ranks in the top 5 on Google for several local keywords ("landing page yaratish narxi" — #2). This isn\'t theory — we can show it. SEO for client projects has also launched — results are accumulating, and each client gets an individual report.',
+              'SEO for client projects has launched — results are accumulating, and each client gets an individual report with numbers. At the contract stage we walk you through cases from past projects.',
           },
           {
             question: 'Is SEO just text, or does the site itself change too?',
