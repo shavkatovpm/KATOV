@@ -85,6 +85,447 @@ export interface ServiceData {
 }
 
 export const servicesData: Record<string, ServiceData> = {
+  'crm-tizimi': {
+    slug: 'crm-tizimi',
+    icon: 'Database',
+    basePrice: 1000,
+    priceSuffix: '',
+    demand: 4,
+    content: {
+      uz: {
+        title: 'CRM Tizimi Yaratish — Biznes Boshqaruvi Uchun | KATOV',
+        metaDescription:
+          'Sizning biznesingiz uchun maxsus CRM: lead, sotuv voronkasi, Telegram bot, hisobotlar. Oylik to\'lov yo\'q. 15–30 kun, $1000 dan.',
+        h1: 'CRM Tizimi Yaratish Xizmati: Biznesingiz Uchun Maxsus, Oylik To\'lovsiz',
+        heroSubtitle:
+          'AmoCRM yoki Bitrix sizning biznesingizga to\'liq mos kelmasa — biz CRM tizimini sizning aniq sotuv jarayoningiz asosida quramiz: lead, voronka, Telegram bot va hisobotlar bilan.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Biznesingizga aniq mos',
+            description:
+              'Shablon emas — sizning sotuv jarayoningiz, voronka bosqichlari va menejerlar rollari asosida quriladi. Foydalanmaydigan ortiqcha modul yo\'q.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Oylik to\'lov yo\'q',
+            description:
+              'Bir marta to\'lash — CRM butunlay siznikiga aylanadi. AmoCRM $18/menejer/oy kabi cheklov yo\'q, foydalanuvchi soni va lead miqdoriga to\'lov olinmaydi.',
+          },
+          {
+            icon: 'Bot',
+            title: 'Telegram va Click/Payme ulanadi',
+            description:
+              'Yangi lead yoki to\'lov sekundlarda menejerga Telegram orqali keladi. To\'lov tasdiqlansa, CRM\'da bitim avtomatik yopiladi.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Sotuv jamoasi 3–20 kishi bo\'lgan kompaniyalar',
+            description:
+              'Menejerlar lead\'larni Excel yoki messenger\'larda kuzatib bo\'lmaydigan darajada ko\'paygan kichik-o\'rta biznes uchun — bir joyda lead, vazifa va hisobot.',
+          },
+          {
+            title: 'Excel va Google Sheets\'da ishlayotgan biznes',
+            description:
+              'Mijoz bazasi, lead\'lar va sotuvlar jadval orqali boshqarilayotgan — qaytarishi qiyin va xato yuzaga keladigan tizim. CRM bu jarayonni avtomatlashtiradi.',
+          },
+          {
+            title: 'AmoCRM/Bitrix24\'ni "ortiqcha murakkab" topgan',
+            description:
+              'Bayron CRM sizga foydalanmaydigan o\'nlab funksiya beradi, lekin sizga kerakli aniq narsani — yo\'q. Custom CRM faqat sizga kerakli funksiyalar bilan quriladi.',
+          },
+          {
+            title: 'Maxsus biznes jarayoni bor — ta\'lim, ko\'chmas mulk, b2b',
+            description:
+              'O\'qituvchi-talaba bog\'lanishi, kvartira-mijoz tarixi yoki uzun b2b voronka — bayron CRM bunday holatlarni qamramaydi. Custom CRM aniq sizning jarayoningizga moslashadi.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Mijoz va lead ma\'lumotlar bazasi — qidiruv, filter va eksport bilan',
+          'Sotuv voronkasi (kanban yoki list ko\'rinish) — sizning bosqichlaringiz asosida',
+          'Telegram bot integratsiyasi — yangi lead/bron menejerga sekundlarda',
+          'Vazifa va eslatmalar — qo\'ng\'iroq, uchrashuv, follow-up',
+          'Foydalanuvchi rollari — admin, menejer, operator — har biri o\'z huquqi bilan',
+          'Hisobotlar va analitika — kunlik/oylik sotuv, menejer KPI, voronka konversiyasi',
+          'Mijoz tarixi — har bog\'lanish, har xabar va har bitim bir joyda',
+          'Click/Payme integratsiyasi — to\'lov tasdiqlansa, bitim avtomatik yopiladi',
+          'Mobile-first interfeys — menejer telefondan lead\'ni boshqaradi',
+          'O\'qitish jamoaga — 1 ish kuni training va qo\'llanma',
+          '1 oy bepul support — savollar va kichik o\'zgartirishlar',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '15–30 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Biznes jarayonini chiqarish',
+            description:
+              'Sotuv voronkangiz qanday ishlashini, qaysi bosqichlar borligini va menejerlar nima qilishini batafsil tahlil qilamiz. Bu CRM\'ning asoslari.',
+            duration: '3–5 kun',
+          },
+          {
+            step: 2,
+            title: 'Dizayn',
+            description:
+              'CRM interfeysi Figma\'da — menejer ishlayotgan har bir ekran ko\'rsatiladi va tasdiqlanadi. Ikki bosqichli revizyon kiradi.',
+            duration: '4–6 kun',
+          },
+          {
+            step: 3,
+            title: 'Development va integratsiyalar',
+            description:
+              'CRM kodi yoziladi, Telegram bot va Click/Payme ulab beriladi, foydalanuvchi rollari sozlanadi va hisobotlar quriladi.',
+            duration: '7–14 kun',
+          },
+          {
+            step: 4,
+            title: 'Test va jamoaga training',
+            description:
+              'CRM jamoa bilan test qilinadi, har menejer o\'z ishini ko\'rsatadi. Tushunmagan joylar qo\'llanmaga yoziladi va sizga topshiriladi.',
+            duration: '2–3 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Bayron CRM emas — sizning sotuv jarayoningiz asosida quriladi, ortiqcha modul yo\'q',
+          'Oylik to\'lov yo\'q — bir marta to\'lash, foydalanuvchi soniga cheklov yo\'q',
+          'Telegram bot integratsiyasi standart — menejerlar yangi lead\'ni darrov ko\'radi',
+          'Click/Payme bilan ulanadi — to\'lov tasdiqlansa, CRM\'da bitim avtomatik yopiladi',
+          'Mavjud Excel/Google Sheets ma\'lumotlari ko\'chiriladi — boshlash uchun qo\'shimcha ish yo\'q',
+          'Mobile-first — menejer telefondan ham CRM\'ni boshqaradi',
+          '1 oy bepul support — savollar va kichik o\'zgartirishlar',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'AmoCRM yoki Bitrix24\'dan nima farqi bor?',
+            answer:
+              'AmoCRM va Bitrix24 — bu bayron (shablon) CRM\'lar. Ular barcha biznesga bir xil interfeys va funksiya beradi, sizning aniq jarayoningiz uchun moslashmaydi. Va har oy menejer boshiga to\'lov olinadi ($18+/oy). Custom CRM — sizning sotuv voronkangiz, menejer rollari va biznes mantig\'i asosida quriladi. Bir marta to\'lanadi, foydalanuvchi soniga cheklov yo\'q va CRM butunlay sizniki bo\'ladi.',
+          },
+          {
+            question: 'Excel yoki Google Sheets\'dagi ma\'lumotlarni CRM\'ga ko\'chirib bersangizmi?',
+            answer:
+              'Ha, bu paket tarkibida. Mijoz bazasi, lead\'lar, bitimlar va tarix — barchasi yangi CRM\'ga ko\'chiriladi. Sizdan faqat fayllarni jo\'natish kerak. Agar ma\'lumotlar tartibsiz bo\'lsa, birga tozalashga yordamlashamiz — duplikat va eski yozuvlar olib tashlanadi.',
+          },
+          {
+            question: 'Menejerlar telefondan ishlay oladimi?',
+            answer:
+              'Ha, CRM mobile-first quriladi — telefonda to\'liq ishlaydi. Menejer ko\'chada yoki uchrashuvda lead\'ni qo\'shadi, bitim bosqichini o\'zgartiradi, vazifa qo\'shadi. Telegram bot orqali yangi lead haqida darhol xabar oladi va CRM\'ga o\'tib javob beradi.',
+          },
+          {
+            question: 'Foydalanuvchi qo\'shsam qo\'shimcha to\'lov bormi?',
+            answer:
+              'Yo\'q. Boshqa CRM\'lardan farqli, KATOV custom CRM\'da foydalanuvchi soni cheklovi va oylik to\'lov yo\'q. Yangi menejer kelsa — admin paneldan qo\'shasiz, qo\'shimcha to\'lovsiz. CRM butunlay sizniki, sizning serveringizda yoki KATOV hostingida ishlaydi.',
+          },
+          {
+            question: 'Narx va muddat qancha?',
+            answer:
+              'Standart CRM $1000 dan boshlanadi va 15–30 ish kunida tayyor bo\'ladi. Bunga: lead va voronka, Telegram bot, vazifalar, hisobotlar, foydalanuvchi rollari, ma\'lumot migratsiyasi va training kiradi. Ko\'p modul yoki murakkab integratsiyalar (1C, Sipuni IP-telefoniya, ko\'p filial) kerak bo\'lsa narx $2000–$5000 oralig\'iga ko\'tariladi. Aniq narx jarayon tahlilidan keyin belgilanadi va loyiha davomida o\'zgarmaydi.',
+          },
+        ],
+        ctaTitle: 'CRM tizimi uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Sotuv jarayoningiz va menejerlaringizning ehtiyojlarini birga ko\'rib chiqamiz. Konsultatsiya bepul, 1 ish kuni ichida bog\'lanamiz.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Разработка CRM-Системы для Бизнеса | KATOV',
+        metaDescription:
+          'Индивидуальная CRM под ваш бизнес: лиды, воронка продаж, Telegram-бот, отчёты. Без ежемесячной оплаты. 15–30 дней, от $1000.',
+        h1: 'Разработка CRM-Системы: Индивидуальная под Ваш Бизнес, без Ежемесячной Оплаты',
+        heroSubtitle:
+          'Если AmoCRM или Bitrix не подходят вашему бизнесу полностью — мы создаём CRM под ваш конкретный процесс продаж: лиды, воронка, Telegram-бот и отчёты.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Точно под ваш бизнес',
+            description:
+              'Не шаблон — собираем под ваш процесс продаж, этапы воронки и роли менеджеров. Лишних модулей нет.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Без ежемесячной оплаты',
+            description:
+              'Платите один раз — CRM полностью ваша. Никаких $18/менеджер/мес как у AmoCRM, ограничений по числу пользователей и лидов нет.',
+          },
+          {
+            icon: 'Bot',
+            title: 'Telegram и Click/Payme подключены',
+            description:
+              'Новый лид или оплата приходит менеджеру в Telegram за секунды. Подтверждённая оплата автоматически закрывает сделку в CRM.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Компании с командой продаж 3–20 человек',
+            description:
+              'Когда менеджеры не могут отслеживать лиды в Excel или мессенджерах — малый и средний бизнес, которому нужны лиды, задачи и отчёты в одном месте.',
+          },
+          {
+            title: 'Бизнес, работающий в Excel и Google Sheets',
+            description:
+              'База клиентов, лиды и продажи ведутся в таблицах — система, которую сложно повторить и в которой возникают ошибки. CRM автоматизирует этот процесс.',
+          },
+          {
+            title: 'Те, кому AmoCRM/Bitrix24 «слишком сложны»',
+            description:
+              'Шаблонная CRM даёт десятки функций, которыми вы не пользуетесь, а нужного — нет. Custom CRM собирается только из нужных вам функций.',
+          },
+          {
+            title: 'Особые бизнес-процессы — обучение, недвижимость, b2b',
+            description:
+              'Связи учитель-студент, история квартира-клиент или длинная b2b-воронка — шаблонные CRM такое не покрывают. Custom CRM подстраивается под ваш процесс.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'База клиентов и лидов — поиск, фильтры и экспорт',
+          'Воронка продаж (kanban или список) — на основе ваших этапов',
+          'Интеграция Telegram-бота — новый лид/заявка приходит менеджеру за секунды',
+          'Задачи и напоминания — звонок, встреча, follow-up',
+          'Роли пользователей — админ, менеджер, оператор — каждый со своими правами',
+          'Отчёты и аналитика — дневные/месячные продажи, KPI менеджера, конверсия воронки',
+          'История клиента — все звонки, сообщения и сделки в одном месте',
+          'Интеграция Click/Payme — при подтверждении оплаты сделка закрывается автоматически',
+          'Mobile-first интерфейс — менеджер ведёт лиды с телефона',
+          'Обучение команды — 1 рабочий день training и инструкция',
+          'Бесплатная поддержка 1 месяц — вопросы и небольшие правки',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '15–30 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Разбор бизнес-процесса',
+            description:
+              'Детально анализируем, как работает ваша воронка продаж, какие этапы и что делают менеджеры. Это основа CRM.',
+            duration: '3–5 дней',
+          },
+          {
+            step: 2,
+            title: 'Дизайн',
+            description:
+              'Интерфейс CRM в Figma — каждый экран, с которым работает менеджер, показывается и согласовывается. Две правки включены.',
+            duration: '4–6 дней',
+          },
+          {
+            step: 3,
+            title: 'Разработка и интеграции',
+            description:
+              'Код CRM пишется, подключаем Telegram-бот и Click/Payme, настраиваем роли пользователей и собираем отчёты.',
+            duration: '7–14 дней',
+          },
+          {
+            step: 4,
+            title: 'Тест и обучение команды',
+            description:
+              'CRM тестируем с командой, каждый менеджер показывает свою работу. Сложные моменты фиксируем в инструкции и передаём вам.',
+            duration: '2–3 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Не шаблонная CRM — собираем под ваш процесс продаж, без лишних модулей',
+          'Без ежемесячной оплаты — платите один раз, ограничений по пользователям нет',
+          'Telegram-бот подключается стандартно — менеджеры сразу видят новый лид',
+          'Click/Payme подключаем — при подтверждении оплаты сделка закрывается автоматически',
+          'Данные из Excel/Google Sheets мигрируем — никакой дополнительной работы для старта',
+          'Mobile-first — менеджер ведёт CRM и с телефона',
+          'Бесплатная поддержка 1 месяц — вопросы и небольшие правки',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Чем отличается от AmoCRM или Bitrix24?',
+            answer:
+              'AmoCRM и Bitrix24 — это шаблонные CRM. Они дают всем бизнесам один и тот же интерфейс и функции, не подстраиваются под ваш конкретный процесс. И каждый месяц берут плату с менеджера ($18+/мес). Custom CRM строится под вашу воронку продаж, роли менеджеров и бизнес-логику. Оплата один раз, ограничений по пользователям нет, и CRM полностью ваша.',
+          },
+          {
+            question: 'Переносите ли данные из Excel или Google Sheets в CRM?',
+            answer:
+              'Да, это в пакете. База клиентов, лиды, сделки и история — всё переносится в новую CRM. От вас — отправить файлы. Если данные не упорядочены, помогаем очистить вместе — убираем дубликаты и старые записи.',
+          },
+          {
+            question: 'Могут ли менеджеры работать с телефона?',
+            answer:
+              'Да, CRM собирается mobile-first — полностью работает на телефоне. Менеджер добавляет лид в дороге или на встрече, меняет этап сделки, добавляет задачу. Через Telegram-бот сразу получает сообщение о новом лиде и переходит в CRM.',
+          },
+          {
+            question: 'Есть ли доплата за дополнительных пользователей?',
+            answer:
+              'Нет. В отличие от других CRM, в custom CRM от KATOV нет ограничения по числу пользователей и ежемесячной оплаты. Появился новый менеджер — добавляете через админку, без доплаты. CRM полностью ваша, работает на вашем сервере или хостинге KATOV.',
+          },
+          {
+            question: 'Сколько стоит и сколько занимает?',
+            answer:
+              'Стандартная CRM от $1000, готова за 15–30 рабочих дней. Включает: лиды и воронку, Telegram-бот, задачи, отчёты, роли пользователей, миграцию данных и обучение. Если нужно много модулей или сложные интеграции (1C, IP-телефония Sipuni, мультифилиал) — $2000–$5000. Финальная цена фиксируется после разбора процесса и не меняется до запуска.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по CRM-системе',
+        ctaSubtitle:
+          'Разберём ваш процесс продаж и потребности менеджеров. Консультация бесплатная — свяжемся в течение 1 рабочего дня.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Custom CRM Development for Business | KATOV',
+        metaDescription:
+          'Custom CRM tailored to your business: leads, sales pipeline, Telegram bot, reports. No monthly fees. 15–30 days, from $1000.',
+        h1: 'Custom CRM Development: Built for Your Business, No Monthly Fees',
+        heroSubtitle:
+          'If AmoCRM or Bitrix don\'t fully fit your business — we build a CRM around your actual sales process: leads, pipeline, Telegram bot, and reports.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Tailored to your business',
+            description:
+              'Not a template — built around your sales process, pipeline stages, and manager roles. No bloat or unused modules.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'No monthly fees',
+            description:
+              'Pay once — the CRM is fully yours. No $18/seat/month like AmoCRM, no caps on users or lead counts.',
+          },
+          {
+            icon: 'Bot',
+            title: 'Telegram and Click/Payme integrated',
+            description:
+              'New leads or payments reach the manager via Telegram in seconds. Confirmed payments automatically close the deal in the CRM.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Companies with 3–20 sales reps',
+            description:
+              'When managers can\'t track leads in Excel or messengers anymore — small to mid businesses needing leads, tasks, and reports in one place.',
+          },
+          {
+            title: 'Businesses running on Excel and Google Sheets',
+            description:
+              'Customer base, leads, and sales kept in spreadsheets — hard to replicate, error-prone. A CRM automates this whole process.',
+          },
+          {
+            title: 'Teams who find AmoCRM/Bitrix24 too complex',
+            description:
+              'Template CRMs give you dozens of features you don\'t use and miss the one you need. Custom CRM ships only the features you actually need.',
+          },
+          {
+            title: 'Specific business workflows — education, real estate, b2b',
+            description:
+              'Teacher-student relations, apartment-client history, or long b2b pipelines — template CRMs don\'t cover these. Custom CRM fits your exact workflow.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Customer and lead database — search, filters, and export',
+          'Sales pipeline (kanban or list view) — built around your stages',
+          'Telegram bot integration — new leads/requests reach the manager in seconds',
+          'Tasks and reminders — call, meeting, follow-up',
+          'User roles — admin, manager, operator — each with their own permissions',
+          'Reports and analytics — daily/monthly sales, manager KPIs, pipeline conversion',
+          'Customer history — every call, message, and deal in one place',
+          'Click/Payme integration — confirmed payments automatically close the deal',
+          'Mobile-first interface — managers work with leads from their phone',
+          'Team training — 1-day training session and a manual',
+          '1 month free support — questions and small edits',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '15–30 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Map the business process',
+            description:
+              'We analyze how your sales pipeline works, the stages involved, and what each manager does. This is the foundation of the CRM.',
+            duration: '3–5 days',
+          },
+          {
+            step: 2,
+            title: 'Design',
+            description:
+              'CRM interface in Figma — every screen a manager works with is shown and approved. Two rounds of revisions included.',
+            duration: '4–6 days',
+          },
+          {
+            step: 3,
+            title: 'Development and integrations',
+            description:
+              'CRM code is written, Telegram bot and Click/Payme are wired in, user roles are set up, and reports are built.',
+            duration: '7–14 days',
+          },
+          {
+            step: 4,
+            title: 'Test and team training',
+            description:
+              'We test the CRM with your team, each manager walks through their workflow. Tricky moments go into the manual and the system is handed over.',
+            duration: '2–3 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'Not a template CRM — built around your sales process, no useless modules',
+          'No monthly fees — pay once, no per-user limits',
+          'Telegram bot integration is standard — managers see new leads instantly',
+          'Click/Payme integrated — confirmed payments automatically close the deal',
+          'Data from Excel/Google Sheets is migrated — no extra work to get started',
+          'Mobile-first — managers run the CRM from their phone too',
+          '1 month free support — questions and small edits',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How is this different from AmoCRM or Bitrix24?',
+            answer:
+              'AmoCRM and Bitrix24 are template CRMs. They give every business the same interface and features, with no adaptation to your specific process. And they charge per manager per month ($18+/month). A custom CRM is built around your sales pipeline, manager roles, and business logic. You pay once, there are no per-user limits, and the CRM is fully yours.',
+          },
+          {
+            question: 'Do you migrate data from Excel or Google Sheets into the CRM?',
+            answer:
+              'Yes, it\'s part of the package. Customer base, leads, deals, and history — all moved to the new CRM. All you need to do is send the files. If the data is messy, we help clean it together — duplicates and stale records are removed.',
+          },
+          {
+            question: 'Can managers work from their phones?',
+            answer:
+              'Yes — the CRM is built mobile-first and works fully on a phone. Managers add leads on the go, change deal stages, add tasks. Through the Telegram bot they get notified about new leads instantly and jump into the CRM to respond.',
+          },
+          {
+            question: 'Is there a charge for extra users?',
+            answer:
+              'No. Unlike other CRMs, KATOV\'s custom CRM has no per-user caps or monthly fees. New manager joins — you add them through the admin panel, with no extra cost. The CRM is fully yours, running on your server or KATOV hosting.',
+          },
+          {
+            question: 'How much does it cost and how long does it take?',
+            answer:
+              'A standard CRM starts at $1000 and ships in 15–30 business days. It includes: leads and pipeline, Telegram bot, tasks, reports, user roles, data migration, and training. If many modules or complex integrations are needed (1C, Sipuni IP telephony, multi-branch), the price lands at $2000–$5000. The final price is locked after the process review and stays unchanged through launch.',
+          },
+        ],
+        ctaTitle: 'Free consultation for your CRM',
+        ctaSubtitle:
+          'We\'ll walk through your sales process and your managers\' needs. The consultation is free — we\'ll reach out within 1 business day.',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
   'internet-dokon': {
     slug: 'internet-dokon',
     icon: 'ShoppingCart',
