@@ -3625,14 +3625,14 @@ export const servicesData: Record<string, ServiceData> = {
   'erp-tizimi': {
     slug: 'erp-tizimi',
     icon: 'Layers',
-    basePrice: 2500,
+    basePrice: 1000,
     priceSuffix: '',
     demand: 3,
     content: {
       uz: {
         title: 'ERP Tizimi Ishlab Chiqish — Korxona Avtomatlashtirish | KATOV',
         metaDescription:
-          'Korxonangiz uchun maxsus ERP: moliya, ombor, sotuv, HR va ishlab chiqarish bir tizimda. Oylik to\'lov yo\'q, 1C\'dan migratsiya bilan. 45–90 kun, $2500 dan.',
+          'Korxonangiz uchun maxsus ERP: moliya, ombor, sotuv, HR va ishlab chiqarish bir tizimda. Oylik to\'lov yo\'q, 1C\'dan migratsiya bilan. 20–90 kun, $1000 dan.',
         h1: 'ERP Tizimi Ishlab Chiqish Xizmati: Moliya, Ombor va HR Bir Tizimda, Oylik To\'lovsiz',
         heroSubtitle:
           '1C va Excel\'ning aralashmasi o\'rniga — korxonangiz uchun maxsus ERP. Moliya, ombor, sotuv, HR va ishlab chiqarish bir interfeysda, sizning hisob siyosatingiz asosida quriladi.',
@@ -3764,7 +3764,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Narx va muddat qancha?',
             answer:
-              'Standart ERP $2500 dan boshlanadi (3–4 modul, kichik korxona) va 45–90 ish kunida tayyor bo\'ladi. Ishlab chiqarish moduli, ko\'p filial, holding strukturasi yoki murakkab integratsiyalar (1C, Click/Payme, Telegram bot, bank API) kerak bo\'lsa narx $5000–$15000 oralig\'iga ko\'tariladi. Aniq narx biznes-jarayon tahlilidan keyin belgilanadi va loyiha davomida o\'zgarmaydi.',
+              'Boshlang\'ich ERP $1000 dan (1–2 asosiy modul, masalan moliya yoki ombor, kichik korxona uchun) va 20–35 ish kunida tayyor bo\'ladi. Standart paket (3–4 modul: moliya, ombor, sotuv va HR) $2500 dan va 45–60 ish kuni. Ishlab chiqarish moduli, ko\'p filial, holding strukturasi yoki murakkab integratsiyalar (1C, Click/Payme, Telegram bot, bank API) kerak bo\'lsa narx $5000–$15000 oralig\'iga ko\'tariladi. Aniq narx biznes-jarayon tahlilidan keyin belgilanadi va loyiha davomida o\'zgarmaydi.',
           },
         ],
         ctaTitle: 'ERP tizimi uchun bepul konsultatsiya',
@@ -3778,7 +3778,7 @@ export const servicesData: Record<string, ServiceData> = {
       ru: {
         title: 'Разработка ERP-Системы — Автоматизация Бизнеса | KATOV',
         metaDescription:
-          'Индивидуальная ERP для вашего предприятия: финансы, склад, продажи, HR и производство в одной системе. Без ежемесячной оплаты, миграция из 1С. 45–90 дней, от $2500.',
+          'Индивидуальная ERP для вашего предприятия: финансы, склад, продажи, HR и производство в одной системе. Без ежемесячной оплаты, миграция из 1С. 20–90 дней, от $1000.',
         h1: 'Разработка ERP-Системы: Финансы, Склад и HR в Одной Системе, без Ежемесячной Оплаты',
         heroSubtitle:
           'Вместо связки 1С и Excel — индивидуальная ERP для вашего предприятия. Финансы, склад, продажи, HR и производство в одном интерфейсе, по вашей учётной политике.',
@@ -3910,7 +3910,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Сколько стоит и сколько занимает?',
             answer:
-              'Стандартная ERP от $2500 (3–4 модуля, малое предприятие), готова за 45–90 рабочих дней. Если нужен производственный модуль, мультифилиал, холдинговая структура или сложные интеграции (1С, Click/Payme, Telegram-бот, банковский API) — $5000–$15000. Финальная цена фиксируется после разбора процессов и не меняется до запуска.',
+              'Стартовый ERP от $1000 (1–2 основных модуля, например финансы или склад — для малого предприятия), готов за 20–35 рабочих дней. Стандартный пакет (3–4 модуля: финансы, склад, продажи и HR) — от $2500, 45–60 рабочих дней. Если нужен производственный модуль, мультифилиал, холдинговая структура или сложные интеграции (1С, Click/Payme, Telegram-бот, банковский API) — $5000–$15000. Финальная цена фиксируется после разбора процессов и не меняется до запуска.',
           },
         ],
         ctaTitle: 'Бесплатная консультация по ERP-системе',
@@ -3924,7 +3924,7 @@ export const servicesData: Record<string, ServiceData> = {
       en: {
         title: 'Custom ERP Development — Business Automation | KATOV',
         metaDescription:
-          'Custom ERP for your enterprise: finance, inventory, sales, HR and production in one system. No monthly fees, 1C data migration included. 45–90 days, from $2500.',
+          'Custom ERP for your enterprise: finance, inventory, sales, HR and production in one system. No monthly fees, 1C data migration included. 20–90 days, from $1000.',
         h1: 'Custom ERP Development: Finance, Inventory, and HR in One System, No Monthly Fees',
         heroSubtitle:
           'Instead of patching 1C and Excel together — a custom ERP for your business. Finance, inventory, sales, HR, and production in one interface, built around your accounting policy.',
@@ -4056,7 +4056,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'How much does it cost and how long does it take?',
             answer:
-              'A standard ERP starts at $2500 (3–4 modules, small enterprise) and ships in 45–90 business days. If a production module, multiple branches, holding structure, or complex integrations (1C, Click/Payme, Telegram bot, banking APIs) are needed, the price lands at $5000–$15000. The final price is locked after the process review and stays unchanged through launch.',
+              'A starter ERP begins at $1000 (1–2 core modules, e.g. finance or inventory for a small business) and ships in 20–35 business days. The standard package (3–4 modules: finance, inventory, sales, and HR) starts at $2500 and ships in 45–60 days. If a production module, multiple branches, holding structure, or complex integrations (1C, Click/Payme, Telegram bot, banking APIs) are needed, the price lands at $5000–$15000. The final price is locked after the process review and stays unchanged through launch.',
           },
         ],
         ctaTitle: 'Free consultation for your ERP',
@@ -4714,7 +4714,7 @@ export const servicesCatalog: ServiceCatalogItem[] = [
   {
     slug: 'erp-tizimi',
     icon: 'Layers',
-    basePrice: 2500,
+    basePrice: 1000,
     priceSuffix: '',
     demand: 3,
     card: {
