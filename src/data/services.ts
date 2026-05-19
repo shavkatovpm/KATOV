@@ -4516,6 +4516,897 @@ export const servicesData: Record<string, ServiceData> = {
       },
     },
   },
+  'admin-panel': {
+    slug: 'admin-panel',
+    icon: 'LayoutDashboard',
+    basePrice: 800,
+    priceSuffix: '',
+    demand: 3,
+    content: {
+      uz: {
+        title: 'Admin Panel va Dashboard Ishlab Chiqish — Custom | KATOV',
+        metaDescription:
+          'Biznesingiz uchun maxsus admin panel va dashboard: ma\'lumotlar boshqaruvi, hisobotlar, Click/Payme va Telegram integratsiyasi. Oylik to\'lov yo\'q. 15–30 kun, $800 dan.',
+        h1: 'Admin Panel va Dashboard Ishlab Chiqish Xizmati: Biznes Ma\'lumotlarini Bitta Joydan Boshqaring',
+        heroSubtitle:
+          'Retool yoki Forest shabloni emas — sizning ma\'lumot strukturasi va biznes mantig\'i asosida quriladigan admin panel. Mahsulot, buyurtma, mijoz va xodim — barchasi bitta interfeysda.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Sizning ma\'lumotingiz uchun aniq qurilgan',
+            description:
+              'Shablon panel emas — sizning ob\'ektlar, statuslar va biznes qoidalari asosida quriladi. Foydalanmaydigan tab va menyu yo\'q, har ekran ish jarayoningizga moslashgan.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Oylik to\'lov va litsenziya yo\'q',
+            description:
+              'Bir marta to\'lash — panel butunlay sizniki. Retool $10/foydalanuvchi/oy yoki Forest litsenziyasi kabi to\'lovlar yo\'q, foydalanuvchi qo\'shilsa qo\'shimcha to\'lov ham yo\'q.',
+          },
+          {
+            icon: 'Database',
+            title: 'Mavjud bazaga ulanadi',
+            description:
+              'Yangi tizim yaratish shart emas — sizning hozirgi ma\'lumotlaringizga (PostgreSQL, MySQL, Google Sheets, mavjud API) panel quriladi. Ma\'lumot migratsiyasi shart emas.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Marketplace va e-commerce egalari',
+            description:
+              'Mahsulot katalogi, buyurtmalar, qaytarishlar, mijozlar va to\'lovlar — barchasi bitta panelda. Standart e-commerce admin\'da yetishmaydigan kustom hisobotlar va workflow uchun.',
+          },
+          {
+            title: 'Onlayn xizmat va SaaS loyihalar',
+            description:
+              'Foydalanuvchilar, obunalar, to\'lov tarixi va support tiketlari — bir paneldan boshqaruv. Kustom KPI va analitika dashboardlari bilan.',
+          },
+          {
+            title: 'B2B kontent va workflow kompaniyalar',
+            description:
+              'Kontent yaratish, tasdiqlash bosqichlari, publish va arxiv — uzun ko\'p bosqichli ish jarayonlari uchun. Har bosqichda kim mas\'ul va deadline ko\'rinadi.',
+          },
+          {
+            title: 'Mahalliy biznes (ta\'lim, ko\'chmas mulk, xizmat ko\'rsatish)',
+            description:
+              'Bron, mijoz tarixi, xodim ish vaqti, ichki hisobotlar — ichki tizim sifatida. Bayron tizim sizning maxsus ish jarayoningizni qamramaydi.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Login va foydalanuvchi rollari (admin, menejer, operator — har biri o\'z huquqi bilan)',
+          'CRUD interfeys — har ob\'ekt turi uchun (mahsulot, mijoz, buyurtma va boshqalar)',
+          'Filterlash, qidiruv va saralash — katta ro\'yxatlar uchun ham tez',
+          'CSV/Excel eksport va import — ommaviy ish uchun',
+          'Dashboard — asosiy KPI, grafiklar va kunlik/oylik xulosalar',
+          'Audit log — kim, qachon, nima o\'zgartirgani saqlanadi',
+          'Bildirishnomalar — yangi buyurtma, deadline, ogohlantirish',
+          'Click va Payme webhook bilan to\'lov tasdiqlash',
+          'Telegram bot integratsiyasi — admin\'ga muhim eventlar',
+          'Mavjud ma\'lumot bazasiga ulanadi (PostgreSQL, MySQL, Google Sheets, API)',
+          'Mobile-responsive interfeys — telefondan ham boshqaruv',
+          'Jamoaga 1 ish kuni training va qo\'llanma',
+          '1 oy bepul support — savollar va kichik o\'zgartirishlar',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '15–30 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Ma\'lumot strukturasi va workflow tahlili',
+            description:
+              'Sizning ob\'ektlar, statuslar va biznes qoidalarini chiqaramiz. Har foydalanuvchi roli nima qilishini va qaysi ekranlarni ko\'rishini aniqlaymiz.',
+            duration: '2–4 kun',
+          },
+          {
+            step: 2,
+            title: 'Dizayn Figma\'da',
+            description:
+              'Asosiy ekranlar (ro\'yxat, detal, dashboard) Figma\'da ko\'rsatiladi va tasdiqlanadi. Ikki bosqichli revizyon kiradi.',
+            duration: '3–5 kun',
+          },
+          {
+            step: 3,
+            title: 'Development va integratsiyalar',
+            description:
+              'Panel kodi yoziladi, sizning bazaga ulanadi, Click/Payme va Telegram bot ulab beriladi. Audit log va bildirishnomalar sozlanadi.',
+            duration: '8–18 kun',
+          },
+          {
+            step: 4,
+            title: 'Test, training va deploy',
+            description:
+              'Panel jamoa bilan test qilinadi, har foydalanuvchi o\'z ishini ko\'rsatadi. Tushunmagan joylar qo\'llanmaga yoziladi va sizga topshiriladi.',
+            duration: '2–3 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Retool/Forest shabloni emas — sizning ma\'lumot strukturasi va biznes qoidalari asosida quriladi',
+          'Oylik to\'lov va litsenziya yo\'q — bir marta to\'lash, foydalanuvchi soniga cheklov yo\'q',
+          'Mavjud ma\'lumot bazasiga ulanadi — yangi tizim yaratish shart emas',
+          'Click/Payme va Telegram bot integratsiyasi — standart paket',
+          'Mobile-responsive — telefon va planshetdan ham boshqaruv',
+          'Source code va dokumentatsiya beriladi — kelajakda boshqa jamoaga topshirish mumkin',
+          '1 oy bepul support + 1 ish kuni jamoaga training',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Retool yoki Forest\'dan nima farqi bor?',
+            answer:
+              'Retool va Forest — bu admin panel quvchi konstruktorlar (low-code), shablon interfeyslarda ishlatiladi. Foydalanuvchi qo\'shilsa, har bosh uchun oylik to\'lov olinadi ($10–$50/oy/foydalanuvchi). Custom admin panel sizning ma\'lumot strukturasi va biznes qoidalari asosida quriladi — shablon emas. Bir marta to\'lanadi, foydalanuvchi soniga cheklov yo\'q va source code butunlay sizniki bo\'ladi.',
+          },
+          {
+            question: 'Mavjud ma\'lumot bazasiga ulanasizmi?',
+            answer:
+              'Ha, bu standart yondashuv. Sizning hozirgi bazangizga (PostgreSQL, MySQL, MongoDB, Google Sheets yoki mavjud API) panel quriladi — ma\'lumotni boshqa joyga ko\'chirish shart emas. Agar bazangiz hali yo\'q bo\'lsa, KATOV o\'zi qo\'shimcha bepul kuradi.',
+          },
+          {
+            question: 'Foydalanuvchi roli qancha xil bo\'la oladi?',
+            answer:
+              'Cheklov yo\'q — odatda 3–5 rol bo\'ladi (admin, menejer, operator, ko\'ruvchi). Har rolga aniq huquqlar beriladi: qaysi sahifani ko\'radi, qaysi tugmani bosa oladi, qaysi ma\'lumotni o\'zgartira oladi. Kerak bo\'lsa, departament yoki filial bo\'yicha ham ajratiladi.',
+          },
+          {
+            question: 'Sayt admin paneli (WordPress kabi) bilan farqi nima?',
+            answer:
+              'WordPress va shunga o\'xshash admin panellar — bu sayt kontentini boshqarish uchun. Custom admin panel — biznes ma\'lumotlarini (mahsulot, buyurtma, mijoz, ish jarayoni) boshqarish uchun. Sayt panelida e-commerce yoki blog post tahriri bo\'ladi, custom panelda esa sizning ichki ish operatsiyalari ko\'rsatiladi va boshqariladi.',
+          },
+          {
+            question: 'Narx va muddat qancha?',
+            answer:
+              'Standart admin panel $800 dan boshlanadi va 15–30 ish kunida tayyor bo\'ladi. Bunga: 3–5 ob\'ekt turi (CRUD), dashboard, Click/Payme va Telegram integratsiyasi, foydalanuvchi rollari va training kiradi. Murakkab loyihalar (10+ ob\'ekt turi, kustom hisobotlar, integratsiyalar) $1500–$4000 oralig\'iga ko\'tariladi. Aniq narx tahlildan keyin belgilanadi.',
+          },
+        ],
+        ctaTitle: 'Admin panel uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Sizning ma\'lumot strukturasi va workflow\'ingizni birga ko\'rib chiqamiz. Konsultatsiya bepul, 1 ish kuni ichida bog\'lanamiz.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Разработка Админ-Панели и Дашборда на Заказ | KATOV',
+        metaDescription:
+          'Индивидуальная админ-панель и дашборд: управление данными, отчёты, интеграция Click/Payme и Telegram. Без ежемесячной оплаты. 15–30 дней, от $800.',
+        h1: 'Разработка Админ-Панели и Дашборда: Управляйте Данными Бизнеса из Одного Места',
+        heroSubtitle:
+          'Не шаблон Retool или Forest — админ-панель, собранная под вашу структуру данных и бизнес-логику. Товары, заказы, клиенты и сотрудники — в одном интерфейсе.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Точно под ваши данные',
+            description:
+              'Не шаблонная панель — собирается под ваши объекты, статусы и бизнес-правила. Лишних вкладок и пунктов меню нет, каждый экран соответствует вашему процессу.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Без ежемесячной оплаты и лицензий',
+            description:
+              'Платите один раз — панель полностью ваша. Никаких $10/пользователь/мес как у Retool, или лицензий Forest. Добавляете пользователя — без доплаты.',
+          },
+          {
+            icon: 'Database',
+            title: 'Подключаемся к вашей базе',
+            description:
+              'Новая система не нужна — собираем панель поверх вашей текущей базы (PostgreSQL, MySQL, Google Sheets, существующий API). Миграция данных не требуется.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Маркетплейсы и e-commerce',
+            description:
+              'Товары, заказы, возвраты, клиенты и платежи — в одной панели. Для случаев, когда стандартной админки e-commerce не хватает: нужны кастомные отчёты и workflow.',
+          },
+          {
+            title: 'Онлайн-сервисы и SaaS-проекты',
+            description:
+              'Пользователи, подписки, история платежей и тикеты поддержки — управление из одной панели. С кастомными KPI и аналитическими дашбордами.',
+          },
+          {
+            title: 'B2B контент- и workflow-компании',
+            description:
+              'Создание контента, этапы согласования, публикация и архив — для длинных многоэтапных процессов. На каждом этапе видно, кто ответственный и какой дедлайн.',
+          },
+          {
+            title: 'Локальный бизнес (обучение, недвижимость, услуги)',
+            description:
+              'Бронирования, история клиентов, рабочее время сотрудников, внутренние отчёты — как внутренний инструмент. Шаблонная система не покрывает ваш специфический процесс.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'Логин и роли пользователей (админ, менеджер, оператор — каждый со своими правами)',
+          'CRUD-интерфейс — для каждого типа объекта (товары, клиенты, заказы и др.)',
+          'Фильтры, поиск и сортировка — быстрые даже на больших списках',
+          'Экспорт и импорт CSV/Excel — для массовой работы',
+          'Дашборд — ключевые KPI, графики и дневные/месячные сводки',
+          'Audit log — кто, когда, что изменил',
+          'Уведомления — новые заказы, дедлайны, оповещения',
+          'Подтверждение оплаты через webhook Click и Payme',
+          'Интеграция с Telegram-ботом — важные события админу',
+          'Подключение к существующей базе (PostgreSQL, MySQL, Google Sheets, API)',
+          'Mobile-responsive интерфейс — управление с телефона',
+          '1 рабочий день training для команды + инструкция',
+          'Бесплатная поддержка 1 месяц — вопросы и небольшие правки',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '15–30 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Разбор структуры данных и workflow',
+            description:
+              'Фиксируем ваши объекты, статусы и бизнес-правила. Определяем, что делает каждая роль и какие экраны видит.',
+            duration: '2–4 дня',
+          },
+          {
+            step: 2,
+            title: 'Дизайн в Figma',
+            description:
+              'Ключевые экраны (списки, детали, дашборд) показываем в Figma и согласовываем. Две правки включены.',
+            duration: '3–5 дней',
+          },
+          {
+            step: 3,
+            title: 'Разработка и интеграции',
+            description:
+              'Пишем код панели, подключаем к вашей базе, интегрируем Click/Payme и Telegram-бот. Настраиваем audit log и уведомления.',
+            duration: '8–18 дней',
+          },
+          {
+            step: 4,
+            title: 'Тест, обучение и деплой',
+            description:
+              'Тестируем панель с командой, каждый пользователь показывает свою работу. Сложные моменты фиксируем в инструкции и передаём вам.',
+            duration: '2–3 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Не шаблон Retool/Forest — собираем под вашу структуру данных и бизнес-правила',
+          'Без ежемесячной оплаты и лицензий — платите один раз, ограничений по пользователям нет',
+          'Подключаемся к существующей базе — новая система не нужна',
+          'Интеграция Click/Payme и Telegram-бот — стандартный пакет',
+          'Mobile-responsive — управление с телефона и планшета',
+          'Передаём исходный код и документацию — можно отдать другой команде в будущем',
+          '1 месяц бесплатной поддержки + 1 день training для команды',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Чем отличается от Retool или Forest?',
+            answer:
+              'Retool и Forest — это low-code конструкторы админ-панелей с шаблонными интерфейсами. За каждого пользователя берётся ежемесячная плата ($10–$50/пользователь/мес). Custom admin panel собирается под вашу структуру данных и бизнес-правила — не шаблон. Оплата один раз, ограничений по пользователям нет, и исходный код полностью ваш.',
+          },
+          {
+            question: 'Подключаетесь ли к существующей базе?',
+            answer:
+              'Да, это стандартный подход. Собираем панель поверх вашей текущей базы (PostgreSQL, MySQL, MongoDB, Google Sheets или существующий API) — данные не переносятся. Если базы пока нет, KATOV соберёт её дополнительно бесплатно.',
+          },
+          {
+            question: 'Сколько ролей пользователей можно сделать?',
+            answer:
+              'Ограничений нет — обычно 3–5 ролей (админ, менеджер, оператор, наблюдатель). Каждой роли выдаются точные права: какие страницы видит, какие кнопки нажимает, какие данные меняет. При необходимости разделяем по отделам или филиалам.',
+          },
+          {
+            question: 'Чем отличается от админки сайта (как в WordPress)?',
+            answer:
+              'WordPress и подобные — это панели для управления контентом сайта. Custom admin panel — для управления бизнес-данными (товары, заказы, клиенты, рабочие процессы). В сайтовой админке редактируют посты и e-commerce, в custom-панели — внутренние операции компании.',
+          },
+          {
+            question: 'Сколько стоит и сколько занимает?',
+            answer:
+              'Стандартная админ-панель от $800, готова за 15–30 рабочих дней. Включает: 3–5 типов объектов (CRUD), дашборд, интеграцию Click/Payme и Telegram, роли пользователей и обучение. Сложные проекты (10+ типов объектов, кастомные отчёты, интеграции) — $1500–$4000. Финальная цена фиксируется после разбора.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по админ-панели',
+        ctaSubtitle:
+          'Разберём вашу структуру данных и workflow. Консультация бесплатная — свяжемся в течение 1 рабочего дня.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Custom Admin Panel & Dashboard Development | KATOV',
+        metaDescription:
+          'Custom admin panel and dashboard: data management, reports, Click/Payme and Telegram integrations. No monthly fees. 15–30 days, from $800.',
+        h1: 'Custom Admin Panel & Dashboard Development: Manage Your Business Data from One Place',
+        heroSubtitle:
+          'Not a Retool or Forest template — an admin panel built around your data structure and business logic. Products, orders, customers, and staff — all in one interface.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Built around your data',
+            description:
+              'Not a template panel — built around your objects, statuses, and business rules. No extra tabs or menu items, every screen matches your workflow.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'No monthly fees or licenses',
+            description:
+              'Pay once — the panel is fully yours. No $10/user/month like Retool, no Forest licenses. Add a user — no extra charge.',
+          },
+          {
+            icon: 'Database',
+            title: 'Connects to your existing database',
+            description:
+              'No need for a new system — we build the panel on top of your current database (PostgreSQL, MySQL, Google Sheets, existing API). No data migration required.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Marketplaces and e-commerce',
+            description:
+              'Products, orders, returns, customers, and payments — all in one panel. For cases where the default e-commerce admin doesn\'t cover custom reports and workflows.',
+          },
+          {
+            title: 'Online services and SaaS projects',
+            description:
+              'Users, subscriptions, payment history, and support tickets — managed from a single panel. With custom KPIs and analytics dashboards.',
+          },
+          {
+            title: 'B2B content and workflow companies',
+            description:
+              'Content creation, approval stages, publishing, and archive — for long multi-step processes. At each step it\'s clear who\'s responsible and what the deadline is.',
+          },
+          {
+            title: 'Local businesses (education, real estate, services)',
+            description:
+              'Bookings, customer history, staff hours, internal reports — as an internal tool. A template system won\'t cover your specific workflow.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Login and user roles (admin, manager, operator — each with their own permissions)',
+          'CRUD interface — for each object type (products, customers, orders, etc.)',
+          'Filters, search, and sorting — fast even on large lists',
+          'CSV/Excel export and import — for bulk operations',
+          'Dashboard — key KPIs, charts, and daily/monthly summaries',
+          'Audit log — who, when, and what they changed',
+          'Notifications — new orders, deadlines, alerts',
+          'Payment confirmation via Click and Payme webhooks',
+          'Telegram bot integration — important events to the admin',
+          'Connection to your existing database (PostgreSQL, MySQL, Google Sheets, API)',
+          'Mobile-responsive interface — manage from a phone',
+          '1-day team training and a manual',
+          '1 month free support — questions and small edits',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '15–30 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Map data structure and workflow',
+            description:
+              'We document your objects, statuses, and business rules. We map what each role does and which screens they see.',
+            duration: '2–4 days',
+          },
+          {
+            step: 2,
+            title: 'Design in Figma',
+            description:
+              'Key screens (lists, details, dashboard) are shown in Figma and signed off. Two rounds of revisions included.',
+            duration: '3–5 days',
+          },
+          {
+            step: 3,
+            title: 'Development and integrations',
+            description:
+              'We write the panel code, connect it to your database, and wire in Click/Payme and Telegram bot. Audit log and notifications are set up.',
+            duration: '8–18 days',
+          },
+          {
+            step: 4,
+            title: 'Test, training, and deploy',
+            description:
+              'We test the panel with your team, each user walks through their workflow. Tricky moments go into the manual and the system is handed over.',
+            duration: '2–3 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'Not a Retool/Forest template — built around your data structure and business rules',
+          'No monthly fees or licenses — pay once, no per-user limits',
+          'Connects to your existing database — no new system needed',
+          'Click/Payme and Telegram bot integration — standard package',
+          'Mobile-responsive — manage from phone and tablet',
+          'Source code and documentation handed over — can be passed to another team later',
+          '1 month free support + 1-day team training',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How is this different from Retool or Forest?',
+            answer:
+              'Retool and Forest are low-code admin panel builders with template interfaces. They charge per user per month ($10–$50/user/month). A custom admin panel is built around your data structure and business rules — not a template. You pay once, there are no per-user limits, and the source code is fully yours.',
+          },
+          {
+            question: 'Do you connect to an existing database?',
+            answer:
+              'Yes — that\'s the standard approach. We build the panel on top of your current database (PostgreSQL, MySQL, MongoDB, Google Sheets, or an existing API) — data doesn\'t need to move. If you don\'t have a database yet, KATOV sets one up for free.',
+          },
+          {
+            question: 'How many user roles can there be?',
+            answer:
+              'No cap — typically 3–5 roles (admin, manager, operator, viewer). Each role gets specific permissions: which pages they see, which buttons they can press, which data they can change. If needed, we also split by department or branch.',
+          },
+          {
+            question: 'How is this different from a site admin (like WordPress)?',
+            answer:
+              'WordPress and similar are content admins for the site. A custom admin panel is for managing business data (products, orders, customers, workflows). Site admins edit posts and e-commerce; custom panels show and run internal operations.',
+          },
+          {
+            question: 'How much does it cost and how long does it take?',
+            answer:
+              'A standard admin panel starts at $800 and ships in 15–30 business days. It includes: 3–5 object types (CRUD), a dashboard, Click/Payme and Telegram integration, user roles, and training. Complex projects (10+ object types, custom reports, integrations) land at $1500–$4000. The final price is locked after the review.',
+          },
+        ],
+        ctaTitle: 'Free consultation for your admin panel',
+        ctaSubtitle:
+          'We\'ll walk through your data structure and workflow. The consultation is free — we\'ll reach out within 1 business day.',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
+  'hosting-support': {
+    slug: 'hosting-support',
+    icon: 'Server',
+    basePrice: 50,
+    priceSuffix: '/oy',
+    demand: 3,
+    content: {
+      uz: {
+        title: 'Sayt Hosting va Texnik Qo\'llab-quvvatlash — Oylik | KATOV',
+        metaDescription:
+          'KATOV qurgan veb-sayt, bot va CRM tizimlari uchun oylik hosting va texnik yordam. 99.9% uptime, kunlik backup, kontent yangilash. $50/oy dan.',
+        h1: 'Sayt Hosting va Texnik Qo\'llab-quvvatlash Xizmati: KATOV Loyihalari Uchun Oylik Tarif',
+        heroSubtitle:
+          'KATOV qurgan veb-sayt, Telegram bot va CRM/ERP tizimlari uchun barqaror hosting, monitoring va texnik yordam. Server boshqaruvi haqida o\'ylash kerak emas — biz qaraymiz, siz biznes bilan shug\'ullanasiz.',
+        benefits: [
+          {
+            icon: 'ShieldCheck',
+            title: 'Sayt doim ishlaydi',
+            description:
+              '99.9% uptime kafolati, kunlik avtomatik backup va 24/7 monitoring. Saytda muammo bo\'lsa — siz xabar olishingizdan oldin biz tuzatishni boshlaymiz.',
+          },
+          {
+            icon: 'Server',
+            title: 'Texnik xatolar bizning hisobimizda',
+            description:
+              'Server buzilishi, security yangilanishi, versiya patch — barchasi KATOV tomonidan. Sizdan qo\'shimcha to\'lov yo\'q, ish vaqti talab qilinmaydi.',
+          },
+          {
+            icon: 'Mail',
+            title: 'Kontent yangilash kvotasi',
+            description:
+              'Har oy 2 soat kontent yangilash kvotasi tarifga kiradi — matn, rasm, narx o\'zgartirish. Texnik xodim shart emas, KATOV qiladi.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'KATOV qurgan landing va korporativ sayt egalari',
+            description:
+              'Sayt ishga tushgandan keyin oylik xizmat — hosting, backup, monitoring va kontent yangilash. Har yangi loyihada birinchi 1 yil hosting bepul, keyin shu tarif.',
+          },
+          {
+            title: 'KATOV internet do\'kon va Telegram bot foydalanuvchilari',
+            description:
+              'E-commerce va bot tizimlar — 24/7 ishlatuvchi, downtime biznesga ta\'sir qiladi. Tezkor monitoring va xato tiklash kerak.',
+          },
+          {
+            title: 'KATOV CRM, ERP va admin panel foydalanuvchilari',
+            description:
+              'Ichki tizimlar — kunlik backup, security patch va versiya yangilanishi muhim. Ma\'lumotlar va kirish nazorat ostida bo\'lishi kerak.',
+          },
+          {
+            title: 'Texnik xodim yo\'q kichik-o\'rta biznes',
+            description:
+              'IT departament o\'rniga — KATOV server va kontentni boshqaradi. Sizning vaqtingiz va resurslaringiz biznesga qoladi.',
+          },
+        ],
+        deliverablesTitle: 'Tarifga nima kiradi',
+        deliverables: [
+          'VPS yoki shared hosting (loyihaga qarab tanlanadi)',
+          'Domen ulash va DNS boshqaruv',
+          'SSL sertifikat va avtomatik yangilash',
+          'Kunlik avtomatik backup — 30 kun saqlash, tezkor tiklash',
+          '24/7 uptime monitoring va xato alertlari',
+          'Security patch va versiya yangilash — har oy avtomatik',
+          'Email va Telegram orqali support — ish vaqtida 4 soat ichida javob',
+          'Kontent yangilash kvotasi — 2 soat/oy (matn, rasm, narx)',
+          'Tezlik va SEO oylik hisobot',
+          'Crash holatida tezkor tiklash (24 soat ichida)',
+          'Yangi sertifikat ulanish va domen yangilash',
+          'Konsultatsiya — sayt qanday yaxshilash haqida har oy 30 daqiqa',
+        ],
+        processTitle: 'Boshlash jarayoni',
+        processTotalDuration: '3–5 ish kuni + doimiy oylik xizmat',
+        process: [
+          {
+            step: 1,
+            title: 'Texnik audit',
+            description:
+              'Sayt holati, kod sifati va hosting konfiguratsiyasi tekshiriladi. Bu KATOV qurgan loyihalar uchun (boshqa developerlar qurgan saytlar qabul qilinmaydi).',
+            duration: '1 kun',
+          },
+          {
+            step: 2,
+            title: 'Tarif tanlash',
+            description:
+              'Saytga qarab tarif tanlanadi: Basic ($50/oy, landing/korporativ), Standard ($150/oy, e-commerce/bot), Pro ($300+/oy, CRM/ERP). Sizning ehtiyojga aniq paket beriladi.',
+            duration: '1 kun',
+          },
+          {
+            step: 3,
+            title: 'Migratsiya va monitoring sozlash',
+            description:
+              'Agar sayt boshqa hostingda bo\'lsa — KATOV serverga ko\'chiriladi. Monitoring, backup va alert tizimi sozlanadi. SSL va domen yangilanadi.',
+            duration: '1–3 kun',
+          },
+          {
+            step: 4,
+            title: 'Oylik xizmat',
+            description:
+              'Har oy: avtomatik backup, monitoring, security patch, kontent yangilash kvotasi va tezlik/SEO hisoboti. Sizdan ish talab qilinmaydi.',
+            duration: 'Doimiy',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Server boshqaruvi va texnik muammolar bizning hisobimizda',
+          '99.9% uptime kafolati, kunlik avtomatik backup',
+          'Support javob vaqti — 4 soat ichida, Telegram orqali ham',
+          'Kontent yangilash kvotasi tarif tarkibida — texnik xodim shart emas',
+          'Security patch va versiya yangilash — har oy avtomatik',
+          'Crash holatida tezkor tiklash — 24 soat ichida',
+          'Oylik tezlik va SEO hisoboti — saytning real holatini ko\'rasiz',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'KATOV qurmagan saytim bor — qabul qilasizmi?',
+            answer:
+              'Yo\'q, bu xizmat faqat KATOV o\'zi qurgan loyihalar uchun. Sabab: tashqi kod va deploy strukturasi bizning nazoratdan tashqari bo\'ladi, security va backup kafolatini bera olmaymiz. Agar tashqi loyihangiz bor bo\'lsa — Sayt redesign xizmati (kodni qayta yozish bilan) orqali keyin hosting-support tarifiga o\'tish mumkin.',
+          },
+          {
+            question: 'Tarif paketlari va narxlari qanday?',
+            answer:
+              'Basic $50/oy — landing va korporativ saytlar (kichik trafik). Standard $150/oy — e-commerce, Telegram bot va o\'rta trafik (10K+ vizit/oy). Pro $300+/oy — CRM, ERP, admin panel va katta trafik. Aniq narx sayt hajmi va trafikka qarab belgilanadi.',
+          },
+          {
+            question: 'Kontent yangilash — necha soat? Ortig\'i nimaga to\'lanadi?',
+            answer:
+              'Har oy 2 soat kontent yangilash kvotasi tarifga kiradi (matn, rasm, narx, blog post). Bu odatda 4–8 ta kichik o\'zgarish yoki 1–2 ta blog post. Ortig\'i alohida hisoblanadi — $20/soat. Yirik o\'zgarishlar (yangi sahifa, yangi modul) alohida loyiha sifatida hisoblanadi.',
+          },
+          {
+            question: 'Server qayerda joylashgan? Tezlik qanday?',
+            answer:
+              'Server O\'zbekiston (TAS-IX tarmoq) va Yevropa (Germaniya, Frankfurt) markazlarida. O\'zbekistondagi mijozlar uchun TAS-IX tarmoq saytni 100ms ichida ochadi. Global auditoriya uchun CDN qo\'shimcha ulanadi (har sahifa 200ms ichida).',
+          },
+          {
+            question: 'Shartnoma oylik yoki yillikmi?',
+            answer:
+              'Asosiy shartnoma oylik — istalgan vaqtda 30 kun oldindan xabar bilan to\'xtatish mumkin. Yillik to\'lov tanlasangiz — 10% chegirma beriladi. Hech qanday "minimum shartnoma muddati" yo\'q, lekin xizmatni o\'rniga qo\'yish 1–2 oy talab qiladi, shuning uchun barqaror hamkorlik tavsiya etiladi.',
+          },
+        ],
+        ctaTitle: 'Hosting va support uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Sayt holatini va tarif tanlashni birga ko\'rib chiqamiz. Konsultatsiya bepul, 1 ish kuni ichida bog\'lanamiz.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: '/oy',
+      },
+      ru: {
+        title: 'Хостинг и Техподдержка Сайта — Ежемесячный Тариф | KATOV',
+        metaDescription:
+          'Хостинг и техподдержка для проектов KATOV: сайтов, ботов и CRM-систем. 99.9% uptime, ежедневный backup, обновление контента. От $50/мес.',
+        h1: 'Хостинг и Техподдержка Сайта: Ежемесячный Тариф для Проектов KATOV',
+        heroSubtitle:
+          'Стабильный хостинг, мониторинг и техническая поддержка для сайтов, Telegram-ботов и CRM/ERP-систем, разработанных KATOV. Не нужно думать о сервере — мы следим, вы занимаетесь бизнесом.',
+        benefits: [
+          {
+            icon: 'ShieldCheck',
+            title: 'Сайт всегда работает',
+            description:
+              'Гарантия 99.9% uptime, ежедневный автоматический backup и мониторинг 24/7. Проблема на сайте — мы начинаем исправлять до того, как вы узнаете.',
+          },
+          {
+            icon: 'Server',
+            title: 'Технические проблемы — на нашей стороне',
+            description:
+              'Поломки сервера, обновления безопасности, патчи версий — всё на KATOV. Без доплат и без вашего рабочего времени.',
+          },
+          {
+            icon: 'Mail',
+            title: 'Квота на обновление контента',
+            description:
+              'В тариф входит 2 часа обновления контента в месяц — тексты, изображения, цены. Технический сотрудник не нужен, делает KATOV.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Владельцы landing и корпоративных сайтов от KATOV',
+            description:
+              'После запуска сайта — ежемесячный сервис: хостинг, backup, мониторинг и обновление контента. Первый год хостинга бесплатен, дальше — этот тариф.',
+          },
+          {
+            title: 'Пользователи интернет-магазинов и Telegram-ботов от KATOV',
+            description:
+              'E-commerce и боты работают 24/7, любой downtime бьёт по бизнесу. Нужны быстрый мониторинг и восстановление при сбоях.',
+          },
+          {
+            title: 'Пользователи CRM, ERP и админ-панелей от KATOV',
+            description:
+              'Внутренние системы — критичны ежедневный backup, security-патчи и обновления. Данные и доступы должны быть под контролем.',
+          },
+          {
+            title: 'Малый и средний бизнес без своего IT-сотрудника',
+            description:
+              'Вместо IT-отдела — KATOV управляет сервером и контентом. Ваше время и ресурсы остаются на бизнес.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в тариф',
+        deliverables: [
+          'VPS или shared хостинг (выбирается по проекту)',
+          'Подключение домена и управление DNS',
+          'SSL-сертификат и автоматическое продление',
+          'Ежедневный автоматический backup — хранение 30 дней, быстрое восстановление',
+          'Мониторинг uptime 24/7 и оповещения об ошибках',
+          'Security-патчи и обновления версий — каждый месяц автоматически',
+          'Поддержка через email и Telegram — ответ в течение 4 часов в рабочее время',
+          'Квота на обновление контента — 2 часа/мес (текст, изображения, цены)',
+          'Ежемесячный отчёт по скорости и SEO',
+          'Быстрое восстановление при крэше (в течение 24 часов)',
+          'Подключение новых сертификатов и продление домена',
+          'Консультация — 30 минут в месяц о том, как улучшить сайт',
+        ],
+        processTitle: 'Процесс подключения',
+        processTotalDuration: '3–5 рабочих дней + постоянное ежемесячное обслуживание',
+        process: [
+          {
+            step: 1,
+            title: 'Технический аудит',
+            description:
+              'Проверяем состояние сайта, качество кода и конфигурацию хостинга. Сервис только для проектов, разработанных KATOV (внешние сайты не принимаем).',
+            duration: '1 день',
+          },
+          {
+            step: 2,
+            title: 'Выбор тарифа',
+            description:
+              'Подбираем тариф под сайт: Basic ($50/мес, landing/корпоративный), Standard ($150/мес, e-commerce/бот), Pro ($300+/мес, CRM/ERP). Под ваши потребности.',
+            duration: '1 день',
+          },
+          {
+            step: 3,
+            title: 'Миграция и настройка мониторинга',
+            description:
+              'Если сайт был на другом хостинге — переносим на сервер KATOV. Настраиваем мониторинг, backup и алерты. Подключаем SSL и домен.',
+            duration: '1–3 дня',
+          },
+          {
+            step: 4,
+            title: 'Ежемесячное обслуживание',
+            description:
+              'Каждый месяц: автоматический backup, мониторинг, security-патчи, обновление контента и отчёт по скорости/SEO. От вас ничего не требуется.',
+            duration: 'Постоянно',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Управление сервером и технические вопросы — на нашей стороне',
+          'Гарантия 99.9% uptime, ежедневный автоматический backup',
+          'Ответ поддержки — в течение 4 часов, в том числе через Telegram',
+          'Обновление контента входит в тариф — технический сотрудник не нужен',
+          'Security-патчи и обновления версий — каждый месяц автоматически',
+          'Быстрое восстановление при сбое — в течение 24 часов',
+          'Ежемесячный отчёт по скорости и SEO — видите реальное состояние сайта',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'У меня сайт не от KATOV — возьмёте на обслуживание?',
+            answer:
+              'Нет, услуга только для проектов, разработанных KATOV. Причина: внешний код и структура деплоя вне нашего контроля, мы не можем гарантировать безопасность и backup. Если у вас внешний проект — можно через услугу «Редизайн сайта» (с перепиской кода) перейти затем на тариф hosting-support.',
+          },
+          {
+            question: 'Какие пакеты и цены?',
+            answer:
+              'Basic $50/мес — landing и корпоративные сайты (небольшой трафик). Standard $150/мес — e-commerce, Telegram-боты и средний трафик (10K+ визитов/мес). Pro $300+/мес — CRM, ERP, админ-панели и большой трафик. Финальная цена определяется по объёму сайта и трафику.',
+          },
+          {
+            question: 'Обновление контента — сколько часов? За что доплата?',
+            answer:
+              'В тариф входит 2 часа обновления контента в месяц (текст, изображения, цены, посты в блог). Обычно это 4–8 небольших правок или 1–2 поста в блог. Сверх — отдельно $20/час. Крупные изменения (новая страница, новый модуль) — как отдельный проект.',
+          },
+          {
+            question: 'Где сервер? Какая скорость?',
+            answer:
+              'Серверы в Узбекистане (сеть TAS-IX) и в Европе (Германия, Франкфурт). Для клиентов в Узбекистане сайт открывается за 100 мс через TAS-IX. Для глобальной аудитории дополнительно подключается CDN (любая страница — за 200 мс).',
+          },
+          {
+            question: 'Договор помесячный или годовой?',
+            answer:
+              'Базовый договор помесячный — можно остановить в любой момент, предупредив за 30 дней. При годовой оплате — скидка 10%. «Минимального срока» нет, но настройка сервиса занимает 1–2 месяца, поэтому рекомендуем стабильное сотрудничество.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по хостингу и поддержке',
+        ctaSubtitle:
+          'Разберём состояние сайта и подберём тариф. Консультация бесплатная — свяжемся в течение 1 рабочего дня.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: '/мес',
+      },
+      en: {
+        title: 'Website Hosting & Technical Support — Monthly Plan | KATOV',
+        metaDescription:
+          'Hosting and technical support for KATOV-built websites, bots, and CRM systems. 99.9% uptime, daily backups, content updates. From $50/month.',
+        h1: 'Website Hosting & Technical Support: Monthly Plan for KATOV Projects',
+        heroSubtitle:
+          'Stable hosting, monitoring, and technical support for KATOV-built websites, Telegram bots, and CRM/ERP systems. No need to think about the server — we watch, you run the business.',
+        benefits: [
+          {
+            icon: 'ShieldCheck',
+            title: 'Your site is always up',
+            description:
+              '99.9% uptime guarantee, daily automatic backups, and 24/7 monitoring. If something breaks, we start fixing it before you even notice.',
+          },
+          {
+            icon: 'Server',
+            title: 'Technical issues are on us',
+            description:
+              'Server outages, security updates, version patches — all handled by KATOV. No extra charges, no demands on your time.',
+          },
+          {
+            icon: 'Mail',
+            title: 'Content update quota included',
+            description:
+              'The plan includes 2 hours of content updates per month — text, images, prices. No need for an in-house technical person, KATOV handles it.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Owners of KATOV-built landing and corporate sites',
+            description:
+              'After launch — monthly service: hosting, backups, monitoring, and content updates. First year of hosting is free with every new project, then this plan kicks in.',
+          },
+          {
+            title: 'Users of KATOV e-commerce sites and Telegram bots',
+            description:
+              'E-commerce and bots run 24/7, any downtime hurts the business. Fast monitoring and recovery are required.',
+          },
+          {
+            title: 'Users of KATOV CRM, ERP, and admin panels',
+            description:
+              'Internal systems — daily backups, security patches, and version updates are critical. Data and access must be under control.',
+          },
+          {
+            title: 'Small to mid businesses without an in-house tech',
+            description:
+              'Instead of an IT department, KATOV manages the server and content. Your time and resources stay on the business.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'VPS or shared hosting (chosen based on the project)',
+          'Domain connection and DNS management',
+          'SSL certificate with automatic renewal',
+          'Daily automatic backups — 30 days of retention, fast recovery',
+          '24/7 uptime monitoring and error alerts',
+          'Security patches and version updates — every month, automatically',
+          'Email and Telegram support — response within 4 business hours',
+          'Content update quota — 2 hours/month (text, images, prices)',
+          'Monthly speed and SEO report',
+          'Fast recovery on crash (within 24 hours)',
+          'New certificate setup and domain renewal',
+          'Consultation — 30 minutes per month on how to improve the site',
+        ],
+        processTitle: 'Onboarding process',
+        processTotalDuration: '3–5 business days + ongoing monthly service',
+        process: [
+          {
+            step: 1,
+            title: 'Technical audit',
+            description:
+              'We review the site\'s state, code quality, and hosting configuration. The service is only for KATOV-built projects (external sites are not accepted).',
+            duration: '1 day',
+          },
+          {
+            step: 2,
+            title: 'Plan selection',
+            description:
+              'Plan is chosen based on the site: Basic ($50/mo, landing/corporate), Standard ($150/mo, e-commerce/bot), Pro ($300+/mo, CRM/ERP). The package matches your needs.',
+            duration: '1 day',
+          },
+          {
+            step: 3,
+            title: 'Migration and monitoring setup',
+            description:
+              'If the site is on another host, we migrate it to KATOV servers. Monitoring, backups, and alerts are configured. SSL and domain are renewed.',
+            duration: '1–3 days',
+          },
+          {
+            step: 4,
+            title: 'Monthly service',
+            description:
+              'Every month: automatic backups, monitoring, security patches, content updates, and a speed/SEO report. Nothing required from you.',
+            duration: 'Ongoing',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'Server management and technical issues — on our side',
+          '99.9% uptime guarantee, daily automatic backups',
+          'Support response within 4 hours — including via Telegram',
+          'Content updates included in the plan — no in-house tech needed',
+          'Security patches and version updates — every month, automatically',
+          'Fast recovery on crash — within 24 hours',
+          'Monthly speed and SEO report — you see the real state of the site',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'My site is not from KATOV — will you take it on?',
+            answer:
+              'No, this service is only for KATOV-built projects. Reason: external code and deployment structure are outside our control, and we can\'t guarantee security and backups for them. If you have an external project, you can move to the hosting-support plan after going through the Website Redesign service (which rewrites the code).',
+          },
+          {
+            question: 'What are the plans and prices?',
+            answer:
+              'Basic $50/mo — landing and corporate sites (low traffic). Standard $150/mo — e-commerce, Telegram bots, and mid traffic (10K+ visits/mo). Pro $300+/mo — CRM, ERP, admin panels, and high traffic. The final price is set based on site size and traffic.',
+          },
+          {
+            question: 'Content updates — how many hours? What\'s extra billed at?',
+            answer:
+              'The plan includes 2 hours of content updates per month (text, images, prices, blog posts). That\'s typically 4–8 small edits or 1–2 blog posts. Anything beyond is billed separately at $20/hour. Larger changes (new page, new module) are treated as a separate project.',
+          },
+          {
+            question: 'Where are the servers? What\'s the speed?',
+            answer:
+              'Servers are in Uzbekistan (TAS-IX network) and Europe (Germany, Frankfurt). For Uzbek visitors the site loads in under 100 ms via TAS-IX. For a global audience, a CDN is added (any page within 200 ms).',
+          },
+          {
+            question: 'Is the contract monthly or yearly?',
+            answer:
+              'The base contract is monthly — you can cancel any time with 30 days\' notice. Annual prepayment gets a 10% discount. There\'s no "minimum contract length," but setting up the service takes 1–2 months, so we recommend a stable engagement.',
+          },
+        ],
+        ctaTitle: 'Free consultation for hosting and support',
+        ctaSubtitle:
+          'We\'ll review the state of your site and pick a plan together. The consultation is free — we\'ll reach out within 1 business day.',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '/mo',
+      },
+    },
+  },
 };
 
 export function getServiceData(slug: string, locale: Locale): { service: ServiceData; content: ServiceLocalizedContent } | null {
