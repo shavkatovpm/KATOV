@@ -134,12 +134,12 @@ export const servicesData: Record<string, ServiceData> = {
           {
             title: 'AmoCRM/Bitrix24\'ni "ortiqcha murakkab" topgan',
             description:
-              'Bayron CRM sizga foydalanmaydigan o\'nlab funksiya beradi, lekin sizga kerakli aniq narsani — yo\'q. Custom CRM faqat sizga kerakli funksiyalar bilan quriladi.',
+              'Shablon CRM sizga foydalanmaydigan o\'nlab funksiya beradi, lekin sizga kerakli aniq narsani — yo\'q. Custom CRM faqat sizga kerakli funksiyalar bilan quriladi.',
           },
           {
             title: 'Maxsus biznes jarayoni bor — ta\'lim, ko\'chmas mulk, b2b',
             description:
-              'O\'qituvchi-talaba bog\'lanishi, kvartira-mijoz tarixi yoki uzun b2b voronka — bayron CRM bunday holatlarni qamramaydi. Custom CRM aniq sizning jarayoningizga moslashadi.',
+              'O\'qituvchi-talaba bog\'lanishi, kvartira-mijoz tarixi yoki uzun b2b voronka — shablon CRM bunday holatlarni qamramaydi. Custom CRM aniq sizning jarayoningizga moslashadi.',
           },
         ],
         deliverablesTitle: 'Xizmatga nima kiradi',
@@ -191,7 +191,7 @@ export const servicesData: Record<string, ServiceData> = {
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
           'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
-          'Bayron CRM emas — sizning sotuv jarayoningiz asosida quriladi, ortiqcha modul yo\'q',
+          'Shablon CRM emas — sizning sotuv jarayoningiz asosida quriladi, ortiqcha modul yo\'q',
           'Oylik to\'lov yo\'q — bir marta to\'lash, foydalanuvchi soniga cheklov yo\'q',
           'Telegram bot integratsiyasi standart — menejerlar yangi lead\'ni darrov ko\'radi',
           'Click/Payme bilan ulanadi — to\'lov tasdiqlansa, CRM\'da bitim avtomatik yopiladi',
@@ -205,7 +205,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'AmoCRM yoki Bitrix24\'dan nima farqi bor?',
             answer:
-              'AmoCRM va Bitrix24 — bu bayron (shablon) CRM\'lar. Ular barcha biznesga bir xil interfeys va funksiya beradi, sizning aniq jarayoningiz uchun moslashmaydi. Va har oy menejer boshiga to\'lov olinadi ($18+/oy). Custom CRM — sizning sotuv voronkangiz, menejer rollari va biznes mantig\'i asosida quriladi. Bir marta to\'lanadi, foydalanuvchi soniga cheklov yo\'q va CRM butunlay sizniki bo\'ladi.',
+              'AmoCRM va Bitrix24 — bu shablon CRM\'lar. Ular barcha biznesga bir xil interfeys va funksiya beradi, sizning aniq jarayoningiz uchun moslashmaydi. Va har oy menejer boshiga to\'lov olinadi ($18+/oy). Custom CRM — sizning sotuv voronkangiz, menejer rollari va biznes mantig\'i asosida quriladi. Bir marta to\'lanadi, foydalanuvchi soniga cheklov yo\'q va CRM butunlay sizniki bo\'ladi.',
           },
           {
             question: 'Excel yoki Google Sheets\'dagi ma\'lumotlarni CRM\'ga ko\'chirib bersangizmi?',
@@ -3641,7 +3641,7 @@ export const servicesData: Record<string, ServiceData> = {
             icon: 'Target',
             title: 'Korxonangiz jarayoniga aniq mos',
             description:
-              'Bayron 1C emas — sizning bo\'limlar, hisob siyosati, omborxona logikasi va biznes qoidalaringiz asosida quriladi. Foydalanmaydigan modul yo\'q.',
+              'Shablon 1C emas — sizning bo\'limlar, hisob siyosati, omborxona logikasi va biznes qoidalaringiz asosida quriladi. Foydalanmaydigan modul yo\'q.',
           },
           {
             icon: 'Layers',
@@ -3676,7 +3676,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             title: 'Holding va group kompaniyalar',
             description:
-              'Bir nechta yuridik shaxs, konsolidatsiya hisobotlari, ichki o\'zaro hisob-kitob — bayron tizimda murakkab. Custom ERP\'da sizga kerakli struktura quriladi.',
+              'Bir nechta yuridik shaxs, konsolidatsiya hisobotlari, ichki o\'zaro hisob-kitob — shablon tizimda murakkab. Custom ERP\'da sizga kerakli struktura quriladi.',
           },
         ],
         deliverablesTitle: 'Xizmatga nima kiradi',
@@ -3730,7 +3730,7 @@ export const servicesData: Record<string, ServiceData> = {
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
           'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
-          'Bayron 1C emas — sizning hisob siyosatingiz va biznes jarayoningiz asosida quriladi',
+          'Shablon 1C emas — sizning hisob siyosatingiz va biznes jarayoningiz asosida quriladi',
           'Oylik to\'lov va litsenziya yo\'q — bir marta to\'lash, foydalanuvchi soniga cheklov yo\'q',
           'Bosqichma-bosqich yetkazib berish — har modul alohida ishga tushiriladi, biznes to\'xtamaydi',
           'Click/Payme va Telegram bot ulab beriladi — standart paket',
@@ -3744,7 +3744,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: '1C\'dan nima farqi bor?',
             answer:
-              '1C — bayron tizim, yillik litsenziya va foydalanuvchi limiti bilan. Sizning biznesingiz 1C qoidalariga moslashishi kerak — aksincha emas. Custom ERP sizning hisob siyosatingiz, omborxona logikasi va biznes qoidalaringiz asosida quriladi. Bir marta to\'lanadi, foydalanuvchi soniga cheklov yo\'q va modullar faqat sizga keraklilari quriladi. 1C bilan integratsiya ham mumkin — agar buxgalteriya 1C\'da qolishi kerak bo\'lsa, ERP unga ulanadi.',
+              '1C — shablon tizim, yillik litsenziya va foydalanuvchi limiti bilan. Sizning biznesingiz 1C qoidalariga moslashishi kerak — aksincha emas. Custom ERP sizning hisob siyosatingiz, omborxona logikasi va biznes qoidalaringiz asosida quriladi. Bir marta to\'lanadi, foydalanuvchi soniga cheklov yo\'q va modullar faqat sizga keraklilari quriladi. 1C bilan integratsiya ham mumkin — agar buxgalteriya 1C\'da qolishi kerak bo\'lsa, ERP unga ulanadi.',
           },
           {
             question: 'Mavjud 1C va Excel ma\'lumotlarini ko\'chirib bersangizmi?',
