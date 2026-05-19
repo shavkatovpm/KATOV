@@ -3622,6 +3622,900 @@ export const servicesData: Record<string, ServiceData> = {
       },
     },
   },
+  'erp-tizimi': {
+    slug: 'erp-tizimi',
+    icon: 'Layers',
+    basePrice: 2500,
+    priceSuffix: '',
+    demand: 3,
+    content: {
+      uz: {
+        title: 'ERP Tizimi Ishlab Chiqish — Korxona Avtomatlashtirish | KATOV',
+        metaDescription:
+          'Korxonangiz uchun maxsus ERP: moliya, ombor, sotuv, HR va ishlab chiqarish bir tizimda. Oylik to\'lov yo\'q, 1C\'dan migratsiya bilan. 45–90 kun, $2500 dan.',
+        h1: 'ERP Tizimi Ishlab Chiqish Xizmati: Moliya, Ombor va HR Bir Tizimda, Oylik To\'lovsiz',
+        heroSubtitle:
+          '1C va Excel\'ning aralashmasi o\'rniga — korxonangiz uchun maxsus ERP. Moliya, ombor, sotuv, HR va ishlab chiqarish bir interfeysda, sizning hisob siyosatingiz asosida quriladi.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Korxonangiz jarayoniga aniq mos',
+            description:
+              'Bayron 1C emas — sizning bo\'limlar, hisob siyosati, omborxona logikasi va biznes qoidalaringiz asosida quriladi. Foydalanmaydigan modul yo\'q.',
+          },
+          {
+            icon: 'Layers',
+            title: 'Bir tizimda hammasi',
+            description:
+              'Moliya, ombor, sotuv, HR va ishlab chiqarish — bitta interfeysda. Bir nechta dasturga o\'tib ishlash, ma\'lumotni qo\'lda ko\'chirish yoki Excel\'lar bilan tutashtirish kerak emas.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Oylik to\'lov va litsenziya yo\'q',
+            description:
+              'Bir marta to\'lash — ERP butunlay sizniki. 1C\'ning yillik litsenziya yangilash, foydalanuvchi limiti va alohida modul to\'lovlari yo\'q.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Ishlab chiqarish korxonalari (tekstil, oziq-ovqat, mebel, qurilish materiallari)',
+            description:
+              'Xom ashyo qabuli, texnologik xaritalar, smen kalkulyatsiyasi va tayyor mahsulot ombori bitta tizimda. Har bo\'lim alohida Excel\'da ishlamaydi.',
+          },
+          {
+            title: 'Distributorlik va savdo kompaniyalari',
+            description:
+              'Bir nechta filial, ombor va ulgurji-chakana sotuvni alohida hisoblash. Har mijozning kreditori, balansi va savdo tarixi bir joyda.',
+          },
+          {
+            title: 'Excel va eski 1C cheklovlariga duch kelgan SME',
+            description:
+              'Buxgalteriya alohida, ombor alohida, CRM alohida — ma\'lumotlar bir-biri bilan tutashmaydi. ERP barchasini bitta tizimga jamlaydi.',
+          },
+          {
+            title: 'Holding va group kompaniyalar',
+            description:
+              'Bir nechta yuridik shaxs, konsolidatsiya hisobotlari, ichki o\'zaro hisob-kitob — bayron tizimda murakkab. Custom ERP\'da sizga kerakli struktura quriladi.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Moliya va buxgalteriya — kirim/chiqim, hisob-faktura, soliq hisobi, bank operatsiyalari',
+          'Ombor boshqaruvi — ko\'p ombor, qabul/chiqim, inventarizatsiya, qoldiq kuzatuvi',
+          'Sotuv va lid bloki — mijoz bazasi, sotuv voronkasi, takliflar va kontraktlar',
+          'HR va xodimlar — shtat, ish vaqti, hisob-kitob, otpusk va kasallik varaqalari',
+          'Ishlab chiqarish moduli — texnologik xaritalar, smenalar, kalkulyatsiya (kerakli sektorlar uchun)',
+          'Hisobotlar va dashboard — kunlik/oylik moliyaviy va operativ KPI, bo\'lim kesimida',
+          'Foydalanuvchi rollari — direktor, buxgalter, omborchi, menejer — har biri o\'z huquqi bilan',
+          'Click va Payme to\'lov tizimi ulab beriladi',
+          'Telegram bot integratsiyasi — yangi buyurtma, ombor signalari, hisobotlar',
+          'Ma\'lumotlar migratsiyasi — Excel va eski 1C bazalaridan',
+          'Jamoa uchun 5 ish kuni training va batafsil qo\'llanma',
+          'Mobile-first interfeys — direktor va menejer telefondan hisobotlarni ko\'radi',
+          '3 oy bepul support — savollar, kichik o\'zgartirishlar va xato tuzatish',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '45–90 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Biznes-jarayon va modullarni aniqlash',
+            description:
+              'Har bo\'lim bilan intervyu: moliya, ombor, sotuv, ishlab chiqarish. Hisob siyosati va biznes qoidalari yoziladi, kerakli modullar tanlanadi.',
+            duration: '5–10 kun',
+          },
+          {
+            step: 2,
+            title: 'Dizayn va prototip',
+            description:
+              'Asosiy ekranlar Figma\'da quriladi — har bo\'lim ko\'radigan interfeys ko\'rsatiladi va tasdiqlanadi. Ikki bosqichli revizyon kiradi.',
+            duration: '10–15 kun',
+          },
+          {
+            step: 3,
+            title: 'Development va integratsiyalar',
+            description:
+              'Modullar bosqichma-bosqich quriladi — har modul tugaganida sizga ko\'rsatiladi. Click/Payme va Telegram bot ulab beriladi, foydalanuvchi rollari sozlanadi.',
+            duration: '25–55 kun',
+          },
+          {
+            step: 4,
+            title: 'Migratsiya, training va ishga tushirish',
+            description:
+              'Excel/1C ma\'lumotlari yangi tizimga ko\'chiriladi. Jamoa o\'qitiladi: har bo\'lim o\'z ishini ko\'rsatadi va savollar javoblanadi.',
+            duration: '5–10 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Bayron 1C emas — sizning hisob siyosatingiz va biznes jarayoningiz asosida quriladi',
+          'Oylik to\'lov va litsenziya yo\'q — bir marta to\'lash, foydalanuvchi soniga cheklov yo\'q',
+          'Bosqichma-bosqich yetkazib berish — har modul alohida ishga tushiriladi, biznes to\'xtamaydi',
+          'Click/Payme va Telegram bot ulab beriladi — standart paket',
+          'Mavjud Excel va eski 1C ma\'lumotlari ko\'chiriladi — boshlash uchun qo\'shimcha ish yo\'q',
+          'Mobile-first — direktor va bo\'lim boshlig\'i telefondan hisobotlarni ko\'radi',
+          '3 oy bepul support + 5 ish kuni jamoaga training',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: '1C\'dan nima farqi bor?',
+            answer:
+              '1C — bayron tizim, yillik litsenziya va foydalanuvchi limiti bilan. Sizning biznesingiz 1C qoidalariga moslashishi kerak — aksincha emas. Custom ERP sizning hisob siyosatingiz, omborxona logikasi va biznes qoidalaringiz asosida quriladi. Bir marta to\'lanadi, foydalanuvchi soniga cheklov yo\'q va modullar faqat sizga keraklilari quriladi. 1C bilan integratsiya ham mumkin — agar buxgalteriya 1C\'da qolishi kerak bo\'lsa, ERP unga ulanadi.',
+          },
+          {
+            question: 'Mavjud 1C va Excel ma\'lumotlarini ko\'chirib bersangizmi?',
+            answer:
+              'Ha, bu paket tarkibida. Mijoz bazasi, ombor qoldiqlari, sotuv tarixi, kontraktlar, xodimlar bazasi — barchasi yangi ERP\'ga ko\'chiriladi. Sizdan eski tizimdan eksport (Excel, .dt yoki SQL) jo\'natish kerak. Ma\'lumotlar tartibsiz bo\'lsa, birga tozalashga yordamlashamiz.',
+          },
+          {
+            question: 'Bosqichma-bosqich ishga tushirish mumkinmi?',
+            answer:
+              'Ha, bu standart yondashuvimiz. Avval eng kritik modul (masalan moliya yoki ombor) ishga tushiriladi va jamoa unga ko\'nikadi. Keyin keyingi modullar bosqichma-bosqich qo\'shiladi. Bu yondashuv risklarni kamaytiradi va biznes to\'xtamasdan davom etadi.',
+          },
+          {
+            question: 'Foydalanuvchi qo\'shsam qo\'shimcha to\'lov bormi?',
+            answer:
+              'Yo\'q. 1C va boshqa ERP\'lardan farqli, KATOV custom ERP\'da foydalanuvchi soniga cheklov va oylik to\'lov yo\'q. Yangi xodim kelsa — admin paneldan qo\'shasiz. ERP butunlay sizniki, sizning serveringizda yoki KATOV hostingida ishlaydi.',
+          },
+          {
+            question: 'Narx va muddat qancha?',
+            answer:
+              'Standart ERP $2500 dan boshlanadi (3–4 modul, kichik korxona) va 45–90 ish kunida tayyor bo\'ladi. Ishlab chiqarish moduli, ko\'p filial, holding strukturasi yoki murakkab integratsiyalar (1C, Click/Payme, Telegram bot, bank API) kerak bo\'lsa narx $5000–$15000 oralig\'iga ko\'tariladi. Aniq narx biznes-jarayon tahlilidan keyin belgilanadi va loyiha davomida o\'zgarmaydi.',
+          },
+        ],
+        ctaTitle: 'ERP tizimi uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Korxonangiz jarayonlarini va kerakli modullarni birga ko\'rib chiqamiz. Konsultatsiya bepul, 1 ish kuni ichida bog\'lanamiz.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Разработка ERP-Системы — Автоматизация Бизнеса | KATOV',
+        metaDescription:
+          'Индивидуальная ERP для вашего предприятия: финансы, склад, продажи, HR и производство в одной системе. Без ежемесячной оплаты, миграция из 1С. 45–90 дней, от $2500.',
+        h1: 'Разработка ERP-Системы: Финансы, Склад и HR в Одной Системе, без Ежемесячной Оплаты',
+        heroSubtitle:
+          'Вместо связки 1С и Excel — индивидуальная ERP для вашего предприятия. Финансы, склад, продажи, HR и производство в одном интерфейсе, по вашей учётной политике.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Точно под процессы вашего бизнеса',
+            description:
+              'Не шаблонная 1С — собираем под ваши отделы, учётную политику, логику склада и бизнес-правила. Лишних модулей нет.',
+          },
+          {
+            icon: 'Layers',
+            title: 'Всё в одной системе',
+            description:
+              'Финансы, склад, продажи, HR и производство — в одном интерфейсе. Не нужно прыгать между программами, копировать данные руками или сшивать Excel-таблицы.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Без ежемесячной оплаты и лицензий',
+            description:
+              'Платите один раз — ERP полностью ваша. Никаких ежегодных обновлений лицензий 1С, лимитов по пользователям и отдельных оплат за модули.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Производственные предприятия (текстиль, пищевая, мебель, стройматериалы)',
+            description:
+              'Приём сырья, технологические карты, расчёт смен и склад готовой продукции в одной системе. Не нужно, чтобы каждый отдел работал в своём Excel.',
+          },
+          {
+            title: 'Дистрибуция и торговые компании',
+            description:
+              'Несколько филиалов, складов и раздельный учёт опт/розница. У каждого клиента — кредиторка, баланс и история продаж в одном месте.',
+          },
+          {
+            title: 'SME, упёршиеся в ограничения Excel и старой 1С',
+            description:
+              'Бухгалтерия отдельно, склад отдельно, CRM отдельно — данные между собой не сходятся. ERP собирает всё в одну систему.',
+          },
+          {
+            title: 'Холдинги и группы компаний',
+            description:
+              'Несколько юрлиц, консолидированная отчётность, внутригрупповые расчёты — в шаблонных системах сложно. В custom ERP — нужная вам структура.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'Финансы и бухгалтерия — приход/расход, счёт-фактуры, налоговый учёт, банковские операции',
+          'Управление складом — несколько складов, приход/расход, инвентаризация, контроль остатков',
+          'Продажи и лиды — база клиентов, воронка продаж, КП и контракты',
+          'HR и кадры — штатное расписание, табель, расчёт, отпуска и больничные',
+          'Производственный модуль — техкарты, смены, калькуляция (для нужных отраслей)',
+          'Отчёты и дашборд — дневные/месячные финансовые, операционные KPI по отделам',
+          'Роли пользователей — директор, бухгалтер, кладовщик, менеджер — каждый со своими правами',
+          'Подключаем Click и Payme',
+          'Интеграция с Telegram-ботом — новые заказы, уведомления склада, отчёты',
+          'Миграция данных — из Excel и старой 1С',
+          '5 рабочих дней training для команды + подробная инструкция',
+          'Mobile-first интерфейс — директор и руководитель отдела смотрят отчёты с телефона',
+          'Бесплатная поддержка 3 месяца — вопросы, небольшие правки и исправление ошибок',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '45–90 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Разбор бизнес-процессов и выбор модулей',
+            description:
+              'Проводим интервью с каждым отделом: финансы, склад, продажи, производство. Фиксируем учётную политику и бизнес-правила, выбираем нужные модули.',
+            duration: '5–10 дней',
+          },
+          {
+            step: 2,
+            title: 'Дизайн и прототип',
+            description:
+              'Основные экраны в Figma — показываем интерфейс для каждого отдела и согласовываем. Две правки включены.',
+            duration: '10–15 дней',
+          },
+          {
+            step: 3,
+            title: 'Разработка и интеграции',
+            description:
+              'Модули собираем поэтапно — после готовности каждого модуля показываем вам. Подключаем Click/Payme и Telegram-бот, настраиваем роли пользователей.',
+            duration: '25–55 дней',
+          },
+          {
+            step: 4,
+            title: 'Миграция, обучение и запуск',
+            description:
+              'Переносим данные из Excel/1С в новую систему. Обучаем команду: каждый отдел показывает свою работу, отвечаем на вопросы.',
+            duration: '5–10 дней',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Не шаблонная 1С — собираем под вашу учётную политику и бизнес-процессы',
+          'Без ежемесячной оплаты и лицензий — платите один раз, ограничений по пользователям нет',
+          'Поэтапный запуск — каждый модуль вводим отдельно, бизнес не останавливается',
+          'Click/Payme и Telegram-бот подключаем — стандартный пакет',
+          'Данные из Excel и старой 1С мигрируем — никакой дополнительной работы для старта',
+          'Mobile-first — директор и руководитель отдела смотрят отчёты с телефона',
+          '3 месяца бесплатной поддержки + 5 дней training для команды',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Чем отличается от 1С?',
+            answer:
+              '1С — шаблонная система с годовой лицензией и лимитами по пользователям. Ваш бизнес подстраивается под правила 1С, а не наоборот. Custom ERP собирается под вашу учётную политику, логику склада и бизнес-правила. Оплата один раз, ограничений по пользователям нет, в проект включаются только нужные модули. Интеграция с 1С тоже возможна — если бухгалтерия должна остаться в 1С, ERP к ней подключается.',
+          },
+          {
+            question: 'Переносите ли данные из 1С и Excel?',
+            answer:
+              'Да, это в пакете. База клиентов, складские остатки, история продаж, контракты, кадры — всё переносится в новую ERP. От вас нужен экспорт из старой системы (Excel, .dt или SQL). Если данные не упорядочены, помогаем очистить вместе.',
+          },
+          {
+            question: 'Можно ли запускать поэтапно?',
+            answer:
+              'Да, это наш стандартный подход. Сначала вводим самый критичный модуль (финансы или склад) и команда к нему привыкает. Затем поэтапно подключаем остальные модули. Такой подход снижает риски, и бизнес не останавливается на время запуска.',
+          },
+          {
+            question: 'Есть ли доплата за дополнительных пользователей?',
+            answer:
+              'Нет. В отличие от 1С и других ERP, в custom ERP от KATOV нет ограничений по числу пользователей и ежемесячной оплаты. Появился новый сотрудник — добавляете через админку. ERP полностью ваша, работает на вашем сервере или хостинге KATOV.',
+          },
+          {
+            question: 'Сколько стоит и сколько занимает?',
+            answer:
+              'Стандартная ERP от $2500 (3–4 модуля, малое предприятие), готова за 45–90 рабочих дней. Если нужен производственный модуль, мультифилиал, холдинговая структура или сложные интеграции (1С, Click/Payme, Telegram-бот, банковский API) — $5000–$15000. Финальная цена фиксируется после разбора процессов и не меняется до запуска.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по ERP-системе',
+        ctaSubtitle:
+          'Разберём процессы вашего предприятия и нужные модули. Консультация бесплатная — свяжемся в течение 1 рабочего дня.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Custom ERP Development — Business Automation | KATOV',
+        metaDescription:
+          'Custom ERP for your enterprise: finance, inventory, sales, HR and production in one system. No monthly fees, 1C data migration included. 45–90 days, from $2500.',
+        h1: 'Custom ERP Development: Finance, Inventory, and HR in One System, No Monthly Fees',
+        heroSubtitle:
+          'Instead of patching 1C and Excel together — a custom ERP for your business. Finance, inventory, sales, HR, and production in one interface, built around your accounting policy.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Tailored to your business processes',
+            description:
+              'Not a 1C template — built around your departments, accounting policy, inventory logic, and business rules. No bloat or unused modules.',
+          },
+          {
+            icon: 'Layers',
+            title: 'Everything in one system',
+            description:
+              'Finance, inventory, sales, HR, and production — in a single interface. No more jumping between apps, copying data by hand, or stitching Excel files together.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'No monthly fees or licenses',
+            description:
+              'Pay once — the ERP is fully yours. No yearly license renewals like 1C, no per-user caps, no extra fees for individual modules.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Manufacturers (textile, food, furniture, construction materials)',
+            description:
+              'Raw material intake, technical maps, shift calculations, and finished goods inventory in one system. No department running its own Excel sheet.',
+          },
+          {
+            title: 'Distribution and trading companies',
+            description:
+              'Multiple branches, multiple warehouses, and separate wholesale/retail tracking. Each client\'s receivables, balance, and sales history in one place.',
+          },
+          {
+            title: 'SMEs hitting Excel and legacy 1C limits',
+            description:
+              'Accounting in one place, inventory in another, CRM somewhere else — none of it talks to each other. ERP consolidates it all into one system.',
+          },
+          {
+            title: 'Holdings and groups of companies',
+            description:
+              'Multiple legal entities, consolidated reporting, intercompany settlements — complex in off-the-shelf systems. A custom ERP fits the exact structure you need.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Finance and accounting — income/expense, invoices, tax accounting, bank operations',
+          'Inventory management — multiple warehouses, intake/issue, stocktake, stock level tracking',
+          'Sales and lead module — customer database, sales pipeline, quotes and contracts',
+          'HR and personnel — headcount, timesheets, payroll, vacations and sick leave',
+          'Production module — process maps, shifts, costing (for relevant industries)',
+          'Reports and dashboard — daily/monthly financial and operational KPIs by department',
+          'User roles — director, accountant, warehouse keeper, manager — each with their own permissions',
+          'Click and Payme payments integrated',
+          'Telegram bot integration — new orders, inventory alerts, reports',
+          'Data migration — from Excel and legacy 1C databases',
+          '5-day team training and a detailed manual',
+          'Mobile-first interface — director and department heads review reports from their phone',
+          '3 months of free support — questions, small edits, and bug fixes',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '45–90 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Map business processes and pick modules',
+            description:
+              'We interview every department: finance, inventory, sales, production. Accounting policy and business rules are documented, modules chosen accordingly.',
+            duration: '5–10 days',
+          },
+          {
+            step: 2,
+            title: 'Design and prototype',
+            description:
+              'Core screens in Figma — each department sees its interface and signs off. Two rounds of revisions included.',
+            duration: '10–15 days',
+          },
+          {
+            step: 3,
+            title: 'Development and integrations',
+            description:
+              'Modules are built stage by stage — each ready module is reviewed with you. Click/Payme and Telegram bot are wired in, user roles configured.',
+            duration: '25–55 days',
+          },
+          {
+            step: 4,
+            title: 'Migration, training, and rollout',
+            description:
+              'Excel/1C data is migrated into the new system. The team is trained: each department walks through their workflow and gets their questions answered.',
+            duration: '5–10 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'Not a 1C template — built around your accounting policy and business processes',
+          'No monthly fees or licenses — pay once, no per-user limits',
+          'Staged rollout — each module goes live separately, the business never stops',
+          'Click/Payme and Telegram bot integrated — standard package',
+          'Excel and legacy 1C data is migrated — no extra work to get started',
+          'Mobile-first — director and department heads review reports from their phone',
+          '3 months of free support + 5-day team training',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How is this different from 1C?',
+            answer:
+              '1C is a template system with annual licenses and per-user limits. Your business has to fit 1C\'s rules, not the other way around. A custom ERP is built around your accounting policy, inventory logic, and business rules. You pay once, there are no per-user caps, and only the modules you actually need are included. Integration with 1C is also possible — if accounting must stay in 1C, the ERP connects to it.',
+          },
+          {
+            question: 'Do you migrate data from 1C and Excel?',
+            answer:
+              'Yes, it\'s part of the package. Customer database, inventory balances, sales history, contracts, HR records — everything is migrated into the new ERP. All we need from you is an export from the legacy system (Excel, .dt, or SQL). If the data is messy, we help clean it together.',
+          },
+          {
+            question: 'Can it be rolled out in stages?',
+            answer:
+              'Yes — that\'s our standard approach. We launch the most critical module first (finance or inventory) and the team adjusts to it. Then we add the rest of the modules in stages. This reduces risk, and the business keeps running through the entire rollout.',
+          },
+          {
+            question: 'Is there a charge for extra users?',
+            answer:
+              'No. Unlike 1C and other ERPs, KATOV\'s custom ERP has no per-user caps or monthly fees. New employee joins — you add them through the admin panel. The ERP is fully yours, running on your server or KATOV hosting.',
+          },
+          {
+            question: 'How much does it cost and how long does it take?',
+            answer:
+              'A standard ERP starts at $2500 (3–4 modules, small enterprise) and ships in 45–90 business days. If a production module, multiple branches, holding structure, or complex integrations (1C, Click/Payme, Telegram bot, banking APIs) are needed, the price lands at $5000–$15000. The final price is locked after the process review and stays unchanged through launch.',
+          },
+        ],
+        ctaTitle: 'Free consultation for your ERP',
+        ctaSubtitle:
+          'We\'ll walk through your business processes and the modules you need. The consultation is free — we\'ll reach out within 1 business day.',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
+  'portfolio-sayt': {
+    slug: 'portfolio-sayt',
+    icon: 'User',
+    basePrice: 270,
+    priceSuffix: '',
+    demand: 3,
+    content: {
+      uz: {
+        title: 'Portfolio Sayt Yaratish — Mutaxassis va Freelancer Uchun | KATOV',
+        metaDescription:
+          'Mutaxassis va freelancer uchun portfolio sayt: ishlar galereyasi, kontakt, Google\'da topiladi. 3 til, 1 yil hosting bepul. 7–14 kun, $270 dan.',
+        h1: 'Portfolio Sayt Yaratish Xizmati: Shaxsiy Brending va Mijozlar Jalb Qilish Uchun',
+        heroSubtitle:
+          'Instagram va Behance\'da emas — o\'z domeningiz va saytingizda professional portfolio. Ishlaringizni Google\'da topiladigan qilamiz, mijozlar to\'g\'ridan-to\'g\'ri siz bilan bog\'lanadi.',
+        benefits: [
+          {
+            icon: 'Globe',
+            title: 'O\'z domen va brendingiz',
+            description:
+              'instagram.com/sizning_ismingiz emas — your-name.uz. Vizit kartochkada, LinkedIn\'da va emailda professional URL bo\'ladi, ishonchli ko\'rinasiz.',
+          },
+          {
+            icon: 'Search',
+            title: 'Google\'da topiladi',
+            description:
+              'Har ish/case study alohida URL va meta bilan — kalit so\'zlar bo\'yicha Google\'da topiladi. Instagram va Behance ichkarisida indeksatsiya cheklangan.',
+          },
+          {
+            icon: 'Mail',
+            title: 'Mijozlar to\'g\'ridan-to\'g\'ri yozadi',
+            description:
+              'Kontakt formasi, Telegram, WhatsApp va kalendar bron — bir joyda. DM\'ga "salom" yozish o\'rniga, mijoz darrov ish haqida ma\'lumot beradi.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Dizayner, illustrator, fotograf',
+            description:
+              'Ishlar to\'plamini sifatli rasm va batafsil case study bilan ko\'rsatish. Behance\'ga bog\'liq emas — o\'z saytingizda to\'liq nazorat.',
+          },
+          {
+            title: 'Freelancer (developer, marketolog, content creator)',
+            description:
+              'Mijozlarga yo\'naltirish uchun professional joy. Tariflar, ishlash usuli va aloqa formasi — bitta sahifada.',
+          },
+          {
+            title: 'Mutaxassis va konsultant (advokat, murabbiy, psixolog)',
+            description:
+              'Shaxsiy ekspertizani brendlash. Xizmatlar, mijoz fikrlari, blog va kontakt — ishonch va konversiya uchun.',
+          },
+          {
+            title: 'Kreator va bloger',
+            description:
+              'Kontent jamlanmasi va monetizatsiya yo\'naltirishi. YouTube, Instagram, Telegram — barchasi bir saytda, qaytarmas brending bilan.',
+          },
+        ],
+        deliverablesTitle: 'Xizmatga nima kiradi',
+        deliverables: [
+          'Hero bo\'limi — sizning rasm, ism, kasb va asosiy taklif',
+          'Ishlar/proyektlar galereyasi (10–20 ish) — har biri alohida case study sahifa',
+          'Xizmatlar yoki tariflar sahifasi — siz nima taklif qilayotganingiz va narxi',
+          '"Men haqimda" sahifasi — tajriba, sertifikatlar va o\'tgan mijoz fikrlari',
+          'Blog yoki "Maqolalar" bo\'limi — SEO va ekspertizani ko\'rsatish uchun (ixtiyoriy)',
+          'Kontakt — forma, Telegram, WhatsApp va email bir joyda',
+          '3 til (uz/ru/en) yoki sizga kerakli til kombinatsiyasi',
+          'SEO sozlamasi — har ish va sahifa uchun unikal meta va kalit so\'zlar',
+          'Google Analytics va Search Console ulanadi',
+          'Domen tanlashda yordam va 1 yil bepul KATOV hostingida',
+          'Mobile-first interfeys — odamlar telefonda ko\'radi',
+          'Sotsial integratsiya — Instagram/LinkedIn lentasi (ixtiyoriy)',
+          '1 oy bepul support — kontent yangilash va kichik o\'zgartirishlar',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '7–14 ish kuni',
+        process: [
+          {
+            step: 1,
+            title: 'Brending va kontent yig\'ish',
+            description:
+              'Sizning kasbingiz, mijoz auditoriyangiz va xizmatlaringiz aniqlanadi. Ish namunalari, matn, rasm va sertifikatlar yig\'iladi.',
+            duration: '1–2 kun',
+          },
+          {
+            step: 2,
+            title: 'Dizayn Figma\'da',
+            description:
+              'Hero, galery va sahifa shablonlari Figma\'da ko\'rsatiladi. Sizning brending uslubingiz — minimal yoki kreativ — tanlanadi va tasdiqlanadi.',
+            duration: '2–4 kun',
+          },
+          {
+            step: 3,
+            title: 'Development va SEO',
+            description:
+              'Sayt kodi yoziladi, kontent joylanadi, har ish uchun unikal meta va kalit so\'zlar sozlanadi. Google Analytics ulanadi.',
+            duration: '3–6 kun',
+          },
+          {
+            step: 4,
+            title: 'Domen, deploy va training',
+            description:
+              'Domen ulanadi, sayt ishga tushadi va sizga admin panel ko\'rsatiladi — yangi ishlarni o\'zingiz qo\'sha olishingiz uchun.',
+            duration: '1–2 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Shablon emas — siz va kasbingizga moslashtirilgan dizayn',
+          'O\'z domeningizda — Instagram/Behance ichkarisida kreditingiz qolmaydi',
+          'Google\'da topiladi — har ish alohida indeksatsiya qilinadi',
+          'Mobile-first — auditoriyangiz odatda telefondan ko\'radi',
+          'Kontakt yo\'llari bir joyda — forma, Telegram, kalendar bron',
+          '3 til va 1 yil bepul KATOV hostingida',
+          'Admin panel — yangi ishlarni o\'zingiz qo\'sha olasiz, kod tegishi shart emas',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Linktree yoki Instagram\'dan nima farqi bor?',
+            answer:
+              'Linktree — bu shunchaki link to\'plami, Instagram — sotsial tarmoq. Ikkalasida ham siz mijozlarga "ishonchli mutaxassis" sifatida ko\'rinmaysiz, Google\'da topilmaysiz va kontentingizning hammasi platformaga tegishli. O\'z portfolio sayti — bu shaxsiy brending: o\'z domeningiz, o\'z dizayn, batafsil case study\'lar, SEO orqali yangi mijozlar va to\'liq nazorat.',
+          },
+          {
+            question: 'Mavjud Behance/Dribbble ishlarini ko\'chirib bersangizmi?',
+            answer:
+              'Ha, bu paket tarkibida. Sizning eski platformalardan rasm va matnlarni olib, ularni yangi formatda saytda joylashtiramiz — har ish alohida case study sahifa bilan. Rasm sifatini optimizatsiya qilamiz, SEO uchun har biriga unikal meta yoziladi.',
+          },
+          {
+            question: 'Domen va hosting kiradimi?',
+            answer:
+              'Hosting 1 yil bepul KATOV serverida — siz tomonidan to\'lov yo\'q. Domen alohida tanlanadi (your-name.uz yoki .com, narxi $10–30/yil) — KATOV tanlash va ulashga yordamlashadi. 1 yildan keyin hosting davom etishi uchun KATOV hosting-support tarifi yoki o\'z hostingiz tanlanishi mumkin.',
+          },
+          {
+            question: 'Yangi ishlarni o\'zim qo\'sha olamanmi?',
+            answer:
+              'Ha, sayt admin paneli bilan keladi — kod tegishi shart emas. Yangi ish qo\'shish: rasm yuklang, sarlavha va matn yozing, "Saqlash" bosing. SEO meta avtomatik yaratiladi. Murakkab o\'zgartirishlar uchun KATOV support davomida yordamlashadi.',
+          },
+          {
+            question: 'Narx va muddat qancha?',
+            answer:
+              'Portfolio sayt $270 dan boshlanadi va 7–14 ish kunida tayyor bo\'ladi. Bunga: dizayn, 10–20 ish galereyasi, kontakt, SEO, 3 til, 1 yil hosting va admin panel kiradi. Murakkab brending, kustom animatsiya yoki blog/elektron savdo qo\'shilsa narx $500–$1000 oralig\'iga ko\'tariladi. Aniq narx kontent va kerakli sahifalardan keyin belgilanadi.',
+          },
+        ],
+        ctaTitle: 'Portfolio sayt uchun bepul konsultatsiya',
+        ctaSubtitle:
+          'Sizning kasbingizni, auditoriyangizni va sayt strukturasini birga ko\'rib chiqamiz. Konsultatsiya bepul, 1 ish kuni ichida bog\'lanamiz.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Сайт-Портфолио для Специалистов и Фрилансеров | KATOV',
+        metaDescription:
+          'Сайт-портфолио для специалистов и фрилансеров: галерея работ, контакты, индексация в Google. 3 языка, хостинг 1 год бесплатно. 7–14 дней, от $270.',
+        h1: 'Создание Сайта-Портфолио: Личный Бренд и Привлечение Клиентов',
+        heroSubtitle:
+          'Не в Instagram и не в Behance, а на собственном домене и сайте — профессиональное портфолио. Ваши работы находятся в Google, клиенты пишут напрямую вам.',
+        benefits: [
+          {
+            icon: 'Globe',
+            title: 'Свой домен и бренд',
+            description:
+              'Не instagram.com/ваше_имя, а your-name.uz. Профессиональный URL на визитке, в LinkedIn и в подписи — выглядит надёжно.',
+          },
+          {
+            icon: 'Search',
+            title: 'Находитесь в Google',
+            description:
+              'Каждая работа/кейс — отдельный URL и meta, индексируется по ключевым словам. Внутри Instagram и Behance индексация сильно ограничена.',
+          },
+          {
+            icon: 'Mail',
+            title: 'Клиенты пишут напрямую',
+            description:
+              'Форма, Telegram, WhatsApp и календарь — в одном месте. Вместо «привет» в DM клиент сразу пишет по делу.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Дизайнеры, иллюстраторы, фотографы',
+            description:
+              'Подборка работ с качественными изображениями и подробными кейсами. Без привязки к Behance — полный контроль на собственном сайте.',
+          },
+          {
+            title: 'Фрилансеры (разработчики, маркетологи, креаторы контента)',
+            description:
+              'Профессиональное место, куда направить клиента. Тарифы, формат работы и форма связи — на одной странице.',
+          },
+          {
+            title: 'Эксперты и консультанты (юрист, коуч, психолог)',
+            description:
+              'Личный бренд эксперта. Услуги, отзывы клиентов, блог и контакты — для доверия и конверсии.',
+          },
+          {
+            title: 'Креаторы и блогеры',
+            description:
+              'Хаб контента и монетизации. YouTube, Instagram, Telegram — всё в одном сайте, единое брендирование.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в услугу',
+        deliverables: [
+          'Hero-блок — ваше фото, имя, профессия и основное предложение',
+          'Галерея работ (10–20 проектов) — каждый с отдельной страницей-кейсом',
+          'Страница услуг или тарифов — что вы предлагаете и за сколько',
+          'Страница «Обо мне» — опыт, сертификаты, отзывы клиентов',
+          'Блог или раздел «Статьи» — для SEO и демонстрации экспертизы (опционально)',
+          'Контакты — форма, Telegram, WhatsApp и email в одном месте',
+          '3 языка (uz/ru/en) или нужная вам комбинация',
+          'SEO — уникальные meta и ключевые слова для каждой работы и страницы',
+          'Подключаем Google Analytics и Search Console',
+          'Помощь с выбором домена и 1 год бесплатно на хостинге KATOV',
+          'Mobile-first интерфейс — аудитория обычно смотрит с телефона',
+          'Соцсети — встраиваем ленту Instagram/LinkedIn (опционально)',
+          'Бесплатная поддержка 1 месяц — обновление контента и небольшие правки',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '7–14 рабочих дней',
+        process: [
+          {
+            step: 1,
+            title: 'Брендинг и сбор контента',
+            description:
+              'Определяем вашу профессию, целевую аудиторию и услуги. Собираем работы, тексты, фото и сертификаты.',
+            duration: '1–2 дня',
+          },
+          {
+            step: 2,
+            title: 'Дизайн в Figma',
+            description:
+              'Hero, галерея и шаблоны страниц в Figma. Выбираем ваш стиль брендинга — минимальный или креативный — и согласовываем.',
+            duration: '2–4 дня',
+          },
+          {
+            step: 3,
+            title: 'Разработка и SEO',
+            description:
+              'Пишем код, наполняем контентом, настраиваем уникальные meta и ключевые слова для каждой работы. Подключаем Google Analytics.',
+            duration: '3–6 дней',
+          },
+          {
+            step: 4,
+            title: 'Домен, запуск и обучение',
+            description:
+              'Подключаем домен, запускаем сайт и показываем админ-панель — чтобы вы могли сами добавлять новые работы.',
+            duration: '1–2 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Не шаблон — дизайн под вас и вашу профессию',
+          'На своём домене — никакого «креатив принадлежит платформе»',
+          'Индексируется в Google — каждая работа находится отдельно',
+          'Mobile-first — аудитория обычно смотрит с телефона',
+          'Все каналы связи в одном месте — форма, Telegram, календарь',
+          '3 языка и 1 год хостинга на KATOV бесплатно',
+          'Админ-панель — добавляете новые работы сами, без кода',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Чем отличается от Linktree или Instagram?',
+            answer:
+              'Linktree — это просто набор ссылок, Instagram — соцсеть. Ни там, ни там вы не выглядите как «надёжный эксперт», не находитесь в Google, и весь ваш контент принадлежит платформе. Свой сайт-портфолио — это личный бренд: свой домен, свой дизайн, подробные кейсы, новые клиенты из SEO и полный контроль.',
+          },
+          {
+            question: 'Переносите ли работы из Behance/Dribbble?',
+            answer:
+              'Да, это в пакете. Берём изображения и тексты со старых платформ и размещаем в новом формате — каждая работа с отдельной страницей-кейсом. Оптимизируем изображения, пишем уникальные SEO meta для каждой.',
+          },
+          {
+            question: 'Домен и хостинг входят?',
+            answer:
+              'Хостинг 1 год бесплатно на серверах KATOV. Домен подбирается отдельно (your-name.uz или .com, цена $10–30/год) — KATOV помогает выбрать и подключить. После 1 года можно продолжить на тарифе KATOV hosting-support или перенести на свой хостинг.',
+          },
+          {
+            question: 'Смогу ли сам добавлять новые работы?',
+            answer:
+              'Да, сайт идёт с админ-панелью — код не нужен. Добавить работу: загрузите фото, напишите заголовок и текст, нажмите «Сохранить». SEO meta генерируется автоматически. Сложные правки KATOV делает на этапе поддержки.',
+          },
+          {
+            question: 'Сколько стоит и сколько занимает?',
+            answer:
+              'Сайт-портфолио от $270, готов за 7–14 рабочих дней. Включает: дизайн, 10–20 работ в галерее, контакты, SEO, 3 языка, 1 год хостинга и админ-панель. Если нужны сложный брендинг, кастомная анимация или блог/онлайн-магазин — цена $500–$1000. Финальная цена фиксируется после согласования контента и нужных страниц.',
+          },
+        ],
+        ctaTitle: 'Бесплатная консультация по сайту-портфолио',
+        ctaSubtitle:
+          'Разберём вашу профессию, аудиторию и структуру сайта. Консультация бесплатная — свяжемся в течение 1 рабочего дня.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Portfolio Website for Professionals & Freelancers | KATOV',
+        metaDescription:
+          'Portfolio website for professionals and freelancers: work gallery, contact, Google-indexed. 3 languages, 1 year of free hosting. 7–14 days, from $270.',
+        h1: 'Portfolio Website Development: Personal Brand & Client Acquisition',
+        heroSubtitle:
+          'Not on Instagram, not on Behance — on your own domain and your own site. Your work is found on Google, and clients reach out to you directly.',
+        benefits: [
+          {
+            icon: 'Globe',
+            title: 'Your own domain and brand',
+            description:
+              'Not instagram.com/your_name — but your-name.com. A professional URL on your business card, LinkedIn, and email signature — instantly looks credible.',
+          },
+          {
+            icon: 'Search',
+            title: 'Found on Google',
+            description:
+              'Each work/case study gets its own URL and meta — indexed by keyword. Indexing inside Instagram and Behance is heavily restricted.',
+          },
+          {
+            icon: 'Mail',
+            title: 'Clients reach out directly',
+            description:
+              'Contact form, Telegram, WhatsApp, and calendar booking — all in one place. Instead of saying "hi" in a DM, clients write straight to the point.',
+          },
+        ],
+        forWhoTitle: 'Who it\'s for',
+        forWho: [
+          {
+            title: 'Designers, illustrators, photographers',
+            description:
+              'A curated set of works with high-quality images and detailed case studies. No Behance lock-in — full control on your own site.',
+          },
+          {
+            title: 'Freelancers (developers, marketers, content creators)',
+            description:
+              'A professional place to send clients. Pricing, working style, and a contact form — all on one page.',
+          },
+          {
+            title: 'Experts and consultants (lawyer, coach, psychologist)',
+            description:
+              'Personal expert branding. Services, client testimonials, a blog, and contact info — to build trust and drive conversions.',
+          },
+          {
+            title: 'Creators and bloggers',
+            description:
+              'A content and monetization hub. YouTube, Instagram, Telegram — all on one site, with consistent branding.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'Hero section — your photo, name, profession, and core offer',
+          'Work/projects gallery (10–20 projects) — each with its own case study page',
+          'Services or pricing page — what you offer and at what price',
+          '"About me" page — experience, certifications, past client testimonials',
+          'Blog or "Articles" section — for SEO and expertise (optional)',
+          'Contact — form, Telegram, WhatsApp, and email in one place',
+          '3 languages (uz/ru/en) or any combination you need',
+          'SEO — unique meta and keywords for every work and page',
+          'Google Analytics and Search Console connected',
+          'Help choosing a domain and 1 year free on KATOV hosting',
+          'Mobile-first interface — your audience mostly browses from a phone',
+          'Social embeds — Instagram/LinkedIn feed (optional)',
+          '1 month free support — content updates and small edits',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '7–14 business days',
+        process: [
+          {
+            step: 1,
+            title: 'Branding and content collection',
+            description:
+              'We clarify your profession, target audience, and services. We gather your work samples, copy, photos, and certifications.',
+            duration: '1–2 days',
+          },
+          {
+            step: 2,
+            title: 'Design in Figma',
+            description:
+              'Hero, gallery, and page templates in Figma. We pick your branding style — minimal or creative — and lock it in with you.',
+            duration: '2–4 days',
+          },
+          {
+            step: 3,
+            title: 'Development and SEO',
+            description:
+              'We write the code, place the content, and set up unique meta and keywords for each work. Google Analytics is connected.',
+            duration: '3–6 days',
+          },
+          {
+            step: 4,
+            title: 'Domain, deploy, and training',
+            description:
+              'We connect the domain, launch the site, and walk you through the admin panel — so you can add new work yourself.',
+            duration: '1–2 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'Not a template — design built around you and your profession',
+          'On your own domain — no platform-locked credit',
+          'Indexed on Google — every project gets indexed separately',
+          'Mobile-first — your audience mostly views on a phone',
+          'All contact channels in one place — form, Telegram, calendar booking',
+          '3 languages and 1 year of free KATOV hosting',
+          'Admin panel — add new work yourself, no code needed',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How is this different from Linktree or Instagram?',
+            answer:
+              'Linktree is just a link collection; Instagram is a social network. On both, you don\'t look like a "credible expert," you can\'t be found in Google, and all your content belongs to the platform. A personal portfolio site is personal branding: your own domain, your own design, detailed case studies, new clients from SEO, and full control.',
+          },
+          {
+            question: 'Do you migrate work from Behance/Dribbble?',
+            answer:
+              'Yes — it\'s part of the package. We take images and copy from your old platforms and place them in the new format — each work gets its own case study page. Images are optimized, and unique SEO meta is written for every entry.',
+          },
+          {
+            question: 'Are domain and hosting included?',
+            answer:
+              'Hosting is free for 1 year on KATOV servers — no payment from you. The domain is chosen separately (your-name.com or .uz, $10–30/year) — KATOV helps pick and connect it. After 1 year, hosting can continue on the KATOV hosting-support plan or move to your own hosting.',
+          },
+          {
+            question: 'Can I add new work myself?',
+            answer:
+              'Yes — the site comes with an admin panel, no code required. To add work: upload a photo, write the title and description, hit "Save." SEO meta is generated automatically. Complex edits are handled by KATOV during the support window.',
+          },
+          {
+            question: 'How much does it cost and how long does it take?',
+            answer:
+              'A portfolio site starts at $270 and ships in 7–14 business days. It includes: design, 10–20 works in the gallery, contact, SEO, 3 languages, 1 year of hosting, and an admin panel. If complex branding, custom animation, or a blog/storefront is added, the price lands at $500–$1000. The final price is locked after the content and required pages are agreed.',
+          },
+        ],
+        ctaTitle: 'Free consultation for your portfolio site',
+        ctaSubtitle:
+          'We\'ll walk through your profession, audience, and site structure. The consultation is free — we\'ll reach out within 1 business day.',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
 };
 
 export function getServiceData(slug: string, locale: Locale): { service: ServiceData; content: ServiceLocalizedContent } | null {
@@ -3820,7 +4714,7 @@ export const servicesCatalog: ServiceCatalogItem[] = [
   {
     slug: 'erp-tizimi',
     icon: 'Layers',
-    basePrice: 1000,
+    basePrice: 2500,
     priceSuffix: '',
     demand: 3,
     card: {
