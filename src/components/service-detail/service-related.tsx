@@ -25,11 +25,11 @@ const relatedMap: Record<string, string[]> = {
   'restoran-sayti': ['internet-dokon', 'telegram-bot', 'landing-page'],
   'sayt-redesign': ['korporativ-sayt', 'seo-xizmati', 'landing-page'],
   'crm-tizimi': ['erp-tizimi', 'admin-panel', 'telegram-bot'],
-  'seo-xizmati': ['korporativ-sayt', 'sayt-redesign', 'landing-page'],
+  'seo-xizmati': ['aeo-xizmati', 'korporativ-sayt', 'sayt-redesign'],
   'erp-tizimi': ['crm-tizimi', 'admin-panel', 'internet-dokon'],
   'portfolio-sayt': ['landing-page', 'korporativ-sayt', 'seo-xizmati'],
   'admin-panel': ['crm-tizimi', 'erp-tizimi', 'internet-dokon'],
-  'hosting-support': ['korporativ-sayt', 'internet-dokon', 'sayt-redesign'],
+  'aeo-xizmati': ['seo-xizmati', 'korporativ-sayt', 'sayt-redesign'],
 };
 
 export function ServiceRelated({ currentSlug, locale, title }: ServiceRelatedProps) {

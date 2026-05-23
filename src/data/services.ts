@@ -4201,7 +4201,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Domen va hosting kiradimi?',
             answer:
-              'Hosting 1 yil bepul KATOV serverida — siz tomonidan to\'lov yo\'q. Domen alohida tanlanadi (your-name.uz yoki .com, narxi $10–30/yil) — KATOV tanlash va ulashga yordamlashadi. 1 yildan keyin hosting davom etishi uchun KATOV hosting-support tarifi yoki o\'z hostingiz tanlanishi mumkin.',
+              'Hosting 1 yil bepul KATOV serverida — siz tomonidan to\'lov yo\'q. Domen alohida tanlanadi (your-name.uz yoki .com, narxi $10–30/yil) — KATOV tanlash va ulashga yordamlashadi. 1 yildan keyin hosting davom etishi uchun KATOV bilan oylik kelishuv tuzish yoki o\'z hostingingizga ko\'chirish mumkin.',
           },
           {
             question: 'Yangi ishlarni o\'zim qo\'sha olamanmi?',
@@ -4347,7 +4347,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Домен и хостинг входят?',
             answer:
-              'Хостинг 1 год бесплатно на серверах KATOV. Домен подбирается отдельно (your-name.uz или .com, цена $10–30/год) — KATOV помогает выбрать и подключить. После 1 года можно продолжить на тарифе KATOV hosting-support или перенести на свой хостинг.',
+              'Хостинг 1 год бесплатно на серверах KATOV. Домен подбирается отдельно (your-name.uz или .com, цена $10–30/год) — KATOV помогает выбрать и подключить. После 1 года можно продолжить хостинг по ежемесячному соглашению с KATOV или перенести на свой хостинг.',
           },
           {
             question: 'Смогу ли сам добавлять новые работы?',
@@ -4493,7 +4493,7 @@ export const servicesData: Record<string, ServiceData> = {
           {
             question: 'Are domain and hosting included?',
             answer:
-              'Hosting is free for 1 year on KATOV servers — no payment from you. The domain is chosen separately (your-name.com or .uz, $10–30/year) — KATOV helps pick and connect it. After 1 year, hosting can continue on the KATOV hosting-support plan or move to your own hosting.',
+              'Hosting is free for 1 year on KATOV servers — no payment from you. The domain is chosen separately (your-name.com or .uz, $10–30/year) — KATOV helps pick and connect it. After 1 year, hosting can continue on a monthly arrangement with KATOV or move to your own hosting.',
           },
           {
             question: 'Can I add new work myself?',
@@ -4963,443 +4963,458 @@ export const servicesData: Record<string, ServiceData> = {
       },
     },
   },
-  'hosting-support': {
-    slug: 'hosting-support',
-    icon: 'Server',
-    basePrice: 50,
+  'aeo-xizmati': {
+    slug: 'aeo-xizmati',
+    icon: 'Sparkles',
+    basePrice: 300,
     priceSuffix: '/oy',
     demand: 3,
     content: {
       uz: {
-        title: 'Sayt Hosting va Texnik Qo\'llab-quvvatlash — Oylik | KATOV',
+        title: 'AEO Xizmati — ChatGPT va AI Qidiruvlarda Chiqish | KATOV',
         metaDescription:
-          'KATOV qurgan veb-sayt, bot va CRM tizimlari uchun oylik hosting va texnik yordam. 99.9% uptime, kunlik backup, kontent yangilash. $50/oy dan.',
-        h1: 'Sayt Hosting va Texnik Qo\'llab-quvvatlash Xizmati: KATOV Loyihalari Uchun Oylik Tarif',
+          'AEO (Answer Engine Optimization) Toshkentda — ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingizni javob manbai qiling. Schema.org, llms.txt, entity setup. $300/oy dan.',
+        h1: 'AEO Xizmati: AI Qidiruvlarda Brendingizni Chiqarish',
         heroSubtitle:
-          'KATOV qurgan veb-sayt, Telegram bot va CRM/ERP tizimlari uchun barqaror hosting, monitoring va texnik yordam. Server boshqaruvi haqida o\'ylash kerak emas — biz qaraymiz, siz biznes bilan shug\'ullanasiz.',
+          'Google\'dan keyingi qidiruv era — AI javoblar. ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingiz javob manbai bo\'lishi uchun ishlaymiz. 2026\'da raqobatdan oldinda bo\'ling.',
         benefits: [
           {
+            icon: 'Sparkles',
+            title: 'AI javoblarida ko\'rinish',
+            description:
+              'ChatGPT, Perplexity, Gemini va Google AI Overviews\'da foydalanuvchi savol bersa — javobda brendingiz eslab o\'tilsin va manba sifatida ko\'rsatilsin.',
+          },
+          {
+            icon: 'Target',
+            title: 'Yangi qidiruv kanali',
+            description:
+              'AI qidiruv 2026\'da Google\'dan keyingi eng tez o\'sayotgan trafik manbasi. Bugun AEO\'ni boshlasangiz, raqobatdan 1–2 yil oldinda bo\'lasiz.',
+          },
+          {
             icon: 'ShieldCheck',
-            title: 'Sayt doim ishlaydi',
+            title: 'Texnik chuqurlik',
             description:
-              '99.9% uptime kafolati, kunlik avtomatik backup va 24/7 monitoring. Saytda muammo bo\'lsa — siz xabar olishingizdan oldin biz tuzatishni boshlaymiz.',
-          },
-          {
-            icon: 'Server',
-            title: 'Texnik xatolar bizning hisobimizda',
-            description:
-              'Server buzilishi, security yangilanishi, versiya patch — barchasi KATOV tomonidan. Sizdan qo\'shimcha to\'lov yo\'q, ish vaqti talab qilinmaydi.',
-          },
-          {
-            icon: 'Mail',
-            title: 'Kontent yangilash kvotasi',
-            description:
-              'Har oy 2 soat kontent yangilash kvotasi tarifga kiradi — matn, rasm, narx o\'zgartirish. Texnik xodim shart emas, KATOV qiladi.',
+              'Schema.org markup\'dan llms.txt fayligacha — har bir AEO tafsiloti kodda real amalga oshiriladi. Marketing emas, texnik ish.',
           },
         ],
         forWhoTitle: 'Kimga mos',
         forWho: [
           {
-            title: 'KATOV qurgan landing va korporativ sayt egalari',
+            title: 'SaaS va digital mahsulot egalari',
             description:
-              'Sayt ishga tushgandan keyin oylik xizmat — hosting, backup, monitoring va kontent yangilash. Har yangi loyihada birinchi 1 yil hosting bepul, keyin shu tarif.',
+              'Foydalanuvchi "eng yaxshi CRM O\'zbekistonda" deb so\'rasa — ChatGPT brendingizni javobda eslatishi kerak. AI qidiruv yangi xaridor manbai.',
           },
           {
-            title: 'KATOV internet do\'kon va Telegram bot foydalanuvchilari',
+            title: 'Mutaxassis, konsultant va ekspertlar',
             description:
-              'E-commerce va bot tizimlar — 24/7 ishlatuvchi, downtime biznesga ta\'sir qiladi. Tezkor monitoring va xato tiklash kerak.',
+              'Yurist, marketolog, treyner — AI javoblarida ekspertiza signal sifatida chiqish. Foydalanuvchilar AI tavsiyasi orqali siz tomonga keladi.',
           },
           {
-            title: 'KATOV CRM, ERP va admin panel foydalanuvchilari',
+            title: 'Internet do\'kon va e-commerce',
             description:
-              'Ichki tizimlar — kunlik backup, security patch va versiya yangilanishi muhim. Ma\'lumotlar va kirish nazorat ostida bo\'lishi kerak.',
+              'Perplexity va ChatGPT mahsulot tavsiyasi berishni boshladi. Mahsulot kartochkalaringiz AI javoblarida ko\'rinishi sotuvni o\'zgartiradi.',
           },
           {
-            title: 'Texnik xodim yo\'q kichik-o\'rta biznes',
+            title: 'B2B va korporativ kompaniyalar',
             description:
-              'IT departament o\'rniga — KATOV server va kontentni boshqaradi. Sizning vaqtingiz va resurslaringiz biznesga qoladi.',
+              'Yirik xaridorlar qaror qabul qilishdan oldin AI\'dan tadqiqot boshlaydi. AI javobida sizning kompaniyangiz eslatib o\'tilishi — sotuv jarayonining birinchi qadami.',
           },
         ],
-        deliverablesTitle: 'Tarifga nima kiradi',
+        deliverablesTitle: 'AEO paketga nima kiradi',
         deliverables: [
-          'VPS yoki shared hosting (loyihaga qarab tanlanadi)',
-          'Domen ulash va DNS boshqaruv',
-          'SSL sertifikat va avtomatik yangilash',
-          'Kunlik avtomatik backup — 30 kun saqlash, tezkor tiklash',
-          '24/7 uptime monitoring va xato alertlari',
-          'Security patch va versiya yangilash — har oy avtomatik',
-          'Email va Telegram orqali support — ish vaqtida 4 soat ichida javob',
-          'Kontent yangilash kvotasi — 2 soat/oy (matn, rasm, narx)',
-          'Tezlik va SEO oylik hisobot',
-          'Crash holatida tezkor tiklash (24 soat ichida)',
-          'Yangi sertifikat ulanish va domen yangilash',
-          'Konsultatsiya — sayt qanday yaxshilash haqida har oy 30 daqiqa',
+          'To\'liq AEO audit — sayt struktura, schema, AI crawler\'lar uchun moslik tahlili',
+          'Schema.org markup to\'liq sozlash — Organization, FAQPage, HowTo, Article, Product, BreadcrumbList',
+          'llms.txt fayli yaratish va boshqarish (AI uchun yangi standart)',
+          'FAQ struktura optimallashtirish — Q&A format, scannable va citation-friendly javoblar',
+          'Entity setup — Wikidata yozuvi yaratish va Wikipedia uchun submission tayyorlash (qabul Wikipedia editorlari qaroriga bog\'liq)',
+          'E-E-A-T signallari — Author/Organization schema, ekspertiza isboti',
+          'AI crawler optimization — GPTBot, ClaudeBot, PerplexityBot, GoogleOther uchun robots.txt va sitemap',
+          'Citation-friendly kontent — aniq raqam, original tadqiqot, named expertise bilan',
+          'Topic cluster strategiyasi — semantic chuqurlik orqali AI tomonidan authority sifatida tanilish',
+          'Reddit, Quora va forum brend mavjudligi monitoring (AI bu manbalardan iqtibos oladi)',
+          'Brand mention monitoring AI javoblarida — oylik AI test-prompt tekshiruvi',
+          '3 til (uz/ru/en) — har bir tilda AI indexlash strategiyasi',
+          'Oylik AEO hisobot — qaysi AI platformada, qaysi savolda ko\'rindingiz',
         ],
-        processTitle: 'Boshlash jarayoni',
-        processTotalDuration: '3–5 ish kuni + doimiy oylik xizmat',
+        processTitle: 'Jarayon',
+        processTotalDuration: 'Birinchi natija 1–3 oy (AI indexlash), stabil natija 6–12 oy',
         process: [
           {
             step: 1,
-            title: 'Texnik audit',
+            title: 'AEO audit va strategiya',
             description:
-              'Sayt holati, kod sifati va hosting konfiguratsiyasi tekshiriladi. Bu KATOV qurgan loyihalar uchun (boshqa developerlar qurgan saytlar qabul qilinmaydi).',
-            duration: '1 kun',
+              'Sayt schema, struktura va AI crawler moslik tahlili. Raqobatchilarning AI javoblardagi mavjudligi tekshiriladi. Strategiya hujjati bilan yakunlanadi.',
+            duration: '1–2 hafta',
           },
           {
             step: 2,
-            title: 'Tarif tanlash',
+            title: 'Texnik AEO setup',
             description:
-              'Saytga qarab tarif tanlanadi: Basic ($50/oy, landing/korporativ), Standard ($150/oy, e-commerce/bot), Pro ($300+/oy, CRM/ERP). Sizning ehtiyojga aniq paket beriladi.',
-            duration: '1 kun',
+              'Schema.org markup to\'liq ulanadi, llms.txt yaratiladi, AI crawler\'lar (GPTBot, ClaudeBot, PerplexityBot) uchun robots.txt sozlanadi.',
+            duration: '2–3 hafta',
           },
           {
             step: 3,
-            title: 'Migratsiya va monitoring sozlash',
+            title: 'Kontent restructuring',
             description:
-              'Agar sayt boshqa hostingda bo\'lsa — KATOV serverga ko\'chiriladi. Monitoring, backup va alert tizimi sozlanadi. SSL va domen yangilanadi.',
-            duration: '1–3 kun',
+              'FAQ va Q&A struktura, citation-friendly format, entity signallari. Mavjud sahifa va bloglar AI-ready qilinadi.',
+            duration: 'Har oy davomida',
           },
           {
             step: 4,
-            title: 'Oylik xizmat',
+            title: 'Monitoring va hisobot',
             description:
-              'Har oy: avtomatik backup, monitoring, security patch, kontent yangilash kvotasi va tezlik/SEO hisoboti. Sizdan ish talab qilinmaydi.',
-            duration: 'Doimiy',
+              'Brand mention AI javoblarida kuzatuvi (test-prompt\'lar bilan), citation tracking, oylik raqamli hisobot.',
+            duration: 'Har oy',
           },
         ],
         whyUsTitle: 'Nima uchun KATOV',
         whyUs: [
-          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
-          'Server boshqaruvi va texnik muammolar bizning hisobimizda',
-          '99.9% uptime kafolati, kunlik avtomatik backup',
-          'Support javob vaqti — 4 soat ichida, Telegram orqali ham',
-          'Kontent yangilash kvotasi tarif tarkibida — texnik xodim shart emas',
-          'Security patch va versiya yangilash — har oy avtomatik',
-          'Crash holatida tezkor tiklash — 24 soat ichida',
-          'Oylik tezlik va SEO hisoboti — saytning real holatini ko\'rasiz',
+          'O\'zbekiston bozorida AEO bilan jiddiy ishlovchi kam sonli agentliklardan — texnik chuqurlikka asoslangan yondashuv',
+          'KATOV o\'zining katov.uz saytida AEO mezonlarini to\'liq qo\'llaydi — har sahifa schema.org, FAQ va llms.txt bilan AI-ready',
+          'Texnik chuqurlik — faqat marketing reja emas, real kod va schema.org ishi',
+          'SEO bilan birga olish mumkin — kombo paket chegirma (Google + AI qidiruv bir vaqtda)',
+          'Shaffof oylik hisobot — qaysi AI sizni eslatdi, qaysi savolda, qaysi raqobatchi bilan birga',
+          '3 til (uz/ru/en) — ChatGPT va Gemini O\'zbek va Rus kontentini ham indexlaydi',
+          'Yolg\'on kafolat yo\'q — "ChatGPT\'da #1" demaymiz, real AI visibility raqamlari',
         ],
         portfolioTitle: 'Real loyihalarimiz',
         faqTitle: 'Tez-tez beriladigan savollar',
         faq: [
           {
-            question: 'KATOV qurmagan saytim bor — qabul qilasizmi?',
+            question: 'AEO nima va SEO\'dan nima farqi bor?',
             answer:
-              'Yo\'q, bu xizmat faqat KATOV o\'zi qurgan loyihalar uchun. Sabab: tashqi kod va deploy strukturasi bizning nazoratdan tashqari bo\'ladi, security va backup kafolatini bera olmaymiz. Agar tashqi loyihangiz bor bo\'lsa — Sayt redesign xizmati (kodni qayta yozish bilan) orqali keyin hosting-support tarifiga o\'tish mumkin.',
+              'AEO (Answer Engine Optimization) — bu saytni AI qidiruv tizimlari (ChatGPT, Perplexity, Gemini, Google AI Overviews) javoblarida ko\'rinadigan qilish. SEO — Google\'da rank bo\'lish, AEO — AI javobida iqtibos manbai bo\'lish. SEO\'da maqsad: foydalanuvchi sizning saytingizga keladi. AEO\'da maqsad: AI sizning brendingizni javobda eslab o\'tadi va manba sifatida ko\'rsatadi. Ikkalasi bir-birini to\'ldiradi: SEO Google trafigi, AEO AI trafigi.',
           },
           {
-            question: 'Tarif paketlari va narxlari qanday?',
+            question: 'AI qidiruv hozir qancha trafik beradi?',
             answer:
-              'Basic $50/oy — landing va korporativ saytlar (kichik trafik). Standard $150/oy — e-commerce, Telegram bot va o\'rta trafik (10K+ vizit/oy). Pro $300+/oy — CRM, ERP, admin panel va katta trafik. Aniq narx sayt hajmi va trafikka qarab belgilanadi.',
+              'ChatGPT 2025 yil boshida 400+ million haftalik foydalanuvchiga yetdi (OpenAI rasmiy ma\'lumoti), Perplexity 22+ million haftalik faol foydalanuvchi (2024 oxiri), Google AI Overviews esa global qidiruvda standart natija sifatida ko\'rinmoqda. AI qidiruv hali Google\'dan ulush olishni boshlagan, lekin tez o\'sib bormoqda. O\'zbekistonda foydalanuvchilar AI\'dan tavsiya, narx solishtirish va texnik savollar uchun foydalanmoqda.',
           },
           {
-            question: 'Kontent yangilash — necha soat? Ortig\'i nimaga to\'lanadi?',
+            question: 'Natija qachon ko\'rinadi?',
             answer:
-              'Har oy 2 soat kontent yangilash kvotasi tarifga kiradi (matn, rasm, narx, blog post). Bu odatda 4–8 ta kichik o\'zgarish yoki 1–2 ta blog post. Ortig\'i alohida hisoblanadi — $20/soat. Yirik o\'zgarishlar (yangi sahifa, yangi modul) alohida loyiha sifatida hisoblanadi.',
+              'Texnik AEO (schema.org, llms.txt) — 2–4 hafta ichida AI crawler\'lar indexlaydi. Brand mention AI javoblarida — 1–3 oydan keyin test-prompt\'larda ko\'rina boshlaydi. Stabil AI visibility — 6–12 oy. AEO uzoq muddatli investitsiya: AI qidiruv tizimi sizni indexlash va savolga muvofiq manba sifatida tanlashgacha vaqt kerak. Lekin bir marta tanilsangiz — har bir tegishli AI savolida iqtibos olish davom etadi.',
           },
           {
-            question: 'Server qayerda joylashgan? Tezlik qanday?',
+            question: 'Qaysi AI platformalar uchun ishlaymiz?',
             answer:
-              'Server O\'zbekiston (TAS-IX tarmoq) va Yevropa (Germaniya, Frankfurt) markazlarida. O\'zbekistondagi mijozlar uchun TAS-IX tarmoq saytni 100ms ichida ochadi. Global auditoriya uchun CDN qo\'shimcha ulanadi (har sahifa 200ms ichida).',
+              'ChatGPT (Search bilan), Perplexity AI, Google AI Overviews va Gemini, Claude (web search bilan), You.com, Bing Chat — asosiy 6 ta platforma. Har birining indexlash yo\'li va tsitirovka mexanizmi turlicha — KATOV har biriga moslashgan strategiya tuzadi. Eng katta diqqat: ChatGPT (eng katta auditoriya) va Perplexity (eng aniq tsitirovka).',
           },
           {
-            question: 'Shartnoma oylik yoki yillikmi?',
+            question: 'Schema.org nima va nima uchun kerak?',
             answer:
-              'Asosiy shartnoma oylik — istalgan vaqtda 30 kun oldindan xabar bilan to\'xtatish mumkin. Yillik to\'lov tanlasangiz — 10% chegirma beriladi. Hech qanday "minimum shartnoma muddati" yo\'q, lekin xizmatni o\'rniga qo\'yish 1–2 oy talab qiladi, shuning uchun barqaror hamkorlik tavsiya etiladi.',
+              'Schema.org — bu sayt kontentini AI va qidiruv tizimlar tushunadigan strukturali ma\'lumotga aylantiradigan markup tili. Misol: oddiy matn "Toshkentda landing page yaratish $270 dan" — AI tushunmaydi. Schema markup bilan bu Product schema sifatida yoziladi — narx, valyuta, joylashuv, xizmat turi aniq belgilanadi. Natija: AI savolga aniq raqam bilan javob bera oladi va sizni manba sifatida tsitirovka qiladi.',
+          },
+          {
+            question: 'Narx va paketlar qanday?',
+            answer:
+              'AEO Basic $300/oy — kichik sayt (10–20 sahifa), asosiy schema va llms.txt setup. AEO Standard $500/oy — o\'rta sayt (20–100 sahifa), to\'liq entity setup va kontent restructuring. AEO Pro $800+/oy — e-commerce yoki katta sayt (100+ sahifa), AI monitoring va citation tracking. SEO + AEO kombo paketda 15% chegirma. Aniq narx audit jarayonida belgilanadi va shartnomada yoziladi.',
           },
         ],
-        ctaTitle: 'Hosting va support uchun bepul konsultatsiya',
+        ctaTitle: 'Saytingiz uchun bepul AEO audit',
         ctaSubtitle:
-          'Sayt holatini va tarif tanlashni birga ko\'rib chiqamiz. Konsultatsiya bepul, 1 ish kuni ichida bog\'lanamiz.',
+          'Saytingizning AI qidiruvga moslik darajasini bepul tekshiramiz — schema, struktura, llms.txt. 2 ish kuni ichida audit hisobotini yuboramiz.',
         ctaPrimary: 'Buyurtma berish',
         breadcrumbServices: 'Xizmatlar',
         priceLabel: 'Narxi',
         priceSuffix: '/oy',
       },
       ru: {
-        title: 'Хостинг и Техподдержка Сайта — Ежемесячный Тариф | KATOV',
+        title: 'AEO Услуги — Видимость в ChatGPT и AI-поиске | KATOV',
         metaDescription:
-          'Хостинг и техподдержка для проектов KATOV: сайтов, ботов и CRM-систем. 99.9% uptime, ежедневный backup, обновление контента. От $50/мес.',
-        h1: 'Хостинг и Техподдержка Сайта: Ежемесячный Тариф для Проектов KATOV',
+          'AEO (Answer Engine Optimization) в Ташкенте — ваш бренд как источник ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. Schema.org, llms.txt, entity setup. От $300/мес.',
+        h1: 'AEO-Услуги: Вывод Бренда в AI-Поиск',
         heroSubtitle:
-          'Стабильный хостинг, мониторинг и техническая поддержка для сайтов, Telegram-ботов и CRM/ERP-систем, разработанных KATOV. Не нужно думать о сервере — мы следим, вы занимаетесь бизнесом.',
+          'После Google — эра AI-ответов. Делаем ваш бренд источником ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. В 2026 году опережайте конкурентов.',
         benefits: [
           {
+            icon: 'Sparkles',
+            title: 'Видимость в AI-ответах',
+            description:
+              'Когда пользователь задаёт вопрос в ChatGPT, Perplexity, Gemini или Google AI Overviews — ваш бренд упоминается в ответе и указывается как источник.',
+          },
+          {
+            icon: 'Target',
+            title: 'Новый канал поиска',
+            description:
+              'AI-поиск в 2026 — самый быстрорастущий источник трафика после Google. Начнёте AEO сегодня — будете на 1–2 года впереди конкурентов.',
+          },
+          {
             icon: 'ShieldCheck',
-            title: 'Сайт всегда работает',
+            title: 'Техническая глубина',
             description:
-              'Гарантия 99.9% uptime, ежедневный автоматический backup и мониторинг 24/7. Проблема на сайте — мы начинаем исправлять до того, как вы узнаете.',
-          },
-          {
-            icon: 'Server',
-            title: 'Технические проблемы — на нашей стороне',
-            description:
-              'Поломки сервера, обновления безопасности, патчи версий — всё на KATOV. Без доплат и без вашего рабочего времени.',
-          },
-          {
-            icon: 'Mail',
-            title: 'Квота на обновление контента',
-            description:
-              'В тариф входит 2 часа обновления контента в месяц — тексты, изображения, цены. Технический сотрудник не нужен, делает KATOV.',
+              'От schema.org-разметки до файла llms.txt — каждая деталь AEO реализуется в коде. Не маркетинг, а инженерная работа.',
           },
         ],
         forWhoTitle: 'Для кого',
         forWho: [
           {
-            title: 'Владельцы landing и корпоративных сайтов от KATOV',
+            title: 'SaaS и digital-продукты',
             description:
-              'После запуска сайта — ежемесячный сервис: хостинг, backup, мониторинг и обновление контента. Первый год хостинга бесплатен, дальше — этот тариф.',
+              'Если пользователь спрашивает "лучшая CRM в Узбекистане" — ChatGPT должен упомянуть ваш бренд в ответе. AI-поиск — новый источник клиентов.',
           },
           {
-            title: 'Пользователи интернет-магазинов и Telegram-ботов от KATOV',
+            title: 'Эксперты, консультанты, специалисты',
             description:
-              'E-commerce и боты работают 24/7, любой downtime бьёт по бизнесу. Нужны быстрый мониторинг и восстановление при сбоях.',
+              'Юристы, маркетологи, тренеры — экспертный сигнал в AI-ответах. Пользователи приходят к вам через рекомендацию AI.',
           },
           {
-            title: 'Пользователи CRM, ERP и админ-панелей от KATOV',
+            title: 'Интернет-магазины и e-commerce',
             description:
-              'Внутренние системы — критичны ежедневный backup, security-патчи и обновления. Данные и доступы должны быть под контролем.',
+              'Perplexity и ChatGPT начали давать рекомендации товаров. Видимость карточек товаров в AI-ответах меняет продажи.',
           },
           {
-            title: 'Малый и средний бизнес без своего IT-сотрудника',
+            title: 'B2B и корпоративные компании',
             description:
-              'Вместо IT-отдела — KATOV управляет сервером и контентом. Ваше время и ресурсы остаются на бизнес.',
+              'Крупные клиенты до принятия решения начинают исследование в AI. Упоминание вашей компании в ответе AI — первый шаг воронки продаж.',
           },
         ],
-        deliverablesTitle: 'Что входит в тариф',
+        deliverablesTitle: 'Что входит в AEO-пакет',
         deliverables: [
-          'VPS или shared хостинг (выбирается по проекту)',
-          'Подключение домена и управление DNS',
-          'SSL-сертификат и автоматическое продление',
-          'Ежедневный автоматический backup — хранение 30 дней, быстрое восстановление',
-          'Мониторинг uptime 24/7 и оповещения об ошибках',
-          'Security-патчи и обновления версий — каждый месяц автоматически',
-          'Поддержка через email и Telegram — ответ в течение 4 часов в рабочее время',
-          'Квота на обновление контента — 2 часа/мес (текст, изображения, цены)',
-          'Ежемесячный отчёт по скорости и SEO',
-          'Быстрое восстановление при крэше (в течение 24 часов)',
-          'Подключение новых сертификатов и продление домена',
-          'Консультация — 30 минут в месяц о том, как улучшить сайт',
+          'Полный AEO-аудит — структура сайта, schema, совместимость с AI-краулерами',
+          'Полная разметка Schema.org — Organization, FAQPage, HowTo, Article, Product, BreadcrumbList',
+          'Создание и поддержка файла llms.txt (новый стандарт для AI)',
+          'Оптимизация FAQ-структуры — формат Q&A, сканируемые и пригодные для цитирования ответы',
+          'Entity setup — создание записи Wikidata и подготовка submission для Wikipedia (приём зависит от решения редакторов Wikipedia)',
+          'E-E-A-T-сигналы — Author/Organization schema, доказательства экспертизы',
+          'Оптимизация AI-краулеров — robots.txt и sitemap для GPTBot, ClaudeBot, PerplexityBot, GoogleOther',
+          'Контент пригодный для цитирования — конкретные цифры, оригинальные исследования, именованная экспертиза',
+          'Стратегия тематических кластеров — семантическая глубина для AI-авторитета',
+          'Мониторинг присутствия бренда в Reddit, Quora и форумах (AI цитирует эти источники)',
+          'Мониторинг упоминаний бренда в AI-ответах — ежемесячная проверка тест-промптами',
+          '3 языка (uz/ru/en) — стратегия индексации AI для каждого языка',
+          'Ежемесячный AEO-отчёт — на каких AI-платформах, по каким вопросам вы появились',
         ],
-        processTitle: 'Процесс подключения',
-        processTotalDuration: '3–5 рабочих дней + постоянное ежемесячное обслуживание',
+        processTitle: 'Процесс',
+        processTotalDuration: 'Первые результаты 1–3 месяца (индексация AI), стабильные 6–12 месяцев',
         process: [
           {
             step: 1,
-            title: 'Технический аудит',
+            title: 'AEO-аудит и стратегия',
             description:
-              'Проверяем состояние сайта, качество кода и конфигурацию хостинга. Сервис только для проектов, разработанных KATOV (внешние сайты не принимаем).',
-            duration: '1 день',
+              'Анализ schema, структуры и совместимости сайта с AI-краулерами. Проверка присутствия конкурентов в AI-ответах. На выходе — стратегический документ.',
+            duration: '1–2 недели',
           },
           {
             step: 2,
-            title: 'Выбор тарифа',
+            title: 'Технический AEO-setup',
             description:
-              'Подбираем тариф под сайт: Basic ($50/мес, landing/корпоративный), Standard ($150/мес, e-commerce/бот), Pro ($300+/мес, CRM/ERP). Под ваши потребности.',
-            duration: '1 день',
+              'Полная разметка Schema.org, создание llms.txt, настройка robots.txt для AI-краулеров (GPTBot, ClaudeBot, PerplexityBot).',
+            duration: '2–3 недели',
           },
           {
             step: 3,
-            title: 'Миграция и настройка мониторинга',
+            title: 'Реструктуризация контента',
             description:
-              'Если сайт был на другом хостинге — переносим на сервер KATOV. Настраиваем мониторинг, backup и алерты. Подключаем SSL и домен.',
-            duration: '1–3 дня',
+              'FAQ и Q&A-структура, формат пригодный для цитирования, entity-сигналы. Существующие страницы и блог делаются AI-ready.',
+            duration: 'В течение месяца',
           },
           {
             step: 4,
-            title: 'Ежемесячное обслуживание',
+            title: 'Мониторинг и отчёт',
             description:
-              'Каждый месяц: автоматический backup, мониторинг, security-патчи, обновление контента и отчёт по скорости/SEO. От вас ничего не требуется.',
-            duration: 'Постоянно',
+              'Отслеживание упоминаний бренда в AI-ответах (через тест-промпты), citation tracking, ежемесячный отчёт с цифрами.',
+            duration: 'Каждый месяц',
           },
         ],
         whyUsTitle: 'Почему KATOV',
         whyUs: [
-          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
-          'Управление сервером и технические вопросы — на нашей стороне',
-          'Гарантия 99.9% uptime, ежедневный автоматический backup',
-          'Ответ поддержки — в течение 4 часов, в том числе через Telegram',
-          'Обновление контента входит в тариф — технический сотрудник не нужен',
-          'Security-патчи и обновления версий — каждый месяц автоматически',
-          'Быстрое восстановление при сбое — в течение 24 часов',
-          'Ежемесячный отчёт по скорости и SEO — видите реальное состояние сайта',
+          'Одно из немногих агентств в Узбекистане, серьёзно работающих с AEO — подход на основе технической глубины',
+          'KATOV на собственном сайте katov.uz полностью применяет критерии AEO — каждая страница с schema.org, FAQ и llms.txt, готова к AI',
+          'Техническая глубина — не маркетинговый план, а реальная работа с кодом и schema.org',
+          'Можно взять вместе с SEO — комбо-пакет со скидкой (Google + AI-поиск одновременно)',
+          'Прозрачный ежемесячный отчёт — какой AI вас упомянул, по какому запросу, рядом с каким конкурентом',
+          '3 языка (uz/ru/en) — ChatGPT и Gemini индексируют контент на узбекском и русском',
+          'Без ложных гарантий — мы не говорим "ChatGPT #1", только реальные цифры AI-видимости',
         ],
         portfolioTitle: 'Наши проекты',
         faqTitle: 'Часто задаваемые вопросы',
         faq: [
           {
-            question: 'У меня сайт не от KATOV — возьмёте на обслуживание?',
+            question: 'Что такое AEO и чем отличается от SEO?',
             answer:
-              'Нет, услуга только для проектов, разработанных KATOV. Причина: внешний код и структура деплоя вне нашего контроля, мы не можем гарантировать безопасность и backup. Если у вас внешний проект — можно через услугу «Редизайн сайта» (с перепиской кода) перейти затем на тариф hosting-support.',
+              'AEO (Answer Engine Optimization) — это оптимизация сайта так, чтобы он появлялся в ответах AI-поисковых систем (ChatGPT, Perplexity, Gemini, Google AI Overviews). SEO — ранжирование в Google, AEO — стать источником цитирования в ответе AI. Цель SEO: пользователь приходит на ваш сайт. Цель AEO: AI упоминает ваш бренд в ответе и указывает источник. Они дополняют друг друга: SEO — трафик из Google, AEO — трафик из AI.',
           },
           {
-            question: 'Какие пакеты и цены?',
+            question: 'Сколько трафика даёт AI-поиск сейчас?',
             answer:
-              'Basic $50/мес — landing и корпоративные сайты (небольшой трафик). Standard $150/мес — e-commerce, Telegram-боты и средний трафик (10K+ визитов/мес). Pro $300+/мес — CRM, ERP, админ-панели и большой трафик. Финальная цена определяется по объёму сайта и трафику.',
+              'ChatGPT в начале 2025 года достиг 400+ млн пользователей в неделю (официальные данные OpenAI), Perplexity — 22+ млн еженедельно активных пользователей (конец 2024), Google AI Overviews — стандартный результат в глобальном поиске. AI-поиск только начал отбирать долю у Google, но быстро растёт. В Узбекистане пользователи обращаются к AI за рекомендациями, сравнением цен и техническими вопросами.',
           },
           {
-            question: 'Обновление контента — сколько часов? За что доплата?',
+            question: 'Когда видны результаты?',
             answer:
-              'В тариф входит 2 часа обновления контента в месяц (текст, изображения, цены, посты в блог). Обычно это 4–8 небольших правок или 1–2 поста в блог. Сверх — отдельно $20/час. Крупные изменения (новая страница, новый модуль) — как отдельный проект.',
+              'Технический AEO (schema.org, llms.txt) — AI-краулеры индексируют за 2–4 недели. Упоминание бренда в AI-ответах — появляется в тест-промптах через 1–3 месяца. Стабильная AI-видимость — 6–12 месяцев. AEO — долгосрочная инвестиция: AI-поисковикам нужно время, чтобы проиндексировать вас и научиться выбирать как источник по релевантным запросам. Но если уже распознан — цитирование продолжается на каждом подходящем AI-запросе.',
           },
           {
-            question: 'Где сервер? Какая скорость?',
+            question: 'Под какие AI-платформы работаете?',
             answer:
-              'Серверы в Узбекистане (сеть TAS-IX) и в Европе (Германия, Франкфурт). Для клиентов в Узбекистане сайт открывается за 100 мс через TAS-IX. Для глобальной аудитории дополнительно подключается CDN (любая страница — за 200 мс).',
+              'ChatGPT (с Search), Perplexity AI, Google AI Overviews и Gemini, Claude (с web search), You.com, Bing Chat — основные 6 платформ. У каждой свой механизм индексации и цитирования — KATOV адаптирует стратегию под каждую. Основной фокус: ChatGPT (самая большая аудитория) и Perplexity (самая точная цитируемость).',
           },
           {
-            question: 'Договор помесячный или годовой?',
+            question: 'Что такое schema.org и зачем она нужна?',
             answer:
-              'Базовый договор помесячный — можно остановить в любой момент, предупредив за 30 дней. При годовой оплате — скидка 10%. «Минимального срока» нет, но настройка сервиса занимает 1–2 месяца, поэтому рекомендуем стабильное сотрудничество.',
+              'Schema.org — язык разметки, который превращает контент сайта в структурированные данные, понятные AI и поисковикам. Пример: текст "создание landing page в Ташкенте от $270" — AI не понимает. С Schema-разметкой это записывается как Product — цена, валюта, локация, тип услуги размечены явно. Результат: AI может ответить на вопрос конкретной цифрой и процитировать вас как источник.',
+          },
+          {
+            question: 'Какие цены и пакеты?',
+            answer:
+              'AEO Basic $300/мес — небольшой сайт (10–20 страниц), базовая schema и настройка llms.txt. AEO Standard $500/мес — средний сайт (20–100 страниц), полный entity setup и реструктуризация контента. AEO Pro $800+/мес — e-commerce или крупный сайт (100+ страниц), AI-мониторинг и citation tracking. В комбо-пакете SEO + AEO — скидка 15%. Точная цена определяется по результатам аудита и фиксируется в договоре.',
           },
         ],
-        ctaTitle: 'Бесплатная консультация по хостингу и поддержке',
+        ctaTitle: 'Бесплатный AEO-аудит для вашего сайта',
         ctaSubtitle:
-          'Разберём состояние сайта и подберём тариф. Консультация бесплатная — свяжемся в течение 1 рабочего дня.',
+          'Проверим бесплатно, насколько ваш сайт готов к AI-поиску — schema, структура, llms.txt. Пришлём отчёт по аудиту в течение 2 рабочих дней.',
         ctaPrimary: 'Заказать',
         breadcrumbServices: 'Услуги',
         priceLabel: 'Цена',
         priceSuffix: '/мес',
       },
       en: {
-        title: 'Website Hosting & Technical Support — Monthly Plan | KATOV',
+        title: 'AEO Services — ChatGPT & AI Search Visibility | KATOV',
         metaDescription:
-          'Hosting and technical support for KATOV-built websites, bots, and CRM systems. 99.9% uptime, daily backups, content updates. From $50/month.',
-        h1: 'Website Hosting & Technical Support: Monthly Plan for KATOV Projects',
+          'AEO (Answer Engine Optimization) in Tashkent — make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Schema.org, llms.txt, entity setup. From $300/mo.',
+        h1: 'AEO Services: Get Your Brand into AI Search',
         heroSubtitle:
-          'Stable hosting, monitoring, and technical support for KATOV-built websites, Telegram bots, and CRM/ERP systems. No need to think about the server — we watch, you run the business.',
+          'After Google, the next era is AI answers. We make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Stay ahead in 2026.',
         benefits: [
           {
+            icon: 'Sparkles',
+            title: 'Visibility in AI answers',
+            description:
+              'When a user asks ChatGPT, Perplexity, Gemini, or Google AI Overviews, your brand gets mentioned in the answer and cited as a source.',
+          },
+          {
+            icon: 'Target',
+            title: 'New search channel',
+            description:
+              'AI search is the fastest-growing traffic source after Google in 2026. Start AEO now and stay 1–2 years ahead of competitors.',
+          },
+          {
             icon: 'ShieldCheck',
-            title: 'Your site is always up',
+            title: 'Technical depth',
             description:
-              '99.9% uptime guarantee, daily automatic backups, and 24/7 monitoring. If something breaks, we start fixing it before you even notice.',
-          },
-          {
-            icon: 'Server',
-            title: 'Technical issues are on us',
-            description:
-              'Server outages, security updates, version patches — all handled by KATOV. No extra charges, no demands on your time.',
-          },
-          {
-            icon: 'Mail',
-            title: 'Content update quota included',
-            description:
-              'The plan includes 2 hours of content updates per month — text, images, prices. No need for an in-house technical person, KATOV handles it.',
+              'From schema.org markup to the llms.txt file — every AEO detail is implemented in code. Not marketing, engineering work.',
           },
         ],
         forWhoTitle: 'Who it\'s for',
         forWho: [
           {
-            title: 'Owners of KATOV-built landing and corporate sites',
+            title: 'SaaS and digital product owners',
             description:
-              'After launch — monthly service: hosting, backups, monitoring, and content updates. First year of hosting is free with every new project, then this plan kicks in.',
+              'When a user asks "best CRM in Uzbekistan," ChatGPT should mention your brand in the answer. AI search is a new customer source.',
           },
           {
-            title: 'Users of KATOV e-commerce sites and Telegram bots',
+            title: 'Experts, consultants, specialists',
             description:
-              'E-commerce and bots run 24/7, any downtime hurts the business. Fast monitoring and recovery are required.',
+              'Lawyers, marketers, trainers — expertise signal in AI answers. Users come to you via AI recommendation.',
           },
           {
-            title: 'Users of KATOV CRM, ERP, and admin panels',
+            title: 'E-commerce stores',
             description:
-              'Internal systems — daily backups, security patches, and version updates are critical. Data and access must be under control.',
+              'Perplexity and ChatGPT have started giving product recommendations. Visibility of your product cards in AI answers changes sales.',
           },
           {
-            title: 'Small to mid businesses without an in-house tech',
+            title: 'B2B and corporate companies',
             description:
-              'Instead of an IT department, KATOV manages the server and content. Your time and resources stay on the business.',
+              'Major buyers start research in AI before deciding. A mention of your company in an AI answer is the first step of the sales funnel.',
           },
         ],
         deliverablesTitle: 'What\'s included',
         deliverables: [
-          'VPS or shared hosting (chosen based on the project)',
-          'Domain connection and DNS management',
-          'SSL certificate with automatic renewal',
-          'Daily automatic backups — 30 days of retention, fast recovery',
-          '24/7 uptime monitoring and error alerts',
-          'Security patches and version updates — every month, automatically',
-          'Email and Telegram support — response within 4 business hours',
-          'Content update quota — 2 hours/month (text, images, prices)',
-          'Monthly speed and SEO report',
-          'Fast recovery on crash (within 24 hours)',
-          'New certificate setup and domain renewal',
-          'Consultation — 30 minutes per month on how to improve the site',
+          'Full AEO audit — site structure, schema, AI crawler compatibility',
+          'Full Schema.org markup — Organization, FAQPage, HowTo, Article, Product, BreadcrumbList',
+          'llms.txt file creation and maintenance (new AI standard)',
+          'FAQ structure optimization — Q&A format, scannable and citation-friendly answers',
+          'Entity setup — Wikidata entry creation and Wikipedia submission preparation (acceptance depends on Wikipedia editors)',
+          'E-E-A-T signals — Author/Organization schema, proof of expertise',
+          'AI crawler optimization — robots.txt and sitemap for GPTBot, ClaudeBot, PerplexityBot, GoogleOther',
+          'Citation-friendly content — specific numbers, original research, named expertise',
+          'Topic cluster strategy — semantic depth that AI recognizes as authority',
+          'Brand presence monitoring on Reddit, Quora, and forums (AI cites these sources)',
+          'Brand mention monitoring in AI answers — monthly test-prompt checks',
+          '3 languages (uz/ru/en) — AI indexing strategy per language',
+          'Monthly AEO report — which AI platforms, which queries, you appeared in',
         ],
-        processTitle: 'Onboarding process',
-        processTotalDuration: '3–5 business days + ongoing monthly service',
+        processTitle: 'Process',
+        processTotalDuration: 'First results in 1–3 months (AI indexing), stable in 6–12 months',
         process: [
           {
             step: 1,
-            title: 'Technical audit',
+            title: 'AEO audit and strategy',
             description:
-              'We review the site\'s state, code quality, and hosting configuration. The service is only for KATOV-built projects (external sites are not accepted).',
-            duration: '1 day',
+              'Analysis of schema, structure, and AI crawler compatibility. Check competitor presence in AI answers. Delivered as a strategy document.',
+            duration: '1–2 weeks',
           },
           {
             step: 2,
-            title: 'Plan selection',
+            title: 'Technical AEO setup',
             description:
-              'Plan is chosen based on the site: Basic ($50/mo, landing/corporate), Standard ($150/mo, e-commerce/bot), Pro ($300+/mo, CRM/ERP). The package matches your needs.',
-            duration: '1 day',
+              'Full Schema.org markup, llms.txt creation, robots.txt for AI crawlers (GPTBot, ClaudeBot, PerplexityBot).',
+            duration: '2–3 weeks',
           },
           {
             step: 3,
-            title: 'Migration and monitoring setup',
+            title: 'Content restructuring',
             description:
-              'If the site is on another host, we migrate it to KATOV servers. Monitoring, backups, and alerts are configured. SSL and domain are renewed.',
-            duration: '1–3 days',
+              'FAQ and Q&A structure, citation-friendly format, entity signals. Existing pages and blogs become AI-ready.',
+            duration: 'Ongoing monthly',
           },
           {
             step: 4,
-            title: 'Monthly service',
+            title: 'Monitoring and reporting',
             description:
-              'Every month: automatic backups, monitoring, security patches, content updates, and a speed/SEO report. Nothing required from you.',
-            duration: 'Ongoing',
+              'Brand mention tracking in AI answers (via test prompts), citation tracking, monthly numerical report.',
+            duration: 'Every month',
           },
         ],
         whyUsTitle: 'Why KATOV',
         whyUs: [
-          'Individual approach to every project — a solution tailored to your business and customers',
-          'Server management and technical issues — on our side',
-          '99.9% uptime guarantee, daily automatic backups',
-          'Support response within 4 hours — including via Telegram',
-          'Content updates included in the plan — no in-house tech needed',
-          'Security patches and version updates — every month, automatically',
-          'Fast recovery on crash — within 24 hours',
-          'Monthly speed and SEO report — you see the real state of the site',
+          'One of the few agencies in Uzbekistan working seriously on AEO — a technically-grounded approach',
+          'KATOV applies AEO criteria fully on its own katov.uz site — every page is AI-ready with schema.org, FAQ, and llms.txt',
+          'Technical depth — not a marketing plan, but real schema.org and code work',
+          'Can be bundled with SEO — combo discount (Google + AI search at once)',
+          'Transparent monthly report — which AI mentioned you, which query, next to which competitor',
+          '3 languages (uz/ru/en) — ChatGPT and Gemini index Uzbek and Russian content too',
+          'No false guarantees — we don\'t promise "ChatGPT #1," only real AI visibility numbers',
         ],
         portfolioTitle: 'Our projects',
         faqTitle: 'Frequently asked questions',
         faq: [
           {
-            question: 'My site is not from KATOV — will you take it on?',
+            question: 'What is AEO and how is it different from SEO?',
             answer:
-              'No, this service is only for KATOV-built projects. Reason: external code and deployment structure are outside our control, and we can\'t guarantee security and backups for them. If you have an external project, you can move to the hosting-support plan after going through the Website Redesign service (which rewrites the code).',
+              'AEO (Answer Engine Optimization) is optimizing your site so it appears in answers from AI search systems (ChatGPT, Perplexity, Gemini, Google AI Overviews). SEO is ranking in Google; AEO is becoming a citation source in an AI answer. SEO goal: the user comes to your site. AEO goal: AI mentions your brand in the answer and lists you as the source. They complement each other: SEO is Google traffic, AEO is AI traffic.',
           },
           {
-            question: 'What are the plans and prices?',
+            question: 'How much traffic does AI search drive today?',
             answer:
-              'Basic $50/mo — landing and corporate sites (low traffic). Standard $150/mo — e-commerce, Telegram bots, and mid traffic (10K+ visits/mo). Pro $300+/mo — CRM, ERP, admin panels, and high traffic. The final price is set based on site size and traffic.',
+              'ChatGPT reached 400M+ weekly users in early 2025 (OpenAI official data), Perplexity had 22M+ weekly active users (late 2024), and Google AI Overviews is now a standard result in global search. AI search has only started taking share from Google, but it\'s growing fast. In Uzbekistan, users turn to AI for recommendations, price comparisons, and technical questions.',
           },
           {
-            question: 'Content updates — how many hours? What\'s extra billed at?',
+            question: 'When do results show up?',
             answer:
-              'The plan includes 2 hours of content updates per month (text, images, prices, blog posts). That\'s typically 4–8 small edits or 1–2 blog posts. Anything beyond is billed separately at $20/hour. Larger changes (new page, new module) are treated as a separate project.',
+              'Technical AEO (schema.org, llms.txt) — AI crawlers index within 2–4 weeks. Brand mention in AI answers — visible in test prompts after 1–3 months. Stable AI visibility — 6–12 months. AEO is a long-term investment: AI search systems need time to index you and learn to select you as a source for relevant queries. Once recognized, the citations continue on every matching AI query.',
           },
           {
-            question: 'Where are the servers? What\'s the speed?',
+            question: 'Which AI platforms do you work for?',
             answer:
-              'Servers are in Uzbekistan (TAS-IX network) and Europe (Germany, Frankfurt). For Uzbek visitors the site loads in under 100 ms via TAS-IX. For a global audience, a CDN is added (any page within 200 ms).',
+              'ChatGPT (with Search), Perplexity AI, Google AI Overviews and Gemini, Claude (with web search), You.com, Bing Chat — the main 6 platforms. Each has its own indexing path and citation mechanism — KATOV tailors strategy per platform. Primary focus: ChatGPT (biggest audience) and Perplexity (most accurate citations).',
           },
           {
-            question: 'Is the contract monthly or yearly?',
+            question: 'What is schema.org and why does it matter?',
             answer:
-              'The base contract is monthly — you can cancel any time with 30 days\' notice. Annual prepayment gets a 10% discount. There\'s no "minimum contract length," but setting up the service takes 1–2 months, so we recommend a stable engagement.',
+              'Schema.org is a markup language that turns site content into structured data AI and search engines can understand. Example: plain text "landing page development in Tashkent from $270" — AI doesn\'t parse it. With Schema markup, this becomes a Product schema — price, currency, location, service type explicitly labeled. Result: AI can answer with a specific number and cite you as the source.',
+          },
+          {
+            question: 'What are the prices and packages?',
+            answer:
+              'AEO Basic $300/mo — small site (10–20 pages), basic schema and llms.txt setup. AEO Standard $500/mo — mid site (20–100 pages), full entity setup and content restructuring. AEO Pro $800+/mo — e-commerce or large site (100+ pages), AI monitoring and citation tracking. SEO + AEO combo package gets 15% off. Exact price is set after the audit and locked in the contract.',
           },
         ],
-        ctaTitle: 'Free consultation for hosting and support',
+        ctaTitle: 'Free AEO audit for your site',
         ctaSubtitle:
-          'We\'ll review the state of your site and pick a plan together. The consultation is free — we\'ll reach out within 1 business day.',
+          'We\'ll check how AI-ready your site is for free — schema, structure, llms.txt. We\'ll send the audit report within 2 business days.',
         ctaPrimary: 'Place order',
         breadcrumbServices: 'Services',
         priceLabel: 'From',
@@ -5666,23 +5681,23 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     },
   },
   {
-    slug: 'hosting-support',
-    icon: 'Server',
-    basePrice: 50,
+    slug: 'aeo-xizmati',
+    icon: 'Sparkles',
+    basePrice: 300,
     priceSuffix: '/oy',
     demand: 3,
     card: {
       uz: {
-        title: 'Hosting va support',
-        description: 'KATOV qurgan loyihalar uchun oylik xizmat — sayt doim ishlaydi, kontentni yangilab beramiz.',
+        title: 'AEO Xizmati',
+        description: 'ChatGPT, Perplexity va AI qidiruvlarda brendingizni javob manbai qiling.',
       },
       ru: {
-        title: 'Хостинг и поддержка',
-        description: 'Ежемесячный сервис для проектов KATOV — сайт работает стабильно, обновляем контент за вас.',
+        title: 'AEO-Услуги',
+        description: 'Сделайте бренд источником ответов в ChatGPT, Perplexity и AI-поиске.',
       },
       en: {
-        title: 'Hosting & Support',
-        description: 'Monthly service for KATOV-built projects — your site stays up, content updates handled.',
+        title: 'AEO Services',
+        description: 'Make your brand a citation source in ChatGPT, Perplexity, and AI search.',
       },
     },
   },
