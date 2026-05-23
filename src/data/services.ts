@@ -2739,7 +2739,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'SEO Xizmati — Saytni Google TOP-ga Chiqarish',
         metaDescription:
           'SEO xizmati Toshkentda — texnik audit, kalit so\'zlar, kontent va backlink. $300/oy dan, oylik hisobot, shaffof raqamlar.',
-        h1: 'SEO Xizmati: Organik Trafik va Pozitsiyalarni Oshirish',
+        h1: 'SEO Xizmati: Organik Trafik va Google\'da Topga Chiqish',
         heroSubtitle:
           'Texnik audit, kalit so\'zlar, kontent va backlink — to\'liq SEO paket. Yolg\'on kafolatsiz, har oy raqamli hisobot bilan.',
         benefits: [
@@ -2885,7 +2885,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'SEO Продвижение — Вывод Сайта в ТОП Google и Yandex',
         metaDescription:
           'SEO услуги в Ташкенте — техаудит, ключевые слова, контент и backlink. От $300/мес, ежемесячный отчёт, прозрачные цифры.',
-        h1: 'SEO Продвижение: Рост Органического Трафика и Позиций',
+        h1: 'SEO Продвижение: Органический Трафик и Выход в ТОП Google',
         heroSubtitle:
           'Техаудит, ключевые слова, контент и backlink — полный SEO-пакет. Без ложных гарантий, с ежемесячным отчётом в цифрах.',
         benefits: [
@@ -3031,7 +3031,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'SEO Services Uzbekistan — Google Top Rankings',
         metaDescription:
           'SEO services in Tashkent — technical audit, keywords, content, and backlinks. From $300/mo, monthly reports with transparent numbers.',
-        h1: 'SEO Services: Growing Organic Traffic and Rankings',
+        h1: 'SEO Services: Organic Traffic and Reaching the Top of Google',
         heroSubtitle:
           'Technical audit, keywords, content, and backlinks — a complete SEO package. No false guarantees — just monthly reports with real numbers.',
         benefits: [
