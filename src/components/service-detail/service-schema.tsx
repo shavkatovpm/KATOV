@@ -23,7 +23,6 @@ export function ServiceSchema({
   servicesIndexUrl,
 }: ServiceSchemaProps) {
   const serviceSchema = {
-    '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${url}#service`,
     name: content.h1,
@@ -70,7 +69,6 @@ export function ServiceSchema({
   };
 
   const breadcrumbSchema = {
-    '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     '@id': `${url}#breadcrumb`,
     itemListElement: [
@@ -96,7 +94,6 @@ export function ServiceSchema({
   };
 
   const faqSchema = {
-    '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': `${url}#faq`,
     inLanguage: locale,
@@ -117,7 +114,6 @@ export function ServiceSchema({
   // Make the H1 + hero subtitle voice-friendly — Google Assistant, Yandex Alisa
   // pick this up via the WebPage's speakable spec.
   const webPageSchema = {
-    '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': `${url}#webpage`,
     url,
@@ -135,24 +131,15 @@ export function ServiceSchema({
     },
   };
 
+  const graph = {
+    '@context': 'https://schema.org',
+    '@graph': [webPageSchema, serviceSchema, breadcrumbSchema, faqSchema],
+  };
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+    />
   );
 }
