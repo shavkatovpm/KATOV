@@ -6,10 +6,10 @@ import { Check, ArrowRight, Globe, Bot, Search, Database } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 
 const services = [
-  { id: 'website', features: 4, icon: Globe, price: 300, suffix: '' },
-  { id: 'seo', features: 4, icon: Search, price: 300, suffix: '/oy' },
-  { id: 'telegram', features: 4, icon: Bot, price: 400, suffix: '' },
-  { id: 'crm', features: 4, icon: Database, price: 1000, suffix: '' },
+  { id: 'website', slug: 'korporativ-sayt', features: 4, icon: Globe, price: 300, suffix: '' },
+  { id: 'seo', slug: 'seo-xizmati', features: 4, icon: Search, price: 300, suffix: '/oy' },
+  { id: 'telegram', slug: 'telegram-bot', features: 4, icon: Bot, price: 400, suffix: '' },
+  { id: 'crm', slug: 'crm-tizimi', features: 4, icon: Database, price: 1000, suffix: '' },
 ];
 
 export function Services() {
@@ -39,7 +39,7 @@ export function Services() {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Link key={service.id} href={`/service/${service.id}`} className="block">
+              <Link key={service.id} href={`/services/${service.slug}`} className="block">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}

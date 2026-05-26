@@ -12,6 +12,13 @@ const withMDX = createMDX({
   },
 });
 
+const legacyServiceSlugMap: Record<string, string> = {
+  website: 'korporativ-sayt',
+  crm: 'crm-tizimi',
+  telegram: 'telegram-bot',
+  seo: 'seo-xizmati',
+};
+
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
@@ -21,6 +28,26 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
+  },
+  async redirects() {
+    const redirects: { source: string; destination: string; permanent: true }[] = [];
+    for (const [oldSlug, newSlug] of Object.entries(legacyServiceSlugMap)) {
+      // Default locale (uz) — no prefix
+      redirects.push({
+        source: `/service/${oldSlug}`,
+        destination: `/services/${newSlug}`,
+        permanent: true,
+      });
+      // ru, en
+      for (const locale of ['ru', 'en']) {
+        redirects.push({
+          source: `/${locale}/service/${oldSlug}`,
+          destination: `/${locale}/services/${newSlug}`,
+          permanent: true,
+        });
+      }
+    }
+    return redirects;
   },
 };
 
