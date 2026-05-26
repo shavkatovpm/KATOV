@@ -31,16 +31,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // Studio subpages
-  const studioSubpages = ['/studio/price', '/studio/hand-particles'];
-  studioSubpages.forEach((path) => {
-    locales.forEach((locale) => {
-      entries.push({
-        url: localizedUrl(locale as Locale, path),
-        lastModified: now,
-        changeFrequency: 'monthly',
-        priority: 0.6,
-      });
+  // Studio: price calculator is a useful tool for SEO; hand-particles
+  // is a pure animation playground and stays out of the index (noindex
+  // set on its own layout).
+  locales.forEach((locale) => {
+    entries.push({
+      url: localizedUrl(locale as Locale, '/studio/price'),
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     });
   });
 
