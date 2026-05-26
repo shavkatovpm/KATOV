@@ -1,23 +1,16 @@
 import { MetadataRoute } from 'next';
 import { getAllServiceSlugs } from '@/data/services';
+import { getBlogPosts } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
-import { localizedUrl, SITE_URL } from '@/lib/urls';
+import { localizedUrl } from '@/lib/urls';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const sitemapEntries: MetadataRoute.Sitemap = [];
+  const entries: MetadataRoute.Sitemap = [];
 
-  // Root URL (apex of canonical host)
-  sitemapEntries.push({
-    url: SITE_URL,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 1,
-  });
-
-  // Main pages per locale (UZ collapses to root, others get /{locale})
+  // Home — one entry per locale (uz collapses to root via localizedUrl)
   locales.forEach((locale) => {
-    sitemapEntries.push({
+    entries.push({
       url: localizedUrl(locale as Locale),
       lastModified: now,
       changeFrequency: 'weekly',
@@ -25,41 +18,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // Studio
-  locales.forEach((locale) => {
-    sitemapEntries.push({
-      url: localizedUrl(locale as Locale, '/studio'),
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
+  // Static top-level pages (priority 0.8) — same path across locales
+  const staticPaths = ['/services', '/portfolio', '/blog', '/studio'];
+  staticPaths.forEach((path) => {
+    locales.forEach((locale) => {
+      entries.push({
+        url: localizedUrl(locale as Locale, path),
+        lastModified: now,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      });
     });
   });
 
-  // Price calculator
-  locales.forEach((locale) => {
-    sitemapEntries.push({
-      url: localizedUrl(locale as Locale, '/studio/price'),
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
+  // Studio subpages
+  const studioSubpages = ['/studio/price', '/studio/hand-particles'];
+  studioSubpages.forEach((path) => {
+    locales.forEach((locale) => {
+      entries.push({
+        url: localizedUrl(locale as Locale, path),
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+      });
     });
   });
 
-  // Services index
-  locales.forEach((locale) => {
-    sitemapEntries.push({
-      url: localizedUrl(locale as Locale, '/services'),
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    });
-  });
-
-  // Service detail pages
+  // Service detail pages — driven by data/services.ts catalog
   const serviceSlugs = getAllServiceSlugs();
   locales.forEach((locale) => {
     serviceSlugs.forEach((slug) => {
-      sitemapEntries.push({
+      entries.push({
         url: localizedUrl(locale as Locale, `/services/${slug}`),
         lastModified: now,
         changeFrequency: 'monthly',
@@ -68,24 +57,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // Blog posts
-  const blogPosts: Record<string, string[]> = {
-    uz: ['sayt-yaratish-xizmati'],
-    ru: ['sozdanie-sayta-uslugi'],
-    en: ['website-creation-services'],
-  };
-
+  // Blog posts — driven by filesystem (src/content/blog/{locale}/*.mdx)
+  // so new posts appear automatically. Each entry uses the post's own date.
   locales.forEach((locale) => {
-    const slugs = blogPosts[locale] || [];
-    slugs.forEach((slug) => {
-      sitemapEntries.push({
-        url: localizedUrl(locale as Locale, `/blog/${slug}`),
-        lastModified: now,
+    const posts = getBlogPosts(locale as Locale);
+    posts.forEach((post) => {
+      entries.push({
+        url: localizedUrl(locale as Locale, `/blog/${post.slug}`),
+        lastModified: post.date ? new Date(post.date) : now,
         changeFrequency: 'monthly',
-        priority: 0.6,
+        priority: 0.7,
       });
     });
   });
 
-  return sitemapEntries;
+  return entries;
 }
