@@ -1,10 +1,40 @@
 import { Locale, locales } from '@/i18n/config';
-import { getTranslations } from 'next-intl/server';
+import { localizedUrl } from '@/lib/urls';
 
 interface PortfolioLayoutProps {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }
+
+const portfolioItems = [
+  {
+    name: 'Darslinker',
+    url: 'https://darslinker.uz',
+    description: {
+      uz: "Onlayn ta'limni tizimlashtirish platformasi",
+      ru: 'Платформа для систематизации онлайн-обучения',
+      en: 'Online learning systematization platform',
+    },
+  },
+  {
+    name: 'Getolog',
+    url: 'https://getolog.uz',
+    description: {
+      uz: 'Yopiq Telegram kanallarini avtomatlashtirish',
+      ru: 'Автоматизация закрытых Telegram-каналов',
+      en: 'Closed Telegram channels automation',
+    },
+  },
+  {
+    name: 'Uzbektype',
+    url: 'https://uzbektype.uz',
+    description: {
+      uz: "Tez va to'g'ri yozishni tekshirish",
+      ru: 'Проверка скорости и точности набора текста',
+      en: 'Typing speed and accuracy test',
+    },
+  },
+];
 
 const seoData: Record<string, { title: string; description: string; keywords: string[] }> = {
   uz: {
@@ -68,6 +98,63 @@ export async function generateMetadata({ params }: PortfolioLayoutProps) {
   };
 }
 
-export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
-  return children;
+export default async function PortfolioLayout({ children, params }: PortfolioLayoutProps) {
+  const { locale } = await params;
+  const loc = (locale as Locale) ?? 'uz';
+  const url = localizedUrl(loc, '/portfolio');
+  const homeUrl = localizedUrl(loc);
+  const data = seoData[loc] ?? seoData.uz;
+
+  const breadcrumbHome =
+    loc === 'uz' ? 'Bosh sahifa' : loc === 'ru' ? 'Главная' : 'Home';
+  const breadcrumbPortfolio =
+    loc === 'uz' ? 'Loyihalar' : loc === 'ru' ? 'Портфолио' : 'Portfolio';
+
+  const graph = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${url}#collection`,
+        url,
+        name: data.title,
+        description: data.description,
+        inLanguage: loc,
+        isPartOf: { '@id': 'https://www.katov.uz/#website' },
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: portfolioItems.length,
+          itemListElement: portfolioItems.map((item, idx) => ({
+            '@type': 'ListItem',
+            position: idx + 1,
+            item: {
+              '@type': 'CreativeWork',
+              name: item.name,
+              url: item.url,
+              description: item.description[loc],
+              creator: { '@id': 'https://www.katov.uz/#organization' },
+            },
+          })),
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: breadcrumbHome, item: homeUrl },
+          { '@type': 'ListItem', position: 2, name: breadcrumbPortfolio, item: url },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
+      {children}
+    </>
+  );
 }
