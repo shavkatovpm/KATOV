@@ -1,9 +1,9 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 
-export default function ScrollToAnchor() {
+function ScrollToAnchorInner() {
   const searchParams = useSearchParams();
   const scrollTo = searchParams.get('scrollTo');
 
@@ -20,4 +20,15 @@ export default function ScrollToAnchor() {
   }, [scrollTo]);
 
   return null;
+}
+
+// useSearchParams triggers a CSR bailout during static prerender unless
+// it's wrapped in Suspense — without this the whole blog post page falls
+// back to dynamic rendering.
+export default function ScrollToAnchor() {
+  return (
+    <Suspense fallback={null}>
+      <ScrollToAnchorInner />
+    </Suspense>
+  );
 }

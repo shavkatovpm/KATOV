@@ -1,5 +1,5 @@
 import { Locale, locales } from '@/i18n/config';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 interface StudioLayoutProps {
   children: React.ReactNode;
@@ -68,6 +68,8 @@ export async function generateMetadata({ params }: StudioLayoutProps) {
   };
 }
 
-export default function StudioLayout({ children }: StudioLayoutProps) {
+export default async function StudioLayout({ children, params }: StudioLayoutProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return children;
 }

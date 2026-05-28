@@ -14,3 +14,8 @@ export function localizedPath(locale: Locale, path: string = ''): string {
 export function localizedUrl(locale: Locale, path: string = ''): string {
   return `${SITE_URL}${localizedPath(locale, path)}`;
 }
+
+// Open Graph requires `language_TERRITORY` (e.g. `uz_UZ`), not bare `uz`.
+export function ogLocale(locale: Locale): string {
+  return locale === 'ru' ? 'ru_RU' : locale === 'en' ? 'en_US' : 'uz_UZ';
+}

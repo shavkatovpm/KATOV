@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import { locales } from '@/i18n/config';
 
 interface HandParticlesLayoutProps {
@@ -67,6 +68,8 @@ export async function generateMetadata({ params }: HandParticlesLayoutProps) {
   };
 }
 
-export default function HandParticlesLayout({ children }: HandParticlesLayoutProps) {
+export default async function HandParticlesLayout({ children, params }: HandParticlesLayoutProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return children;
 }

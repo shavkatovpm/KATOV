@@ -1,5 +1,5 @@
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Geist, Geist_Mono, Poppins, Caveat, Syne } from 'next/font/google';
 import Script from 'next/script';
@@ -48,6 +48,10 @@ interface LocaleLayoutProps {
   params: Promise<{ locale: string }>;
 }
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -57,6 +61,11 @@ export default async function LocaleLayout({
   if (!hasLocale(locales, locale)) {
     notFound();
   }
+
+  // Required by next-intl to enable static rendering — without this it
+  // falls back to reading the locale from headers(), which marks the
+  // route as dynamic and emits no-cache headers that hurt indexing.
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 

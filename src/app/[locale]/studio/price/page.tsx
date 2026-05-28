@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
@@ -34,12 +34,22 @@ const designTypes = [
   { id: 'creative', multiplier: 1.7, extraDays: 7 },
 ];
 
-export default function PriceCalculator() {
-  const t = useTranslations('studio.priceTool');
-  const locale = useLocale();
+// Only this part reads search params, so only this part needs Suspense
+// during prerender. The rest of the calculator UI renders immediately.
+function BackLink({ className, children }: { className: string; children: React.ReactNode }) {
   const searchParams = useSearchParams();
   const fromUrl = searchParams.get('from');
   const backHref = fromUrl && fromUrl.startsWith('/studio/') ? `${fromUrl}?scrollTo=price-cta` : '/studio';
+  return (
+    <Link href={backHref} className={className}>
+      {children}
+    </Link>
+  );
+}
+
+function PriceCalculator() {
+  const t = useTranslations('studio.priceTool');
+  const locale = useLocale();
   const [step, setStep] = useState<Step>('type');
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
@@ -95,13 +105,22 @@ export default function PriceCalculator() {
       <div className="w-full max-w-2xl mx-auto flex flex-col flex-1 min-h-0">
         {/* Header */}
         <div className="shrink-0">
-          <Link
-            href={backHref}
-            className="inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity text-sm mb-4 sm:mb-6"
+          <Suspense
+            fallback={
+              <Link
+                href="/studio"
+                className="inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity text-sm mb-4 sm:mb-6"
+              >
+                <ArrowLeft size={16} />
+                {t('back')}
+              </Link>
+            }
           >
-            <ArrowLeft size={16} />
-            {t('back')}
-          </Link>
+            <BackLink className="inline-flex items-center gap-2 text-muted hover:opacity-70 transition-opacity text-sm mb-4 sm:mb-6">
+              <ArrowLeft size={16} />
+              {t('back')}
+            </BackLink>
+          </Suspense>
 
           <div className="text-center mb-4 sm:mb-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
@@ -402,3 +421,5 @@ export default function PriceCalculator() {
     </div>
   );
 }
+
+export default PriceCalculator;

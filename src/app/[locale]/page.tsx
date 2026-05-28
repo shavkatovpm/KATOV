@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { Locale, locales } from '@/i18n/config';
-import { localizedUrl } from '@/lib/urls';
+import { localizedUrl, ogLocale } from '@/lib/urls';
 import HomeContent from './home-content';
 
 interface HomePageProps {
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
       description: meta.description,
       url: canonical,
       siteName: 'KATOV',
-      locale,
+      locale: ogLocale(locale),
       type: 'website',
       images: [{ url: 'https://www.katov.uz/og-image.png', width: 1200, height: 1200, alt: 'KATOV' }],
     },
@@ -57,6 +58,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const url = localizedUrl(locale);
   const meta = homeMeta[locale] ?? homeMeta.uz;
 

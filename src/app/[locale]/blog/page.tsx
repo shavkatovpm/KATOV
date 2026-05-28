@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Locale, locales } from '@/i18n/config';
 import { getBlogPosts } from '@/lib/blog';
 import { Link } from '@/i18n/routing';
-import { localizedUrl } from '@/lib/urls';
+import { localizedUrl, ogLocale } from '@/lib/urls';
 
 interface BlogPageProps {
   params: Promise<{ locale: Locale }>;
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
       description: meta.description,
       url: canonical,
       siteName: 'KATOV',
-      locale,
+      locale: ogLocale(locale),
       type: 'website',
     },
     twitter: {
@@ -54,6 +54,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'blog' });
   const blogPosts = getBlogPosts(locale);
   const url = localizedUrl(locale, '/blog');

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n/config';
 import {
   getServicesCatalog,
   servicesIndexCopy,
 } from '@/data/services';
 import { ServiceCard } from '@/components/service-detail/service-card';
-import { localizedUrl } from '@/lib/urls';
+import { localizedUrl, ogLocale } from '@/lib/urls';
 
 interface ServicesIndexProps {
   params: Promise<{ locale: string }>;
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: ServicesIndexProps): Promise<
       description: copy.metaDescription,
       url: canonical,
       siteName: 'KATOV',
-      locale,
+      locale: ogLocale(locale as Locale),
       type: 'website',
     },
     twitter: {
@@ -52,6 +53,7 @@ export async function generateStaticParams() {
 export default async function ServicesIndexPage({ params }: ServicesIndexProps) {
   const { locale } = await params;
   if (!hasLocale(locales, locale)) notFound();
+  setRequestLocale(locale);
 
   const loc = locale as Locale;
   const copy = servicesIndexCopy[loc];

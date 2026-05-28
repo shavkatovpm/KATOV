@@ -1,5 +1,5 @@
 import { notFound, redirect } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Locale, locales, defaultLocale } from '@/i18n/config';
 import { getBlogPost, getAllBlogSlugs } from '@/lib/blog';
 import { ArrowLeft } from 'lucide-react';
@@ -119,6 +119,12 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
         alternateLanguages[loc] = localizedUrl(loc, `/blog/${mapping[loc]}`);
       }
     }
+    alternateLanguages['x-default'] = localizedUrl('uz', `/blog/${mapping.uz ?? slug}`);
+  } else {
+    // Untranslated post — only point hreflang at the current locale so
+    // Google doesn't think other-language pages are missing.
+    alternateLanguages[locale] = url;
+    alternateLanguages['x-default'] = url;
   }
 
   return {
@@ -157,6 +163,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
 
   const slugMapping = slugMap[slug];
   if (slugMapping && slugMapping[locale] && slugMapping[locale] !== slug) {

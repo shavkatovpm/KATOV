@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n/config';
 import { getServiceData, getAllServiceSlugs } from '@/data/services';
 import { ServiceHero } from '@/components/service-detail/service-hero';
@@ -13,7 +14,7 @@ import { ServiceFAQ } from '@/components/service-detail/service-faq';
 import { ServiceContactForm } from '@/components/service-detail/service-contact-form';
 import { ServiceSchema } from '@/components/service-detail/service-schema';
 import { ServiceRelated } from '@/components/service-detail/service-related';
-import { localizedUrl } from '@/lib/urls';
+import { localizedUrl, ogLocale } from '@/lib/urls';
 
 interface ServicePageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -57,7 +58,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       description: content.metaDescription,
       url: canonical,
       siteName: 'KATOV',
-      locale,
+      locale: ogLocale(locale as Locale),
       type: 'website',
     },
     twitter: {
@@ -89,6 +90,7 @@ const portfolioCategoryLabels: Record<Locale, Record<string, string>> = {
 export default async function ServicePage({ params }: ServicePageProps) {
   const { locale, slug } = await params;
   if (!hasLocale(locales, locale)) notFound();
+  setRequestLocale(locale);
 
   const data = getServiceData(slug, locale as Locale);
   if (!data) notFound();

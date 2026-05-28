@@ -1,5 +1,5 @@
 import { Locale, locales } from '@/i18n/config';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 interface PriceLayoutProps {
   children: React.ReactNode;
@@ -68,6 +68,8 @@ export async function generateMetadata({ params }: PriceLayoutProps) {
   };
 }
 
-export default function PriceLayout({ children }: PriceLayoutProps) {
+export default async function PriceLayout({ children, params }: PriceLayoutProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return children;
 }

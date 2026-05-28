@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import { Locale, locales } from '@/i18n/config';
 import { localizedUrl } from '@/lib/urls';
 
@@ -100,6 +101,7 @@ export async function generateMetadata({ params }: PortfolioLayoutProps) {
 
 export default async function PortfolioLayout({ children, params }: PortfolioLayoutProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const loc = (locale as Locale) ?? 'uz';
   const url = localizedUrl(loc, '/portfolio');
   const homeUrl = localizedUrl(loc);
