@@ -3,16 +3,25 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { siteConfig } from '@/config/site';
+import { Link } from '@/i18n/routing';
+import { getServicesCatalog } from '@/data/services';
+import type { Locale } from '@/i18n/config';
+
+const catalog = getServicesCatalog();
 
 export function Footer() {
   const t = useTranslations('footer');
   const navT = useTranslations('nav');
-  const locale = useLocale();
+  const locale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
   const currentYear = new Date().getFullYear();
 
   const isHomePage = pathname === `/${locale}` || pathname === '/';
+  const servicesHeading =
+    locale === 'ru' ? 'Услуги' : locale === 'en' ? 'Services' : 'Xizmatlar';
+  const allServicesLabel =
+    locale === 'ru' ? 'Все услуги' : locale === 'en' ? 'All services' : 'Barcha xizmatlar';
 
   return (
     <footer
@@ -20,8 +29,9 @@ export function Footer() {
       style={{ borderTop: '1px solid var(--color-border)' }}
     >
       <div className="container-custom">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          <div className="col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-10">
+          {/* Brand */}
+          <div className="sm:col-span-2 md:col-span-4">
             <a
               href={`/${locale}`}
               onClick={(e) => {
@@ -41,49 +51,35 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
+          {/* Services — all 12, two sub-columns to keep footer compact */}
+          <div className="sm:col-span-2 md:col-span-6">
             <h4 className="font-semibold text-sm sm:text-base mb-4">
-              {t('quickLinks')}
+              {servicesHeading}
             </h4>
-            <ul className="space-y-2">
-              {siteConfig.navigation.slice(0, 4).map((item) => (
-                <li key={item.key}>
-                  {item.href.startsWith('#') ? (
-                    <a
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const element = document.querySelector(item.href);
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                      className="footer-link text-xs sm:text-sm cursor-pointer"
-                    >
-                      {navT(item.key)}
-                    </a>
-                  ) : (
-                    <a
-                      href={`/${locale}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (isHomePage) {
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        } else {
-                          router.push(`/${locale}`);
-                        }
-                      }}
-                      className="footer-link text-xs sm:text-sm cursor-pointer"
-                    >
-                      {navT(item.key)}
-                    </a>
-                  )}
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+              {catalog.map((item) => (
+                <li key={item.slug}>
+                  <Link
+                    href={`/services/${item.slug}`}
+                    className="footer-link text-xs sm:text-sm"
+                  >
+                    {item.card[locale].title}
+                  </Link>
                 </li>
               ))}
+              <li className="col-span-2 mt-2">
+                <Link
+                  href="/services"
+                  className="footer-link text-xs sm:text-sm font-medium"
+                >
+                  {allServicesLabel} →
+                </Link>
+              </li>
             </ul>
           </div>
 
-          <div>
+          {/* Contact + quick nav */}
+          <div className="sm:col-span-2 md:col-span-2">
             <h4 className="font-semibold text-sm sm:text-base mb-4">
               {t('contact')}
             </h4>
@@ -126,6 +122,17 @@ export function Footer() {
                   Support
                 </a>
               </li>
+            </ul>
+            <ul className="space-y-2 text-xs sm:text-sm mt-6 pt-4" style={{ borderTop: '1px solid var(--color-border)' }}>
+              {siteConfig.navigation
+                .filter((item) => !item.href.startsWith('#') && item.href !== '/services')
+                .map((item) => (
+                  <li key={item.key}>
+                    <Link href={item.href === '/' ? '/' : item.href} className="footer-link">
+                      {navT(item.key)}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>

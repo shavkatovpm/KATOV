@@ -135,7 +135,7 @@ export default async function LocaleLayout({
                     '@type': 'ContactPoint',
                     telephone: '+998-33-888-01-33',
                     contactType: 'customer service',
-                    email: 'hello@katov.uz',
+                    email: 'katov.web@gmail.com',
                     availableLanguage: ['Uzbek', 'Russian', 'English'],
                     areaServed: 'UZ',
                   },

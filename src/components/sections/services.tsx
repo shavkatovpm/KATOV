@@ -1,20 +1,19 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, Globe, Bot, Search, Database } from 'lucide-react';
 import { Link } from '@/i18n/routing';
+import { getServicesCatalog, servicesIndexCopy } from '@/data/services';
+import type { Locale } from '@/i18n/config';
+import { ServiceCard } from '@/components/service-detail/service-card';
 
-const services = [
-  { id: 'website', slug: 'korporativ-sayt', features: 4, icon: Globe, price: 300, suffix: '' },
-  { id: 'seo', slug: 'seo-xizmati', features: 4, icon: Search, price: 300, suffix: '/oy' },
-  { id: 'telegram', slug: 'telegram-bot', features: 4, icon: Bot, price: 400, suffix: '' },
-  { id: 'crm', slug: 'crm-tizimi', features: 4, icon: Database, price: 1000, suffix: '' },
-];
+const catalog = getServicesCatalog();
 
 export function Services() {
   const t = useTranslations('services');
   const pt = useTranslations('pricing');
+  const locale = useLocale() as Locale;
+  const copy = servicesIndexCopy[locale];
 
   return (
     <section id="services" className="section-padding">
@@ -32,69 +31,32 @@ export function Services() {
           <p className="text-muted text-sm mt-2">{pt('description')}</p>
         </motion.div>
 
-        {/* 4-Card Grid: 2x2 on mobile, 4 columns on desktop */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto"
-        >
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <Link key={service.id} href={`/services/${service.slug}`} className="block">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative rounded-2xl p-5 lg:p-6 flex flex-col h-full group border border-[var(--color-border)] hover:border-[var(--color-fg)] transition-[border-color] duration-300"
-                  style={{
-                    backgroundColor: 'var(--color-bg)',
-                  }}
-                >
-                  {/* Icon */}
-                  <div className="mb-4">
-                    <Icon size={28} className="opacity-70" />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-base lg:text-lg font-semibold mb-2">
-                    {pt(`${service.id}.name`)}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-xs lg:text-sm text-muted mb-4 leading-relaxed">
-                    {pt(`${service.id}.description`)}
-                  </p>
-
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6">
-                    {Array.from({ length: service.features }).map((_, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs lg:text-sm">
-                        <Check size={14} className="mt-0.5 shrink-0 opacity-60" />
-                        <span>{pt(`${service.id}.feature${i + 1}`)}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Price + CTA */}
-                  <div className="mt-auto pt-4 flex items-center justify-between" style={{ borderTop: '1px solid var(--color-border)' }}>
-                    <div>
-                      <span className="text-base lg:text-lg font-bold">${service.price}+</span>
-                      {service.suffix && (
-                        <span className="text-xs text-muted">{service.suffix}</span>
-                      )}
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-xs lg:text-sm font-medium opacity-70 group-hover:opacity-100 transition-opacity">
-                      {pt('cta')}
-                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </motion.div>
-              </Link>
-            );
-          })}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
+          {catalog.map((item, index) => (
+            <motion.div
+              key={item.slug}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.4) }}
+            >
+              <ServiceCard
+                slug={item.slug}
+                icon={item.icon}
+                title={item.card[locale].title}
+                description={item.card[locale].description}
+                basePrice={item.basePrice}
+                priceSuffix={item.priceSuffix}
+                available={item.available}
+                href={`/${locale}/services/${item.slug}`}
+                fromLabel={copy.fromLabel}
+                comingSoonBadge={copy.comingSoonBadge}
+                cardCta={copy.cardCta}
+              />
+            </motion.div>
+          ))}
         </div>
 
-        {/* Bottom Buttons */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

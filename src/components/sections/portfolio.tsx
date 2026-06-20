@@ -11,6 +11,7 @@ const portfolioItems = [
   { id: '1', title: 'Darslinker', category: "Onlayn ta'limni tizimlashtirish platformasi", url: 'https://darslinker.uz', image: '/portfolio/Darslinker.png' },
   { id: '2', title: 'Getolog', category: 'Yopiq telegram kanallarini avtomatlashtirish', url: 'https://getolog.uz', image: '/portfolio/Getolog.png' },
   { id: '3', title: 'Uzbektype', category: "Tez va to'g'ri yozishni tekshirish", url: 'https://uzbektype.uz', image: '/portfolio/Uzbektype.png' },
+  { id: '4', title: 'Unumly', category: 'Kunlik rejalashtirish va shaxsiy moliya ilovasi', url: 'https://unumly.uz', image: '/portfolio/Unumly.png' },
 ];
 
 interface SelectedItem {

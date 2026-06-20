@@ -7,6 +7,7 @@ import { Link } from '@/i18n/routing';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import ScrollToAnchor from '@/components/ScrollToAnchor';
+import { BlogRelatedServices } from '@/components/blog/blog-related-services';
 import { localizedUrl, SITE_URL } from '@/lib/urls';
 
 function DonutRing({ value, size, strokeWidth }: { value: number; size: number; strokeWidth: number }) {
@@ -340,6 +341,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 ))}
               </div>
             )}
+
+            <BlogRelatedServices blogSlug={slug} locale={locale} />
           </div>
         </div>
       </article>

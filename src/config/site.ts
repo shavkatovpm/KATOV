@@ -5,7 +5,7 @@ export const siteConfig = {
   description: 'Kreativ veb-sayt xizmatlari',
 
   contact: {
-    email: 'hello@katov.uz',
+    email: 'katov.web@gmail.com',
     phone: '+998 33 888 01 33',
     phoneCode: '+998',
     phoneNumber: '33 888 01 33',
