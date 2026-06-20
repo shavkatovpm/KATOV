@@ -49,6 +49,24 @@ const nextConfig: NextConfig = {
     }
     return redirects;
   },
+  // Next.js 16 forces `cache-control: private, no-cache, no-store` on
+  // routes it considers dynamic (every page here, due to the next-intl
+  // rewrite). That header tells Googlebot the page is per-user and hurts
+  // indexing. Override it via next.config so the framework default is
+  // replaced before Vercel emits the response.
+  async headers() {
+    return [
+      {
+        source: '/((?!api|_next|_vercel).*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withNextIntl(withMDX(nextConfig));
