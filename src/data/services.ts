@@ -4971,12 +4971,12 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 3,
     content: {
       uz: {
-        title: 'AEO Xizmati — ChatGPT va AI Qidiruvlarda Chiqish | KATOV',
+        title: 'AEO/GEO Xizmati — ChatGPT, Perplexity va Gemini Qidiruvlarida Chiqish | KATOV',
         metaDescription:
-          'AEO (Answer Engine Optimization) Toshkentda — ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingizni javob manbai qiling. Schema.org, llms.txt, entity setup. $300/oy dan.',
-        h1: 'AEO Xizmati: AI Qidiruvlarda Brendingizni Chiqarish',
+          'AEO/GEO (Answer Engine / Generative Engine Optimization) Toshkentda — ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingizni javob manbai qiling. Schema.org, llms.txt, entity setup. $300/oy dan.',
+        h1: 'AEO/GEO Xizmati: AI Qidiruvlarda Brendingizni Chiqarish',
         heroSubtitle:
-          'Google\'dan keyingi qidiruv era — AI javoblar. ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingiz javob manbai bo\'lishi uchun ishlaymiz. 2026\'da raqobatdan oldinda bo\'ling.',
+          'Google\'dan keyingi qidiruv era — AI javoblar. AEO (Answer Engine Optimization) va GEO (Generative Engine Optimization) bilan ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingiz javob manbai bo\'lishi uchun ishlaymiz. 2026\'da raqobatdan oldinda bo\'ling.',
         benefits: [
           {
             icon: 'Sparkles',
@@ -5087,6 +5087,11 @@ export const servicesData: Record<string, ServiceData> = {
               'AEO (Answer Engine Optimization) — bu saytni AI qidiruv tizimlari (ChatGPT, Perplexity, Gemini, Google AI Overviews) javoblarida ko\'rinadigan qilish. SEO — Google\'da rank bo\'lish, AEO — AI javobida iqtibos manbai bo\'lish. SEO\'da maqsad: foydalanuvchi sizning saytingizga keladi. AEO\'da maqsad: AI sizning brendingizni javobda eslab o\'tadi va manba sifatida ko\'rsatadi. Ikkalasi bir-birini to\'ldiradi: SEO Google trafigi, AEO AI trafigi.',
           },
           {
+            question: 'AEO va GEO — bir xilmi? Farqi nimada?',
+            answer:
+              'Amaliyotda ikkalasi bitta maqsadga ishlaydi — AI qidiruv javoblarida brendingizni chiqarish. Nomi va urg\'usi farq qiladi: AEO (Answer Engine Optimization, 2020-yildan) kengroq termin — featured snippet, voice assistant va AI javoblari hammasini qamrab oladi. GEO (Generative Engine Optimization, 2023-yildagi Princeton tadqiqotidan) maxsus ChatGPT, Perplexity, Gemini kabi generative AI tizimlariga qaratilgan. KATOV ikkalasini bitta paketda yetkazib beradi: schema, llms.txt, entity setup, AI citation monitoring — bir xil texnik ish, ikkita keyword nomi.',
+          },
+          {
             question: 'AI qidiruv hozir qancha trafik beradi?',
             answer:
               'ChatGPT 2025 yil boshida 400+ million haftalik foydalanuvchiga yetdi (OpenAI rasmiy ma\'lumoti), Perplexity 22+ million haftalik faol foydalanuvchi (2024 oxiri), Google AI Overviews esa global qidiruvda standart natija sifatida ko\'rinmoqda. AI qidiruv hali Google\'dan ulush olishni boshlagan, lekin tez o\'sib bormoqda. O\'zbekistonda foydalanuvchilar AI\'dan tavsiya, narx solishtirish va texnik savollar uchun foydalanmoqda.',
@@ -5121,12 +5126,12 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: '/oy',
       },
       ru: {
-        title: 'AEO Услуги — Видимость в ChatGPT и AI-поиске | KATOV',
+        title: 'AEO/GEO Услуги — Видимость в ChatGPT, Perplexity и Gemini | KATOV',
         metaDescription:
-          'AEO (Answer Engine Optimization) в Ташкенте — ваш бренд как источник ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. Schema.org, llms.txt, entity setup. От $300/мес.',
-        h1: 'AEO-Услуги: Вывод Бренда в AI-Поиск',
+          'AEO/GEO (Answer Engine / Generative Engine Optimization) в Ташкенте — ваш бренд как источник ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. Schema.org, llms.txt, entity setup. От $300/мес.',
+        h1: 'AEO/GEO-Услуги: Вывод Бренда в AI-Поиск',
         heroSubtitle:
-          'После Google — эра AI-ответов. Делаем ваш бренд источником ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. В 2026 году опережайте конкурентов.',
+          'После Google — эра AI-ответов. С помощью AEO (Answer Engine Optimization) и GEO (Generative Engine Optimization) делаем ваш бренд источником ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. В 2026 году опережайте конкурентов.',
         benefits: [
           {
             icon: 'Sparkles',
@@ -5232,6 +5237,11 @@ export const servicesData: Record<string, ServiceData> = {
         faqTitle: 'Часто задаваемые вопросы',
         faq: [
           {
+            question: 'AEO и GEO — это одно и то же? В чём разница?',
+            answer:
+              'На практике обе технологии решают одну задачу — сделать ваш бренд видимым в ответах AI-поиска. Различаются названиями и акцентом: AEO (Answer Engine Optimization, с 2020-го) — более широкий термин, охватывающий featured snippets, голосовых ассистентов и AI-ответы. GEO (Generative Engine Optimization, из исследования Принстона 2023 года) — узко про генеративные AI-системы: ChatGPT, Perplexity, Gemini. KATOV доставляет обе услуги в одном пакете: schema, llms.txt, entity setup, мониторинг цитирований в AI — техническая работа одна, ключевых слов два.',
+          },
+          {
             question: 'Что такое AEO и чем отличается от SEO?',
             answer:
               'AEO (Answer Engine Optimization) — это оптимизация сайта так, чтобы он появлялся в ответах AI-поисковых систем (ChatGPT, Perplexity, Gemini, Google AI Overviews). SEO — ранжирование в Google, AEO — стать источником цитирования в ответе AI. Цель SEO: пользователь приходит на ваш сайт. Цель AEO: AI упоминает ваш бренд в ответе и указывает источник. Они дополняют друг друга: SEO — трафик из Google, AEO — трафик из AI.',
@@ -5271,12 +5281,12 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: '/мес',
       },
       en: {
-        title: 'AEO Services — ChatGPT & AI Search Visibility | KATOV',
+        title: 'AEO/GEO Services — ChatGPT, Perplexity & Gemini Visibility | KATOV',
         metaDescription:
-          'AEO (Answer Engine Optimization) in Tashkent — make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Schema.org, llms.txt, entity setup. From $300/mo.',
-        h1: 'AEO Services: Get Your Brand into AI Search',
+          'AEO/GEO (Answer Engine / Generative Engine Optimization) in Tashkent — make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Schema.org, llms.txt, entity setup. From $300/mo.',
+        h1: 'AEO/GEO Services: Get Your Brand into AI Search',
         heroSubtitle:
-          'After Google, the next era is AI answers. We make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Stay ahead in 2026.',
+          'After Google, the next era is AI answers. With AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) we make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Stay ahead in 2026.',
         benefits: [
           {
             icon: 'Sparkles',
@@ -5381,6 +5391,11 @@ export const servicesData: Record<string, ServiceData> = {
         portfolioTitle: 'Our projects',
         faqTitle: 'Frequently asked questions',
         faq: [
+          {
+            question: 'Are AEO and GEO the same thing? What\'s the difference?',
+            answer:
+              'In practice they target the same outcome — making your brand visible in AI search answers. The terms differ in scope and origin: AEO (Answer Engine Optimization, since 2020) is the broader term — it covers featured snippets, voice assistants, and AI answers. GEO (Generative Engine Optimization, from the 2023 Princeton paper) is narrower and targets generative AI engines specifically: ChatGPT, Perplexity, Gemini. KATOV ships both as a single package: schema, llms.txt, entity setup, AI citation monitoring — same technical work, two keyword names.',
+          },
           {
             question: 'What is AEO and how is it different from SEO?',
             answer:
@@ -5688,16 +5703,16 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     demand: 3,
     card: {
       uz: {
-        title: 'AEO Xizmati',
-        description: 'ChatGPT, Perplexity va AI qidiruvlarda brendingizni javob manbai qiling.',
+        title: 'AEO/GEO Xizmati',
+        description: 'ChatGPT, Perplexity va Gemini AI qidiruvlarida brendingizni javob manbai qiling.',
       },
       ru: {
-        title: 'AEO-Услуги',
-        description: 'Сделайте бренд источником ответов в ChatGPT, Perplexity и AI-поиске.',
+        title: 'AEO/GEO Услуги',
+        description: 'Сделайте бренд источником ответов в ChatGPT, Perplexity и Gemini.',
       },
       en: {
-        title: 'AEO Services',
-        description: 'Make your brand a citation source in ChatGPT, Perplexity, and AI search.',
+        title: 'AEO/GEO Services',
+        description: 'Make your brand a citation source in ChatGPT, Perplexity, and Gemini.',
       },
     },
   },
