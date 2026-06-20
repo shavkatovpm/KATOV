@@ -10,9 +10,9 @@ import { ArrowUpRight, X } from 'lucide-react';
 const portfolioItems = [
   { id: '1', title: 'Darslinker', category: "Onlayn ta'limni tizimlashtirish platformasi", url: 'https://darslinker.uz', image: '/portfolio/Darslinker.png' },
   { id: '2', title: 'Getolog', category: 'Yopiq telegram kanallarini avtomatlashtirish', url: 'https://getolog.uz', image: '/portfolio/Getolog.png' },
-  { id: '3', title: 'Uzbektype', category: "Tez va to'g'ri yozishni tekshirish", url: 'https://uzbektype.uz', image: '/portfolio/Uzbektype.png' },
+  { id: '3', title: 'StarsJoy', category: "Telegram Stars, Premium va sovg'alar Mini App", url: 'https://starsjoy.uz', image: '/portfolio/Starsjoy.png' },
   { id: '4', title: 'Unumly', category: 'Kunlik rejalashtirish va shaxsiy moliya ilovasi', url: 'https://unumly.uz', image: '/portfolio/Unumly.png' },
-  { id: '5', title: 'StarsJoy', category: "Telegram Stars, Premium va sovg'alar Mini App", url: 'https://starsjoy.uz', image: '/portfolio/Starsjoy.png' },
+  { id: '5', title: 'Uzbektype', category: "Tez va to'g'ri yozishni tekshirish", url: 'https://uzbektype.uz', image: '/portfolio/Uzbektype.png' },
   { id: '6', title: 'Yuzinchi', category: "Telegram Ads va Google SEO/Ads raqamli marketing agentligi", url: 'https://yuzinchi.uz', image: '/portfolio/Yuzinchi.png' },
 ];
 
