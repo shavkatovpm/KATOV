@@ -93,7 +93,7 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 4,
     content: {
       uz: {
-        title: 'CRM Tizimi Yaratish — Biznes Boshqaruvi Uchun | KATOV',
+        title: 'CRM Tizimi Yaratish — Biznes Boshqaruvi Uchun',
         metaDescription:
           'Sizning biznesingiz uchun maxsus CRM: lead, sotuv voronkasi, Telegram bot, hisobotlar. Oylik to\'lov yo\'q. 15–30 kun, $1000 dan.',
         h1: 'CRM Tizimi Yaratish Xizmati: Biznesingiz Uchun Maxsus, Oylik To\'lovsiz',
@@ -237,7 +237,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'dan',
       },
       ru: {
-        title: 'Разработка CRM-Системы для Бизнеса | KATOV',
+        title: 'Разработка CRM-Системы для Бизнеса',
         metaDescription:
           'Индивидуальная CRM под ваш бизнес: лиды, воронка продаж, Telegram-бот, отчёты. Без ежемесячной оплаты. 15–30 дней, от $1000.',
         h1: 'Разработка CRM-Системы: Индивидуальная под Ваш Бизнес, без Ежемесячной Оплаты',
@@ -381,7 +381,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'от',
       },
       en: {
-        title: 'Custom CRM Development for Business | KATOV',
+        title: 'Custom CRM Development for Business',
         metaDescription:
           'Custom CRM tailored to your business: leads, sales pipeline, Telegram bot, reports. No monthly fees. 15–30 days, from $1000.',
         h1: 'Custom CRM Development: Built for Your Business, No Monthly Fees',
@@ -2298,7 +2298,7 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 4,
     content: {
       uz: {
-        title: 'Sayt Redesign — Eski Saytni Yangilash Xizmati | KATOV',
+        title: 'Sayt Redesign — Eski Saytni Yangilash Xizmati',
         metaDescription:
           'Eski saytni qayta quramiz: mobile-first, tez ochiladigan, Google\'da pozitsiya saqlangan. 301 redirect bilan SEO yo\'qolmaydi. 7–14 kun, $500 dan.',
         h1: 'Sayt Redesign Xizmati: Eski Saytni Tezkor, Mobile va Google\'ga Mos Qayta Quramiz',
@@ -2441,7 +2441,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'dan',
       },
       ru: {
-        title: 'Редизайн Сайта — Модернизация и Обновление | KATOV',
+        title: 'Редизайн Сайта — Модернизация и Обновление',
         metaDescription:
           'Перестраиваем старый сайт: mobile-first, быстрая загрузка, позиции в Google сохраняются. 301-редиректы защищают SEO. 7–14 дней, от $500.',
         h1: 'Редизайн Сайта: Перестраиваем Старый Сайт под Mobile, Скорость и Google',
@@ -2584,7 +2584,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'от',
       },
       en: {
-        title: 'Website Redesign — Modernization Service | KATOV',
+        title: 'Website Redesign — Modernization Service',
         metaDescription:
           'Rebuild a legacy site: mobile-first, fast loading, Google rankings preserved. 301 redirects protect SEO. 7–14 days, from $500.',
         h1: 'Website Redesign: Rebuild Legacy Sites for Mobile, Speed and Google',
@@ -3630,7 +3630,7 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 3,
     content: {
       uz: {
-        title: 'ERP Tizimi Ishlab Chiqish — Korxona Avtomatlashtirish | KATOV',
+        title: 'ERP Tizimi Ishlab Chiqish — Korxona Avtomatlashtirish',
         metaDescription:
           'Korxonangiz uchun maxsus ERP: moliya, ombor, sotuv, HR va ishlab chiqarish bir tizimda. Oylik to\'lov yo\'q, 1C\'dan migratsiya bilan. 20–90 kun, $1000 dan.',
         h1: 'ERP Tizimi Ishlab Chiqish Xizmati: Moliya, Ombor va HR Bir Tizimda, Oylik To\'lovsiz',
@@ -3776,7 +3776,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'dan',
       },
       ru: {
-        title: 'Разработка ERP-Системы — Автоматизация Бизнеса | KATOV',
+        title: 'Разработка ERP-Системы — Автоматизация Бизнеса',
         metaDescription:
           'Индивидуальная ERP для вашего предприятия: финансы, склад, продажи, HR и производство в одной системе. Без ежемесячной оплаты, миграция из 1С. 20–90 дней, от $1000.',
         h1: 'Разработка ERP-Системы: Финансы, Склад и HR в Одной Системе, без Ежемесячной Оплаты',
@@ -3922,7 +3922,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'от',
       },
       en: {
-        title: 'Custom ERP Development — Business Automation | KATOV',
+        title: 'Custom ERP Development — Business Automation',
         metaDescription:
           'Custom ERP for your enterprise: finance, inventory, sales, HR and production in one system. No monthly fees, 1C data migration included. 20–90 days, from $1000.',
         h1: 'Custom ERP Development: Finance, Inventory, and HR in One System, No Monthly Fees',
@@ -4077,7 +4077,7 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 3,
     content: {
       uz: {
-        title: 'Portfolio Sayt Yaratish — Mutaxassis va Freelancer Uchun | KATOV',
+        title: 'Portfolio Sayt Yaratish — Mutaxassis va Freelancer Uchun',
         metaDescription:
           'Mutaxassis va freelancer uchun portfolio sayt: ishlar galereyasi, kontakt, Google\'da topiladi. 3 til, 1 yil hosting bepul. 7–14 kun, $270 dan.',
         h1: 'Portfolio Sayt Yaratish Xizmati: Shaxsiy Brending va Mijozlar Jalb Qilish Uchun',
@@ -4223,7 +4223,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'dan',
       },
       ru: {
-        title: 'Сайт-Портфолио для Специалистов и Фрилансеров | KATOV',
+        title: 'Сайт-Портфолио для Специалистов и Фрилансеров',
         metaDescription:
           'Сайт-портфолио для специалистов и фрилансеров: галерея работ, контакты, индексация в Google. 3 языка, хостинг 1 год бесплатно. 7–14 дней, от $270.',
         h1: 'Создание Сайта-Портфолио: Личный Бренд и Привлечение Клиентов',
@@ -4369,7 +4369,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'от',
       },
       en: {
-        title: 'Portfolio Website for Professionals & Freelancers | KATOV',
+        title: 'Portfolio Website for Professionals & Freelancers',
         metaDescription:
           'Portfolio website for professionals and freelancers: work gallery, contact, Google-indexed. 3 languages, 1 year of free hosting. 7–14 days, from $270.',
         h1: 'Portfolio Website Development: Personal Brand & Client Acquisition',
@@ -4524,7 +4524,7 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 3,
     content: {
       uz: {
-        title: 'Admin Panel va Dashboard Ishlab Chiqish — Custom | KATOV',
+        title: 'Admin Panel va Dashboard Ishlab Chiqish — Custom',
         metaDescription:
           'Biznesingiz uchun maxsus admin panel va dashboard: ma\'lumotlar boshqaruvi, hisobotlar, Click/Payme va Telegram integratsiyasi. Oylik to\'lov yo\'q. 15–30 kun, $800 dan.',
         h1: 'Admin Panel va Dashboard Ishlab Chiqish Xizmati: Biznes Ma\'lumotlarini Bitta Joydan Boshqaring',
@@ -4670,7 +4670,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'dan',
       },
       ru: {
-        title: 'Разработка Админ-Панели и Дашборда на Заказ | KATOV',
+        title: 'Разработка Админ-Панели и Дашборда на Заказ',
         metaDescription:
           'Индивидуальная админ-панель и дашборд: управление данными, отчёты, интеграция Click/Payme и Telegram. Без ежемесячной оплаты. 15–30 дней, от $800.',
         h1: 'Разработка Админ-Панели и Дашборда: Управляйте Данными Бизнеса из Одного Места',
@@ -4816,7 +4816,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'от',
       },
       en: {
-        title: 'Custom Admin Panel & Dashboard Development | KATOV',
+        title: 'Custom Admin Panel & Dashboard Development',
         metaDescription:
           'Custom admin panel and dashboard: data management, reports, Click/Payme and Telegram integrations. No monthly fees. 15–30 days, from $800.',
         h1: 'Custom Admin Panel & Dashboard Development: Manage Your Business Data from One Place',
@@ -4971,7 +4971,7 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 3,
     content: {
       uz: {
-        title: 'AEO/GEO Xizmati — ChatGPT, Perplexity va Gemini Qidiruvlarida Chiqish | KATOV',
+        title: 'AEO/GEO Xizmati — ChatGPT, Perplexity va Gemini Qidiruvlarida Chiqish',
         metaDescription:
           'AEO/GEO (Answer Engine / Generative Engine Optimization) Toshkentda — ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingizni javob manbai qiling. Schema.org, llms.txt, entity setup. $300/oy dan.',
         h1: 'AEO/GEO Xizmati: AI Qidiruvlarda Brendingizni Chiqarish',
@@ -5126,7 +5126,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: '/oy',
       },
       ru: {
-        title: 'AEO/GEO Услуги — Видимость в ChatGPT, Perplexity и Gemini | KATOV',
+        title: 'AEO/GEO Услуги — Видимость в ChatGPT, Perplexity и Gemini',
         metaDescription:
           'AEO/GEO (Answer Engine / Generative Engine Optimization) в Ташкенте — ваш бренд как источник ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. Schema.org, llms.txt, entity setup. От $300/мес.',
         h1: 'AEO/GEO-Услуги: Вывод Бренда в AI-Поиск',
@@ -5281,7 +5281,7 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: '/мес',
       },
       en: {
-        title: 'AEO/GEO Services — ChatGPT, Perplexity & Gemini Visibility | KATOV',
+        title: 'AEO/GEO Services — ChatGPT, Perplexity & Gemini Visibility',
         metaDescription:
           'AEO/GEO (Answer Engine / Generative Engine Optimization) in Tashkent — make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Schema.org, llms.txt, entity setup. From $300/mo.',
         h1: 'AEO/GEO Services: Get Your Brand into AI Search',
