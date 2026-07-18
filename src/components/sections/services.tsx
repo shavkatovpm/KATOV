@@ -48,7 +48,7 @@ export function Services() {
                 basePrice={item.basePrice}
                 priceSuffix={item.priceSuffix}
                 available={item.available}
-                href={`/${locale}/services/${item.slug}`}
+                href={`/services/${item.slug}`}
                 fromLabel={copy.fromLabel}
                 comingSoonBadge={copy.comingSoonBadge}
                 cardCta={copy.cardCta}

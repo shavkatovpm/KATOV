@@ -9,15 +9,18 @@ import { PiTelegramLogo } from 'react-icons/pi';
 import { siteConfig } from '@/config/site';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { localizedPath } from '@/lib/urls';
+import type { Locale } from '@/i18n/config';
 
 export function Header() {
   const t = useTranslations('nav');
-  const locale = useLocale();
+  const locale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const homeHref = localizedPath(locale) || '/';
 
   const isHomePage = pathname === `/${locale}` || pathname === '/';
 
@@ -69,13 +72,13 @@ export function Header() {
       <div className="container-custom">
         <nav className="flex items-center justify-between h-16 sm:h-20 relative">
           <a
-            href={`/${locale}`}
+            href={homeHref}
             onClick={(e) => {
               e.preventDefault();
               if (isHomePage) {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               } else {
-                router.push(`/${locale}`);
+                router.push(homeHref);
               }
             }}
             className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase cursor-pointer"
@@ -98,7 +101,7 @@ export function Header() {
                         element.scrollIntoView({ behavior: 'smooth' });
                       }
                     } else {
-                      router.push(`/${locale}${item.href}`);
+                      router.push(localizedPath(locale, item.href));
                     }
                   }}
                   className="text-sm font-medium nav-link cursor-pointer"
@@ -108,13 +111,13 @@ export function Header() {
               ) : item.href === '/' ? (
                 <a
                   key={item.key}
-                  href={`/${locale}`}
+                  href={homeHref}
                   onClick={(e) => {
                     e.preventDefault();
                     if (isHomePage) {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     } else {
-                      router.push(`/${locale}`);
+                      router.push(homeHref);
                     }
                   }}
                   className="text-sm font-medium nav-link cursor-pointer"
@@ -124,10 +127,10 @@ export function Header() {
               ) : (
                 <a
                   key={item.key}
-                  href={`/${locale}${item.href}`}
+                  href={localizedPath(locale, item.href)}
                   onClick={(e) => {
                     e.preventDefault();
-                    router.push(`/${locale}${item.href}`);
+                    router.push(localizedPath(locale, item.href));
                   }}
                   className="text-sm font-medium nav-link cursor-pointer"
                 >
@@ -204,7 +207,7 @@ export function Header() {
                               element.scrollIntoView({ behavior: 'smooth' });
                             }
                           } else {
-                            router.push(`/${locale}${item.href}`);
+                            router.push(localizedPath(locale, item.href));
                           }
                         }}
                         className="py-3 text-base font-medium nav-link text-right block cursor-pointer"
@@ -213,14 +216,14 @@ export function Header() {
                       </a>
                     ) : item.href === '/' ? (
                       <a
-                        href={`/${locale}`}
+                        href={homeHref}
                         onClick={(e) => {
                           e.preventDefault();
                           setIsOpen(false);
                           if (isHomePage) {
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                           } else {
-                            router.push(`/${locale}`);
+                            router.push(homeHref);
                           }
                         }}
                         className="py-3 text-base font-medium nav-link text-right block cursor-pointer"
@@ -229,11 +232,11 @@ export function Header() {
                       </a>
                     ) : (
                       <a
-                        href={`/${locale}${item.href}`}
+                        href={localizedPath(locale, item.href)}
                         onClick={(e) => {
                           e.preventDefault();
                           setIsOpen(false);
-                          router.push(`/${locale}${item.href}`);
+                          router.push(localizedPath(locale, item.href));
                         }}
                         className="py-3 text-base font-medium nav-link text-right block cursor-pointer"
                       >

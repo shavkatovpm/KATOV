@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { ArrowUpRight } from 'lucide-react';
 import { iconMap } from './icon-map';
 import {
@@ -53,7 +53,7 @@ export function ServiceRelated({ currentSlug, locale, title }: ServiceRelatedPro
             return (
               <Link
                 key={item.slug}
-                href={`/${locale}/services/${item.slug}`}
+                href={`/services/${item.slug}`}
                 className="group block"
               >
                 <div

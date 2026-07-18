@@ -1,5 +1,5 @@
 import { ArrowRight, Clock } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { iconMap } from './icon-map';
 import type { IconName } from '@/data/services';
 

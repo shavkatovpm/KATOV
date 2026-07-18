@@ -6,6 +6,7 @@ import { siteConfig } from '@/config/site';
 import { Link } from '@/i18n/routing';
 import { getServicesCatalog } from '@/data/services';
 import type { Locale } from '@/i18n/config';
+import { localizedPath } from '@/lib/urls';
 
 const catalog = getServicesCatalog();
 
@@ -16,6 +17,7 @@ export function Footer() {
   const pathname = usePathname();
   const router = useRouter();
   const currentYear = new Date().getFullYear();
+  const homeHref = localizedPath(locale) || '/';
 
   const isHomePage = pathname === `/${locale}` || pathname === '/';
   const servicesHeading =
@@ -33,13 +35,13 @@ export function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 md:col-span-4">
             <a
-              href={`/${locale}`}
+              href={homeHref}
               onClick={(e) => {
                 e.preventDefault();
                 if (isHomePage) {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                  router.push(`/${locale}`);
+                  router.push(homeHref);
                 }
               }}
               className="text-xl sm:text-2xl font-bold tracking-tight cursor-pointer"
