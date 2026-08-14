@@ -9,6 +9,7 @@ import { PiTelegramLogo } from 'react-icons/pi';
 import { siteConfig } from '@/config/site';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 import { RainLogo } from '@/components/ui/logo-animations';
+import { NAVIGATION_START } from '@/components/page-transition';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { localizedPath } from '@/lib/urls';
 import type { Locale } from '@/i18n/config';
@@ -42,6 +43,17 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isOpen]);
+
+  // The header outlives the route, so the open menu would otherwise stay up
+  // over the new page. The links' own onClick can't do this any more —
+  // PageTransition takes the click over to run its exit animation first — and
+  // closing on a pathname change lands inside React's route transition, where
+  // the menu's exit animation never plays and it just freezes open.
+  useEffect(() => {
+    const close = () => setIsOpen(false);
+    document.addEventListener(NAVIGATION_START, close);
+    return () => document.removeEventListener(NAVIGATION_START, close);
+  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -198,6 +210,10 @@ export function Header() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
+              // Without a key AnimatePresence loses track of this child across
+              // a route change and never finishes the exit, leaving the menu
+              // frozen open over the new page.
+              key="mobile-menu"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -322,6 +338,7 @@ export function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            key="mobile-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

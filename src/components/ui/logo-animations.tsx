@@ -104,7 +104,23 @@ export function ScanLogo({ className = DEFAULT_CLASS, color = DEFAULT_COLOR }: L
 /* Erish: turbulence displaces the mark until it melts, then pulls it   */
 /* back into focus.                                                     */
 /* ------------------------------------------------------------------ */
-export function MeltLogo({ className = DEFAULT_CLASS, color = DEFAULT_COLOR }: LogoAnimationProps) {
+interface MeltLogoProps extends LogoAnimationProps {
+  /** One melt-and-reform cycle, in ms. Shorten it for page transitions. */
+  cycleMs?: number;
+  /**
+   * feTurbulence is the most expensive SVG primitive there is — it evaluates
+   * Perlin noise per pixel per frame on the CPU. Keep the rendered box small;
+   * never put this filter on a full-viewport element.
+   */
+  octaves?: number;
+}
+
+export function MeltLogo({
+  className = DEFAULT_CLASS,
+  color = DEFAULT_COLOR,
+  cycleMs = 5200,
+  octaves = 3,
+}: MeltLogoProps) {
   const turbulence = useRef<SVGFETurbulenceElement>(null);
   const displacement = useRef<SVGFEDisplacementMapElement>(null);
   const filterId = `katov-melt-${useId()}`;
@@ -112,7 +128,7 @@ export function MeltLogo({ className = DEFAULT_CLASS, color = DEFAULT_COLOR }: L
   // Filter primitives take their values from attributes, and Motion has no
   // mixer for those — so drive them straight from the frame loop.
   useAnimationFrame((elapsed) => {
-    const phase = (elapsed % 5200) / 5200;
+    const phase = (elapsed % cycleMs) / cycleMs;
     const swell = (1 - Math.cos(phase * Math.PI * 2)) / 2; // 0 → 1 → 0
 
     displacement.current?.setAttribute('scale', (swell * 130).toFixed(1));
@@ -127,7 +143,7 @@ export function MeltLogo({ className = DEFAULT_CLASS, color = DEFAULT_COLOR }: L
             ref={turbulence}
             type="fractalNoise"
             baseFrequency="0.006"
-            numOctaves="3"
+            numOctaves={octaves}
             seed="9"
             result="noise"
           />

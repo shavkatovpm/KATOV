@@ -8,6 +8,7 @@ import { Providers } from '@/components/providers';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { ContactPrompt } from '@/components/contact-prompt';
+import { PageTransition } from '@/components/page-transition';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -210,11 +211,13 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
-            <Header />
-            <div className="page-content flex min-h-screen flex-col">
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
+            <PageTransition>
+              <Header />
+              <div className="page-content flex min-h-screen flex-col">
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
+            </PageTransition>
             <ContactPrompt />
           </Providers>
         </NextIntlClientProvider>
