@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="2000" height="2000" role="img" aria-label="KATOV">
+  <title>KATOV</title>
+  <rect width="2000" height="2000" fill="#000000"/>
+  <g fill="#dddddd" transform="translate(708 421)">
+    <path d="M0 0H212V1172H0Z"/>
+    <path d="M464 303H730L478 577L730 851H464L212 577Z"/>
+  </g>
+</svg>

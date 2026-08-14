@@ -8,9 +8,16 @@ import { IoLogoInstagram } from 'react-icons/io5';
 import { PiTelegramLogo } from 'react-icons/pi';
 import { siteConfig } from '@/config/site';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
+import { RainLogo } from '@/components/ui/logo-animations';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { localizedPath } from '@/lib/urls';
 import type { Locale } from '@/i18n/config';
+
+// Mobile menu uses its own order (desktop nav order stays as defined in siteConfig)
+const MOBILE_NAV_ORDER = ['home', 'services', 'portfolio', 'contact', 'blog'];
+const mobileNavigation = MOBILE_NAV_ORDER.flatMap(
+  (key) => siteConfig.navigation.find((item) => item.key === key) ?? []
+);
 
 export function Header() {
   const t = useTranslations('nav');
@@ -83,7 +90,7 @@ export function Header() {
             }}
             className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase cursor-pointer"
           >
-            <span className="logo-icon text-2xl sm:text-3xl cursor-pointer" style={{ color: 'var(--color-nav-fg)' }}>|&lt;</span>
+            <RainLogo className="h-6 sm:h-7 w-auto shrink-0" color="var(--color-nav-fg)" />
             <span className="cursor-pointer" style={{ color: 'var(--color-nav-fg)' }}>{siteConfig.name}</span>
           </a>
 
@@ -188,7 +195,7 @@ export function Header() {
               style={{ borderColor: 'var(--color-border)' }}
             >
               <div className="flex flex-col items-end gap-1 pt-4 pb-6">
-                {siteConfig.navigation.map((item, index) => (
+                {mobileNavigation.map((item, index) => (
                   <motion.div
                     key={item.key}
                     initial={{ opacity: 0, x: 20 }}
@@ -248,49 +255,82 @@ export function Header() {
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: siteConfig.navigation.length * 0.05 }}
-                  className="flex items-center justify-between pt-4 mt-2 border-t w-full"
+                  transition={{ duration: 0.3, delay: mobileNavigation.length * 0.05 }}
+                  className="flex flex-col gap-3 pt-4 mt-2 border-t w-full"
                   style={{ borderColor: 'var(--color-border)' }}
                 >
-                  <div className="flex items-center gap-0.5">
-                    <a
-                      href={siteConfig.social.telegram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 cursor-pointer transition-colors hover:text-white"
-                      style={{ color: 'var(--color-nav-fg)' }}
-                      aria-label="Telegram"
-                    >
-                      <PiTelegramLogo size={20} />
-                    </a>
-                    <a
-                      href={siteConfig.social.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 cursor-pointer transition-colors hover:text-white"
-                      style={{ color: 'var(--color-nav-fg)' }}
-                      aria-label="Instagram"
-                    >
-                      <IoLogoInstagram size={20} />
-                    </a>
+                  {/* Telegram / Instagram + theme / language — one row */}
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center gap-0.5">
+                      <a
+                        href={siteConfig.social.telegram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 cursor-pointer transition-colors hover:text-white"
+                        style={{ color: 'var(--color-nav-fg)' }}
+                        aria-label="Telegram"
+                      >
+                        <PiTelegramLogo size={20} />
+                      </a>
+                      <a
+                        href={siteConfig.social.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 cursor-pointer transition-colors hover:text-white"
+                        style={{ color: 'var(--color-nav-fg)' }}
+                        aria-label="Instagram"
+                      >
+                        <IoLogoInstagram size={20} />
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-0.5">
+                      <ThemeToggle />
+                      <LanguageSwitcher />
+                    </div>
                   </div>
-                  <div className="flex items-center gap-0.5">
-                    <a
-                      href="tel:+998338880133"
-                      className="px-4 py-2 cursor-pointer transition-colors hover:text-white"
-                      style={{ color: 'var(--color-nav-fg)' }}
-                    >
-                      <span>+998 33 888 01 33</span>
-                    </a>
-                    <ThemeToggle />
-                    <LanguageSwitcher />
-                  </div>
+
+                  {/* Phone number — full width, last element */}
+                  <a
+                    href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
+                    className="block w-full text-center py-3 rounded-lg text-base font-medium tracking-wide cursor-pointer transition-colors hover:text-white whitespace-nowrap"
+                    style={{
+                      color: 'var(--color-nav-fg)',
+                      border: '1px solid var(--color-border)',
+                    }}
+                  >
+                    {siteConfig.contact.phone}
+                  </a>
                 </motion.div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+
+      {/* Mobile menu backdrop — darkens everything below the open navbar */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+            className="lg:hidden"
+            style={{
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              right: 0,
+              height: '100vh',
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
+            }}
+          />
+        )}
+      </AnimatePresence>
     </header>
   );
 }
