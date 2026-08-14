@@ -331,6 +331,13 @@
       "success": "Xabar yuborildi, hayrli bo'lsin.",
       "error": "Ozgina uzilish bo'ldi, yana urinib ko'raylik."
     },
+    "prompt": {
+      "title": "Loyihangiz haqida gaplashamizmi?",
+      "subtitle": "Ariza qoldiring — bog'lanib, savollaringizga javob beramiz.",
+      "close": "Yopish",
+      "successTitle": "Arizangiz qabul qilindi",
+      "successText": "Tez orada siz bilan bog'lanamiz."
+    },
     "form": {
       "name": "Ismingiz",
       "namePlaceholder": "Ismingizni kiriting",

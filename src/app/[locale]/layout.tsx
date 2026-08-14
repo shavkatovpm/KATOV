@@ -215,7 +215,7 @@ export default async function LocaleLayout({
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
-            <ContactPrompt locale={locale as Locale} />
+            <ContactPrompt />
           </Providers>
         </NextIntlClientProvider>
       </body>

@@ -332,6 +332,13 @@
       "success": "Message sent successfully!",
       "error": "Something went wrong, let's try again."
     },
+    "prompt": {
+      "title": "Let's discuss your project",
+      "subtitle": "Leave a request — we'll get in touch and answer your questions.",
+      "close": "Close",
+      "successTitle": "Request received",
+      "successText": "We'll get in touch with you shortly."
+    },
     "form": {
       "name": "Your Name",
       "namePlaceholder": "Enter your name",

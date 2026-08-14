@@ -90,7 +90,18 @@ export function Header() {
             }}
             className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-tight uppercase cursor-pointer"
           >
-            <RainLogo className="h-6 sm:h-7 w-auto shrink-0" color="var(--color-nav-fg)" />
+            <RainLogo
+              className="h-9 sm:h-10 w-auto shrink-0"
+              color="var(--color-nav-fg)"
+              // Same look as the test page, not the same numbers: the mark is
+              // ~6x smaller there, so the defaults would put the glyphs at
+              // under 2px. These keep glyphs, spacing and outline at the same
+              // on-screen size the large version has.
+              columns={3}
+              rowHeight={253}
+              fontSize={205}
+              strokeWidth={30}
+            />
             <span className="cursor-pointer" style={{ color: 'var(--color-nav-fg)' }}>{siteConfig.name}</span>
           </a>
 
