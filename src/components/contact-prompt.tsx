@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Send, Phone, Mail, ArrowRight, X } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import type { Locale } from '@/i18n/config';
 
@@ -180,32 +180,38 @@ export function ContactPrompt({ locale }: ContactPromptProps) {
             onClick={handleClose}
           />
           <motion.div
-            initial={{ y: '100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '100%' }}
-            transition={{ type: 'spring', stiffness: 320, damping: 32 }}
-            className="absolute bottom-0 left-0 right-0"
-            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+            initial={{ opacity: 0, scale: 0.94, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.94, y: 12 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 30 }}
+            role="dialog"
+            aria-modal="true"
+            className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="mx-auto px-4 sm:px-0 max-w-md">
+            <div className="w-full max-w-md pointer-events-auto">
               <div
-                className="rounded-t-3xl shadow-2xl overflow-hidden"
+                className="relative rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] overflow-y-auto"
                 style={{
                   backgroundColor: 'var(--color-bg)',
                   border: '1px solid var(--color-border)',
-                  borderBottom: 'none',
                 }}
               >
-                <div className="pt-3 pb-1.5">
-                  <div
-                    className="w-10 h-1 rounded-full mx-auto"
-                    style={{ backgroundColor: 'color-mix(in srgb, var(--color-fg) 25%, transparent)' }}
-                  />
-                </div>
+                <button
+                  onClick={handleClose}
+                  aria-label={copy.closeLabel}
+                  title={copy.closeLabel}
+                  className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-opacity hover:opacity-70"
+                  style={{
+                    color: 'var(--color-fg)',
+                    backgroundColor: 'color-mix(in srgb, var(--color-fg) 8%, transparent)',
+                  }}
+                >
+                  <X size={18} />
+                </button>
 
-                <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                <div className="px-5 sm:px-6 pt-14 pb-5 sm:pb-6">
                   <div
-                    className="grid grid-cols-3 p-1 rounded-2xl mt-3 mb-4"
+                    className="grid grid-cols-3 p-1 rounded-2xl mb-4"
                     style={{ backgroundColor: 'color-mix(in srgb, var(--color-fg) 6%, transparent)' }}
                   >
                     {TAB_ORDER.map((id) => {
@@ -262,13 +268,6 @@ export function ContactPrompt({ locale }: ContactPromptProps) {
                       </a>
                     </motion.div>
                   </AnimatePresence>
-
-                  <button
-                    onClick={handleClose}
-                    className="w-full text-center text-[12px] sm:text-sm text-muted hover:opacity-70 mt-3 sm:mt-4 py-2"
-                  >
-                    {copy.closeLabel}
-                  </button>
                 </div>
               </div>
             </div>
