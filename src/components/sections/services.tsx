@@ -20,8 +20,7 @@ export function Services() {
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-14 lg:mb-10"
         >
@@ -36,9 +35,8 @@ export function Services() {
             <motion.div
               key={item.slug}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.4) }}
+              animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.4) }}
             >
               <ServiceCard
                 slug={item.slug}
@@ -59,8 +57,7 @@ export function Services() {
 
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-12 flex flex-row items-center justify-center gap-2 sm:gap-3"
         >
