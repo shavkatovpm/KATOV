@@ -3,10 +3,8 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n/config';
-import {
-  FlagshipServicePage,
-  generateFlagshipMetadata,
-} from '@/components/service-detail/flagship-service-page';
+import { generateFlagshipMetadata } from '@/components/service-detail/flagship-service-page';
+import { SeoFlagshipContent } from '@/components/service-detail/seo/seo-flagship-content';
 
 const DATA_SLUG = 'seo-xizmati';
 const PATH = '/seo';
@@ -30,5 +28,5 @@ export default async function SeoPage({ params }: PageProps) {
   if (!hasLocale(locales, locale)) notFound();
   setRequestLocale(locale);
 
-  return <FlagshipServicePage dataSlug={DATA_SLUG} path={PATH} locale={locale as Locale} />;
+  return <SeoFlagshipContent locale={locale as Locale} />;
 }

@@ -11,6 +11,7 @@ import { ServiceFAQ } from './service-faq';
 import { ServiceContactForm } from './service-contact-form';
 import { ServiceSchema } from './service-schema';
 import { ServiceRelated } from './service-related';
+import { portfolioCategoryLabels, otherServicesLabel } from './shared-labels';
 import { locales, type Locale } from '@/i18n/config';
 import { localizedUrl, ogLocale } from '@/lib/urls';
 
@@ -19,30 +20,10 @@ import { localizedUrl, ogLocale } from '@/lib/urls';
 // renders the exact same layout as a regular service page — only the
 // canonical path and data lookup key differ — so all three new routes
 // stay a few lines each instead of tripling the /services/[slug] logic.
-
-const portfolioCategoryLabels: Record<Locale, Record<string, string>> = {
-  uz: {
-    darslinker: "Onlayn ta'limni tizimlashtirish platformasi",
-    getolog: 'Yopiq Telegram kanallarini avtomatlashtirish',
-    uzbektype: "Tez va to'g'ri yozishni tekshirish",
-  },
-  ru: {
-    darslinker: 'Платформа для систематизации онлайн-обучения',
-    getolog: 'Автоматизация закрытых Telegram-каналов',
-    uzbektype: 'Проверка скорости и точности набора текста',
-  },
-  en: {
-    darslinker: 'Online learning systematization platform',
-    getolog: 'Closed Telegram channels automation',
-    uzbektype: 'Typing speed and accuracy test',
-  },
-};
-
-const otherServicesLabel: Record<Locale, string> = {
-  uz: 'Boshqa xizmatlarimiz',
-  ru: 'Другие наши услуги',
-  en: 'Other services',
-};
+//
+// /seo has since forked onto its own bespoke composition
+// (service-detail/seo/seo-flagship-content.tsx); this component still
+// serves /ai-seo and /sayt-yaratish until they get the same treatment.
 
 export async function generateFlagshipMetadata(
   dataSlug: string,

@@ -2882,7 +2882,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Saytingiz uchun bepul SEO audit',
         ctaSubtitle:
           'Saytingizning hozirgi SEO holatini bepul tekshiramiz. Ma\'lumotlarni qoldiring, 2 ish kuni ichida audit hisobotini yuboramiz.',
-        ctaPrimary: 'Bepul audit olish',
+        ctaPrimary: 'Ariza qoldirish',
         breadcrumbServices: 'Xizmatlar',
         priceLabel: 'Narxi',
         priceSuffix: 'dan',
@@ -4992,7 +4992,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: 'AI SEO Xizmati — Saytni ChatGPT va Google AI\'da Chiqarish',
         metaDescription:
           'AI SEO xizmati Toshkentda — sun\'iy intellekt yordamida SEO: ChatGPT uchun SEO va AI qidiruv tizimlari uchun optimizatsiya (AEO/GEO). Saytingizni ChatGPT, Perplexity va Google AI\'da chiqaramiz. $300/oy dan.',
-        h1: 'AI SEO Xizmati: Sun\'iy Intellekt Yordamida SEO — ChatGPT va Google AI\'da Chiqish',
+        h1: 'AI SEO Xizmati: Sun\'iy Intellekt sizni tavsiya qilsin — ChatGPT va Google AI\'da Chiqish',
         heroSubtitle:
           'AI SEO — ChatGPT uchun SEO va Google AI qidiruv tizimlari uchun optimizatsiya. AEO (Answer Engine Optimization) va GEO (Generative Engine Optimization) orqali brendingiz ChatGPT, Perplexity, Gemini va Google AI Overviews\'da javob manbai bo\'lishi uchun ishlaymiz. 2026\'da raqobatdan oldinda bo\'ling.',
         benefits: [
