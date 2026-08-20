@@ -340,6 +340,7 @@
       "title": "Let's discuss your project",
       "subtitle": "Leave a request — we'll get in touch and answer your questions.",
       "close": "Close",
+      "openButton": "Leave a request",
       "successTitle": "Request received",
       "successText": "We'll get in touch with you shortly."
     },

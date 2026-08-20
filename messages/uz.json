@@ -339,6 +339,7 @@
       "title": "Loyihangiz haqida gaplashamizmi?",
       "subtitle": "Ariza qoldiring — bog'lanib, savollaringizga javob beramiz.",
       "close": "Yopish",
+      "openButton": "Ariza qoldirish",
       "successTitle": "Arizangiz qabul qilindi",
       "successText": "Tez orada siz bilan bog'lanamiz."
     },
