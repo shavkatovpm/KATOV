@@ -17,6 +17,7 @@ const blogToServices: Record<string, string[]> = {
   'sayt-yaratish-xizmati': ['landing-page', 'korporativ-sayt', 'internet-dokon'],
   'website-buyurtma-berish-toshkent': ['korporativ-sayt', 'landing-page', 'seo-xizmati'],
   'website-narxi-uzbekistonda': ['landing-page', 'korporativ-sayt', 'internet-dokon'],
+  'seo-va-ai-seo-farqi': ['seo-xizmati', 'aeo-xizmati', 'korporativ-sayt'],
 };
 
 // RU / EN slug → canonical uz slug (mirrors the map in the blog page).
@@ -36,6 +37,9 @@ const slugToCanonical: Record<string, string> = {
   'website-buyurtma-berish-toshkent': 'website-buyurtma-berish-toshkent',
   'zakazat-sayt-tashkent': 'website-buyurtma-berish-toshkent',
   'order-website-tashkent': 'website-buyurtma-berish-toshkent',
+  'seo-va-ai-seo-farqi': 'seo-va-ai-seo-farqi',
+  'chem-otlichaetsya-seo-ot-ai-seo': 'seo-va-ai-seo-farqi',
+  'seo-vs-ai-seo-difference': 'seo-va-ai-seo-farqi',
 };
 
 interface BlogRelatedServicesProps {

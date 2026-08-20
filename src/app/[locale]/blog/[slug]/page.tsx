@@ -77,6 +77,9 @@ const slugMap: Record<string, Record<string, string>> = {
   'website-buyurtma-berish-toshkent': { uz: 'website-buyurtma-berish-toshkent', ru: 'zakazat-sayt-tashkent', en: 'order-website-tashkent' },
   'zakazat-sayt-tashkent': { uz: 'website-buyurtma-berish-toshkent', ru: 'zakazat-sayt-tashkent', en: 'order-website-tashkent' },
   'order-website-tashkent': { uz: 'website-buyurtma-berish-toshkent', ru: 'zakazat-sayt-tashkent', en: 'order-website-tashkent' },
+  'seo-va-ai-seo-farqi': { uz: 'seo-va-ai-seo-farqi', ru: 'chem-otlichaetsya-seo-ot-ai-seo', en: 'seo-vs-ai-seo-difference' },
+  'chem-otlichaetsya-seo-ot-ai-seo': { uz: 'seo-va-ai-seo-farqi', ru: 'chem-otlichaetsya-seo-ot-ai-seo', en: 'seo-vs-ai-seo-difference' },
+  'seo-vs-ai-seo-difference': { uz: 'seo-va-ai-seo-farqi', ru: 'chem-otlichaetsya-seo-ot-ai-seo', en: 'seo-vs-ai-seo-difference' },
 };
 
 interface BlogPostPageProps {
