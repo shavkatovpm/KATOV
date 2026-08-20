@@ -4,7 +4,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { siteConfig } from '@/config/site';
 import { Link } from '@/i18n/routing';
-import { getServicesCatalog } from '@/data/services';
+import { getServicesCatalog, servicePath } from '@/data/services';
 import type { Locale } from '@/i18n/config';
 import { localizedPath } from '@/lib/urls';
 
@@ -62,7 +62,7 @@ export function Footer() {
               {catalog.map((item) => (
                 <li key={item.slug}>
                   <Link
-                    href={`/services/${item.slug}`}
+                    href={servicePath(item.slug)}
                     className="footer-link text-xs sm:text-sm"
                   >
                     {item.card[locale].title}
@@ -127,7 +127,11 @@ export function Footer() {
             </ul>
             <ul className="space-y-2 text-xs sm:text-sm mt-6 pt-4" style={{ borderTop: '1px solid var(--color-border)' }}>
               {siteConfig.navigation
-                .filter((item) => !item.href.startsWith('#') && item.href !== '/services')
+                .filter(
+                  (item) =>
+                    !item.href.startsWith('#') &&
+                    !['/services', '/seo', '/ai-seo', '/sayt-yaratish'].includes(item.href)
+                )
                 .map((item) => (
                   <li key={item.key}>
                     <Link href={item.href === '/' ? '/' : item.href} className="footer-link">

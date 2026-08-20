@@ -2736,12 +2736,12 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 4,
     content: {
       uz: {
-        title: 'SEO Xizmati — Saytni Google TOP-ga Chiqarish',
+        title: 'SEO Xizmati — Saytni Google\'da Yuqoriga Chiqarish',
         metaDescription:
-          'SEO xizmati Toshkentda — texnik audit, kalit so\'zlar, kontent va backlink. $300/oy dan, oylik hisobot, shaffof raqamlar.',
-        h1: 'SEO Xizmati: Organik Trafik va Google\'da Topga Chiqish',
+          'SEO xizmati Toshkentda — professional SEO mutaxassis jamoasi saytingizni SEO optimizatsiya qiladi: texnik audit, kalit so\'zlar, kontent, backlink. SEO xizmatlari narxi $300/oy dan.',
+        h1: 'SEO Xizmati: Saytni SEO Optimizatsiya Qilish va Google\'da Yuqoriga Chiqarish',
         heroSubtitle:
-          'Texnik audit, kalit so\'zlar, kontent va backlink — to\'liq SEO paket. Yolg\'on kafolatsiz, har oy raqamli hisobot bilan.',
+          'Texnik audit, kalit so\'zlar, kontent va backlink — professional SEO mutaxassis jamoasi tomonidan to\'liq paket. Yolg\'on kafolatsiz, har oy raqamli hisobot bilan.',
         benefits: [
           {
             icon: 'Search',
@@ -2797,6 +2797,7 @@ export const servicesData: Record<string, ServiceData> = {
           'Google Search Console va Yandex Webmaster monitoring',
           'Raqobatchi tahlili — kvartalda bir marta',
           'Oylik hisobot — pozitsiyalar, trafik, konversiya raqamlari',
+          'Shaxsiy SEO mutaxassis biriktiriladi — savollaringizga har doim javob beradi, oylik qo\'ng\'iroqda progress muhokama qilinadi',
         ],
         processTitle: 'Jarayon',
         processTotalDuration: 'Birinchi natija 2–3 oy, stabil natija 6–12 oy',
@@ -2872,6 +2873,11 @@ export const servicesData: Record<string, ServiceData> = {
             answer:
               'Ha, mumkin. KATOV birinchi navbatda audit qiladi — saytning texnik holati, qaysi platformada qurilgan, qancha o\'zgarish kerakligi aniqlanadi. Ba\'zi hollarda mavjud saytda SEO qilish foydali bo\'lmaydi (eski texnologiya, juda sekin yuklanadi) — bu holda saytni yangidan qurish tavsiya etiladi. Audit natijasi bo\'yicha ochiq tavsiya beramiz: SEO\'mi yoki redesign + SEO.',
           },
+          {
+            question: 'SEO mutaxassis yollashim kerakmi yoki o\'zim qila olamanmi?',
+            answer:
+              'Asosiy narsalarni (meta teglar, alt matn, sekin sahifani tezlashtirish) o\'zingiz ham qila olasiz. Lekin SEO mutaxassis kalit so\'z tadqiqoti, raqobatchi tahlili, schema markup va backlink strategiyasini bir tizimga birlashtiradi — bu tajriba talab qiladi va xato qilish oylab vaqtni yo\'qotishga olib kelishi mumkin. KATOV\'da SEO mutaxassis jamoasi saytingizga to\'liq javobgar bo\'ladi, siz esa biznesingizga e\'tibor berasiz.',
+          },
         ],
         ctaTitle: 'Saytingiz uchun bepul SEO audit',
         ctaSubtitle:
@@ -2882,10 +2888,10 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: 'dan',
       },
       ru: {
-        title: 'SEO Продвижение — Вывод Сайта в ТОП Google и Yandex',
+        title: 'SEO Продвижение Сайта — Вывод в ТОП Google и Yandex',
         metaDescription:
-          'SEO услуги в Ташкенте — техаудит, ключевые слова, контент и backlink. От $300/мес, ежемесячный отчёт, прозрачные цифры.',
-        h1: 'SEO Продвижение: Органический Трафик и Выход в ТОП Google',
+          'SEO продвижение сайта и SEO услуги в Ташкенте — техаудит, ключевые слова, контент и backlink от команды SEO-специалистов. От $300/мес, ежемесячный отчёт.',
+        h1: 'SEO Продвижение Сайта: Органический Трафик и Выход в ТОП Google',
         heroSubtitle:
           'Техаудит, ключевые слова, контент и backlink — полный SEO-пакет. Без ложных гарантий, с ежемесячным отчётом в цифрах.',
         benefits: [
@@ -2943,6 +2949,7 @@ export const servicesData: Record<string, ServiceData> = {
           'Мониторинг Google Search Console и Yandex Webmaster',
           'Анализ конкурентов — раз в квартал',
           'Ежемесячный отчёт — позиции, трафик, цифры по конверсиям',
+          'Личный SEO-специалист закреплён за проектом — отвечает на вопросы, ежемесячный созвон по прогрессу',
         ],
         processTitle: 'Процесс',
         processTotalDuration: 'Первые результаты — 2–3 месяца, стабильные — 6–12 месяцев',
@@ -3018,6 +3025,11 @@ export const servicesData: Record<string, ServiceData> = {
             answer:
               'Да, можно. Сначала KATOV проводит аудит — техническое состояние, на какой платформе сайт, сколько потребуется правок. Иногда SEO на существующем сайте невыгодно (устаревшие технологии, слишком медленная загрузка) — в этом случае рекомендуем сделать сайт заново. По результатам аудита даём честную рекомендацию: только SEO или редизайн + SEO.',
           },
+          {
+            question: 'Нужен ли мне SEO-специалист или можно сделать самому?',
+            answer:
+              'Базовые вещи (мета-теги, alt-текст, ускорение медленных страниц) можно сделать самостоятельно. Но SEO-специалист объединяет исследование ключевых слов, анализ конкурентов, schema-разметку и backlink-стратегию в единую систему — это требует опыта, а ошибки могут стоить месяцев потерянного времени. В KATOV SEO-специалист полностью отвечает за ваш сайт, а вы фокусируетесь на бизнесе.',
+          },
         ],
         ctaTitle: 'Бесплатный SEO-аудит для вашего сайта',
         ctaSubtitle:
@@ -3089,6 +3101,7 @@ export const servicesData: Record<string, ServiceData> = {
           'Google Search Console and Yandex Webmaster monitoring',
           'Competitor analysis — once per quarter',
           'Monthly report — rankings, traffic, conversion numbers',
+          'A dedicated SEO specialist on your project — answers questions directly, monthly progress call',
         ],
         processTitle: 'Process',
         processTotalDuration: 'First results in 2–3 months, stable results in 6–12 months',
@@ -3163,6 +3176,11 @@ export const servicesData: Record<string, ServiceData> = {
             question: 'My site was built by another company — can KATOV take it on for SEO?',
             answer:
               'Yes. KATOV starts with an audit — technical state, what platform the site runs on, how many fixes are needed. Sometimes SEO on an existing site isn\'t worthwhile (outdated tech, very slow loading) — in that case we recommend a fresh build. Based on audit results, we give an honest recommendation: SEO only or redesign + SEO.',
+          },
+          {
+            question: 'Do I need to hire an SEO specialist, or can I do it myself?',
+            answer:
+              'You can handle the basics yourself — meta tags, alt text, speeding up slow pages. But an SEO specialist ties keyword research, competitor analysis, schema markup, and backlink strategy into one system — that takes experience, and mistakes can cost months. At KATOV, a dedicated SEO specialist owns your site end to end, so you can focus on the business.',
           },
         ],
         ctaTitle: 'Free SEO audit for your site',
@@ -4971,12 +4989,12 @@ export const servicesData: Record<string, ServiceData> = {
     demand: 3,
     content: {
       uz: {
-        title: 'AEO/GEO Xizmati — ChatGPT, Perplexity va Gemini Qidiruvlarida Chiqish',
+        title: 'AI SEO Xizmati — Saytni ChatGPT va Google AI\'da Chiqarish',
         metaDescription:
-          'AEO/GEO (Answer Engine / Generative Engine Optimization) Toshkentda — ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingizni javob manbai qiling. Schema.org, llms.txt, entity setup. $300/oy dan.',
-        h1: 'AEO/GEO Xizmati: AI Qidiruvlarda Brendingizni Chiqarish',
+          'AI SEO xizmati Toshkentda — sun\'iy intellekt yordamida SEO: ChatGPT uchun SEO va AI qidiruv tizimlari uchun optimizatsiya (AEO/GEO). Saytingizni ChatGPT, Perplexity va Google AI\'da chiqaramiz. $300/oy dan.',
+        h1: 'AI SEO Xizmati: Sun\'iy Intellekt Yordamida SEO — ChatGPT va Google AI\'da Chiqish',
         heroSubtitle:
-          'Google\'dan keyingi qidiruv era — AI javoblar. AEO (Answer Engine Optimization) va GEO (Generative Engine Optimization) bilan ChatGPT, Perplexity, Gemini va Google AI Overviews\'da brendingiz javob manbai bo\'lishi uchun ishlaymiz. 2026\'da raqobatdan oldinda bo\'ling.',
+          'AI SEO — ChatGPT uchun SEO va Google AI qidiruv tizimlari uchun optimizatsiya. AEO (Answer Engine Optimization) va GEO (Generative Engine Optimization) orqali brendingiz ChatGPT, Perplexity, Gemini va Google AI Overviews\'da javob manbai bo\'lishi uchun ishlaymiz. 2026\'da raqobatdan oldinda bo\'ling.',
         benefits: [
           {
             icon: 'Sparkles',
@@ -5020,7 +5038,7 @@ export const servicesData: Record<string, ServiceData> = {
               'Yirik xaridorlar qaror qabul qilishdan oldin AI\'dan tadqiqot boshlaydi. AI javobida sizning kompaniyangiz eslatib o\'tilishi — sotuv jarayonining birinchi qadami.',
           },
         ],
-        deliverablesTitle: 'AEO paketga nima kiradi',
+        deliverablesTitle: 'AI SEO paketga nima kiradi',
         deliverables: [
           'Saytingiz AI uchun qanchalik tayyorligini to\'liq tekshiramiz — nima sababdan ChatGPT/Perplexity hozir brendingizni eslatmayotganini aniqlaymiz',
           'AI sizning ma\'lumotlaringizni to\'g\'ri tushunadigan qilamiz — narx, manzil, xizmatlar, kontakt har biri AI uchun aniq belgilanadi (texnik tomon: schema.org markup)',
@@ -5082,19 +5100,19 @@ export const servicesData: Record<string, ServiceData> = {
         faqTitle: 'Tez-tez beriladigan savollar',
         faq: [
           {
-            question: 'AEO nima va SEO\'dan nima farqi bor?',
+            question: 'AI SEO nima va oddiy SEO\'dan nima farqi bor?',
             answer:
-              'AEO (Answer Engine Optimization) — bu saytni AI qidiruv tizimlari (ChatGPT, Perplexity, Gemini, Google AI Overviews) javoblarida ko\'rinadigan qilish. SEO — Google\'da rank bo\'lish, AEO — AI javobida iqtibos manbai bo\'lish. SEO\'da maqsad: foydalanuvchi sizning saytingizga keladi. AEO\'da maqsad: AI sizning brendingizni javobda eslab o\'tadi va manba sifatida ko\'rsatadi. Ikkalasi bir-birini to\'ldiradi: SEO Google trafigi, AEO AI trafigi.',
+              'AI SEO — saytingizni sun\'iy intellekt qidiruv tizimlari (ChatGPT, Perplexity, Gemini, Google AI Overviews) javoblarida ko\'rinadigan qilish strategiyasi. Texnik jihatdan ikki komponentdan iborat: AEO (Answer Engine Optimization) va GEO (Generative Engine Optimization). SEO — Google\'da rank bo\'lish, AI SEO — AI javobida iqtibos manbai bo\'lish. SEO\'da maqsad: foydalanuvchi sizning saytingizga keladi. AI SEO\'da maqsad: ChatGPT yoki Google AI sizning brendingizni javobda eslab o\'tadi va manba sifatida ko\'rsatadi. Ikkalasi bir-birini to\'ldiradi: SEO Google trafigi, AI SEO — AI trafigi.',
           },
           {
             question: 'AEO va GEO — bir xilmi? Farqi nimada?',
             answer:
-              'Amaliyotda ikkalasi bitta maqsadga ishlaydi — AI qidiruv javoblarida brendingizni chiqarish. Nomi va urg\'usi farq qiladi: AEO (Answer Engine Optimization, 2020-yildan) kengroq termin — featured snippet, voice assistant va AI javoblari hammasini qamrab oladi. GEO (Generative Engine Optimization, 2023-yildagi Princeton tadqiqotidan) maxsus ChatGPT, Perplexity, Gemini kabi generative AI tizimlariga qaratilgan. KATOV ikkalasini bitta paketda yetkazib beradi: schema, llms.txt, entity setup, AI citation monitoring — bir xil texnik ish, ikkita keyword nomi.',
+              'Amaliyotda ikkalasi bitta maqsadga ishlaydi — AI qidiruv javoblarida brendingizni chiqarish, ya\'ni AI SEO\'ning ikki komponenti. Nomi va urg\'usi farq qiladi: AEO (Answer Engine Optimization, 2020-yildan) kengroq termin — featured snippet, voice assistant va AI javoblari hammasini qamrab oladi. GEO (Generative Engine Optimization, 2023-yildagi Princeton tadqiqotidan) maxsus ChatGPT, Perplexity, Gemini kabi generative AI tizimlariga qaratilgan. KATOV ikkalasini bitta AI SEO paketida yetkazib beradi: schema, llms.txt, entity setup, AI citation monitoring — bir xil texnik ish, ikkita keyword nomi.',
           },
           {
             question: 'AI qidiruv hozir qancha trafik beradi?',
             answer:
-              'ChatGPT 2025 yil boshida 400+ million haftalik foydalanuvchiga yetdi (OpenAI rasmiy ma\'lumoti), Perplexity 22+ million haftalik faol foydalanuvchi (2024 oxiri), Google AI Overviews esa global qidiruvda standart natija sifatida ko\'rinmoqda. AI qidiruv hali Google\'dan ulush olishni boshlagan, lekin tez o\'sib bormoqda. O\'zbekistonda foydalanuvchilar AI\'dan tavsiya, narx solishtirish va texnik savollar uchun foydalanmoqda.',
+              'ChatGPT 2026-yil fevral holatiga 900+ million haftalik faol foydalanuvchiga yetdi — bu 2025-yildagi 400 milliondan 2 barobar ko\'p (OpenAI rasmiy hisoboti). Google AI Overviews oyiga 2,5 milliard+ foydalanuvchini 200+ mamlakatda qamrab oladi, Google AI Mode esa 2026-yil may holatiga 1 milliard+ oylik faol foydalanuvchiga ega. Qidiruvlarning deyarli yarmida (~48–50%) Google AI Overviews chiqmoqda. AI qidiruv endi Google bilan bir qatorda kundalik odat — O\'zbekistonda ham foydalanuvchilar AI\'dan tavsiya, narx solishtirish va texnik savollar uchun foydalanmoqda.',
           },
           {
             question: 'Natija qachon ko\'rinadi?',
@@ -5126,12 +5144,12 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: '/oy',
       },
       ru: {
-        title: 'AEO/GEO Услуги — Видимость в ChatGPT, Perplexity и Gemini',
+        title: 'AI SEO Услуги — Продвижение Сайта в ChatGPT и Google AI',
         metaDescription:
-          'AEO/GEO (Answer Engine / Generative Engine Optimization) в Ташкенте — ваш бренд как источник ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. Schema.org, llms.txt, entity setup. От $300/мес.',
-        h1: 'AEO/GEO-Услуги: Вывод Бренда в AI-Поиск',
+          'AI SEO услуги в Ташкенте — оптимизация для ИИ-поиска (AEO/GEO): ваш бренд как источник ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. Schema.org, llms.txt, entity setup. От $300/мес.',
+        h1: 'AI SEO-Услуги: Продвижение Бренда с Помощью Искусственного Интеллекта в AI-Поиске',
         heroSubtitle:
-          'После Google — эра AI-ответов. С помощью AEO (Answer Engine Optimization) и GEO (Generative Engine Optimization) делаем ваш бренд источником ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. В 2026 году опережайте конкурентов.',
+          'AI SEO — оптимизация для ChatGPT и ИИ-поисковых систем. С помощью AEO (Answer Engine Optimization) и GEO (Generative Engine Optimization) делаем ваш бренд источником ответов в ChatGPT, Perplexity, Gemini и Google AI Overviews. В 2026 году опережайте конкурентов.',
         benefits: [
           {
             icon: 'Sparkles',
@@ -5237,19 +5255,19 @@ export const servicesData: Record<string, ServiceData> = {
         faqTitle: 'Часто задаваемые вопросы',
         faq: [
           {
-            question: 'AEO и GEO — это одно и то же? В чём разница?',
+            question: 'Что такое AI SEO и чем отличается от обычного SEO?',
             answer:
-              'На практике обе технологии решают одну задачу — сделать ваш бренд видимым в ответах AI-поиска. Различаются названиями и акцентом: AEO (Answer Engine Optimization, с 2020-го) — более широкий термин, охватывающий featured snippets, голосовых ассистентов и AI-ответы. GEO (Generative Engine Optimization, из исследования Принстона 2023 года) — узко про генеративные AI-системы: ChatGPT, Perplexity, Gemini. KATOV доставляет обе услуги в одном пакете: schema, llms.txt, entity setup, мониторинг цитирований в AI — техническая работа одна, ключевых слов два.',
+              'AI SEO — стратегия продвижения бренда в ответах систем с искусственным интеллектом (ChatGPT, Perplexity, Gemini, Google AI Overviews). Технически состоит из двух компонентов: AEO (Answer Engine Optimization) и GEO (Generative Engine Optimization). SEO — ранжирование в Google, AI SEO — стать источником цитирования в ответе ИИ. Цель SEO: пользователь приходит на ваш сайт. Цель AI SEO: ChatGPT или Google AI упоминает ваш бренд в ответе и указывает источник. Они дополняют друг друга: SEO — трафик из Google, AI SEO — трафик из ИИ.',
           },
           {
-            question: 'Что такое AEO и чем отличается от SEO?',
+            question: 'AEO и GEO — это одно и то же? В чём разница?',
             answer:
-              'AEO (Answer Engine Optimization) — это оптимизация сайта так, чтобы он появлялся в ответах AI-поисковых систем (ChatGPT, Perplexity, Gemini, Google AI Overviews). SEO — ранжирование в Google, AEO — стать источником цитирования в ответе AI. Цель SEO: пользователь приходит на ваш сайт. Цель AEO: AI упоминает ваш бренд в ответе и указывает источник. Они дополняют друг друга: SEO — трафик из Google, AEO — трафик из AI.',
+              'На практике обе технологии решают одну задачу — сделать ваш бренд видимым в ответах AI-поиска, то есть оба компонента AI SEO. Различаются названиями и акцентом: AEO (Answer Engine Optimization, с 2020-го) — более широкий термин, охватывающий featured snippets, голосовых ассистентов и AI-ответы. GEO (Generative Engine Optimization, из исследования Принстона 2023 года) — узко про генеративные AI-системы: ChatGPT, Perplexity, Gemini. KATOV доставляет обе услуги в одном AI SEO пакете: schema, llms.txt, entity setup, мониторинг цитирований в AI — техническая работа одна, ключевых слов два.',
           },
           {
             question: 'Сколько трафика даёт AI-поиск сейчас?',
             answer:
-              'ChatGPT в начале 2025 года достиг 400+ млн пользователей в неделю (официальные данные OpenAI), Perplexity — 22+ млн еженедельно активных пользователей (конец 2024), Google AI Overviews — стандартный результат в глобальном поиске. AI-поиск только начал отбирать долю у Google, но быстро растёт. В Узбекистане пользователи обращаются к AI за рекомендациями, сравнением цен и техническими вопросами.',
+              'ChatGPT по состоянию на февраль 2026 года достиг 900+ млн активных пользователей в неделю — вдвое больше 400 млн в 2025 году (официальный отчёт OpenAI). Google AI Overviews охватывает 2,5+ млрд пользователей в месяц в 200+ странах, а Google AI Mode на май 2026 года — 1+ млрд активных пользователей в месяц. AI Overviews показывается почти в половине (~48–50%) поисковых запросов Google. AI-поиск стал повседневной привычкой наравне с Google — в Узбекистане пользователи тоже обращаются к ИИ за рекомендациями, сравнением цен и техническими вопросами.',
           },
           {
             question: 'Когда видны результаты?',
@@ -5281,12 +5299,12 @@ export const servicesData: Record<string, ServiceData> = {
         priceSuffix: '/мес',
       },
       en: {
-        title: 'AEO/GEO Services — ChatGPT, Perplexity & Gemini Visibility',
+        title: 'AI SEO Services — Get Your Brand into ChatGPT & Google AI',
         metaDescription:
-          'AEO/GEO (Answer Engine / Generative Engine Optimization) in Tashkent — make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Schema.org, llms.txt, entity setup. From $300/mo.',
-        h1: 'AEO/GEO Services: Get Your Brand into AI Search',
+          'AI SEO services in Tashkent — AI search optimization (AEO/GEO): make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Schema.org, llms.txt, entity setup. From $300/mo.',
+        h1: 'AI SEO Services: Getting Your Brand Cited by ChatGPT and Google AI',
         heroSubtitle:
-          'After Google, the next era is AI answers. With AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) we make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Stay ahead in 2026.',
+          'AI SEO means optimizing for ChatGPT and AI search engines. With AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) we make your brand a citation source in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Stay ahead in 2026.',
         benefits: [
           {
             icon: 'Sparkles',
@@ -5392,19 +5410,19 @@ export const servicesData: Record<string, ServiceData> = {
         faqTitle: 'Frequently asked questions',
         faq: [
           {
-            question: 'Are AEO and GEO the same thing? What\'s the difference?',
+            question: 'What is AI SEO and how is it different from regular SEO?',
             answer:
-              'In practice they target the same outcome — making your brand visible in AI search answers. The terms differ in scope and origin: AEO (Answer Engine Optimization, since 2020) is the broader term — it covers featured snippets, voice assistants, and AI answers. GEO (Generative Engine Optimization, from the 2023 Princeton paper) is narrower and targets generative AI engines specifically: ChatGPT, Perplexity, Gemini. KATOV ships both as a single package: schema, llms.txt, entity setup, AI citation monitoring — same technical work, two keyword names.',
+              'AI SEO is the strategy of getting your brand cited in answers from AI systems (ChatGPT, Perplexity, Gemini, Google AI Overviews). Technically it has two components: AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization). SEO is ranking in Google; AI SEO is becoming a citation source in an AI answer. SEO goal: the user comes to your site. AI SEO goal: ChatGPT or Google AI mentions your brand in the answer and lists you as the source. They complement each other: SEO is Google traffic, AI SEO is AI traffic.',
           },
           {
-            question: 'What is AEO and how is it different from SEO?',
+            question: 'Are AEO and GEO the same thing? What\'s the difference?',
             answer:
-              'AEO (Answer Engine Optimization) is optimizing your site so it appears in answers from AI search systems (ChatGPT, Perplexity, Gemini, Google AI Overviews). SEO is ranking in Google; AEO is becoming a citation source in an AI answer. SEO goal: the user comes to your site. AEO goal: AI mentions your brand in the answer and lists you as the source. They complement each other: SEO is Google traffic, AEO is AI traffic.',
+              'In practice they target the same outcome — making your brand visible in AI search answers, i.e. the two components of AI SEO. The terms differ in scope and origin: AEO (Answer Engine Optimization, since 2020) is the broader term — it covers featured snippets, voice assistants, and AI answers. GEO (Generative Engine Optimization, from the 2023 Princeton paper) is narrower and targets generative AI engines specifically: ChatGPT, Perplexity, Gemini. KATOV ships both as a single AI SEO package: schema, llms.txt, entity setup, AI citation monitoring — same technical work, two keyword names.',
           },
           {
             question: 'How much traffic does AI search drive today?',
             answer:
-              'ChatGPT reached 400M+ weekly users in early 2025 (OpenAI official data), Perplexity had 22M+ weekly active users (late 2024), and Google AI Overviews is now a standard result in global search. AI search has only started taking share from Google, but it\'s growing fast. In Uzbekistan, users turn to AI for recommendations, price comparisons, and technical questions.',
+              'ChatGPT reached 900M+ weekly active users as of February 2026 — double the 400M reported in 2025 (OpenAI\'s official report). Google AI Overviews now reaches 2.5B+ users monthly across 200+ countries, and Google AI Mode passed 1B+ monthly active users as of May 2026. AI Overviews now shows up in nearly half (~48–50%) of Google searches. AI search has become a daily habit alongside Google — in Uzbekistan too, users turn to AI for recommendations, price comparisons, and technical questions.',
           },
           {
             question: 'When do results show up?',
@@ -5437,6 +5455,453 @@ export const servicesData: Record<string, ServiceData> = {
       },
     },
   },
+  'sayt-yaratish': {
+    slug: 'sayt-yaratish',
+    icon: 'Globe',
+    basePrice: 270,
+    priceSuffix: '',
+    demand: 5,
+    content: {
+      uz: {
+        title: 'Sayt Yaratish Xizmati — Narxi va Turlari',
+        metaDescription:
+          'Toshkentda sayt yaratish — landing page, korporativ sayt yoki internet do\'kon yaratish. Web sayt yaratish narxi $270 dan, 3 tilda (uz/ru/en), 5–15 kunda tayyor.',
+        h1: 'Sayt Yaratish Xizmati: Biznesingizga Mos Web Sayt — $270 dan',
+        heroSubtitle:
+          'Landing page, korporativ sayt yoki internet do\'kon yaratish — biznesingiz turiga mos sayt tanlaymiz va quramiz. Tezkor, mobilga moslashgan, 3 tilda, shaffof narx bilan.',
+        benefits: [
+          {
+            icon: 'Zap',
+            title: 'Tezkor ishga tushirish',
+            description:
+              'Sayt turiga qarab 5–15 kunda tayyor bo\'ladi. Kutish yo\'q — aniq muddat shartnomada belgilanadi.',
+          },
+          {
+            icon: 'Globe',
+            title: 'Har turdagi biznes uchun',
+            description:
+              'Landing page\'dan internet do\'konga — qaysi turdagi sayt kerakligini bepul konsultatsiyada birga aniqlaymiz.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Shaffof narx',
+            description:
+              'Web sayt yaratish narxi $270 dan boshlanadi, sayt turiga qarab aniq narx oldindan kelishiladi. Yashirin to\'lov yo\'q.',
+          },
+        ],
+        forWhoTitle: 'Qanday sayt sizga kerak',
+        forWho: [
+          {
+            title: 'Yangi boshlagan biznes yoki mahsulot',
+            description:
+              'Tezkor, sotuvchi bitta sahifa kifoya qiladi — Landing Page, $270 dan.',
+          },
+          {
+            title: 'O\'rnashgan kompaniya',
+            description:
+              'Xizmatlar, portfolio va blog bilan to\'liq korporativ sayt kerak — $870 dan.',
+          },
+          {
+            title: 'Onlayn savdo qiluvchi biznes',
+            description:
+              'Internet do\'kon yaratish — Click/Payme to\'lov, mahsulot katalogi, buyurtma boshqaruvi, $1700 dan.',
+          },
+          {
+            title: 'Qaysi turi kerakligini bilmasangiz',
+            description:
+              'Bepul konsultatsiyada biznesingizga eng mos sayt turini birga aniqlaymiz — ortiqcha xizmat sotmaymiz.',
+          },
+        ],
+        deliverablesTitle: 'Sayt yaratish paketiga nima kiradi',
+        deliverables: [
+          'Biznesingiz uchun eng mos sayt turini aniqlaymiz — landing, korporativ yoki internet do\'kon (bepul konsultatsiya)',
+          'Zamonaviy, mobilga to\'liq moslashgan dizayn — telefon, planshet, kompyuterda bir xil sifatli ko\'rinadi',
+          'Tez ochiladigan sayt — mijoz kutib qolmaydi, qidiruv tizimlari ham buni yoqtiradi',
+          'SEO uchun tayyor struktura — meta teglar, sitemap, schema markup boshidanoq to\'g\'ri qurilgan',
+          '3 tilda (uz/ru/en) — auditoriyangizning barcha segmentiga yetib borasiz',
+          'Click va Payme to\'lov tizimi ulab beriladi (internet do\'kon va kerak bo\'lgan boshqa turlarda)',
+          'Kontakt forma va Telegram integratsiyasi — mijozlar sizga to\'g\'ridan-to\'g\'ri murojaat qiladi',
+          'Admin panel — kontentni o\'zingiz osongina yangilay olasiz',
+          'Domen va hosting bo\'yicha yo\'naltirish — texnik tomonlarda yolg\'iz qolmaysiz',
+          '1 oy bepul texnik qo\'llab-quvvatlash — ishga tushgandan keyin',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: '5–15 kun, sayt turiga qarab',
+        process: [
+          {
+            step: 1,
+            title: 'Konsultatsiya va sayt turini aniqlash',
+            description:
+              'Biznesingiz, maqsadingiz va byudjetingizga qarab qaysi sayt turi (landing, korporativ yoki internet do\'kon) kerakligini birga aniqlaymiz.',
+            duration: '1 kun',
+          },
+          {
+            step: 2,
+            title: 'Dizayn',
+            description:
+              'Sayt maketi tayyorlanadi, siz ko\'rib tasdiqlaysiz — o\'zgartirishlar shu bosqichda kiritiladi.',
+            duration: '2–5 kun',
+          },
+          {
+            step: 3,
+            title: 'Dasturlash va integratsiya',
+            description:
+              'Sayt kodlashtiriladi, to\'lov tizimi (kerak bo\'lsa) va boshqa integratsiyalar ulanadi.',
+            duration: '3–8 kun',
+          },
+          {
+            step: 4,
+            title: 'Test va ishga tushirish',
+            description:
+              'Barcha qurilmalarda tekshiriladi, domenga ulanadi va sizga topshiriladi.',
+            duration: '1–2 kun',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Har bir loyihaga alohida yondashuv — biznesingiz va mijozlaringizga moslashtirilgan yechim',
+          'Qaysi sayt turi kerakligini shablon emas, konsultatsiya orqali aniqlaymiz — ortiqcha xizmat sotmaymiz',
+          'Dizayndan SEO\'gacha bitta jamoa — qism-qism qildirib o\'tirmaysiz',
+          'Shaffof narx — $270 dan boshlanadi, aniq narx oldindan kelishiladi',
+          '3 til paket tarkibida — uz/ru/en alohida to\'lovsiz',
+          'Ishga tushgandan keyin ham yolg\'iz qoldirilmaysiz — 1 oy bepul texnik qo\'llab-quvvatlash',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Sayt yaratish narxi qancha turadi?',
+            answer:
+              'Sayt turiga qarab farq qiladi: Landing Page $270 dan (bitta sahifa, tezkor), Korporativ sayt $870 dan (xizmatlar, portfolio, blog), Internet do\'kon yaratish $1700 dan (to\'lov tizimi, mahsulot katalogi, buyurtma boshqaruvi). Aniq narx konsultatsiya jarayonida, sayt hajmi va funksiyalariga qarab belgilanadi.',
+          },
+          {
+            question: 'Qaysi sayt turini tanlashni bilmayman — landing kerakmi yoki korporativ sayt?',
+            answer:
+              'Agar bitta mahsulot yoki xizmatni sotmoqchi bo\'lsangiz — Landing Page yetarli. Agar kompaniyangiz haqida to\'liq ma\'lumot (xizmatlar, portfolio, jamoa, blog) berish kerak bo\'lsa — Korporativ sayt. Onlayn savdo qilsangiz — Internet do\'kon. Bilmasangiz, bepul konsultatsiyada biznesingizni tinglab, mos variantni taklif qilamiz.',
+          },
+          {
+            question: 'Toshkentda sayt yaratish necha kun davom etadi?',
+            answer:
+              'Landing page 5–7 kun, korporativ sayt 10–15 kun, internet do\'kon 15–20 kun. Aniq muddat shartnomada belgilanadi.',
+          },
+          {
+            question: 'Internet do\'kon yaratishda qanday to\'lov tizimlari ulanadi?',
+            answer:
+              'Click va Payme — O\'zbekistondagi eng mashhur ikkita to\'lov tizimi ulab beriladi. Boshqa to\'lov turlari (naqd, bank o\'tkazmasi) ham qo\'shilishi mumkin, konsultatsiyada muhokama qilinadi.',
+          },
+          {
+            question: 'Sayt tayyor bo\'lgach, kontentni o\'zim yangilay olamanmi?',
+            answer:
+              'Ha. Har sayt admin panel bilan keladi — matn, rasm va narxlarni o\'zingiz, dasturchisiz yangilay olasiz.',
+          },
+          {
+            question: 'Mavjud saytim bor, uni yangilashim mumkinmi yoki faqat yangi sayt qilasizlarmi?',
+            answer:
+              'Ikkalasi ham. Agar mavjud saytingiz eski yoki sekin bo\'lsa, sayt redesign xizmatimiz bor — mavjud saytni zamonaviy ko\'rinishga, tezroq va SEO\'ga tayyor holga keltiramiz.',
+          },
+        ],
+        ctaTitle: 'Saytingizni yaratishni boshlaymizmi?',
+        ctaSubtitle:
+          'Biznesingiz haqida qisqacha yozing — qaysi sayt turi mos kelishini bepul konsultatsiyada aniqlaymiz va aniq narx taklif qilamiz.',
+        ctaPrimary: 'Buyurtma berish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Создание Сайта — Цена и Виды',
+        metaDescription:
+          'Создание сайтов в Ташкенте — landing page, корпоративный сайт или интернет-магазин. Разработка сайта от $270, 3 языка (uz/ru/en), готово за 5–15 дней. Закажите сайт уже сегодня.',
+        h1: 'Создание Сайта: Разработка Под Ваш Бизнес — от $270',
+        heroSubtitle:
+          'Landing page, корпоративный сайт или интернет-магазин — подбираем и создаём сайт под тип вашего бизнеса. Быстро, адаптивно, на 3 языках, с прозрачной ценой.',
+        benefits: [
+          {
+            icon: 'Zap',
+            title: 'Быстрый запуск',
+            description:
+              'Готово за 5–15 дней в зависимости от типа сайта. Точный срок фиксируется в договоре.',
+          },
+          {
+            icon: 'Globe',
+            title: 'Для любого типа бизнеса',
+            description:
+              'От landing page до интернет-магазина — определяем нужный тип сайта на бесплатной консультации.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Прозрачная цена',
+            description:
+              'Разработка сайта — от $270, точная цена фиксируется заранее в зависимости от типа сайта. Без скрытых платежей.',
+          },
+        ],
+        forWhoTitle: 'Какой сайт вам нужен',
+        forWho: [
+          {
+            title: 'Новый бизнес или продукт',
+            description:
+              'Достаточно быстрой продающей одностраницы — Landing Page, от $270.',
+          },
+          {
+            title: 'Устоявшаяся компания',
+            description:
+              'Нужен полноценный корпоративный сайт с услугами, портфолио и блогом — от $870.',
+          },
+          {
+            title: 'Бизнес с онлайн-продажами',
+            description:
+              'Создание интернет-магазина — оплата Click/Payme, каталог товаров, управление заказами, от $1700.',
+          },
+          {
+            title: 'Если не знаете, какой тип нужен',
+            description:
+              'На бесплатной консультации подберём подходящий вариант под ваш бизнес — лишнего не продаём.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в создание сайта',
+        deliverables: [
+          'Определяем оптимальный тип сайта — landing, корпоративный или интернет-магазин (бесплатная консультация)',
+          'Современный, полностью адаптивный дизайн — одинаково хорошо смотрится на телефоне, планшете и компьютере',
+          'Быстрая загрузка сайта — посетитель не ждёт, поисковики это тоже ценят',
+          'Структура, готовая для SEO — мета-теги, sitemap, schema-разметка настроены правильно с самого начала',
+          '3 языка (uz/ru/en) — охватываете всю аудиторию',
+          'Подключаем оплату Click и Payme (для интернет-магазина и других подходящих типов)',
+          'Контактная форма и интеграция с Telegram — клиенты обращаются напрямую',
+          'Админ-панель — обновляете контент сами, без программиста',
+          'Помощь с доменом и хостингом — не остаётесь один на один с технической частью',
+          '1 месяц бесплатной технической поддержки после запуска',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: '5–15 дней, в зависимости от типа сайта',
+        process: [
+          {
+            step: 1,
+            title: 'Консультация и выбор типа сайта',
+            description:
+              'Вместе определяем, какой тип сайта (landing, корпоративный или интернет-магазин) нужен под ваш бизнес и бюджет.',
+            duration: '1 день',
+          },
+          {
+            step: 2,
+            title: 'Дизайн',
+            description:
+              'Готовим макет сайта, вы проверяете и утверждаете — правки вносятся на этом этапе.',
+            duration: '2–5 дней',
+          },
+          {
+            step: 3,
+            title: 'Разработка и интеграции',
+            description:
+              'Сайт кодируется, подключается система оплаты (если нужна) и другие интеграции.',
+            duration: '3–8 дней',
+          },
+          {
+            step: 4,
+            title: 'Тестирование и запуск',
+            description:
+              'Проверяем на всех устройствах, подключаем домен и передаём сайт вам.',
+            duration: '1–2 дня',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Индивидуальный подход к каждому проекту — решение под ваш бизнес и клиентов',
+          'Определяем нужный тип сайта через консультацию, а не шаблон — лишнего не продаём',
+          'От дизайна до SEO — одна команда, не нужно разбивать работу между подрядчиками',
+          'Прозрачная цена — от $270, точная стоимость фиксируется заранее',
+          '3 языка включены в пакет — uz/ru/en без доплаты',
+          'После запуска не остаётесь одни — 1 месяц бесплатной технической поддержки',
+        ],
+        portfolioTitle: 'Наши проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Сколько стоит создание сайта?',
+            answer:
+              'Зависит от типа сайта: Landing Page — от $270 (одна страница, быстро), корпоративный сайт — от $870 (услуги, портфолио, блог), создание интернет-магазина — от $1700 (оплата, каталог товаров, управление заказами). Точная цена определяется на консультации в зависимости от объёма и функций сайта.',
+          },
+          {
+            question: 'Не знаю, какой тип сайта выбрать — landing или корпоративный?',
+            answer:
+              'Если продаёте один продукт или услугу — достаточно Landing Page. Если нужно полно рассказать о компании (услуги, портфолио, команда, блог) — корпоративный сайт. Если продаёте онлайн — интернет-магазин. Если не уверены, на бесплатной консультации выслушаем ваш бизнес и предложим подходящий вариант.',
+          },
+          {
+            question: 'Сколько времени занимает создание сайта в Ташкенте?',
+            answer:
+              'Landing page — 5–7 дней, корпоративный сайт — 10–15 дней, интернет-магазин — 15–20 дней. Точный срок фиксируется в договоре.',
+          },
+          {
+            question: 'Какие способы оплаты подключаются для интернет-магазина?',
+            answer:
+              'Click и Payme — две самые популярные платёжные системы в Узбекистане. Другие способы (наличные, банковский перевод) тоже можно добавить, обсуждается на консультации.',
+          },
+          {
+            question: 'Смогу ли я сам обновлять контент после запуска сайта?',
+            answer:
+              'Да. Каждый сайт поставляется с админ-панелью — тексты, изображения и цены обновляете сами, без программиста.',
+          },
+          {
+            question: 'У меня уже есть сайт — можно его обновить, или вы делаете только новые?',
+            answer:
+              'И то, и другое. Если ваш текущий сайт устарел или медленно работает, у нас есть услуга редизайна — обновляем существующий сайт: современный вид, скорость и готовность к SEO.',
+          },
+        ],
+        ctaTitle: 'Готовы создать ваш сайт?',
+        ctaSubtitle:
+          'Расскажите коротко о бизнесе — на бесплатной консультации определим подходящий тип сайта и назовём точную цену.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Website Creation Services — Pricing & Types',
+        metaDescription:
+          'Website creation in Tashkent — landing page, corporate website, or online store. Website development from $270, 3 languages (uz/ru/en), ready in 5–15 days.',
+        h1: 'Website Creation Services: A Site Built for Your Business — From $270',
+        heroSubtitle:
+          'Landing page, corporate website, or online store — we match and build the right site for your type of business. Fast, mobile-friendly, in 3 languages, with a transparent price.',
+        benefits: [
+          {
+            icon: 'Zap',
+            title: 'Fast launch',
+            description:
+              'Ready in 5–15 days depending on site type. No guesswork — the exact timeline is in the contract.',
+          },
+          {
+            icon: 'Globe',
+            title: 'For any type of business',
+            description:
+              'From a landing page to a full online store — we figure out the right site type together on a free consultation.',
+          },
+          {
+            icon: 'CreditCard',
+            title: 'Transparent pricing',
+            description:
+              'Website development starts from $270, exact price fixed upfront based on site type. No hidden fees.',
+          },
+        ],
+        forWhoTitle: 'Which site do you need',
+        forWho: [
+          {
+            title: 'New business or product',
+            description:
+              'A fast, sales-focused single page is enough — Landing Page, from $270.',
+          },
+          {
+            title: 'Established company',
+            description:
+              'A full corporate website with services, portfolio, and blog — from $870.',
+          },
+          {
+            title: 'Business selling online',
+            description:
+              'Online store creation — Click/Payme payments, product catalog, order management, from $1700.',
+          },
+          {
+            title: 'Not sure which type you need',
+            description:
+              'On a free consultation, we\'ll figure out the right fit for your business — we don\'t sell what you don\'t need.',
+          },
+        ],
+        deliverablesTitle: 'What\'s included',
+        deliverables: [
+          'We determine the right site type for your business — landing, corporate, or online store (free consultation)',
+          'Modern, fully responsive design — looks equally good on phone, tablet, and desktop',
+          'Fast-loading site — visitors don\'t wait, and search engines reward that too',
+          'SEO-ready structure — meta tags, sitemap, schema markup set up correctly from the start',
+          '3 languages (uz/ru/en) — reach every segment of your audience',
+          'Click and Payme payment integration (for online stores and other relevant site types)',
+          'Contact form and Telegram integration — customers reach you directly',
+          'Admin panel — update content yourself, no developer needed',
+          'Guidance on domain and hosting — you\'re not left alone with the technical side',
+          '1 month of free technical support after launch',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: '5–15 days, depending on site type',
+        process: [
+          {
+            step: 1,
+            title: 'Consultation & choosing the site type',
+            description:
+              'Together we determine which site type (landing, corporate, or online store) fits your business and budget.',
+            duration: '1 day',
+          },
+          {
+            step: 2,
+            title: 'Design',
+            description:
+              'We prepare the site mockup, you review and approve — revisions happen at this stage.',
+            duration: '2–5 days',
+          },
+          {
+            step: 3,
+            title: 'Development & integrations',
+            description:
+              'The site is coded, payment system (if needed) and other integrations are connected.',
+            duration: '3–8 days',
+          },
+          {
+            step: 4,
+            title: 'Testing & launch',
+            description:
+              'We test on all devices, connect the domain, and hand the site over to you.',
+            duration: '1–2 days',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          'Individual approach to every project — a solution tailored to your business and customers',
+          'We determine the right site type through consultation, not a template — we don\'t sell what you don\'t need',
+          'From design to SEO — one team, no juggling multiple vendors',
+          'Transparent pricing — from $270, exact cost fixed upfront',
+          '3 languages included in the package — uz/ru/en at no extra cost',
+          'You\'re not left alone after launch — 1 month of free technical support',
+        ],
+        portfolioTitle: 'Our projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How much does website creation cost?',
+            answer:
+              'It depends on the site type: Landing Page — from $270 (single page, fast), corporate website — from $870 (services, portfolio, blog), online store creation — from $1700 (payments, product catalog, order management). The exact price is set during the consultation based on site size and features.',
+          },
+          {
+            question: 'I don\'t know which site type to pick — landing or corporate?',
+            answer:
+              'If you\'re selling one product or service, a Landing Page is enough. If you need to fully present your company (services, portfolio, team, blog), go with a corporate website. If you sell online, you need an online store. If you\'re not sure, we\'ll listen to your business on a free consultation and suggest the right fit.',
+          },
+          {
+            question: 'How long does website creation in Tashkent take?',
+            answer:
+              'Landing page — 5–7 days, corporate website — 10–15 days, online store — 15–20 days. The exact timeline is fixed in the contract.',
+          },
+          {
+            question: 'Which payment methods are integrated for an online store?',
+            answer:
+              'Click and Payme — the two most popular payment systems in Uzbekistan. Other methods (cash, bank transfer) can be added too, discussed during the consultation.',
+          },
+          {
+            question: 'Can I update the content myself after the site launches?',
+            answer:
+              'Yes. Every site comes with an admin panel — you update text, images, and prices yourself, no developer needed.',
+          },
+          {
+            question: 'I already have a site — can you update it, or do you only build new ones?',
+            answer:
+              'Both. If your current site is outdated or slow, we offer a redesign service — we modernize your existing site: fresh look, better speed, and SEO-ready.',
+          },
+        ],
+        ctaTitle: 'Ready to build your website?',
+        ctaSubtitle:
+          'Tell us briefly about your business — on a free consultation we\'ll determine the right site type and give you an exact price.',
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'From',
+        priceSuffix: '',
+      },
+    },
+  },
 };
 
 export function getServiceData(slug: string, locale: Locale): { service: ServiceData; content: ServiceLocalizedContent } | null {
@@ -5447,6 +5912,25 @@ export function getServiceData(slug: string, locale: Locale): { service: Service
 
 export function getAllServiceSlugs(): string[] {
   return Object.keys(servicesData);
+}
+
+// A few services outgrew /services/[slug] and got their own top-level,
+// keyword-first URL (shorter path, easier for Google to prioritize crawling
+// a URL that isn't nested three levels under a generic catalog page).
+// Every other card/link builder in the app should resolve hrefs through
+// this so the two representations never drift apart.
+const flagshipServicePaths: Record<string, string> = {
+  'seo-xizmati': '/seo',
+  'aeo-xizmati': '/ai-seo',
+  'sayt-yaratish': '/sayt-yaratish',
+};
+
+export function servicePath(slug: string): string {
+  return flagshipServicePaths[slug] ?? `/services/${slug}`;
+}
+
+export function isFlagshipService(slug: string): boolean {
+  return slug in flagshipServicePaths;
 }
 
 export interface ServiceCatalogCard {
@@ -5703,16 +6187,37 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     demand: 3,
     card: {
       uz: {
-        title: 'AEO/GEO Xizmati',
+        title: 'AI SEO Xizmati',
         description: 'ChatGPT, Perplexity va Gemini AI qidiruvlarida brendingizni javob manbai qiling.',
       },
       ru: {
-        title: 'AEO/GEO Услуги',
+        title: 'AI SEO Услуги',
         description: 'Сделайте бренд источником ответов в ChatGPT, Perplexity и Gemini.',
       },
       en: {
-        title: 'AEO/GEO Services',
+        title: 'AI SEO Services',
         description: 'Make your brand a citation source in ChatGPT, Perplexity, and Gemini.',
+      },
+    },
+  },
+  {
+    slug: 'sayt-yaratish',
+    icon: 'Globe',
+    basePrice: 270,
+    priceSuffix: '',
+    demand: 5,
+    card: {
+      uz: {
+        title: 'Sayt yaratish',
+        description: 'Landing, korporativ yoki internet do\'kon — biznesingizga mos sayt, $270 dan.',
+      },
+      ru: {
+        title: 'Создание сайта',
+        description: 'Landing, корпоративный сайт или интернет-магазин — от $270.',
+      },
+      en: {
+        title: 'Website Creation',
+        description: 'Landing page, corporate site, or online store — built for your business, from $270.',
       },
     },
   },

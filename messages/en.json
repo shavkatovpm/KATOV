@@ -8,6 +8,9 @@
     "about": "About",
     "portfolio": "Projects",
     "services": "Services",
+    "seo": "SEO",
+    "aiSeo": "AI SEO",
+    "saytYaratish": "Website Creation",
     "pricing": "Pricing",
     "blog": "Blog",
     "contact": "Contact"
@@ -55,6 +58,7 @@
     "description": "Every website must serve the brand!",
     "calcPrice": "Calculate price",
     "freeConsultation": "Get consultation",
+    "allServices": "All services",
     "learnMore": "Learn More",
     "landing": {
       "title": "Landing Page",

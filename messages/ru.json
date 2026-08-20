@@ -8,6 +8,9 @@
     "about": "О нас",
     "portfolio": "Проекты",
     "services": "Услуги",
+    "seo": "SEO",
+    "aiSeo": "AI SEO",
+    "saytYaratish": "Создание сайта",
     "pricing": "Цены",
     "blog": "Блог",
     "contact": "Контакты"
@@ -55,6 +58,7 @@
     "description": "Каждый сайт должен служить бренду!",
     "calcPrice": "Рассчитать цену",
     "freeConsultation": "Консультация",
+    "allServices": "Все услуги",
     "learnMore": "Подробнее",
     "landing": {
       "title": "Лендинг",

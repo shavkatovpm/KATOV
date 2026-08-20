@@ -4,6 +4,7 @@ import { iconMap } from '@/components/service-detail/icon-map';
 import {
   servicesCatalog,
   servicesData,
+  servicePath,
   type ServiceCatalogItem,
 } from '@/data/services';
 import type { Locale } from '@/i18n/config';
@@ -14,10 +15,10 @@ import type { Locale } from '@/i18n/config';
 const blogToServices: Record<string, string[]> = {
   'backlink-va-google-ranking': ['seo-xizmati', 'aeo-xizmati', 'korporativ-sayt'],
   'crm-tizimini-ishlab-chiqish-uzbekiston': ['crm-tizimi', 'erp-tizimi', 'admin-panel'],
-  'sayt-yaratish-xizmati': ['landing-page', 'korporativ-sayt', 'internet-dokon'],
-  'website-buyurtma-berish-toshkent': ['korporativ-sayt', 'landing-page', 'seo-xizmati'],
-  'website-narxi-uzbekistonda': ['landing-page', 'korporativ-sayt', 'internet-dokon'],
-  'seo-va-ai-seo-farqi': ['seo-xizmati', 'aeo-xizmati', 'korporativ-sayt'],
+  'sayt-yaratish-xizmati': ['sayt-yaratish', 'landing-page', 'korporativ-sayt'],
+  'website-buyurtma-berish-toshkent': ['sayt-yaratish', 'korporativ-sayt', 'seo-xizmati'],
+  'website-narxi-uzbekistonda': ['sayt-yaratish', 'landing-page', 'korporativ-sayt'],
+  'seo-va-ai-seo-farqi': ['seo-xizmati', 'aeo-xizmati', 'sayt-yaratish'],
 };
 
 // RU / EN slug → canonical uz slug (mirrors the map in the blog page).
@@ -73,7 +74,7 @@ export function BlogRelatedServices({ blogSlug, locale }: BlogRelatedServicesPro
           return (
             <Link
               key={item.slug}
-              href={`/services/${item.slug}`}
+              href={servicePath(item.slug)}
               className="group block"
             >
               <div

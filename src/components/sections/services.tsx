@@ -3,11 +3,18 @@
 import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
-import { getServicesCatalog, servicesIndexCopy } from '@/data/services';
+import { getServicesCatalog, servicePath, servicesIndexCopy } from '@/data/services';
 import type { Locale } from '@/i18n/config';
 import { ServiceCard } from '@/components/service-detail/service-card';
 
-const catalog = getServicesCatalog();
+// Homepage only fronts the three flagship services (each with its own
+// top-level URL) — the rest of the catalog lives behind "All services".
+const FEATURED_SLUGS = ['seo-xizmati', 'aeo-xizmati', 'sayt-yaratish'];
+
+const fullCatalog = getServicesCatalog();
+const catalog = FEATURED_SLUGS
+  .map((slug) => fullCatalog.find((item) => item.slug === slug))
+  .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
 export function Services() {
   const t = useTranslations('services');
@@ -46,7 +53,7 @@ export function Services() {
                 basePrice={item.basePrice}
                 priceSuffix={item.priceSuffix}
                 available={item.available}
-                href={`/services/${item.slug}`}
+                href={servicePath(item.slug)}
                 fromLabel={copy.fromLabel}
                 comingSoonBadge={copy.comingSoonBadge}
                 cardCta={copy.cardCta}
@@ -59,8 +66,14 @@ export function Services() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-12 flex flex-row items-center justify-center gap-2 sm:gap-3"
+          className="text-center mt-12 flex flex-row flex-wrap items-center justify-center gap-2 sm:gap-3"
         >
+          <Link
+            href="/services"
+            className="btn-primary inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base font-medium transition-colors cursor-pointer min-w-[150px] sm:min-w-[210px]"
+          >
+            {t('allServices')}
+          </Link>
           <Link
             href="/studio/price"
             className="btn-outline inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base font-medium transition-colors cursor-pointer min-w-[150px] sm:min-w-[210px]"

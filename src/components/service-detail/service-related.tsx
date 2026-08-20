@@ -4,6 +4,7 @@ import { iconMap } from './icon-map';
 import {
   servicesCatalog,
   servicesData,
+  servicePath,
   type ServiceCatalogItem,
 } from '@/data/services';
 import type { Locale } from '@/i18n/config';
@@ -20,7 +21,8 @@ interface ServiceRelatedProps {
 const relatedMap: Record<string, string[]> = {
   'landing-page': ['korporativ-sayt', 'seo-xizmati', 'telegram-bot'],
   'korporativ-sayt': ['landing-page', 'sayt-redesign', 'seo-xizmati'],
-  'internet-dokon': ['telegram-bot', 'admin-panel', 'crm-tizimi'],
+  'internet-dokon': ['sayt-yaratish', 'telegram-bot', 'admin-panel'],
+  'sayt-yaratish': ['korporativ-sayt', 'landing-page', 'seo-xizmati'],
   'telegram-bot': ['internet-dokon', 'crm-tizimi', 'admin-panel'],
   'restoran-sayti': ['internet-dokon', 'telegram-bot', 'landing-page'],
   'sayt-redesign': ['korporativ-sayt', 'seo-xizmati', 'landing-page'],
@@ -53,7 +55,7 @@ export function ServiceRelated({ currentSlug, locale, title }: ServiceRelatedPro
             return (
               <Link
                 key={item.slug}
-                href={`/services/${item.slug}`}
+                href={servicePath(item.slug)}
                 className="group block"
               >
                 <div

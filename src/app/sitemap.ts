@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllServiceSlugs } from '@/data/services';
+import { getAllServiceSlugs, isFlagshipService, servicePath } from '@/data/services';
 import { getBlogPosts } from '@/lib/blog';
 import { locales, type Locale } from '@/i18n/config';
 import { localizedUrl } from '@/lib/urls';
@@ -43,15 +43,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // Service detail pages — driven by data/services.ts catalog
+  // Service detail pages — driven by data/services.ts catalog. A few
+  // (SEO, AI SEO, website creation) live at their own top-level URL rather
+  // than nested under /services/[slug] — servicePath() resolves each slug
+  // to wherever it actually lives so the sitemap never lists a redirecting
+  // URL as canonical.
   const serviceSlugs = getAllServiceSlugs();
   locales.forEach((locale) => {
     serviceSlugs.forEach((slug) => {
       entries.push({
-        url: localizedUrl(locale as Locale, `/services/${slug}`),
+        url: localizedUrl(locale as Locale, servicePath(slug)),
         lastModified: now,
         changeFrequency: 'monthly',
-        priority: 0.9,
+        priority: isFlagshipService(slug) ? 1 : 0.9,
       });
     });
   });

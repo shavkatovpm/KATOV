@@ -19,7 +19,9 @@ export const siteConfig = {
   },
 
   navigation: [
-    { key: 'home', href: '/' },
+    { key: 'seo', href: '/seo' },
+    { key: 'aiSeo', href: '/ai-seo' },
+    { key: 'saytYaratish', href: '/sayt-yaratish' },
     { key: 'services', href: '/services' },
     { key: 'portfolio', href: '#portfolio' },
     { key: 'blog', href: '/blog' },

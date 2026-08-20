@@ -6,6 +6,7 @@ import { locales, type Locale } from '@/i18n/config';
 import {
   getServicesCatalog,
   servicesIndexCopy,
+  servicePath,
 } from '@/data/services';
 import { ServiceCard } from '@/components/service-detail/service-card';
 import { localizedUrl, ogLocale } from '@/lib/urls';
@@ -70,7 +71,7 @@ export default async function ServicesIndexPage({ params }: ServicesIndexProps) 
     itemListElement: catalog.map((item, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
-      url: localizedUrl(loc, `/services/${item.slug}`),
+      url: localizedUrl(loc, servicePath(item.slug)),
       name: item.card[loc].title,
     })),
   };
@@ -128,7 +129,7 @@ export default async function ServicesIndexPage({ params }: ServicesIndexProps) 
                 basePrice={item.basePrice}
                 priceSuffix={item.priceSuffix}
                 available={item.available}
-                href={`/services/${item.slug}`}
+                href={servicePath(item.slug)}
                 fromLabel={copy.fromLabel}
                 comingSoonBadge={copy.comingSoonBadge}
                 cardCta={copy.cardCta}

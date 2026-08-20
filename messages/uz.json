@@ -8,6 +8,9 @@
     "about": "Biz haqimizda",
     "portfolio": "Loyihalar",
     "services": "Xizmatlar",
+    "seo": "SEO",
+    "aiSeo": "AI SEO",
+    "saytYaratish": "Sayt yaratish",
     "pricing": "Narxlar",
     "blog": "Blog",
     "contact": "Aloqa"
@@ -54,6 +57,7 @@
     "subtitle": "Har bir loyiha alohida strategiya bilan quriladi.",
     "calcPrice": "Narxni hisoblash",
     "freeConsultation": "Konsultatsiya olish",
+    "allServices": "Barcha xizmatlar",
     "learnMore": "Batafsil",
     "landing": {
       "title": "Landing Page",
