@@ -15,7 +15,7 @@ import { localizedPath } from '@/lib/urls';
 import type { Locale } from '@/i18n/config';
 
 // Mobile menu uses its own order (desktop nav order stays as defined in siteConfig)
-const MOBILE_NAV_ORDER = ['seo', 'aiSeo', 'saytYaratish', 'services', 'portfolio', 'contact', 'blog'];
+const MOBILE_NAV_ORDER = ['seo', 'aiSeo', 'saytYaratish', 'ads', 'services', 'contact', 'blog'];
 const mobileNavigation = MOBILE_NAV_ORDER.flatMap(
   (key) => siteConfig.navigation.find((item) => item.key === key) ?? []
 );

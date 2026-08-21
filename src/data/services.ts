@@ -5902,6 +5902,467 @@ export const servicesData: Record<string, ServiceData> = {
       },
     },
   },
+  'google-ads-xizmati': {
+    slug: 'google-ads-xizmati',
+    icon: 'Target',
+    basePrice: 250,
+    priceSuffix: '/oy',
+    demand: 3,
+    content: {
+      uz: {
+        title: 'Google Ads Xizmati — Reklama Kampaniyasini Sozlash va Boshqarish',
+        metaDescription:
+          'Google Ads xizmati Toshkentda — mutaxassis jamoa Qidiruv, Display, Shopping va YouTube\'da Google reklama sozlaydi va boshqaradi. Google Ads sozlash narxi $250/oy dan, byudjet alohida.',
+        h1: 'Google Ads Xizmati: Google Qidiruvda Tepada Chiqing va Mijoz Toping',
+        heroSubtitle:
+          'Google Ads (Google reklama) — kampaniya sozlash, kalit so\'zlar tanlash va byudjetni boshqarish orqali to\'g\'ri mijozga reklama ko\'rsatamiz. Oylik boshqaruv haqi $250 dan, reklama byudjeti alohida. Har oy raqamli hisobot bilan.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Aniq auditoriya',
+            description:
+              'Reklamangiz faqat xarid qilishga tayyor, sizga mos mijozlarga ko\'rsatiladi — pul behuda sarflanmaydi.',
+          },
+          {
+            icon: 'Zap',
+            title: 'Tezkor natija',
+            description:
+              'SEO\'dan farqli, kampaniya yoqilgan kundan boshlab trafik va lidlar keladi.',
+          },
+          {
+            icon: 'BarChart3',
+            title: 'Shaffof hisobot',
+            description:
+              'Har klik, har konversiya kuzatiladi — qayerga qancha pul ketayotgani va natijasi aniq ko\'rinadi.',
+          },
+        ],
+        forWhoTitle: 'Kimga mos',
+        forWho: [
+          {
+            title: 'Tezkor natija kerak bo\'lgan biznes',
+            description:
+              'SEO natija uchun oylar kerak, Google Ads esa kampaniya yoqilgan kunidan trafik beradi. Tez sotuv kerak bo\'lganda mos.',
+          },
+          {
+            title: 'Internet do\'kon va e-commerce',
+            description:
+              'Mahsulot qidirayotgan xaridorga to\'g\'ridan-to\'g\'ri reklama ko\'rsatiladi — Google Shopping orqali mahsulot kartochkasi qidiruvda chiqadi.',
+          },
+          {
+            title: 'Yangi mahsulot yoki xizmat chiqargan biznes',
+            description:
+              'Hali organik trafik yig\'ilmagan yangi sayt uchun Google Ads darhol ko\'rinishni ta\'minlaydi.',
+          },
+          {
+            title: 'Mavsumiy yoki aksiya kampaniyalari',
+            description:
+              'Chegirma, aksiya yoki mavsumiy sotuv uchun qisqa muddatli, maqsadli reklama kerak bo\'lganda.',
+          },
+        ],
+        deliverablesTitle: 'Google Ads paketga nima kiradi',
+        deliverables: [
+          'Kampaniya strategiyasi — biznesingiz va byudjetingizga mos reklama turi (Qidiruv, Display, Shopping, YouTube) tanlanadi',
+          'Kalit so\'zlar tadqiqoti — qidiruv hajmi va klik narxi (CPC) hisobga olingan holda',
+          'Reklama matnlari yoziladi — bir necha variant, A/B test uchun',
+          'Landing page tavsiyasi — konversiyani oshiradigan sahifa tuzilishi bo\'yicha maslahat',
+          'Konversiya kuzatuvi sozlanadi — Google Tag Manager, qo\'ng\'iroq va forma kuzatuvi',
+          'Manfiy kalit so\'zlar ro\'yxati — behuda xarajatlarni kamaytirish uchun',
+          'Auditoriya segmentatsiyasi — geografiya, yosh, qiziqish bo\'yicha aniq nishonlash',
+          'Kunlik byudjet monitoring — ortiqcha sarf yoki past ko\'rinish tezda tuzatiladi',
+          'Haftalik optimizatsiya — past samarali kalit so\'z va reklamalar to\'xtatiladi',
+          'Oylik hisobot — sarflangan byudjet, klik, konversiya va narx (CPA) raqamlari bilan',
+          'Shaxsiy menejer biriktiriladi — savollaringizga har doim javob beradi, oylik qo\'ng\'iroqda progress muhokama qilinadi',
+        ],
+        processTitle: 'Jarayon',
+        processTotalDuration: 'Birinchi trafik 2–4 kun, stabil natija 4–6 hafta',
+        process: [
+          {
+            step: 1,
+            title: 'Audit va strategiya',
+            description:
+              'Biznes, raqobatchilar va kalit so\'zlar tahlili. Byudjet va kampaniya turi tanlanadi.',
+            duration: '2–4 kun',
+          },
+          {
+            step: 2,
+            title: 'Kampaniya sozlash',
+            description:
+              'Reklama matnlari, kalit so\'zlar, auditoriya va konversiya kuzatuvi sozlanadi.',
+            duration: '3–5 kun',
+          },
+          {
+            step: 3,
+            title: 'Yoqish va kuzatuv',
+            description:
+              'Kampaniya ishga tushiriladi, birinchi natijalar kuzatiladi va tezkor tuzatishlar kiritiladi.',
+            duration: '1–2 hafta',
+          },
+          {
+            step: 4,
+            title: 'Optimizatsiya va hisobot',
+            description:
+              'Past samarali qismlar to\'xtatiladi, yaxshi ishlayotganlarga byudjet ko\'chiriladi. Oylik hisobot beriladi.',
+            duration: 'Har oy',
+          },
+        ],
+        whyUsTitle: 'Nima uchun KATOV',
+        whyUs: [
+          'Byudjetingiz behuda sarflanmaydi — har kun monitoring, past samarali reklama tezda to\'xtatiladi',
+          'Yolg\'on kafolat yo\'q — "100% sotuv" demaymiz, faqat real klik, konversiya va CPA raqamlari',
+          'Google Ads mutaxassis jamoasi — kampaniyangizni tajribali mutaxassislar yuritadi, freelancer emas, jamoa javobgar bo\'ladi',
+          'SEO + Ads + sayt — bitta jamoa — kampaniya va landing page bir joyda ishlaydi, natija tezroq keladi',
+          'Shaffof narx — $250/oy boshqaruv haqi, reklama byudjeti sizning nazoratingizda, alohida to\'lanadi',
+          'Oylik raqamli hisobot — sarflangan pul, keltirilgan mijoz va narx (CPA) aniq ko\'rinadi',
+          'Lokal bozor tajribasi — Toshkent va O\'zbekiston CPC narxlari, auditoriya xatti-harakatiga moslashgan strategiya',
+        ],
+        portfolioTitle: 'Real loyihalarimiz',
+        faqTitle: 'Tez-tez beriladigan savollar',
+        faq: [
+          {
+            question: 'Google Ads sozlash narxi qancha turadi?',
+            answer:
+              'KATOV\'da Google Ads sozlash va boshqarish xizmati $250/oy dan boshlanadi — bu KATOV jamoasining ish haqi (kampaniya sozlash, kuzatuv, optimizatsiya, hisobot). Google reklama narxi, ya\'ni reklama byudjeti (Google\'ga to\'lanadigan pul), bundan alohida va to\'g\'ridan-to\'g\'ri sizning Google Ads hisobingizdan yechiladi. Tavsiya etilgan minimal reklama byudjeti — oyiga $300–500, yuqori raqobatli sohalar uchun (ko\'chmas mulk, tibbiyot) $1000+ tavsiya etiladi.',
+          },
+          {
+            question: 'Google Ads va SEO — qaysi birini tanlash kerak?',
+            answer:
+              'Ular bir-birini to\'ldiradi, raqobatlashmaydi. Google Ads — darhol natija (kampaniya yoqilgan kundan trafik), lekin to\'xtatilsa trafik ham to\'xtaydi. SEO — 2–3 oy kutish kerak, lekin natija uzoq muddatli va bepul davom etadi. Tezkor sotuv kerak bo\'lsa — Ads, uzoq muddatli o\'sish uchun — SEO, ikkalasi birga eng yaxshi natija beradi.',
+          },
+          {
+            question: 'Natija qachon ko\'rinadi?',
+            answer:
+              'Kampaniya yoqilgan kundan (odatda sozlashdan 2–4 kun keyin) trafik kela boshlaydi. Birinchi haftalarda Google algoritmi o\'rganish bosqichida bo\'ladi — narx va natija beqaror bo\'lishi mumkin. Stabil, bashorat qilinadigan natija odatda 4–6 hafta ichida shakllanadi.',
+          },
+          {
+            question: 'Minimal reklama byudjeti qancha bo\'lishi kerak?',
+            answer:
+              'O\'zbekiston bozorida o\'rtacha klik narxi (CPC) $0.15–$0.50 oralig\'ida — sohaga qarab farq qiladi (masalan yuridik xizmatlar qimmatroq). Kichik-o\'rta biznes uchun oyiga $300–500 byudjet tavsiya etiladi, bu taxminan 600–3000 ta maqsadli klik beradi. Yuqori raqobatli sohalar (ko\'chmas mulk, tibbiyot) uchun $1000+ tavsiya etiladi.',
+          },
+          {
+            question: 'Qaysi reklama turlari bilan ishlaysiz?',
+            answer:
+              'Google Qidiruv reklamasi (Search), Display tarmoq banner reklamasi, Google Shopping (mahsulot kartochkalari) va YouTube video reklama. Kampaniya turi biznesingiz maqsadiga qarab tanlanadi — masalan internet do\'kon uchun Shopping, xizmat ko\'rsatuvchi biznes uchun Qidiruv reklamasi ko\'proq mos keladi.',
+          },
+          {
+            question: 'Google Ads\'da 100% sotuvni kafolatlay olasizmi?',
+            answer:
+              'Yo\'q — buni hech kim kafolatlay olmaydi, buni Google\'ning o\'zi ham aytadi. Reklama sizni maqsadli auditoriya oldiga olib chiqadi, lekin sotuv narx, mahsulot sifati va saytning o\'zi (landing page)ga ham bog\'liq. KATOV nima qila oladi: to\'g\'ri auditoriyaga, to\'g\'ri narxda, o\'lchanadigan natija bilan reklama ko\'rsatish.',
+          },
+          {
+            question: 'Google Ads mutaxassis yollashim kerakmi yoki o\'zim qila olamanmi?',
+            answer:
+              'Oddiy kampaniyani o\'zingiz ham sozlashingiz mumkin. Lekin Google Ads mutaxassis kalit so\'z strategiyasi, auditoriya segmentatsiyasi va byudjet optimizatsiyasini bir tizimga birlashtiradi — bu tajriba talab qiladi, xato esa byudjetni tez sarflab, natija bermasligi mumkin. KATOV\'da Google Ads mutaxassis jamoasi kampaniyangizga to\'liq javobgar bo\'ladi, siz esa biznesingizga e\'tibor berasiz.',
+          },
+          {
+            question: 'Nega Google Ads agentligi bilan ishlash yaxshiroq?',
+            answer:
+              'Google Ads agentlik xizmati bir nechta hisobda tajriba to\'plagan jamoa degani — qaysi strategiya ishlashini, qaysi ishlamasligini allaqachon biladi. Yakka mutaxassisdan farqli, agentlik SEO, sayt va reklamani birga ko\'radi. KATOV\'da Google Ads xizmatiga buyurtma berish orqali kampaniya, landing page va kuzatuv bitta joyda, bitta jamoa tomonidan ishlaydi.',
+          },
+        ],
+        ctaTitle: 'Reklama byudjetingiz uchun bepul audit',
+        ctaSubtitle:
+          'Google reklama xizmati kerakmi? Google Ads hisobingizni (agar mavjud bo\'lsa) yoki reklama rejangizni bepul tekshiramiz. 2 ish kuni ichida tavsiyalar bilan qaytamiz.',
+        ctaPrimary: 'Ariza qoldirish',
+        breadcrumbServices: 'Xizmatlar',
+        priceLabel: 'Narxi',
+        priceSuffix: 'dan',
+      },
+      ru: {
+        title: 'Услуги Google Ads — Настройка и Ведение Рекламных Кампаний',
+        metaDescription:
+          'Услуги Google Ads в Ташкенте — настройка и ведение рекламы в Поиске, Display, Shopping и YouTube. Стоимость от $250/мес, рекламный бюджет оплачивается отдельно.',
+        h1: 'Услуги Google Ads: Выйдите в ТОП Google Поиска и Найдите Клиентов',
+        heroSubtitle:
+          'Настройка кампании, подбор ключевых слов и управление бюджетом — показываем рекламу нужным клиентам. Абонентская плата от $250/мес, рекламный бюджет отдельно. Ежемесячный отчёт в цифрах.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Точная аудитория',
+            description:
+              'Реклама показывается только тем, кто готов купить — бюджет не тратится впустую.',
+          },
+          {
+            icon: 'Zap',
+            title: 'Быстрый результат',
+            description:
+              'В отличие от SEO, трафик и заявки идут с первого дня запуска кампании.',
+          },
+          {
+            icon: 'BarChart3',
+            title: 'Прозрачный отчёт',
+            description:
+              'Отслеживаем каждый клик и конверсию — видно, куда уходят деньги и какой результат.',
+          },
+        ],
+        forWhoTitle: 'Для кого',
+        forWho: [
+          {
+            title: 'Бизнес, которому нужен быстрый результат',
+            description:
+              'SEO требует месяцев, Google Ads даёт трафик с момента запуска. Подходит, когда продажи нужны быстро.',
+          },
+          {
+            title: 'Интернет-магазины и e-commerce',
+            description:
+              'Реклама показывается напрямую покупателю, ищущему товар — через Google Shopping карточка товара выходит в поиске.',
+          },
+          {
+            title: 'Бизнес с новым продуктом или услугой',
+            description:
+              'Для нового сайта без органического трафика Google Ads сразу обеспечивает видимость.',
+          },
+          {
+            title: 'Сезонные и акционные кампании',
+            description:
+              'Когда нужна краткосрочная, целевая реклама под скидку, акцию или сезонную распродажу.',
+          },
+        ],
+        deliverablesTitle: 'Что входит в пакет Google Ads',
+        deliverables: [
+          'Стратегия кампании — тип рекламы (Поиск, Display, Shopping, YouTube) под ваш бизнес и бюджет',
+          'Исследование ключевых слов — с учётом объёма поиска и цены клика (CPC)',
+          'Написание рекламных текстов — несколько вариантов для A/B-теста',
+          'Рекомендации по посадочной странице — для повышения конверсии',
+          'Настройка отслеживания конверсий — Google Tag Manager, звонки, формы',
+          'Список минус-слов — чтобы не тратить бюджет впустую',
+          'Сегментация аудитории — по географии, возрасту, интересам',
+          'Ежедневный мониторинг бюджета — быстрое исправление перерасхода или низкого показа',
+          'Еженедельная оптимизация — отключение неэффективных ключевых слов и объявлений',
+          'Ежемесячный отчёт — бюджет, клики, конверсии и цена за конверсию (CPA)',
+          'Личный менеджер закреплён за проектом — отвечает на вопросы, ежемесячный созвон по прогрессу',
+        ],
+        processTitle: 'Процесс',
+        processTotalDuration: 'Первый трафик — 2–4 дня, стабильный результат — 4–6 недель',
+        process: [
+          {
+            step: 1,
+            title: 'Аудит и стратегия',
+            description:
+              'Анализ бизнеса, конкурентов и ключевых слов. Выбор бюджета и типа кампании.',
+            duration: '2–4 дня',
+          },
+          {
+            step: 2,
+            title: 'Настройка кампании',
+            description:
+              'Настройка текстов объявлений, ключевых слов, аудитории и отслеживания конверсий.',
+            duration: '3–5 дней',
+          },
+          {
+            step: 3,
+            title: 'Запуск и наблюдение',
+            description:
+              'Кампания запускается, отслеживаются первые результаты, вносятся быстрые правки.',
+            duration: '1–2 недели',
+          },
+          {
+            step: 4,
+            title: 'Оптимизация и отчёт',
+            description:
+              'Неэффективные части отключаются, бюджет перераспределяется на успешные. Ежемесячный отчёт.',
+            duration: 'Каждый месяц',
+          },
+        ],
+        whyUsTitle: 'Почему KATOV',
+        whyUs: [
+          'Бюджет не тратится впустую — ежедневный мониторинг, неэффективная реклама быстро отключается',
+          'Без ложных гарантий — не обещаем "100% продаж", только реальные цифры кликов, конверсий и CPA',
+          'SEO + Ads + сайт — одна команда — кампания и посадочная страница работают вместе, результат быстрее',
+          'Прозрачная цена — $250/мес за ведение, рекламный бюджет под вашим контролем, оплачивается отдельно',
+          'Ежемесячный отчёт в цифрах — потраченные деньги, привлечённые клиенты и цена за конверсию',
+          'Опыт локального рынка — стратегия адаптирована под цены CPC и поведение аудитории в Узбекистане',
+        ],
+        portfolioTitle: 'Наши реальные проекты',
+        faqTitle: 'Часто задаваемые вопросы',
+        faq: [
+          {
+            question: 'Сколько стоит услуга Google Ads?',
+            answer:
+              'В KATOV ведение Google Ads стоит от $250/мес — это оплата команды KATOV (настройка кампании, мониторинг, оптимизация, отчёты). Рекламный бюджет (деньги, которые платятся Google) отдельно и списывается напрямую с вашего аккаунта Google Ads. Рекомендуемый минимальный рекламный бюджет — $300–500/мес, для высококонкурентных ниш (недвижимость, медицина) — от $1000.',
+          },
+          {
+            question: 'Google Ads или SEO — что выбрать?',
+            answer:
+              'Они дополняют друг друга, а не конкурируют. Google Ads — мгновенный результат (трафик с момента запуска), но при остановке трафик тоже прекращается. SEO — нужно подождать 2–3 месяца, но результат долгосрочный и бесплатный. Для быстрых продаж — Ads, для долгосрочного роста — SEO, вместе они дают лучший результат.',
+          },
+          {
+            question: 'Когда виден результат?',
+            answer:
+              'Трафик начинается с момента запуска кампании (обычно через 2–4 дня после настройки). В первые недели алгоритм Google находится в фазе обучения — цена и результат могут быть нестабильны. Стабильный, предсказуемый результат обычно формируется за 4–6 недель.',
+          },
+          {
+            question: 'Каким должен быть минимальный рекламный бюджет?',
+            answer:
+              'Средняя цена клика (CPC) на рынке Узбекистана — $0.15–$0.50, в зависимости от ниши (например, юридические услуги дороже). Для малого-среднего бизнеса рекомендуется бюджет $300–500/мес — это около 600–3000 целевых кликов. Для высококонкурентных ниш (недвижимость, медицина) — от $1000.',
+          },
+          {
+            question: 'С какими типами рекламы вы работаете?',
+            answer:
+              'Поисковая реклама Google (Search), баннерная реклама в сети Display, Google Shopping (карточки товаров) и видеореклама YouTube. Тип кампании выбирается под цель бизнеса — например, для интернет-магазина больше подходит Shopping, для сервисного бизнеса — поисковая реклама.',
+          },
+          {
+            question: 'Можете ли вы гарантировать 100% продаж в Google Ads?',
+            answer:
+              'Нет — этого не может гарантировать никто, об этом говорит и сам Google. Реклама выводит вас к целевой аудитории, но продажа зависит также от цены, качества продукта и самого сайта (посадочной страницы). Что может KATOV: показать рекламу нужной аудитории, по правильной цене, с измеримым результатом.',
+          },
+        ],
+        ctaTitle: 'Бесплатный аудит для вашего рекламного бюджета',
+        ctaSubtitle:
+          'Бесплатно проверим ваш аккаунт Google Ads (если есть) или рекламный план. Ответим с рекомендациями в течение 2 рабочих дней.',
+        ctaPrimary: 'Заказать',
+        breadcrumbServices: 'Услуги',
+        priceLabel: 'Цена',
+        priceSuffix: 'от',
+      },
+      en: {
+        title: 'Google Ads Management Service — Campaign Setup & Optimization',
+        metaDescription:
+          'Google Ads management in Tashkent — Search, Display, Shopping, and YouTube campaign setup and optimization. From $250/month, ad budget billed separately.',
+        h1: 'Google Ads Management: Rank at the Top of Google Search and Find Customers',
+        heroSubtitle:
+          'Campaign setup, keyword selection, and budget management to put your ads in front of the right customers. Management fee from $250/month, ad budget billed separately. Monthly numeric report.',
+        benefits: [
+          {
+            icon: 'Target',
+            title: 'Precise targeting',
+            description:
+              'Your ads reach only people ready to buy — no wasted budget.',
+          },
+          {
+            icon: 'Zap',
+            title: 'Fast results',
+            description:
+              'Unlike SEO, traffic and leads start from the day the campaign launches.',
+          },
+          {
+            icon: 'BarChart3',
+            title: 'Transparent reporting',
+            description:
+              'Every click and conversion is tracked — you see exactly where money goes and what it returns.',
+          },
+        ],
+        forWhoTitle: 'Who it fits',
+        forWho: [
+          {
+            title: 'Businesses that need fast results',
+            description:
+              'SEO takes months, Google Ads brings traffic from launch day. Fits when you need sales quickly.',
+          },
+          {
+            title: 'Online stores and e-commerce',
+            description:
+              'Ads reach shoppers actively searching for a product — Google Shopping puts your product card right in search results.',
+          },
+          {
+            title: 'Businesses launching a new product or service',
+            description:
+              'A new site with no organic traffic yet gets instant visibility through Google Ads.',
+          },
+          {
+            title: 'Seasonal or promotional campaigns',
+            description:
+              'When you need short-term, targeted ads for a discount, promotion, or seasonal sale.',
+          },
+        ],
+        deliverablesTitle: "What's included in the Google Ads package",
+        deliverables: [
+          'Campaign strategy — ad type (Search, Display, Shopping, YouTube) matched to your business and budget',
+          'Keyword research — accounting for search volume and cost-per-click (CPC)',
+          'Ad copywriting — multiple variants for A/B testing',
+          'Landing page recommendations — for higher conversion rates',
+          'Conversion tracking setup — Google Tag Manager, calls, and form tracking',
+          'Negative keyword list — to cut wasted spend',
+          'Audience segmentation — by geography, age, and interests',
+          'Daily budget monitoring — overspend or low impressions are caught and fixed quickly',
+          'Weekly optimization — underperforming keywords and ads get paused',
+          'Monthly report — spend, clicks, conversions, and cost-per-acquisition (CPA)',
+          'A dedicated manager assigned to your account — answers questions, monthly progress call',
+        ],
+        processTitle: 'Process',
+        processTotalDuration: 'First traffic in 2–4 days, stable results in 4–6 weeks',
+        process: [
+          {
+            step: 1,
+            title: 'Audit & strategy',
+            description:
+              'Business, competitor, and keyword analysis. Budget and campaign type are chosen.',
+            duration: '2–4 days',
+          },
+          {
+            step: 2,
+            title: 'Campaign setup',
+            description:
+              'Ad copy, keywords, audience, and conversion tracking are configured.',
+            duration: '3–5 days',
+          },
+          {
+            step: 3,
+            title: 'Launch & monitoring',
+            description:
+              'Campaign goes live, early results are tracked, and quick adjustments are made.',
+            duration: '1–2 weeks',
+          },
+          {
+            step: 4,
+            title: 'Optimization & reporting',
+            description:
+              'Underperforming parts are paused, budget shifts to what works. Monthly report delivered.',
+            duration: 'Every month',
+          },
+        ],
+        whyUsTitle: 'Why KATOV',
+        whyUs: [
+          "Your budget isn't wasted — daily monitoring, underperforming ads get paused fast",
+          'No false guarantees — we don\'t promise "100% sales", only real click, conversion, and CPA numbers',
+          'SEO + Ads + website — one team — the campaign and landing page work together, results come faster',
+          'Transparent pricing — $250/month management fee, ad budget stays under your control, billed separately',
+          'Monthly numeric report — spend, customers acquired, and cost-per-acquisition, clearly shown',
+          "Local market experience — strategy adapted to Uzbekistan's CPC prices and audience behavior",
+        ],
+        portfolioTitle: 'Our real projects',
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            question: 'How much does the Google Ads service cost?',
+            answer:
+              "At KATOV, Google Ads management starts from $250/month — this is the fee for KATOV's team (campaign setup, monitoring, optimization, reporting). The ad budget (money paid to Google) is separate and billed directly from your Google Ads account. Recommended minimum ad budget is $300–500/month; for highly competitive niches (real estate, healthcare), $1,000+ is recommended.",
+          },
+          {
+            question: 'Google Ads or SEO — which should I choose?',
+            answer:
+              "They complement each other rather than compete. Google Ads gives instant results (traffic from launch day), but traffic stops when you stop paying. SEO takes 2–3 months to show results, but they're long-term and free to sustain. For quick sales, choose Ads; for long-term growth, choose SEO — together they perform best.",
+          },
+          {
+            question: 'When do results show up?',
+            answer:
+              "Traffic starts from launch day (usually 2–4 days after setup). In the first weeks, Google's algorithm is in a learning phase — cost and results can be unstable. Stable, predictable results typically form within 4–6 weeks.",
+          },
+          {
+            question: 'What should the minimum ad budget be?',
+            answer:
+              "Average cost-per-click (CPC) in Uzbekistan ranges $0.15–$0.50, depending on the industry (legal services cost more, for example). For small-to-medium businesses, a $300–500/month budget is recommended — roughly 600–3,000 targeted clicks. For highly competitive niches (real estate, healthcare), $1,000+ is recommended.",
+          },
+          {
+            question: 'Which ad types do you work with?',
+            answer:
+              "Google Search ads, Display network banner ads, Google Shopping (product listings), and YouTube video ads. The campaign type is chosen based on your business goal — Shopping fits online stores better, Search ads fit service businesses better, for example.",
+          },
+          {
+            question: 'Can you guarantee 100% sales from Google Ads?',
+            answer:
+              "No — nobody can guarantee that, and Google itself says so. Ads put you in front of your target audience, but sales also depend on price, product quality, and the site itself (the landing page). What KATOV can do: show your ads to the right audience, at the right price, with measurable results.",
+          },
+        ],
+        ctaTitle: 'Free audit for your ad budget',
+        ctaSubtitle:
+          "We'll review your existing Google Ads account (if any) or ad plan for free. We reply with recommendations within 2 business days.",
+        ctaPrimary: 'Place order',
+        breadcrumbServices: 'Services',
+        priceLabel: 'Price',
+        priceSuffix: 'from',
+      },
+    },
+  },
 };
 
 export function getServiceData(slug: string, locale: Locale): { service: ServiceData; content: ServiceLocalizedContent } | null {
@@ -5923,6 +6384,7 @@ const flagshipServicePaths: Record<string, string> = {
   'seo-xizmati': '/seo',
   'aeo-xizmati': '/ai-seo',
   'sayt-yaratish': '/sayt-yaratish',
+  'google-ads-xizmati': '/ads',
 };
 
 export function servicePath(slug: string): string {
@@ -6218,6 +6680,27 @@ export const servicesCatalog: ServiceCatalogItem[] = [
       en: {
         title: 'Website Creation',
         description: 'Landing page, corporate site, or online store — built for your business, from $270.',
+      },
+    },
+  },
+  {
+    slug: 'google-ads-xizmati',
+    icon: 'Target',
+    basePrice: 250,
+    priceSuffix: '/oy',
+    demand: 3,
+    card: {
+      uz: {
+        title: 'Google Ads',
+        description: 'Qidiruv, Display va Shopping reklamasini sozlaymiz va boshqaramiz, $250/oy dan.',
+      },
+      ru: {
+        title: 'Google Ads',
+        description: 'Настройка и ведение рекламы в Поиске, Display и Shopping, от $250/мес.',
+      },
+      en: {
+        title: 'Google Ads',
+        description: 'Search, Display, and Shopping campaign setup and management, from $250/month.',
       },
     },
   },

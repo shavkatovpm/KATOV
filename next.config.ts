@@ -25,6 +25,8 @@ const legacyServiceSlugMap: Record<string, string> = {
 const flagshipServicePaths: Record<string, string> = {
   'seo-xizmati': '/seo',
   'aeo-xizmati': '/ai-seo',
+  'sayt-yaratish': '/sayt-yaratish',
+  'google-ads-xizmati': '/ads',
 };
 
 const nextConfig: NextConfig = {

@@ -22,16 +22,17 @@ const relatedMap: Record<string, string[]> = {
   'landing-page': ['korporativ-sayt', 'seo-xizmati', 'telegram-bot'],
   'korporativ-sayt': ['landing-page', 'sayt-redesign', 'seo-xizmati'],
   'internet-dokon': ['sayt-yaratish', 'telegram-bot', 'admin-panel'],
-  'sayt-yaratish': ['korporativ-sayt', 'landing-page', 'seo-xizmati'],
+  'sayt-yaratish': ['korporativ-sayt', 'seo-xizmati', 'google-ads-xizmati'],
   'telegram-bot': ['internet-dokon', 'crm-tizimi', 'admin-panel'],
   'restoran-sayti': ['internet-dokon', 'telegram-bot', 'landing-page'],
   'sayt-redesign': ['korporativ-sayt', 'seo-xizmati', 'landing-page'],
   'crm-tizimi': ['erp-tizimi', 'admin-panel', 'telegram-bot'],
-  'seo-xizmati': ['aeo-xizmati', 'korporativ-sayt', 'sayt-redesign'],
+  'seo-xizmati': ['aeo-xizmati', 'google-ads-xizmati', 'sayt-redesign'],
   'erp-tizimi': ['crm-tizimi', 'admin-panel', 'internet-dokon'],
   'portfolio-sayt': ['landing-page', 'korporativ-sayt', 'seo-xizmati'],
   'admin-panel': ['crm-tizimi', 'erp-tizimi', 'internet-dokon'],
   'aeo-xizmati': ['seo-xizmati', 'korporativ-sayt', 'sayt-redesign'],
+  'google-ads-xizmati': ['seo-xizmati', 'aeo-xizmati', 'sayt-yaratish'],
 };
 
 export function ServiceRelated({ currentSlug, locale, title }: ServiceRelatedProps) {

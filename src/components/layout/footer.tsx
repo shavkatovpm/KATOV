@@ -130,7 +130,7 @@ export function Footer() {
                 .filter(
                   (item) =>
                     !item.href.startsWith('#') &&
-                    !['/services', '/seo', '/ai-seo', '/sayt-yaratish'].includes(item.href)
+                    !['/services', '/seo', '/ai-seo', '/sayt-yaratish', '/ads'].includes(item.href)
                 )
                 .map((item) => (
                   <li key={item.key}>
