@@ -35,7 +35,7 @@ export function AiSeoParallaxBackdrop({ children }: AiSeoParallaxBackdropProps) 
     <div className="relative overflow-hidden">
       {mounted && (
         <motion.div
-          className="pointer-events-none absolute left-1/2 top-[83px] sm:top-[52px] w-[210px] sm:w-[310px] md:w-[380px] opacity-[0.16] z-0"
+          className="pointer-events-none absolute left-1/2 top-[161px] sm:top-[101px] w-[210px] sm:w-[310px] md:w-[380px] opacity-[0.16] z-0"
           style={{ x: '-50%', y: logoY, aspectRatio }}
           aria-hidden
         >

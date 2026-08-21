@@ -21,7 +21,7 @@ export function SeoParallaxBackdrop({ children }: SeoParallaxBackdropProps) {
   return (
     <div className="relative overflow-hidden">
       <motion.div
-        className="pointer-events-none absolute left-1/2 top-[77px] sm:top-[48px] w-[420px] sm:w-[620px] md:w-[760px] opacity-[0.16] z-0"
+        className="pointer-events-none absolute left-1/2 top-[120px] sm:top-[75px] w-[420px] sm:w-[620px] md:w-[760px] opacity-[0.16] z-0"
         style={{ x: '-50%', y: logoY, aspectRatio: '320 / 223' }}
         aria-hidden
       >
