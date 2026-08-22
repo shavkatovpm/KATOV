@@ -1,0 +1,155 @@
+---
+title: "How to Use Google Search Console? A Complete Guide"
+description: "Setting up Google Search Console, submitting a sitemap, reading the Performance and Coverage reports — a practical guide to Google's free SEO tool."
+date: "2026-08-22"
+author: "Katov"
+tags: ["Google Search Console", "GSC Uzbekistan", "website indexing", "SEO tools", "submit sitemap", "Core Web Vitals", "site in Google Search"]
+faq:
+  - question: "Is Google Search Console free?"
+    answer: "Yes, it's completely free. Google Search Console is Google's official tool, and using it costs nothing. The only requirement is a Google account and verified ownership of your website."
+  - question: "What's the difference between Google Search Console and Google Analytics?"
+    answer: "Search Console shows how your site appears in Google Search — which queries, what position, how many clicks and impressions. Google Analytics tracks what visitors do once they're on your site — time on page, where they came from, what they clicked. The two complement each other but measure different things."
+  - question: "How many days after verification does my site start showing data in Search Console?"
+    answer: "The first data usually appears within 2–3 days, but a full Performance report can take 2–3 weeks, since Google needs to crawl and index the site repeatedly. For new sites, this process takes a bit longer."
+  - question: "Should I choose a Domain property or a URL-prefix property?"
+    answer: "If your site has a single version (e.g., only https://yoursite.uz) and you can access your DNS settings, choose Domain property — it combines every variant (www/non-www, http/https) in one place. If you can't access DNS, or only need to track one section like a blog subfolder, a URL-prefix property is enough."
+  - question: "How do I fix the 'Crawled – currently not indexed' error?"
+    answer: "This means Google has seen the page but hasn't indexed it yet. The usual cause is too little content on the page, or content that's nearly identical to another page. The fix: add unique, useful content, link to the page internally from other pages, then request re-indexing through URL Inspection."
+  - question: "Can Google Search Console track how my site performs in ChatGPT or AI search?"
+    answer: "No, Search Console only shows traditional Google Search results (including Google AI Overviews to a limited extent). Tracking how your brand is mentioned in ChatGPT, Perplexity, and other AI tools requires separate monitoring — that's what AI SEO (AEO) covers."
+---
+
+Google Search Console is a free tool from Google that lets you track how your website appears in Google Search. It shows which pages are indexed, which queries bring in traffic, and where technical errors exist. Setup takes less than 10 minutes.
+
+What you'll get from this guide:
+- How to add and verify your site in Search Console
+- How to read the Performance, Coverage, and Core Web Vitals reports
+- The most common errors and how to fix them
+
+---
+
+## What is Google Search Console, and why does every site owner need it?
+
+Google Search Console is Google's official, free tool. It gives you real data about your site straight from Google itself — data no paid tool (Ahrefs, SEMrush) can provide, because they don't have access to Google's internal search index.
+
+Through Search Console you can find out:
+- Which queries your site ranks for on Google, and at what position
+- Which pages are indexed, which aren't, and why
+- Whether your site has technical issues (broken pages, slow loading, mobile usability problems)
+- Which sites are linking back to you
+- When Google last crawled your site
+
+## How do you add and verify a site in Google Search Console?
+
+### Step 1: Sign in with a Google account
+
+Go to [search.google.com/search-console](https://search.google.com/search-console) and sign in with your existing Google account.
+
+### Step 2: Choose a property type
+
+| Property type | Best for | Requirement |
+|---|---|---|
+| **Domain** | Viewing the entire domain (www/non-www, http/https) in one place | Requires access to DNS settings |
+| **URL-prefix** | A single section, or no domain access | Only needs access to site files or metadata |
+
+If you can access your domain's DNS panel, **Domain** is the recommended choice, since it gives a more complete picture.
+
+### Step 3: Verify ownership
+
+Google offers 4 verification methods:
+
+1. **DNS record** — add a TXT record in your domain provider's panel (required for Domain property)
+2. **HTML file upload** — place the file Google provides in your site's root folder
+3. **HTML tag** — paste a meta tag into your site's `<head>`
+4. **Hosting provider integration** — some platforms allow automatic verification
+
+Once set up, click "Verify" — Google checks it and grants access.
+
+## How do you submit a sitemap, and why does it matter?
+
+A sitemap is a file listing every page on your site (usually found at `yoursite.uz/sitemap.xml`). A sitemap helps Google discover and understand your site faster and more completely — especially important for new or large sites.
+
+Submission process:
+1. Open the **Sitemaps** section in the left menu
+2. Enter your sitemap's address (e.g., `sitemap.xml`)
+3. Click **Submit**
+
+Google doesn't process a sitemap instantly — it can take a few days. A "Success" status means Google successfully read your sitemap.
+
+## How do you read the Performance report?
+
+Performance is the most important report in Search Console, because it shows exactly what real users typed into Google and whether they clicked through to your site.
+
+| Metric | What it means |
+|---|---|
+| **Clicks** | How many times people clicked through to your site from Google results |
+| **Impressions** | How many times your site appeared in Google results |
+| **CTR** | What percentage of impressions turned into clicks |
+| **Average position** | Where your site ranked on average for that query |
+
+You can filter the report by query, page, country, device type, and date range. In 2026, Google added an AI-powered configuration tool to the Performance report — instead of manually setting filters, you can describe the view you want in plain language and it configures the report for you.
+
+> **Practical tip:** if position is low but impressions are high, the page is showing up in Google but not ranking well. Pages like this are the biggest opportunity for SEO work.
+
+## Why does the Coverage (indexing) report matter?
+
+The Coverage report shows whether each page is indexed and why. The most common statuses are:
+
+- **Indexed** — the page can appear in Google results
+- **Excluded (noindex tag)** — the page is intentionally kept out of the index
+- **Crawled – currently not indexed** — Google has seen the page but hasn't indexed it yet
+- **Duplicate, without user-selected canonical** — multiple pages with nearly identical content, and Google can't tell which one should be the primary version
+- **Blocked by robots.txt** — the robots.txt file is blocking Google's crawler from the page
+
+## How does the URL Inspection tool work?
+
+URL Inspection lets you check exactly how a specific page looks to Google. Enter a page's URL into the search bar at the top, and you'll see:
+
+- Whether the page is indexed
+- When it was last crawled
+- Whether it renders correctly on mobile
+- Which sitemap it was discovered through
+
+After making a significant change to a page, click **Request Indexing** — this asks Google to re-crawl the page sooner. It's not a guarantee, but it speeds up the process.
+
+## What do Core Web Vitals and Mobile Usability show?
+
+These two reports evaluate your site's technical health — speed and mobile usability.
+
+| Metric | What it measures | Good value |
+|---|---|---|
+| **LCP** (Largest Contentful Paint) | How long the largest element on the page takes to load | Under 2.5 seconds |
+| **INP** (Interaction to Next Paint) | How quickly the page responds after a user interacts with it | Under 200 milliseconds |
+| **CLS** (Cumulative Layout Shift) | How much elements "jump around" while the page loads | Under 0.1 |
+
+The Mobile Usability report flags issues like text that's too small, tap targets placed too close together, or content wider than the screen — all of which affect user experience and, in turn, SEO performance.
+
+## FAQ: frequently asked questions about Google Search Console
+
+**1. Is Google Search Console free?**
+Yes, it's completely free. Google Search Console is Google's official tool, and using it costs nothing. The only requirement is a Google account and verified ownership of your website.
+
+**2. What's the difference between Google Search Console and Google Analytics?**
+Search Console shows how your site appears in Google Search — which queries, what position, how many clicks and impressions. Google Analytics tracks what visitors do once they're on your site. The two complement each other but measure different things.
+
+**3. How many days after verification does my site start showing data?**
+The first data usually appears within 2–3 days, but a full Performance report can take 2–3 weeks, since Google needs to crawl and index the site repeatedly.
+
+**4. Should I choose a Domain property or a URL-prefix property?**
+If your site has a single version and you can access your DNS settings, choose Domain property — it combines every variant (www/non-www, http/https) in one place. If you can't access DNS, or only need to track one section, a URL-prefix property is enough.
+
+**5. How do I fix the "Crawled – currently not indexed" error?**
+This means Google has seen the page but hasn't indexed it yet. The usual cause is too little content, or content nearly identical to another page. The fix: add unique content, link to the page internally, then request re-indexing through URL Inspection.
+
+**6. Can Google Search Console track how my site performs in ChatGPT or AI search?**
+No, Search Console only shows traditional Google Search results (including Google AI Overviews to a limited extent). Tracking how your brand is mentioned in ChatGPT, Perplexity, and other AI tools requires separate monitoring — that's what our [AI SEO service](/ai-seo) covers.
+
+---
+
+## Conclusion: Google Search Console is where SEO starts
+
+Setting up Google Search Console and learning to read its core reports is the cheapest — actually free — way to see your site the way Google sees it. But analyzing this data every month, fixing errors, and turning it into results takes time and experience.
+
+If you don't have the time to monitor it regularly, our [SEO service](/seo) includes ongoing monitoring of Google Search Console and Yandex Webmaster, technical error fixes, and a monthly report with real numbers. If your site doesn't have a backlink strategy yet, we cover that in our article on [backlinks and Google ranking](/blog/backlink-and-google-ranking), and if you want to understand the difference between SEO and AI search (ChatGPT, Perplexity), see our article on [SEO vs. AI SEO](/blog/seo-vs-ai-seo-difference).
+
+<PriceCTA />

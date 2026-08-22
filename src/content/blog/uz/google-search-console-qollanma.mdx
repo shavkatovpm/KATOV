@@ -1,0 +1,155 @@
+---
+title: "Google Search Console qanday ishlatiladi? To'liq qo'llanma"
+description: "Google Search Console'ni sozlash, sitemap yuborish, Performance va Coverage hisobotlarini o'qish — amaliy qadamlar bilan bepul SEO vositasi qo'llanmasi."
+date: "2026-08-22"
+author: "Katov"
+tags: ["Google Search Console", "GSC O'zbekiston", "sayt indekslash", "SEO vositalari", "sitemap yuborish", "Core Web Vitals", "sayt Google qidiruvda"]
+faq:
+  - question: "Google Search Console bepulmi?"
+    answer: "Ha, to'liq bepul. Google Search Console — Google'ning rasmiy vositasi bo'lib, foydalanish uchun hech qanday to'lov talab qilinmaydi. Yagona shart — Google hisobingiz bo'lishi va saytingizga egalik huquqini tasdiqlash."
+  - question: "Google Search Console va Google Analytics o'rtasidagi farq nima?"
+    answer: "Search Console saytingiz Google qidiruvida qanday ko'rinishini ko'rsatadi — qaysi so'rovlar bo'yicha, qaysi pozitsiyada, qancha klik va ko'rsatilish bilan. Google Analytics esa saytga kirgan foydalanuvchilarning xatti-harakatini kuzatadi — qaysi sahifada qancha vaqt qoldi, qayerdan keldi, nima bosdi. Ikkalasi bir-birini to'ldiradi, lekin bir xil narsani o'lchamaydi."
+  - question: "Saytim Search Console'da necha kundan keyin ma'lumot ko'rsata boshlaydi?"
+    answer: "Tasdiqlangandan keyin birinchi ma'lumotlar odatda 2–3 kun ichida chiqa boshlaydi, lekin to'liq Performance hisoboti uchun 2–3 hafta kerak bo'lishi mumkin — chunki Google saytni qayta-qayta ko'rib chiqishi va indekslashi kerak. Yangi saytlar uchun bu jarayon biroz uzoqroq davom etadi."
+  - question: "Domain property yoki URL-prefix property — qaysi birini tanlash kerak?"
+    answer: "Agar saytingizning bitta versiyasi bo'lsa (masalan, faqat https://sizningsaytingiz.uz) va DNS sozlamalariga kira olsangiz — domain property tanlang, chunki u www/www-siz, http/https barcha variantlarni birlashtirib ko'rsatadi. DNS'ga kira olmasangiz yoki faqat bitta bo'lim (masalan, blog subfolder)ni kuzatmoqchi bo'lsangiz — URL-prefix property yetarli."
+  - question: "'Crawled – currently not indexed' xatosini qanday tuzatish kerak?"
+    answer: "Bu xato Google sahifani ko'rgan, lekin hali indekslamagan degani. Odatda sabab — sahifa kontenti juda kam yoki boshqa sahifalar bilan deyarli bir xil. Yechim: sahifaga noyob va foydali kontent qo'shish, ichki havolalar orqali unga boshqa sahifalardan link berish, so'ng URL Inspection orqali qayta indekslashni so'rash."
+  - question: "Google Search Console orqali ChatGPT yoki AI qidiruv natijalarini kuzatish mumkinmi?"
+    answer: "Yo'q, Search Console faqat Google'ning an'anaviy qidiruv natijalarini (shu jumladan Google AI Overviews qisman) ko'rsatadi. ChatGPT, Perplexity kabi AI vositalarida brendingiz qanday tilga olinayotganini kuzatish butunlay boshqa monitoring talab qiladi — bu AI SEO (AEO) xizmatining vazifasi."
+---
+
+Google Search Console — Google taqdim etadigan bepul vosita bo'lib, saytingiz Google qidiruvida qanday ko'rinishini kuzatish imkonini beradi. U orqali qaysi sahifalar indekslanganini tekshirish, qaysi so'rovlar orqali trafik kelayotganini ko'rish va texnik xatolarni aniqlash mumkin. Sozlash 10 daqiqadan kam vaqt oladi.
+
+Ushbu maqoladan olasiz:
+- Saytni Search Console'ga qanday qo'shish va tasdiqlash kerakligi
+- Performance, Coverage va Core Web Vitals hisobotlarini qanday o'qish kerakligi
+- Eng ko'p uchraydigan xatolar va ularni tuzatish yo'llari
+
+---
+
+## Google Search Console nima va nega har bir sayt egasiga kerak?
+
+Google Search Console — Google'ning rasmiy, bepul vositasi. U saytingiz haqida real ma'lumotni to'g'ridan-to'g'ri Google'ning o'zidan beradi — bu ma'lumotni hech qanday to'lovli tool (Ahrefs, SEMrush) sizga bera olmaydi, chunki ular Google'ning ichki qidiruv indeksiga kirish huquqiga ega emas.
+
+Search Console orqali quyidagilarni bilib olasiz:
+- Saytingiz qaysi so'rovlar bo'yicha Google'da chiqadi va qaysi pozitsiyada
+- Qaysi sahifalar indekslangan, qaysilari indekslanmagan va nega
+- Saytda texnik xatolar bormi (buzilgan sahifalar, sekin yuklanish, mobil moslik muammolari)
+- Qaysi saytlar sizga backlink berayotgani
+- Google saytingizni qachon oxirgi marta ko'rib chiqqani
+
+## Google Search Console'ga saytni qanday qo'shish va tasdiqlash kerak?
+
+### 1-qadam: Google hisobi bilan kirish
+
+[search.google.com/search-console](https://search.google.com/search-console) manziliga o'ting va mavjud Google hisobingiz bilan kiring.
+
+### 2-qadam: Property turini tanlash
+
+| Property turi | Nima uchun mos | Talab |
+|---|---|---|
+| **Domain** | Butun domenni (www bilan/siz, http/https) bir joyda ko'rish | DNS sozlamalariga kirish huquqi kerak |
+| **URL-prefix** | Faqat bitta bo'lim yoki domenga kira olmasangiz | Faqat sayt fayllariga yoki metadataga kirish yetarli |
+
+Agar domeningiz DNS panelidan foydalana olsangiz — **Domain** turini tanlash tavsiya etiladi, chunki u to'liqroq ma'lumot beradi.
+
+### 3-qadam: Egalik huquqini tasdiqlash
+
+Google 4 xil tasdiqlash usulini taklif qiladi:
+
+1. **DNS yozuvi** — domen provayderingiz panelida TXT yozuv qo'shish (Domain property uchun majburiy)
+2. **HTML fayl yuklash** — Google bergan faylni sayt root papkasiga joylashtirish
+3. **HTML tegi** — meta tegni sayt kodining `<head>` qismiga qo'yish
+4. **Hosting provayder integratsiyasi** — ba'zi platformalar avtomatik tasdiqlash imkonini beradi
+
+Tasdiqlangandan so'ng "Verify" tugmasini bosing — Google tekshiradi va kirish huquqini beradi.
+
+## Sitemap qanday yuboriladi va nega muhim?
+
+Sitemap — bu saytingizdagi barcha sahifalar ro'yxati bo'lgan fayl (odatda `sizningsaytingiz.uz/sitemap.xml` manzilida joylashadi). Sitemap Google'ga saytingizni tezroq va to'liqroq o'rganishga yordam beradi — ayniqsa yangi yoki katta saytlar uchun muhim.
+
+Yuborish jarayoni:
+1. Chap menyudan **Sitemaps** bo'limini oching
+2. Sitemap manzilini kiriting (masalan, `sitemap.xml`)
+3. **Submit** tugmasini bosing
+
+Google sitemapni darhol qayta ishlamaydi — bu bir necha kun davom etishi mumkin. Status "Success" bo'lsa, Google sitemapni muvaffaqiyatli o'qigan degani.
+
+## Performance hisobotini qanday o'qish kerak?
+
+Performance — Search Console'ning eng muhim hisoboti, chunki u real foydalanuvchilarning Google'da qanday so'rov yozgani va saytingizga bosgan-bosmaganini ko'rsatadi.
+
+| Ko'rsatkich | Nima anglatadi |
+|---|---|
+| **Klik (Clicks)** | Google natijalaridan saytingizga necha marta o'tishgan |
+| **Ko'rsatilish (Impressions)** | Saytingiz Google natijalarida necha marta chiqqan |
+| **CTR** | Ko'rsatilishlarning necha foizi klikka aylangani |
+| **O'rtacha pozitsiya (Position)** | Saytingiz o'sha so'rov bo'yicha o'rtacha qaysi o'rinda chiqqani |
+
+Hisobotni so'rov (query), sahifa (page), davlat, qurilma turi va sana oralig'i bo'yicha filtrlash mumkin. 2026-yilda Google Performance hisobotiga sun'iy intellekt asosidagi konfiguratsiya vositasini qo'shdi — endi filtrni qo'lda sozlash o'rniga, kerakli ko'rinishni oddiy tilda tasvirlab, avtomatik hisobot yaratish mumkin.
+
+> **Amaliy maslahat:** Position ustuni past bo'lsa-yu, Impressions yuqori bo'lsa — bu sahifa Google'da ko'rinadi, lekin yaxshi o'ringa chiqmayapti. Bunday sahifalar SEO ishi uchun eng katta imkoniyat hisoblanadi.
+
+## Coverage (indekslanish) hisoboti nima uchun kerak?
+
+Coverage hisoboti har bir sahifa indekslangan yoki yo'qligini va sababini ko'rsatadi. Eng ko'p uchraydigan holatlar:
+
+- **Indexed** — sahifa Google natijalarida chiqishi mumkin
+- **Excluded (noindex teg orqali)** — sahifa ataylab indeksdan chiqarilgan
+- **Crawled – currently not indexed** — Google ko'rgan, lekin hali indekslamagan
+- **Duplicate, without user-selected canonical** — bir xil kontentli bir nechta sahifa, Google qaysi birini asosiy deb tanlashni bilmayapti
+- **Blocked by robots.txt** — robots.txt fayli Google botini shu sahifaga kirishdan to'sib qo'ygan
+
+## URL Inspection vositasi qanday ishlaydi?
+
+URL Inspection — bitta aniq sahifaning Google nazarida qanday ko'rinishini tekshirish vositasi. Yuqoridagi qidiruv qatoriga sahifa manzilini kiritsangiz, quyidagilarni ko'rasiz:
+
+- Sahifa indekslanganmi yoki yo'q
+- Oxirgi marta qachon skanerlangan
+- Mobil qurilmada to'g'ri ochiladimi
+- Qaysi sitemap orqali topilgan
+
+Sahifada muhim o'zgarish qilgandan keyin **Request Indexing** (Indekslashni so'rash) tugmasini bosing — bu Google'ga sahifani tezroq qayta ko'rib chiqishni so'raydi. Bu kafolat emas, lekin jarayonni tezlashtiradi.
+
+## Core Web Vitals va Mobile Usability nimani ko'rsatadi?
+
+Bu ikki hisobot saytingizning texnik holatini — tezlik va mobil qulaylikni — baholaydi.
+
+| Ko'rsatkich | Nimani o'lchaydi | Yaxshi qiymat |
+|---|---|---|
+| **LCP** (Largest Contentful Paint) | Sahifadagi eng katta elementning yuklanish vaqti | 2.5 soniyadan kam |
+| **INP** (Interaction to Next Paint) | Foydalanuvchi bosgandan keyin sahifa qanchalik tez javob beradi | 200 millisekunddan kam |
+| **CLS** (Cumulative Layout Shift) | Sahifa yuklanayotganda elementlar qanchalik "sakraydi" | 0.1 dan kam |
+
+Mobile Usability hisobotida esa matn juda kichik, tugmalar bir-biriga juda yaqin joylashgan yoki kontent ekrandan tashqariga chiqib ketgan holatlar ko'rsatiladi — bularning barchasi foydalanuvchi tajribasiga va shu orqali SEO natijasiga ta'sir qiladi.
+
+## FAQ: Google Search Console haqida ko'p so'raladigan savollar
+
+**1. Google Search Console bepulmi?**
+Ha, to'liq bepul. Google Search Console — Google'ning rasmiy vositasi bo'lib, foydalanish uchun hech qanday to'lov talab qilinmaydi. Yagona shart — Google hisobingiz bo'lishi va saytingizga egalik huquqini tasdiqlash.
+
+**2. Google Search Console va Google Analytics o'rtasidagi farq nima?**
+Search Console saytingiz Google qidiruvida qanday ko'rinishini ko'rsatadi — qaysi so'rovlar bo'yicha, qaysi pozitsiyada, qancha klik va ko'rsatilish bilan. Google Analytics esa saytga kirgan foydalanuvchilarning xatti-harakatini kuzatadi. Ikkalasi bir-birini to'ldiradi, lekin bir xil narsani o'lchamaydi.
+
+**3. Saytim Search Console'da necha kundan keyin ma'lumot ko'rsata boshlaydi?**
+Tasdiqlangandan keyin birinchi ma'lumotlar odatda 2–3 kun ichida chiqa boshlaydi, lekin to'liq Performance hisoboti uchun 2–3 hafta kerak bo'lishi mumkin — chunki Google saytni qayta-qayta ko'rib chiqishi va indekslashi kerak.
+
+**4. Domain property yoki URL-prefix property — qaysi birini tanlash kerak?**
+Agar saytingizning bitta versiyasi bo'lsa va DNS sozlamalariga kira olsangiz — domain property tanlang, chunki u www/www-siz, http/https barcha variantlarni birlashtirib ko'rsatadi. DNS'ga kira olmasangiz yoki faqat bitta bo'limni kuzatmoqchi bo'lsangiz — URL-prefix property yetarli.
+
+**5. "Crawled – currently not indexed" xatosini qanday tuzatish kerak?**
+Bu xato Google sahifani ko'rgan, lekin hali indekslamagan degani. Odatda sabab — sahifa kontenti juda kam yoki boshqa sahifalar bilan deyarli bir xil. Yechim: sahifaga noyob va foydali kontent qo'shish, ichki havolalar orqali unga boshqa sahifalardan link berish, so'ng URL Inspection orqali qayta indekslashni so'rash.
+
+**6. Google Search Console orqali ChatGPT yoki AI qidiruv natijalarini kuzatish mumkinmi?**
+Yo'q, Search Console faqat Google'ning an'anaviy qidiruv natijalarini (shu jumladan Google AI Overviews qisman) ko'rsatadi. ChatGPT, Perplexity kabi AI vositalarida brendingiz qanday tilga olinayotganini kuzatish butunlay boshqa monitoring talab qiladi — bu [AI SEO xizmati](/ai-seo)ning vazifasi.
+
+---
+
+## Xulosa: Google Search Console — SEO'ning boshlang'ich nuqtasi
+
+Google Search Console sozlash va asosiy hisobotlarni o'qishni o'rganish — bu saytingizni Google nazari bilan ko'rishning eng arzon (aslida bepul) yo'li. Lekin bu ma'lumotni har oy tahlil qilish, xatolarni tuzatish va natijaga aylantirish vaqt va tajriba talab qiladi.
+
+Agar buni muntazam kuzatib borishga vaqtingiz yetishmasa, KATOV [SEO xizmati](/seo) doirasida Google Search Console va Yandex Webmaster'ni muntazam kuzatib boradi, texnik xatolarni tuzatadi va har oy raqamli hisobot beradi. Saytingizda hali backlink strategiyasi yo'q bo'lsa, bu haqda [backlink va Google ranking](/blog/backlink-va-google-ranking) maqolamizni, SEO va AI qidiruv (ChatGPT, Perplexity) o'rtasidagi farqni bilmoqchi bo'lsangiz — [SEO va AI SEO farqi](/blog/seo-va-ai-seo-farqi) maqolamizni o'qishingiz mumkin.
+
+<PriceCTA />

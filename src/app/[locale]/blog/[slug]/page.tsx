@@ -80,6 +80,9 @@ const slugMap: Record<string, Record<string, string>> = {
   'seo-va-ai-seo-farqi': { uz: 'seo-va-ai-seo-farqi', ru: 'chem-otlichaetsya-seo-ot-ai-seo', en: 'seo-vs-ai-seo-difference' },
   'chem-otlichaetsya-seo-ot-ai-seo': { uz: 'seo-va-ai-seo-farqi', ru: 'chem-otlichaetsya-seo-ot-ai-seo', en: 'seo-vs-ai-seo-difference' },
   'seo-vs-ai-seo-difference': { uz: 'seo-va-ai-seo-farqi', ru: 'chem-otlichaetsya-seo-ot-ai-seo', en: 'seo-vs-ai-seo-difference' },
+  'google-search-console-qollanma': { uz: 'google-search-console-qollanma', ru: 'kak-ispolzovat-google-search-console', en: 'how-to-use-google-search-console' },
+  'kak-ispolzovat-google-search-console': { uz: 'google-search-console-qollanma', ru: 'kak-ispolzovat-google-search-console', en: 'how-to-use-google-search-console' },
+  'how-to-use-google-search-console': { uz: 'google-search-console-qollanma', ru: 'kak-ispolzovat-google-search-console', en: 'how-to-use-google-search-console' },
 };
 
 interface BlogPostPageProps {
@@ -283,6 +286,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     keywords: post.tags.join(', '),
   };
 
+  const faqJsonLd = post.faq && post.faq.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: post.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  } : null;
+
   return (
     <>
       <ScrollToAnchor />
@@ -290,6 +306,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <article className="section-padding pt-32">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">

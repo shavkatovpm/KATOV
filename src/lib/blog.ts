@@ -6,6 +6,11 @@ import { Locale } from '@/i18n/config';
 
 const contentDirectory = path.join(process.cwd(), 'src/content/blog');
 
+export interface BlogFaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -16,6 +21,7 @@ export interface BlogPost {
   tags: string[];
   readingTime: number;
   content: string;
+  faq?: BlogFaqItem[];
 }
 
 export interface BlogPostMeta {
@@ -85,6 +91,7 @@ export function getBlogPost(
     tags: data.tags || [],
     readingTime: Math.ceil(stats.minutes),
     content,
+    faq: data.faq,
   };
 }
 
