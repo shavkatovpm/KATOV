@@ -83,6 +83,12 @@ const slugMap: Record<string, Record<string, string>> = {
   'google-search-console-qollanma': { uz: 'google-search-console-qollanma', ru: 'kak-ispolzovat-google-search-console', en: 'how-to-use-google-search-console' },
   'kak-ispolzovat-google-search-console': { uz: 'google-search-console-qollanma', ru: 'kak-ispolzovat-google-search-console', en: 'how-to-use-google-search-console' },
   'how-to-use-google-search-console': { uz: 'google-search-console-qollanma', ru: 'kak-ispolzovat-google-search-console', en: 'how-to-use-google-search-console' },
+  'sayt-tezligi-va-seo': { uz: 'sayt-tezligi-va-seo', ru: 'skorost-sayta-i-seo', en: 'site-speed-and-seo' },
+  'skorost-sayta-i-seo': { uz: 'sayt-tezligi-va-seo', ru: 'skorost-sayta-i-seo', en: 'site-speed-and-seo' },
+  'site-speed-and-seo': { uz: 'sayt-tezligi-va-seo', ru: 'skorost-sayta-i-seo', en: 'site-speed-and-seo' },
+  'chatgpt-saytni-qanday-koradi': { uz: 'chatgpt-saytni-qanday-koradi', ru: 'kak-chatgpt-vidit-sayt', en: 'how-chatgpt-sees-your-website' },
+  'kak-chatgpt-vidit-sayt': { uz: 'chatgpt-saytni-qanday-koradi', ru: 'kak-chatgpt-vidit-sayt', en: 'how-chatgpt-sees-your-website' },
+  'how-chatgpt-sees-your-website': { uz: 'chatgpt-saytni-qanday-koradi', ru: 'kak-chatgpt-vidit-sayt', en: 'how-chatgpt-sees-your-website' },
 };
 
 interface BlogPostPageProps {

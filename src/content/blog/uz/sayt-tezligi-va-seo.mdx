@@ -1,0 +1,116 @@
+---
+title: "Sayt tezligi SEO'ga qanday ta'sir qiladi? To'liq tushuntirish"
+description: "Sayt tezligi Google reytingiga ta'sir qiladimi? Core Web Vitals (LCP, INP, CLS) nima, tezlikni qanday bepul tekshirish va oshirish mumkin — aniq javoblar."
+date: "2026-08-24"
+author: "Katov"
+tags: ["sayt tezligi", "Core Web Vitals", "SEO reytingi", "sahifa yuklanish tezligi", "PageSpeed Insights", "LCP INP CLS"]
+faq:
+  - question: "Sayt tezligi Google reytingiga to'g'ridan-to'g'ri ta'sir qiladimi?"
+    answer: "Ha, lekin ikkinchi darajali omil sifatida. Google 2021-yildan beri Core Web Vitals'ni rasmiy reyting signali sifatida ishlatadi, lekin kontent sifati va relevantligi hamon eng muhim omil bo'lib qolmoqda. Tezlik ko'proq 'tie-breaker' — ikkita sayt bir xil darajada foydali kontent taqdim etsa, tezroq ishlaydigani ustunlikka ega bo'ladi."
+  - question: "Core Web Vitals nima?"
+    answer: "Bu Google belgilagan uchta ko'rsatkich: LCP (sahifadagi eng katta elementning yuklanish vaqti, 2.5 soniyadan kam bo'lishi kerak), INP (foydalanuvchi bosgandan keyin javob tezligi, 200 millisekunddan kam) va CLS (sahifa elementlarining 'sakrashi', 0.1 dan kam). Uchalasi ham real foydalanuvchilar brauzeridan yig'ilgan ma'lumot asosida hisoblanadi."
+  - question: "Saytim tez yoki sekinligini qanday bepul tekshirsam bo'ladi?"
+    answer: "Google PageSpeed Insights (pagespeed.web.dev) manzilida saytingiz URL'ini kiriting — 10-15 soniyada LCP, INP, CLS qiymatlarini va aniq tuzatish tavsiyalarini ko'rasiz. Google Search Console'dagi 'Core Web Vitals' hisoboti esa saytingizning barcha sahifalari bo'yicha real foydalanuvchi ma'lumotlarini vaqt o'tishi bilan ko'rsatadi."
+  - question: "Sekin sayt qancha mijoz yo'qotadi?"
+    answer: "Tadqiqotlarga ko'ra, sahifa 1 soniyada ochilsa taxlash (bounce) darajasi ~7%, 5 soniyada esa ~38%gacha ko'tariladi. Google'ning o'z tadqiqotiga ko'ra, mobil foydalanuvchilarning 53% i 3 soniyadan ko'p kutishga to'g'ri kelsa saytni tark etadi. Ya'ni sekin sayt — reytingdan oldin, to'g'ridan-to'g'ri mijoz yo'qotish muammosi."
+  - question: "Sayt tezligini oshirish uchun eng birinchi nimaga e'tibor berish kerak?"
+    answer: "Aksariyat holatlarda eng katta ta'sir rasm hajmidan keladi — siqilmagan, katta o'lchamdagi rasmlar sahifani sekinlashtiradigan birinchi sabab. Undan keyin keraksiz uchinchi-tomon skriptlar (ortiqcha widget, tracking kod) va sifatsiz hosting keladi. Bu uchtasini tartibga solish odatda eng katta tezlik yutug'ini beradi."
+  - question: "Mobil va desktop tezligi bir xil hisoblanadimi?"
+    answer: "Yo'q, Google mobil va desktop uchun alohida baholaydi, va 2019-yildan buyon 'mobile-first indexing' qoidasi bo'yicha saytning mobil versiyasi asosiy hisoblanadi. Agar saytingiz mobilda sekin ishlasa, bu desktop tez ishlashidan qat'i nazar reytingga salbiy ta'sir qilishi mumkin."
+---
+
+Ha, sayt tezligi Google reytingiga ta'sir qiladi, lekin ikkinchi darajali omil sifatida — Google buni "Core Web Vitals" nomli uchta ko'rsatkich (LCP, INP, CLS) orqali o'lchaydi. Kontent sifati hamon asosiy omil bo'lib qoladi, tezlik esa bir xil darajadagi ikkita sayt orasida farq qiluvchi "tie-breaker" signal vazifasini bajaradi.
+
+Ushbu maqoladan olasiz:
+- Sayt tezligi reytingga qanday va qay darajada ta'sir qilishi
+- Core Web Vitals (LCP, INP, CLS) nima va ularni qanday bepul tekshirish mumkinligi
+- Sekin sayt real biznesga qancha zarar keltirishi (raqamlar bilan)
+
+---
+
+## Sayt tezligi haqiqatan Google reytingiga ta'sir qiladimi?
+
+Google 2021-yil iyun oyida "Page Experience" yangilanishi orqali Core Web Vitals'ni rasmiy reyting signaliga aylantirdi. Lekin buni to'g'ri tushunish muhim: bu **eng muhim** omil emas, balki **qo'shimcha** omil.
+
+Google'ning o'zi rasman ta'kidlaganidek, foydali va relevant kontent hamon birinchi o'rinda turadi. Core Web Vitals asosan ikkita holatda seziladi:
+
+- Sahifangiz **juda sekin** bo'lsa (masalan, 4 soniyadan ko'p LCP) — bu aniq salbiy signal
+- Ikkita sayt bir xil darajada sifatli kontent taqdim etsa — tezroq ishlaydigani biroz ustunlikka ega bo'ladi
+
+Ya'ni sekin sayt sizni avtomatik "jazolamaydi", lekin tez sayt raqobatchilar orasida kichik, ammo real ustunlik beradi.
+
+## Core Web Vitals nima — 3 ta asosiy ko'rsatkich
+
+Google saytlarni baholash uchun uchta aniq ko'rsatkichdan foydalanadi. Bular real foydalanuvchilar brauzeridan (Chrome) yig'ilgan ma'lumot asosida hisoblanadi — laboratoriya testi emas.
+
+| Ko'rsatkich | Nimani o'lchaydi | Yaxshi qiymat |
+|---|---|---|
+| **LCP** (Largest Contentful Paint) | Sahifadagi eng katta elementning (odatda banner rasm yoki sarlavha) to'liq ko'rinish vaqti | 2.5 soniyadan kam |
+| **INP** (Interaction to Next Paint) | Foydalanuvchi tugmani bossa, sahifa qanchalik tez javob beradi | 200 millisekunddan kam |
+| **CLS** (Cumulative Layout Shift) | Sahifa yuklanayotganda elementlarning kutilmagan "sakrashi" | 0.1 dan kam |
+
+Google har bir ko'rsatkichni foydalanuvchilarning 75%-percentili bo'yicha baholaydi — ya'ni sahifangiz aksariyat foydalanuvchilar uchun yaxshi ishlashi kerak, faqat eng yaxshi holatda emas.
+
+> **Muhim:** INP 2024-yil martida eski FID (First Input Delay) ko'rsatkichini almashtirdi va 2026-yilda ham asosiy javob tezligi mezoni bo'lib qolmoqda.
+
+## Sekin sayt real qanday zarar keltiradi?
+
+Reytingdan tashqari, sekin sayt to'g'ridan-to'g'ri mijoz yo'qotish muammosi. Turli tadqiqotlarga ko'ra:
+
+- Sahifa **1 soniyada** ochilganda taxlash (bounce) darajasi ~7%
+- Sahifa **5 soniyada** ochilganda bu ko'rsatkich ~38% gacha ko'tariladi
+- Har qo'shimcha 1 soniya kechikish konversiyani o'rtacha bir necha foizga pasaytiradi
+- Google'ning o'z tadqiqotiga ko'ra, mobil foydalanuvchilarning **53%** i sahifa 3 soniyadan ko'p ochilsa uni tark etadi
+
+Bu raqamlar shuni ko'rsatadiki, sayt tezligi faqat SEO uchun emas — u to'g'ridan-to'g'ri buyurtma va daromadga ta'sir qiladigan omil.
+
+## Saytingiz tezligini qanday bepul tekshirish mumkin?
+
+Ikkita rasmiy Google vositasi bor, ikkalasi ham bepul:
+
+1. **PageSpeed Insights** ([pagespeed.web.dev](https://pagespeed.web.dev)) — sayt manzilini kiriting, 10-15 soniyada LCP, INP, CLS qiymatlarini va aniq tuzatish tavsiyalarini olasiz. Bu bir martalik "hozirgi holat" testi.
+2. **Google Search Console'dagi Core Web Vitals hisoboti** — vaqt o'tishi bilan real foydalanuvchilar tajribasini ko'rsatadi, sahifalarni "Good", "Needs improvement" va "Poor" toifalariga ajratadi. Buni qanday sozlash va o'qish haqida [Google Search Console qo'llanmamizda](/blog/google-search-console-qollanma) batafsil yozganmiz.
+
+## Sayt tezligini oshirishning eng muhim omillari
+
+Texnik tafsilotlarga kirmasdan, amaliyotda eng katta ta'sirni beradigan uchta narsa:
+
+- **Rasm hajmi** — siqilmagan, katta o'lchamdagi rasmlar sekinlik sababining eng ko'p uchraydigan manbai
+- **Keraksiz uchinchi-tomon skriptlar** — ortiqcha widget, bir nechta tracking kod, keraksiz chat-bot skriptlar sahifani og'irlashtiradi
+- **Sifatsiz yoki noto'g'ri sozlangan hosting** — sekin server javobi hamma optimallashtirishni bekor qilishi mumkin
+
+Bu uchtasini tartibga solish, odatda, murakkab texnik ishlarsiz ham sezilarli tezlik yutug'ini beradi.
+
+## Tezlik SEO'dagi yagona omilmi?
+
+Yo'q. Sayt tezligi — bu SEO'ning bitta qismi, hal qiluvchi omil emas. Kalit so'z tanlovi, kontent sifati, backlinklar va texnik SEO (indekslash, struktura) hamon asosiy o'rinni egallaydi. Tezlik ularning barchasi to'g'ri bo'lganda qo'shimcha ustunlik beradi — lekin sekin sayt yaxshi kontentni "yashira olmaydi", tez sayt esa bo'sh kontentni "qutqara olmaydi".
+
+## FAQ: Sayt tezligi va SEO haqida ko'p so'raladigan savollar
+
+**1. Sayt tezligi Google reytingiga to'g'ridan-to'g'ri ta'sir qiladimi?**
+Ha, lekin ikkinchi darajali omil sifatida. Kontent sifati va relevantligi hamon eng muhim omil bo'lib qoladi, tezlik esa bir xil darajadagi ikkita sayt orasida farq qiluvchi signal vazifasini bajaradi.
+
+**2. Core Web Vitals nima?**
+Google belgilagan uchta ko'rsatkich: LCP (yuklanish tezligi, 2.5 soniyadan kam), INP (javob tezligi, 200 millisekunddan kam) va CLS (vizual barqarorlik, 0.1 dan kam). Uchalasi ham real foydalanuvchilar ma'lumoti asosida hisoblanadi.
+
+**3. Saytim tez yoki sekinligini qanday bepul tekshirsam bo'ladi?**
+Google PageSpeed Insights'da saytingiz URL'ini kiriting — bir necha soniyada natija va tavsiyalarni olasiz. Google Search Console'dagi Core Web Vitals hisoboti esa vaqt o'tishi bilan real ma'lumotni ko'rsatadi.
+
+**4. Sekin sayt qancha mijoz yo'qotadi?**
+Tadqiqotlarga ko'ra, 5 soniyada ochiladigan sahifaning taxlash darajasi ~38%gacha yetadi, mobil foydalanuvchilarning 53% i 3 soniyadan ko'p kutishga to'g'ri kelsa saytni tark etadi.
+
+**5. Sayt tezligini oshirish uchun eng birinchi nimaga e'tibor berish kerak?**
+Odatda eng katta ta'sirni rasm hajmini kamaytirish beradi, undan keyin keraksiz uchinchi-tomon skriptlarni olib tashlash va sifatli hosting tanlash keladi.
+
+**6. Mobil va desktop tezligi bir xil hisoblanadimi?**
+Yo'q, Google har birini alohida baholaydi va "mobile-first indexing" qoidasi bo'yicha saytning mobil versiyasini asosiy hisoblaydi.
+
+---
+
+## Xulosa: tezlik — kichik, lekin real ustunlik
+
+Sayt tezligi Google reytingini yagona belgilamaydi, lekin uni e'tiborsiz qoldirib bo'lmaydi — chunki u kontentingiz qanchalik yaxshi bo'lishidan qat'i nazar, mijozning saytda qolish yoki ketish qarorini to'g'ridan-to'g'ri belgilaydi. Texnik SEO ishining bir qismi sifatida tezlikni kuzatib borish va tuzatish uzoq muddatli natija beradi.
+
+Agar saytingiz tezligi, texnik SEO holati va Google Search Console ko'rsatkichlarini muntazam kuzatib borishga vaqtingiz yetishmasa, KATOV [SEO xizmati](/seo) doirasida buni har oy tahlil qilib, aniq raqamli hisobot beradi. Sayt va sun'iy intellekt qidiruv tizimlari (ChatGPT, Google AI) o'rtasidagi farqni bilmoqchi bo'lsangiz — [SEO va AI SEO farqi](/blog/seo-va-ai-seo-farqi) maqolamizni o'qishingiz mumkin.
+
+<PriceCTA />

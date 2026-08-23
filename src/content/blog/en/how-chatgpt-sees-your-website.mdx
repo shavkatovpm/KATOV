@@ -1,0 +1,114 @@
+---
+title: "How Does ChatGPT 'See' Your Website? AEO Technical Basics"
+description: "How ChatGPT finds and reads your site — the difference between GPTBot and OAI-SearchBot, robots.txt setup, whether you need llms.txt, and why schema.org matters."
+date: "2026-08-24"
+author: "Katov"
+tags: ["ChatGPT SEO", "AEO", "GPTBot", "OAI-SearchBot", "llms.txt", "robots.txt for AI", "AI search"]
+faq:
+  - question: "Does ChatGPT see my website in real time?"
+    answer: "Yes, but through two different mechanisms. ChatGPT's regular answers rely on training data collected up to a certain date. When ChatGPT Search is enabled, or a question relates to current events, a separate crawler called OAI-SearchBot scans the web in real time and pulls in fresh information for the answer."
+  - question: "Are GPTBot and OAI-SearchBot the same thing?"
+    answer: "No, both belong to OpenAI, but they serve different purposes. GPTBot collects data to train future AI models. OAI-SearchBot builds the ChatGPT Search index. Blocking GPTBot in robots.txt means your content won't be used to train new models, but blocking OAI-SearchBot means your site won't appear in ChatGPT's search-based answers at all."
+  - question: "How do I configure robots.txt for AI bots?"
+    answer: "If you want to appear in ChatGPT's answers, you need to allow access to search crawlers like OAI-SearchBot, PerplexityBot, and ClaudeBot. If you don't want your content used to train AI models, you can restrict just the training crawlers — GPTBot and Google-Extended — without affecting search visibility."
+  - question: "Do I actually need an llms.txt file?"
+    answer: "There's no proven effect yet — as of 2026, only around 10% of sites have added one, and llms.txt hasn't been shown to meaningfully affect AI answers. That said, adding it is cheap and safe — it gives AI tools an extra signal about your site's structure with no downside."
+  - question: "Does a JavaScript-heavy site cause problems for ChatGPT?"
+    answer: "Yes, it can. AI crawlers don't always execute JavaScript fully or reliably. If important text, pricing, or contact details only load via JavaScript, a bot may miss them entirely. Keeping key information in plain HTML removes that risk."
+  - question: "Why does schema.org markup matter for AEO?"
+    answer: "Schema.org turns your site's content into a structure AI can understand precisely. For example, plain text like 'Website from $270' is ambiguous to AI, but with Product or Service schema, the price, currency, and service type are clearly defined — letting AI give a specific answer and cite your site as the source."
+---
+
+ChatGPT "sees" your website in two ways: regular answers draw on training data collected up to a certain date, while ChatGPT Search uses a separate crawler, OAI-SearchBot, to scan the web in real time. Either way, your site needs to be open and readable to bots.
+
+From this article, you'll learn:
+- The difference between GPTBot and OAI-SearchBot — and why it matters
+- How to configure robots.txt for AI bots
+- Whether you actually need llms.txt — an honest answer, no hype
+
+---
+
+## Does ChatGPT actually "see" your website?
+
+To answer this precisely, you need to understand two separate mechanisms behind ChatGPT:
+
+1. **Training data** — ChatGPT is trained on data collected from the internet up to a certain date. This data is static — adding new content to your site doesn't instantly feed into the model.
+2. **Real-time search** — when ChatGPT Search is enabled, or a question relates to current events, a separate crawler called OAI-SearchBot scans the web in real time and pulls relevant pages into the answer.
+
+In practice, this means: if you want to show up in ChatGPT's answers **right now**, the real-time search crawler is what matters most.
+
+## What's the difference between GPTBot and OAI-SearchBot?
+
+Both crawlers belong to OpenAI, but their jobs are completely different — and not knowing this difference can shut your site out of ChatGPT's search results entirely.
+
+| Bot | Purpose | If you block it |
+|---|---|---|
+| **GPTBot** | Collects data to train future AI models | Your content won't be used to train new models, but search visibility is unaffected |
+| **OAI-SearchBot** | Builds ChatGPT Search's real-time search index | Your site **won't appear at all** in ChatGPT's search-based answers |
+
+Many site owners block GPTBot thinking they've "protected themselves from AI" — but if OAI-SearchBot is also blocked (often unintentionally, via a blanket rule), that means opting out of ChatGPT's answers entirely.
+
+## How to configure robots.txt for AI bots
+
+The decision is straightforward: if you want visibility in ChatGPT, Perplexity, and similar tools, search crawlers need open access. If robots.txt has no specific rule for a given bot, it's allowed by default — restriction only happens with an explicit `Disallow` line.
+
+Bots worth paying attention to:
+
+- **Recommended to keep open for search**: OAI-SearchBot, PerplexityBot, ClaudeBot (if you also want visibility in Claude)
+- **Safe to restrict if you don't want model training**: GPTBot, Google-Extended
+
+By 2026, this list has grown considerably — a single robots.txt file may now need to manage dozens of bots across more than 6 organizations, so it's worth treating as a policy you update regularly rather than something you write once and forget.
+
+## Why JavaScript matters for AI bots
+
+Like traditional Google crawlers, AI bots don't always execute JavaScript fully or reliably. If important text on your site — pricing, address, service list — only loads via JavaScript, a bot may skip it entirely.
+
+The safe approach: the most important information (pricing, contact details, core service description) should be visible in plain HTML, with no extra loading required.
+
+## Do you actually need llms.txt?
+
+There's a lot of hype around this file, so an honest answer matters: **llms.txt has no proven effect yet**. As of 2026, only around 10% of sites have added one, and its meaningful impact on AI answers hasn't been confirmed.
+
+That said, adding it is:
+
+- **Cheap and quick** — it's a single plain text file
+- **Safe** — there's no downside
+- **An investment in the future** — if AI tools adopt this format more widely, your site will already be ready
+
+Bottom line: don't expect llms.txt to work magic, but it's a low-cost signal worth adding.
+
+## Why schema.org markup matters for AEO
+
+Schema.org turns your site's content into a structure AI can understand precisely. For example, plain text like "Website in Tashkent from $270" is ambiguous to AI — it can't be sure that's an exact figure. With **Product** or **Service** schema, the price, currency, and location are clearly defined.
+
+The result: AI can give a specific, number-backed answer to a user's question and cite your site as the source — which is exactly the point of AEO.
+
+## FAQ: Common questions about ChatGPT and websites
+
+**1. Does ChatGPT see my website in real time?**
+Yes, through two mechanisms — regular answers rely on training data, while ChatGPT Search uses OAI-SearchBot to scan the web in real time.
+
+**2. Are GPTBot and OAI-SearchBot the same thing?**
+No. GPTBot collects data to train models, while OAI-SearchBot builds ChatGPT Search's index. Blocking the latter removes your site from ChatGPT's search-based answers entirely.
+
+**3. How do I configure robots.txt for AI bots?**
+Allow access to OAI-SearchBot and similar search crawlers if you want to appear in ChatGPT's answers. You can restrict just GPTBot and Google-Extended if you don't want model training.
+
+**4. Do I actually need an llms.txt file?**
+There's no proven effect yet (~10% of sites have one), but it's cheap and safe to add — worth it as an investment in the future.
+
+**5. Does a JavaScript-heavy site cause problems for ChatGPT?**
+Yes, it can — AI bots don't always execute JavaScript fully. Important text should live in plain HTML.
+
+**6. Why does schema.org markup matter for AEO?**
+It turns content into a structure AI understands precisely — clearly defining price, location, and service type, which lets AI give a specific answer and cite your site as the source.
+
+---
+
+## Bottom line: being visible to ChatGPT is a technical readiness question
+
+Getting ChatGPT to "see" your site isn't about creative marketing — it's precise technical work: robots.txt open to the right bots, content that doesn't depend on JavaScript, and structured data via schema.org. Each of these is real, code-level work.
+
+If you don't have time to handle this technical work yourself, KATOV's [AI SEO service](/ai-seo) fully sets up robots.txt, schema.org, and llms.txt, and tracks how your brand shows up in AI answers. To dig deeper into the difference between SEO and AI SEO, read our article on [SEO vs AI SEO](/blog/seo-vs-ai-seo-difference), and to see how site speed affects search rankings, check out [site speed and SEO](/blog/site-speed-and-seo).
+
+<PriceCTA />

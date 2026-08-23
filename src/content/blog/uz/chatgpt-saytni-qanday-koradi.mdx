@@ -1,0 +1,114 @@
+---
+title: "ChatGPT saytingizni qanday 'ko'radi'? AEO texnik asoslari"
+description: "ChatGPT saytingizni qanday topadi va o'qiydi — GPTBot va OAI-SearchBot farqi, robots.txt sozlash, llms.txt kerakmi va schema.org nima uchun muhim."
+date: "2026-08-24"
+author: "Katov"
+tags: ["ChatGPT SEO", "AEO", "GPTBot", "OAI-SearchBot", "llms.txt", "robots.txt AI", "sun'iy intellekt qidiruv"]
+faq:
+  - question: "ChatGPT mening saytimni real vaqtda ko'radimi?"
+    answer: "Ha, lekin ikki xil mexanizm orqali. ChatGPT'ning oddiy javoblari o'qitilgan ma'lumotlar (belgilangan sanagacha) asosida beriladi. Foydalanuvchi joriy savol bersa yoki ChatGPT Search yoqilgan bo'lsa, OAI-SearchBot real vaqtda internetni skanerlab, eng yangi ma'lumotni topadi va javobga qo'shadi."
+  - question: "GPTBot va OAI-SearchBot bir xil narsami?"
+    answer: "Yo'q, ikkalasi ham OpenAI'niki, lekin vazifalari farq qiladi. GPTBot — kelajakdagi AI modellarni o'qitish uchun ma'lumot yig'adi. OAI-SearchBot esa ChatGPT Search'ning qidiruv indeksini yaratadi. Robots.txt'da GPTBot'ni bloklash — modelni o'qitishda ishlatilmaslik degani, lekin OAI-SearchBot'ni bloklasangiz sayt ChatGPT qidiruv javoblarida umuman ko'rinmay qoladi."
+  - question: "Robots.txt'da AI botlarni qanday sozlash kerak?"
+    answer: "Agar ChatGPT javoblarida ko'rinishni xohlasangiz, OAI-SearchBot, PerplexityBot va ClaudeBot kabi qidiruv-botlariga ruxsat berish kerak (Allow yoki robots.txt'da umuman cheklamaslik). Agar kontentingiz AI modellarni o'qitishda ishlatilishini xohlamasangiz — faqat GPTBot va Google-Extended kabi training-botlarni Disallow qilish mumkin, bu qidiruv ko'rinishga ta'sir qilmaydi."
+  - question: "llms.txt fayli haqiqatan kerakmi?"
+    answer: "Hozircha aniq isbotlangan ta'sir yo'q — 2026-yil holatiga saytlarning atigi ~10% i llms.txt qo'shgan, va bu faylning AI javoblariga sezilarli ta'sir qilishi haligacha tasdiqlanmagan. Shunga qaramay, uni qo'shish arzon va xavfsiz — AI vositalariga saytingiz tuzilishi haqida qo'shimcha signal beradi, hech qanday zarar keltirmaydi."
+  - question: "JavaScript bilan qurilgan sayt ChatGPT uchun muammo tug'diradimi?"
+    answer: "Ha, bo'lishi mumkin. AI botlar har doim ham JavaScript'ni to'liq va ishonchli tarzda bajarmaydi. Agar muhim matn, narx yoki kontakt ma'lumotlari faqat JavaScript orqali yuklansa, bot ularni ko'rmasligi mumkin. Muhim ma'lumotlar oddiy HTML ko'rinishida bo'lishi — bu xavfni yo'qotadi."
+  - question: "Schema.org markup nega AEO uchun muhim?"
+    answer: "Schema.org — sayt kontentini AI aniq tushunadigan strukturaga aylantiradi. Masalan, oddiy matn 'Toshkentda sayt $270 dan' AI uchun noaniq, lekin Product schema orqali narx, valyuta va xizmat turi aniq belgilanadi — bu AI'ga savolga to'g'ridan-to'g'ri raqam bilan javob berish va sizni manba sifatida ko'rsatish imkonini beradi."
+---
+
+ChatGPT saytingizni ikki xil yo'l bilan "ko'radi": oddiy javoblarda o'qitilgan (belgilangan sanagacha yig'ilgan) ma'lumotdan foydalanadi, ChatGPT Search yoqilganda esa OAI-SearchBot real vaqtda internetni skanerlab yangi ma'lumot topadi. Ikkala holatda ham saytingiz botlar uchun ochiq va tushunarli bo'lishi shart.
+
+Ushbu maqoladan olasiz:
+- GPTBot va OAI-SearchBot o'rtasidagi farq — va bu nega muhim
+- robots.txt'da AI botlarni qanday sozlash mumkinligi
+- llms.txt haqiqatan kerakmi — halol javob (hype emas)
+
+---
+
+## ChatGPT sizning saytingizni umuman "ko'radimi"?
+
+Bu savolga aniq javob berish uchun ChatGPT'ning ikkita alohida mexanizmini bilish kerak:
+
+1. **O'qitilgan ma'lumot (training data)** — ChatGPT ma'lum bir sanagacha internetdan yig'ilgan ma'lumot asosida "o'qitilgan". Bu ma'lumot statik — yangi kontent qo'shsangiz, bu darhol modelga "kirib" ketmaydi.
+2. **Real vaqtli qidiruv** — ChatGPT Search yoqilgan bo'lsa yoki savol joriy voqealarga tegishli bo'lsa, OAI-SearchBot nomli alohida bot internetni real vaqtda skanerlab, eng yangi sahifalarni topadi va javobga kiritadi.
+
+Amaliyotda bu shuni anglatadi: agar sizni ChatGPT javoblarida **hozir** ko'rishni xohlasangiz, asosiy e'tibor ikkinchi mexanizmga — ya'ni real vaqtli qidiruv botiga qaratilishi kerak.
+
+## GPTBot va OAI-SearchBot — farqi nima?
+
+Bu ikkala bot ham OpenAI'niki, lekin vazifalari butunlay boshqa — va bu farqni bilmaslik saytingizni ChatGPT qidiruvidan butunlay chetlatib qo'yishi mumkin.
+
+| Bot nomi | Vazifasi | Bloklasangiz nima bo'ladi |
+|---|---|---|
+| **GPTBot** | Kelajakdagi AI modellarni o'qitish uchun ma'lumot yig'ish | Kontentingiz yangi modellarni o'qitishda ishlatilmaydi, lekin qidiruv ko'rinishga ta'sir qilmaydi |
+| **OAI-SearchBot** | ChatGPT Search'ning real vaqtli qidiruv indeksini yaratish | Saytingiz ChatGPT qidiruv javoblarida **umuman ko'rinmaydi** |
+
+Ko'p sayt egalari GPTBot'ni bloklab, "AI'dan himoyalandim" deb o'ylaydi — lekin agar OAI-SearchBot ham bir vaqtda bloklansa (yoki umumiy qoida orqali barcha AI botlar cheklansa), bu ChatGPT javoblarida ko'rinishdan butunlay voz kechish degani.
+
+## robots.txt orqali AI botlarni qanday sozlash mumkin
+
+Qaror aniq: agar ChatGPT, Perplexity kabi vositalarda ko'rinishni xohlasangiz — qidiruv-botlariga yo'l ochiq bo'lishi kerak. Odatiy robots.txt'da bunday botlar uchun alohida qoida yo'q bo'lsa, ular avtomatik ravishda ruxsat etilgan hisoblanadi. Cheklash faqat aniq `Disallow` qatori qo'shilganda ishlaydi.
+
+Diqqat qilinishi kerak bo'lgan botlar:
+
+- **Qidiruv uchun ochiq qoldirilishi tavsiya etiladigan**: OAI-SearchBot, PerplexityBot, ClaudeBot (agar Claude'da ham ko'rinishni xohlasangiz)
+- **Faqat modelni o'qitishni istamasangiz cheklanadigan**: GPTBot, Google-Extended
+
+2026-yilga kelib bu ro'yxat kengaygan — endi bitta faylda 6 tadan ortiq tashkilotning o'nlab botlarini boshqarish kerak bo'lishi mumkin, shuning uchun robots.txt'ni "bir marta yozib unutiladigan" fayl emas, muntazam yangilanadigan sozlama sifatida qarash to'g'ri.
+
+## JavaScript va AI botlar — nega bu muhim?
+
+An'anaviy Google boti kabi, AI botlar ham har doim JavaScript'ni to'liq va ishonchli bajaravermaydi. Agar saytingizdagi muhim matn — narx, manzil, xizmatlar ro'yxati — faqat JavaScript orqali yuklansa, bot bu ma'lumotni butunlay o'tkazib yuborishi mumkin.
+
+Xavfsiz yondashuv: eng muhim ma'lumotlar (narx, kontakt, asosiy xizmat tavsifi) sahifaning oddiy HTML qismida, hech qanday qo'shimcha yuklashsiz ko'rinadigan bo'lishi kerak.
+
+## llms.txt — kerakmi yoki yo'qmi?
+
+Bu haqda ko'p hype bor, shuning uchun halol javob berish muhim: **llms.txt hozircha isbotlangan ta'sirga ega emas**. 2026-yil holatiga saytlarning atigi taxminan 10% i bu faylni qo'shgan, va uning AI javoblariga sezilarli ta'sir qilishi hali ilmiy yoki rasmiy tasdiqlanmagan.
+
+Shunga qaramay, uni qo'shish:
+
+- **Arzon va tez** — bitta oddiy matn fayl
+- **Xavfsiz** — hech qanday salbiy ta'siri yo'q
+- **Kelajakka investitsiya** — AI vositalar bu formatni ko'proq qabul qilsa, saytingiz allaqachon tayyor bo'ladi
+
+Xulosa: llms.txt'ni "sehrli yechim" deb kutmang, lekin qo'shishga arziydigan, arzon signal sifatida qarang.
+
+## Schema.org markup nega AEO uchun muhim?
+
+Schema.org — bu sayt kontentini AI va qidiruv tizimlar aniq tushunadigan strukturaga aylantiradigan markup tili. Misol: oddiy matn "Toshkentda sayt yaratish $270 dan" — AI uchun bu shunchaki matn, aniq raqam ekanligi kafolatlanmagan. Schema markup bilan bu **Product** yoki **Service** turi sifatida yoziladi — narx, valyuta, joylashuv aniq belgilanadi.
+
+Natija: AI foydalanuvchi savoliga aniq raqam bilan javob bera oladi va sizni manba sifatida ko'rsatadi — bu esa AEO'ning asosiy maqsadi.
+
+## FAQ: ChatGPT va saytlar haqida ko'p so'raladigan savollar
+
+**1. ChatGPT mening saytimni real vaqtda ko'radimi?**
+Ha, lekin ikki xil mexanizm orqali — oddiy javoblar o'qitilgan ma'lumotdan, ChatGPT Search esa OAI-SearchBot orqali real vaqtda internetni skanerlaydi.
+
+**2. GPTBot va OAI-SearchBot bir xil narsami?**
+Yo'q. GPTBot modelni o'qitish uchun ma'lumot yig'adi, OAI-SearchBot esa ChatGPT Search'ning qidiruv indeksini yaratadi. Ikkinchisini bloklasangiz — sayt ChatGPT qidiruv javoblarida umuman ko'rinmaydi.
+
+**3. robots.txt'da AI botlarni qanday sozlash kerak?**
+ChatGPT javoblarida ko'rinishni xohlasangiz OAI-SearchBot va shunga o'xshash qidiruv-botlarga ruxsat bering. Faqat modelni o'qitishni istamasangiz — GPTBot va Google-Extended kabi training-botlarni cheklash mumkin.
+
+**4. llms.txt fayli haqiqatan kerakmi?**
+Hozircha aniq isbotlangan ta'sir yo'q (~10% saytlarda bor), lekin qo'shish arzon va xavfsiz — kelajakka investitsiya sifatida qarash mumkin.
+
+**5. JavaScript bilan qurilgan sayt ChatGPT uchun muammo tug'diradimi?**
+Ha, bo'lishi mumkin — AI botlar JavaScript'ni har doim ham to'liq bajarmaydi. Muhim matn oddiy HTML ko'rinishida bo'lishi kerak.
+
+**6. Schema.org markup nega AEO uchun muhim?**
+U sayt kontentini AI aniq tushunadigan strukturaga aylantiradi — narx, joylashuv, xizmat turi kabi ma'lumotlarni aniq belgilab, AI'ga to'g'ri javob berish va sizni manba sifatida ko'rsatish imkonini beradi.
+
+---
+
+## Xulosa: ChatGPT uchun sayt — texnik tayyorgarlik masalasi
+
+ChatGPT saytingizni "ko'rishi" uchun ijodiy marketing emas, aniq texnik tayyorgarlik kerak: to'g'ri botlarga ochiq robots.txt, JavaScript'ga bog'liq bo'lmagan muhim kontent, va schema.org orqali strukturalangan ma'lumot. Bularning har biri kod darajasida amalga oshiriladigan real ish.
+
+Agar bu texnik ishni o'zingiz kuzatib borishga vaqtingiz yetishmasa, KATOV [AI SEO xizmati](/ai-seo) doirasida robots.txt, schema.org va llms.txt sozlamalarini to'liq amalga oshiradi hamda AI javoblarida qatnashishingizni kuzatib boradi. SEO va AI SEO o'rtasidagi farqni chuqurroq bilmoqchi bo'lsangiz — [SEO va AI SEO farqi](/blog/seo-va-ai-seo-farqi) maqolamizni, sayt tezligi qidiruv reytingiga qanday ta'sir qilishini bilish uchun esa [sayt tezligi va SEO](/blog/sayt-tezligi-va-seo) maqolamizni o'qishingiz mumkin.
+
+<PriceCTA />

@@ -19,6 +19,9 @@ const blogToServices: Record<string, string[]> = {
   'website-buyurtma-berish-toshkent': ['sayt-yaratish', 'korporativ-sayt', 'seo-xizmati'],
   'website-narxi-uzbekistonda': ['sayt-yaratish', 'landing-page', 'korporativ-sayt'],
   'seo-va-ai-seo-farqi': ['seo-xizmati', 'aeo-xizmati', 'sayt-yaratish'],
+  'google-search-console-qollanma': ['seo-xizmati', 'aeo-xizmati', 'sayt-redesign'],
+  'sayt-tezligi-va-seo': ['seo-xizmati', 'sayt-redesign', 'sayt-yaratish'],
+  'chatgpt-saytni-qanday-koradi': ['aeo-xizmati', 'seo-xizmati', 'sayt-yaratish'],
 };
 
 // RU / EN slug → canonical uz slug (mirrors the map in the blog page).
@@ -41,6 +44,15 @@ const slugToCanonical: Record<string, string> = {
   'seo-va-ai-seo-farqi': 'seo-va-ai-seo-farqi',
   'chem-otlichaetsya-seo-ot-ai-seo': 'seo-va-ai-seo-farqi',
   'seo-vs-ai-seo-difference': 'seo-va-ai-seo-farqi',
+  'google-search-console-qollanma': 'google-search-console-qollanma',
+  'kak-ispolzovat-google-search-console': 'google-search-console-qollanma',
+  'how-to-use-google-search-console': 'google-search-console-qollanma',
+  'sayt-tezligi-va-seo': 'sayt-tezligi-va-seo',
+  'skorost-sayta-i-seo': 'sayt-tezligi-va-seo',
+  'site-speed-and-seo': 'sayt-tezligi-va-seo',
+  'chatgpt-saytni-qanday-koradi': 'chatgpt-saytni-qanday-koradi',
+  'kak-chatgpt-vidit-sayt': 'chatgpt-saytni-qanday-koradi',
+  'how-chatgpt-sees-your-website': 'chatgpt-saytni-qanday-koradi',
 };
 
 interface BlogRelatedServicesProps {
