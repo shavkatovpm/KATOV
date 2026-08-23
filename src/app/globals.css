@@ -13,6 +13,15 @@
   --color-nav-fg: #f5f5f5;
 }
 
+/* AI SEO backdrop mark — the OpenAI knot is thin overlapping bands with
+   a lot of empty space, so the opacity that reads fine against the dark
+   theme's near-black background nearly disappears against the light
+   theme's white one. Must come before .light so the override below wins
+   on light theme (same selector specificity, so source order decides). */
+:root {
+  --ai-seo-mark-opacity: 0.16;
+}
+
 /* Light mode */
 .light {
   --color-bg: #ffffff;
@@ -24,6 +33,7 @@
   --color-hero-muted: #666666;
   --color-nav-bg: rgba(255, 255, 255, 0.5);
   --color-nav-fg: #111111;
+  --ai-seo-mark-opacity: 0.32;
 }
 
 /* Light mode Hero CTA button */
@@ -160,10 +170,18 @@ textarea,
 }
 
 /* Page Content Animation Wrapper */
+/* No `forwards` fill-mode: the 100% keyframe's `filter: blur(0px)` is
+   visually a no-op but, left applied after the animation ends, any
+   non-none filter value creates a new containing block for `position:
+   fixed` descendants — trapping every fixed element inside this wrapper
+   (which is most of the page) to scroll with the document instead of
+   staying pinned to the viewport. Dropping `forwards` lets the element
+   fall back to its unfiltered base style once the 0.3s entrance plays,
+   which already is opacity:1/no-filter, so nothing visible changes. */
 .page-content {
   padding-top: 0;
   margin-top: 0;
-  animation: pageEntrance 0.3s ease-out forwards;
+  animation: pageEntrance 0.3s ease-out;
   position: relative;
 }
 

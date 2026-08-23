@@ -5138,7 +5138,7 @@ export const servicesData: Record<string, ServiceData> = {
         ctaTitle: 'Saytingiz uchun bepul AEO audit',
         ctaSubtitle:
           'Saytingizning AI qidiruvga moslik darajasini bepul tekshiramiz — schema, struktura, llms.txt. 2 ish kuni ichida audit hisobotini yuboramiz.',
-        ctaPrimary: 'Buyurtma berish',
+        ctaPrimary: 'Ariza qoldirish',
         breadcrumbServices: 'Xizmatlar',
         priceLabel: 'Narxi',
         priceSuffix: '/oy',

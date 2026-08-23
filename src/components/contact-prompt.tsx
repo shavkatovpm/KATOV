@@ -8,7 +8,7 @@ import { Send, X, Check, AlertTriangle, MessageCircle } from 'lucide-react';
 
 const STORAGE_KEY = 'katov_contact_prompt_seen';
 const BUTTON_DELAY_MS = 15_000;
-const AUTO_OPEN_DELAY_MS = 30_000;
+const AUTO_OPEN_DELAY_MS = 45_000;
 
 export function ContactPrompt() {
   const t = useTranslations('contact');
