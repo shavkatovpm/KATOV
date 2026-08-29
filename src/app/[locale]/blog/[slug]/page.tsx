@@ -161,7 +161,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
         {
           url: ogImage,
           width: 1200,
-          height: 1200,
+          height: post.image ? 675 : 1200,
           alt: post.imageAlt || post.title,
         },
       ],
