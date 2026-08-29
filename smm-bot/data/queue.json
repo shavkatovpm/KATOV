@@ -1,0 +1,70 @@
+[
+  {
+    "id": "website-natija-5-qoida",
+    "topic": "Website natija berishi uchun 5 qoida",
+    "hook": "Saytingiz bor, lekin mijoz kelmayaptimi?",
+    "body": "Ko'pincha muammo dizaynda emas, shu 5 narsada:\n\n1. Sayt tez ochilishi kerak — sekin sayt mijozni chiqarib yuboradi\n2. Bog'lanish tugmasi (qo'ng'iroq/Telegram) darrov ko'rinishi kerak\n3. Mobil telefonda 100% qulay ko'rinish — asosiy tashrif shu yerdan\n4. Xizmat va narx aniq yozilgan bo'lishi kerak — \"bog'laning\" yetarli emas\n5. Sayt bir marta qilinib unutilmaydi — muntazam tekshirilib turishi kerak",
+    "cta_text": "Saytingiz shu 5 qoidaga mos keladimi? Batafsil",
+    "cta_link": "https://katov.uz/sayt-yaratish",
+    "hashtags": [
+      "#katovuz",
+      "#vebsayt",
+      "#biznes",
+      "#seo",
+      "#uzbekistan"
+    ],
+    "status": "awaiting_confirm",
+    "images": [
+      {
+        "variant": 1,
+        "square_1x1_path": "assets/website-natija-5-qoida/v1_1x1.png",
+        "instagram_4x5_path": "assets/website-natija-5-qoida/v1_4x5.png"
+      },
+      {
+        "variant": 2,
+        "square_1x1_path": "assets/website-natija-5-qoida/v2_1x1.png",
+        "instagram_4x5_path": "assets/website-natija-5-qoida/v2_4x5.png"
+      },
+      {
+        "variant": 3,
+        "square_1x1_path": "assets/website-natija-5-qoida/v3_1x1.png",
+        "instagram_4x5_path": "assets/website-natija-5-qoida/v3_4x5.png"
+      }
+    ],
+    "selectedVariant": 1
+  },
+  {
+    "id": "junior-dasturchi-qiyinlashdimi",
+    "topic": "Junior dasturchi bo'lish endi qiyinlashdimi — sabablari",
+    "hook": "Junior dasturchi bo'lish qiyinlashdi.\nLekin sabab ish o'rinlari yo'qolgani emas.",
+    "body": "Boshlang'ich darajadagi nomzodlar ko'paydi, kompaniyalarning talabi esa o'sdi. Endi kurs sertifikatining o'zi yetarli emas.\n\nIsh beruvchi tayyor loyihalar, muammoni tushunish va qilgan ishingizni sodda tushuntira olishni kutadi. Sun'iy intellekt ishni tezlashtiradi, ammo natijani tekshirish baribir insonning vazifasi.\n\nBitta yo'nalishni tanlang, 2–3 ta haqiqiy loyiha yarating va ularni tushuntira oladigan darajaga yeting. Juniorlar uchun yo'l yopilmadi — kirish talabi o'zgardi.",
+    "cta_text": "Junior dasturchi bozori bo'yicha to'liq tahlilni o'qing",
+    "cta_link": "https://katov.uz/uz/blog/junior-dasturchi-bolish-qiyinlashdimi",
+    "hashtags": [
+      "#katovuz",
+      "#dasturchi",
+      "#junior",
+      "#ITbozor",
+      "#suniyintellekt"
+    ],
+    "status": "saved_only",
+    "images": [
+      {
+        "variant": 1,
+        "square_1x1_path": "assets/junior-dasturchi-qiyinlashdimi/v1_1x1.png",
+        "instagram_4x5_path": "assets/junior-dasturchi-qiyinlashdimi/v1_4x5.png"
+      },
+      {
+        "variant": 2,
+        "square_1x1_path": "assets/junior-dasturchi-qiyinlashdimi/v2_1x1.png",
+        "instagram_4x5_path": "assets/junior-dasturchi-qiyinlashdimi/v2_4x5.png"
+      },
+      {
+        "variant": 3,
+        "square_1x1_path": "assets/junior-dasturchi-qiyinlashdimi/v3_1x1.png",
+        "instagram_4x5_path": "assets/junior-dasturchi-qiyinlashdimi/v3_4x5.png"
+      }
+    ],
+    "selectedVariant": 3
+  }
+]
