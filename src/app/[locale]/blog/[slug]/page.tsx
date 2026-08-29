@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Locale, locales, defaultLocale } from '@/i18n/config';
 import { getBlogPost, getAllBlogSlugs } from '@/lib/blog';
 import { ArrowLeft } from 'lucide-react';
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
@@ -123,7 +124,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   }
 
   const url = localizedUrl(locale as Locale, `/blog/${slug}`);
-  const ogImage = `${SITE_URL}/og-image.png`;
+  const ogImage = post.image ? new URL(post.image, SITE_URL).toString() : `${SITE_URL}/og-image.png`;
 
   const alternateLanguages: Record<string, string> = {};
   if (mapping) {
@@ -161,7 +162,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
           url: ogImage,
           width: 1200,
           height: 1200,
-          alt: post.title,
+          alt: post.imageAlt || post.title,
         },
       ],
     },
@@ -264,11 +265,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const mdxComponents = { GrowthChart, PriceCTA };
 
+  const articleImage = post.image
+    ? new URL(post.image, SITE_URL).toString()
+    : `${SITE_URL}/og-image.png`;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.description,
+    image: articleImage,
     datePublished: post.date,
     author: {
       '@type': 'Organization',
@@ -346,6 +352,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
 
             </header>
+
+            {post.image && (
+              <figure className="mb-10">
+                <Image
+                  src={post.image}
+                  alt={post.imageAlt || post.title}
+                  width={1200}
+                  height={675}
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  priority
+                  className="w-full h-auto rounded-2xl"
+                />
+              </figure>
+            )}
 
             <div
               className="mb-10"

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Locale, locales } from '@/i18n/config';
 import { getBlogPosts } from '@/lib/blog';
 import { Link } from '@/i18n/routing';
+import Image from 'next/image';
 import { localizedUrl, ogLocale } from '@/lib/urls';
 
 interface BlogPageProps {
@@ -85,6 +86,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
           url: localizedUrl(locale, `/blog/${post.slug}`),
           datePublished: post.date,
           dateModified: post.date,
+          ...(post.image ? { image: new URL(post.image, 'https://www.katov.uz').toString() } : {}),
           author: { '@type': 'Organization', name: post.author, url: 'https://www.katov.uz' },
           inLanguage: locale,
         })),
@@ -126,6 +128,16 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   backgroundColor: 'var(--color-bg)',
                 }}
               >
+                {post.image && (
+                  <Image
+                    src={post.image}
+                    alt={post.imageAlt || post.title}
+                    width={1200}
+                    height={675}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="w-full h-auto aspect-video object-cover rounded-xl mb-5"
+                  />
+                )}
                 <div className="flex items-center gap-2 text-muted text-xs sm:text-sm mb-4">
                   <time>
                     {new Date(post.date).toLocaleDateString(locale === 'ru' ? 'ru-RU' : locale === 'en' ? 'en-US' : 'uz-UZ', {
