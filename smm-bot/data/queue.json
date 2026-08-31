@@ -66,5 +66,39 @@
       }
     ],
     "selectedVariant": 3
+  },
+  {
+    "id": "ai-dasturchilarni-ishsiz-qoldiradimi",
+    "topic": "AI dasturchilarni ishsiz qoldiryaptimi yoki yordam beryaptimi",
+    "hook": "AI dasturchini almashtiradimi?\nHozircha yo'q — lekin ish usulini o'zgartiryapti.",
+    "body": "AI oddiy kod, hujjat va xato qidirishni tezlashtiradi. Ammo vazifani to'g'ri tushunish, xavfsizlikni tekshirish va natija uchun javob berish hanuz inson zimmasida.\n\nShu sabab dasturchining qiymati faqat tez kod yozishda emas. AI'ni boshqarish, uning xatosini ko'rish va biznes muammosiga mos yechim tanlash muhimlashmoqda.\n\nAI raqib bo'lishi ham, kuchli yordamchi bo'lishi ham mumkin — farq undan qanday foydalanishda.",
+    "cta_text": "AI dasturchilikni qanday o'zgartirayotganini batafsil o'qing",
+    "cta_link": "https://katov.uz/uz/blog/ai-dasturchilarni-ishsiz-qoldiradimi",
+    "hashtags": [
+      "#katovuz",
+      "#suniyintellekt",
+      "#dasturchi",
+      "#AI",
+      "#ITbozor"
+    ],
+    "status": "saved_only",
+    "images": [
+      {
+        "variant": 1,
+        "square_1x1_path": "assets/ai-dasturchilarni-ishsiz-qoldiradimi/v1_1x1.png",
+        "instagram_4x5_path": "assets/ai-dasturchilarni-ishsiz-qoldiradimi/v1_4x5.png"
+      },
+      {
+        "variant": 2,
+        "square_1x1_path": "assets/ai-dasturchilarni-ishsiz-qoldiradimi/v2_1x1.png",
+        "instagram_4x5_path": "assets/ai-dasturchilarni-ishsiz-qoldiradimi/v2_4x5.png"
+      },
+      {
+        "variant": 3,
+        "square_1x1_path": "assets/ai-dasturchilarni-ishsiz-qoldiradimi/v3_1x1.png",
+        "instagram_4x5_path": "assets/ai-dasturchilarni-ishsiz-qoldiradimi/v3_4x5.png"
+      }
+    ],
+    "selectedVariant": 1
   }
 ]

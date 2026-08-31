@@ -33,6 +33,7 @@ KATOV (`katov.uz`) uchun Telegram va Instagram kontenti. Post oddiy foydalanuvch
 - Ranglardan foydalanish mumkin, ammo ular juda yorqin yoki ko'zni charchatadigan bo'lmasligi kerak. Asosiy palitra sokin, past to'yinganlikdagi qora, oq, kulrang va tabiiy ranglardan tuziladi; rangli elementlar cheklangan aksent sifatida ishlatiladi.
 - Brend belgisi sifatida katta `KATOV` watermark ishlatilmaydi.
 - Har dizaynda oddiy, kichik va ikkilamchi darajadagi `katov.uz` yozuvi qo'yiladi.
+- Ijtimoiy tarmoq rasmining asosiy sarlavhasi taxminan 3–5 ta so'zdan iborat bo'ladi. Uzun hook, izoh va body matni rasmga joylanmaydi — captionda beriladi. Kichik `katov.uz` yozuvi bu so'z chegarasiga kirmaydi.
 - Matn o'qilishi, o'zbekcha imlo va raqamlarning aniqligi generatsiyadan keyin tekshiriladi.
 
 ## Website maqolasi uchun SEO rasmi

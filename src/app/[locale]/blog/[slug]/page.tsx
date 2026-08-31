@@ -90,6 +90,18 @@ const slugMap: Record<string, Record<string, string>> = {
   'chatgpt-saytni-qanday-koradi': { uz: 'chatgpt-saytni-qanday-koradi', ru: 'kak-chatgpt-vidit-sayt', en: 'how-chatgpt-sees-your-website' },
   'kak-chatgpt-vidit-sayt': { uz: 'chatgpt-saytni-qanday-koradi', ru: 'kak-chatgpt-vidit-sayt', en: 'how-chatgpt-sees-your-website' },
   'how-chatgpt-sees-your-website': { uz: 'chatgpt-saytni-qanday-koradi', ru: 'kak-chatgpt-vidit-sayt', en: 'how-chatgpt-sees-your-website' },
+  'junior-dasturchi-bolish-qiyinlashdimi': { uz: 'junior-dasturchi-bolish-qiyinlashdimi', ru: 'rynok-truda-yunior-razrabotchikov-uzbekistan', en: 'junior-developer-market-uzbekistan' },
+  'rynok-truda-yunior-razrabotchikov-uzbekistan': { uz: 'junior-dasturchi-bolish-qiyinlashdimi', ru: 'rynok-truda-yunior-razrabotchikov-uzbekistan', en: 'junior-developer-market-uzbekistan' },
+  'junior-developer-market-uzbekistan': { uz: 'junior-dasturchi-bolish-qiyinlashdimi', ru: 'rynok-truda-yunior-razrabotchikov-uzbekistan', en: 'junior-developer-market-uzbekistan' },
+  'kalit-soz-tadqiqoti-bosqichma-bosqich': { uz: 'kalit-soz-tadqiqoti-bosqichma-bosqich', ru: 'podbor-klyuchevyh-slov-poshagovo', en: 'keyword-research-step-by-step' },
+  'podbor-klyuchevyh-slov-poshagovo': { uz: 'kalit-soz-tadqiqoti-bosqichma-bosqich', ru: 'podbor-klyuchevyh-slov-poshagovo', en: 'keyword-research-step-by-step' },
+  'keyword-research-step-by-step': { uz: 'kalit-soz-tadqiqoti-bosqichma-bosqich', ru: 'podbor-klyuchevyh-slov-poshagovo', en: 'keyword-research-step-by-step' },
+  'ai-dasturchilarni-ishsiz-qoldiradimi': { uz: 'ai-dasturchilarni-ishsiz-qoldiradimi', ru: 'zamenit-li-ii-razrabotchikov', en: 'will-ai-replace-developers' },
+  'zamenit-li-ii-razrabotchikov': { uz: 'ai-dasturchilarni-ishsiz-qoldiradimi', ru: 'zamenit-li-ii-razrabotchikov', en: 'will-ai-replace-developers' },
+  'will-ai-replace-developers': { uz: 'ai-dasturchilarni-ishsiz-qoldiradimi', ru: 'zamenit-li-ii-razrabotchikov', en: 'will-ai-replace-developers' },
+  'google-business-profile-toshkent': { uz: 'google-business-profile-toshkent', ru: 'google-biznes-profil-tashkent', en: 'google-business-profile-tashkent' },
+  'google-biznes-profil-tashkent': { uz: 'google-business-profile-toshkent', ru: 'google-biznes-profil-tashkent', en: 'google-business-profile-tashkent' },
+  'google-business-profile-tashkent': { uz: 'google-business-profile-toshkent', ru: 'google-biznes-profil-tashkent', en: 'google-business-profile-tashkent' },
 };
 
 interface BlogPostPageProps {
