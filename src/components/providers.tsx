@@ -12,10 +12,10 @@ export function Providers({ children }: ProvidersProps) {
     // Disable scroll during page entrance animation
     document.body.style.overflow = 'hidden';
 
-    // Enable scroll after initial animations (1.5s)
+    // Enable scroll after initial animations (0.5s)
     const timer = setTimeout(() => {
       document.body.style.overflow = 'auto';
-    }, 1500);
+    }, 500);
 
     return () => {
       clearTimeout(timer);
