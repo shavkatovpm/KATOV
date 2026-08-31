@@ -1,31 +1,37 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
+import { FcGoogle } from 'react-icons/fc';
 import type { ReactNode } from 'react';
 
 interface AdsParallaxBackdropProps {
   children: ReactNode;
 }
 
-// Shared background for the hero + highlights sections together — same
-// Google mark as /seo (Google Ads is a Google product, same visual
-// family), scrolling at half the page's speed. The next section's own
-// opaque background — not a clip on this element — covers it once it
-// drifts past the hero.
+// Same Google mark and behavior as /seo (Google Ads is a Google product,
+// same visual family) — pinned to one fixed point on screen, only its own
+// breathing animation runs, fades out via opacity over the first stretch
+// of scroll.
 export function AdsParallaxBackdrop({ children }: AdsParallaxBackdropProps) {
   const { scrollY } = useScroll();
-  const logoY = useTransform(scrollY, (v) => v * 0.5);
+  const fadeOpacity = useTransform(scrollY, [0, 900], [1, 0]);
 
   return (
     <div className="relative overflow-hidden">
-      <motion.div
-        className="pointer-events-none absolute left-1/2 top-[120px] sm:top-[75px] w-[420px] sm:w-[620px] md:w-[760px] opacity-[0.16] z-0"
-        style={{ x: '-50%', y: logoY, aspectRatio: '320 / 223' }}
+      <div
+        className="pointer-events-none fixed left-1/2 top-[165px] sm:top-[105px] w-[260px] sm:w-[380px] md:w-[460px] aspect-square -translate-x-1/2 opacity-[0.16] z-0"
         aria-hidden
       >
-        <Image src="/images/google-logo.png" alt="" fill className="object-contain" />
-      </motion.div>
+        <motion.div className="h-full w-full" style={{ opacity: fadeOpacity }}>
+          <motion.div
+            className="h-full w-full"
+            animate={{ scale: [1, 1.06, 1] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <FcGoogle className="h-full w-full" />
+          </motion.div>
+        </motion.div>
+      </div>
 
       <div className="relative z-10">{children}</div>
     </div>
