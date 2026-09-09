@@ -132,10 +132,10 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   <Image
                     src={post.image}
                     alt={post.imageAlt || post.title}
-                    width={1200}
-                    height={675}
+                    width={post.imageWidth || 1200}
+                    height={post.imageHeight || 675}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="w-full h-auto aspect-video object-cover rounded-xl mb-5"
+                    className="w-full h-auto rounded-xl mb-5"
                   />
                 )}
                 <div className="flex items-center gap-2 text-muted text-xs sm:text-sm mb-4">

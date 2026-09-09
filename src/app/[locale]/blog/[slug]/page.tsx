@@ -172,8 +172,8 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       images: [
         {
           url: ogImage,
-          width: 1200,
-          height: post.image ? 675 : 1200,
+          width: post.imageWidth || 1200,
+          height: post.imageHeight || (post.image ? 675 : 1200),
           alt: post.imageAlt || post.title,
         },
       ],
@@ -370,8 +370,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Image
                   src={post.image}
                   alt={post.imageAlt || post.title}
-                  width={1200}
-                  height={675}
+                  width={post.imageWidth || 1200}
+                  height={post.imageHeight || 675}
                   sizes="(max-width: 768px) 100vw, 768px"
                   priority
                   className="w-full h-auto rounded-2xl"

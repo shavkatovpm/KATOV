@@ -18,6 +18,8 @@ export interface BlogPost {
   date: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   author: string;
   tags: string[];
   readingTime: number;
@@ -32,6 +34,8 @@ export interface BlogPostMeta {
   date: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   author: string;
   tags: string[];
   readingTime: number;
@@ -60,6 +64,8 @@ export function getBlogPosts(locale: Locale): BlogPostMeta[] {
         date: data.date || '',
         image: data.image,
         imageAlt: data.imageAlt,
+        imageWidth: data.imageWidth,
+        imageHeight: data.imageHeight,
         author: data.author || 'Katov',
         tags: data.tags || [],
         readingTime: Math.ceil(stats.minutes),
@@ -91,6 +97,8 @@ export function getBlogPost(
     date: data.date || '',
     image: data.image,
     imageAlt: data.imageAlt,
+    imageWidth: data.imageWidth,
+    imageHeight: data.imageHeight,
     author: data.author || 'Katov',
     tags: data.tags || [],
     readingTime: Math.ceil(stats.minutes),
