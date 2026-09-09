@@ -41,6 +41,8 @@ KATOV (`katov.uz`) uchun Telegram va Instagram kontenti. Post oddiy foydalanuvch
 - Har bir yangi website blog maqolasiga mavzuga mos alohida featured image yaratiladi; rasmsiz maqola chiqarilmaydi.
 - Featured image ijtimoiy tarmoq kvadrat rasmining oddiy crop'i bo'lishi shart emas. U Google Search, Google Images, Open Graph va maqola sahifasida professional ko'rinadigan keng kompozitsiyada tayyorlanadi.
 - Asosiy format: 1200x675 (16:9), siqilgan va web uchun optimallashtirilgan JPG/WebP.
+- Ijtimoiy tarmoq uchun tanlangan dizayn blogga ham so'ralsa, uning uslubi 1200x675 keng kompozitsiyaga moslanadi. Kvadrat postni blogga to'g'ridan-to'g'ri qo'yish yoki blog kartalarini kvadratga o'zgartirish mumkin emas.
+- Google Discover uchun foto yoki mavzuni aniq ifodalovchi kompozitsiya ustun bo'ladi; katta reklama sarlavhasi va ko'p matn olib tashlanadi. Muhim obyektlar keng rasm ichida to'liq saqlanadi. `max-image-preview:large`, Open Graph va Article rasmi tekshiriladi.
 - Fayl nomi mavzuni ifodalovchi lotin yozuvidagi slug bo'ladi; `imageAlt` esa o'zbek tilida rasm mazmunini aniq tushuntiradi.
 - Rasm maqola sahifasida ko'rinadi, Open Graph/Twitter metadata va Article schema `image` maydoniga ulanadi.
 - Ranglar sokin va past to'yinganlikda bo'ladi; asosiy obyekt kichik qidiruv thumbnail'ida ham tushunarli ko'rinishi kerak.
