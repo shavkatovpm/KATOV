@@ -100,5 +100,39 @@
       }
     ],
     "selectedVariant": 1
+  },
+  {
+    "id": "frilanser-yoki-agentlik",
+    "topic": "Freelance va agentlik — mijoz uchun qaysi biri xavfsizroq",
+    "hook": "Sayt tayyor. Bir oy o'tib arizalar kelmay qoldi.\nEndi kimga yozasiz?",
+    "body": "Frilansermi yoki agentlikmi — tanlovda shu savolni ham bering.\nO'xshash loyihasini ko'ring, ish hajmi va topshirish tartibini yozma aniqlashtiring.\nSaytga kirishlar, fayllar va keyingi yordam kimda bo'lishini oldindan kelishing.\nIshonchli hamkorning belgisi — aniq jarayon va natijaga mas'ul odam.",
+    "cta_text": "Ijrochiga beriladigan 8 ta savolni maqolada o'qing",
+    "cta_link": "https://katov.uz/blog/frilanser-yoki-agentlik",
+    "hashtags": [
+      "#katovuz",
+      "#saytyaratish",
+      "#frilanser",
+      "#agentlik",
+      "#biznes"
+    ],
+    "status": "awaiting_confirm",
+    "images": [
+      {
+        "variant": 1,
+        "square_1x1_path": "assets/frilanser-yoki-agentlik/v1_1x1.png",
+        "instagram_4x5_path": "assets/frilanser-yoki-agentlik/v1_4x5.png"
+      },
+      {
+        "variant": 2,
+        "square_1x1_path": "assets/frilanser-yoki-agentlik/v2_1x1.png",
+        "instagram_4x5_path": "assets/frilanser-yoki-agentlik/v2_4x5.png"
+      },
+      {
+        "variant": 3,
+        "square_1x1_path": "assets/frilanser-yoki-agentlik/v3_1x1.png",
+        "instagram_4x5_path": "assets/frilanser-yoki-agentlik/v3_4x5.png"
+      }
+    ],
+    "selectedVariant": 2
   }
 ]

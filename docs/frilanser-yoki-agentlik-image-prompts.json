@@ -1,0 +1,70 @@
+{
+  "mode": "Built-in image_gen",
+  "prompts": [
+    "Use case: ads-marketing. Create an elegant Uzbek social editorial poster, square 1:1, 1080x1080. Topic choosing a freelance developer or agency. Minimal tactile 3D still life: on a warm off-white studio floor, one solid charcoal architectural pillar on left and a close group of three shorter stone pillars on right, both supporting identical balanced thin horizontal slabs, metaphor of equally valid dependable ways to build. Sculptural, sophisticated soft shadows, muted sage accent only. Upper third large immaculate black sans serif headline exactly: \"Frilanser yoki agentlik?\". Bottom small secondary text exactly \"katov.uz\". No other words, no watermark. Strong composition, generous breathing room, premium editorial design.",
+    "Use case: ads-marketing. Create square 1:1 1080x1080 Uzbek editorial poster about choosing website contractor. Brutalist torn paper collage, warm grey paper with rough tactile edges, black cutout rectangle holding headline exactly \"Saytni kimga topshiramiz?\" in large cream clean sans serif. Lower composition two overlapping monochrome photographic fragments: laptop at a solo desk on left, collaborative table with three pairs of hands reviewing an unlabelled website wireframe on right; integrate small muted olive hand-drawn circle around a paper checkmark bridging images. Quiet low saturation, premium art direction, asymmetrical composition. Bottom small text exactly \"katov.uz\". No other text, no fake logos, no giant watermark.",
+    "Use case: ads-marketing. Square 1:1 1080x1080 Uzbek social poster in expressive marker whiteboard diagram style. Pale warm grey matte paper background. Upper third bold handwritten but highly legible exact headline \"Loyihaga kim javobgar?\". Center large loose black marker outline of a browser window with simple abstract content blocks; three curved marker lines from it end in hand-drawn icons of a checkmarked page, two chat bubbles, and a key. Restrained dusty blue marker highlighting only, no icon labels. Balanced spacious engaging editorial composition, visible paper texture. Bottom small neat text exactly \"katov.uz\". Only those two text elements.",
+    "Use case: stylized-concept. Create separate landscape 16:9 1200x675 SEO blog featured image about freelance developer versus agency selection. Premium architectural 3D still life on warm grey floor: single solid charcoal column on left and group of three stone columns on right each supports an equally stable pale rectangular platform with a small abstract browser window sculpture. A shared off-white checklist card with three embossed ticks in foreground links both options. Muted sage accent, soft daylight, strong recognizable silhouette at thumbnail scale, balanced wide composition. No large headline. Only small quiet text \"katov.uz\" bottom right. No watermark or other words."
+  ],
+  "instagram": [
+    {
+      "variant": 1,
+      "prompt": "Adapt this approved square editorial poster into matching portrait Instagram 4:5 composition (1080x1350 target). Preserve exact headline spelling, all main objects, same muted palette, materials and style. Reflow spacing vertically, keep text comfortably inside frame; place small katov.uz near bottom. Do not stretch the image or crop text. No additional words or logos.",
+      "reference": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-b9589e8a-428e-4f97-8f26-212d2ef6f92f.png"
+    },
+    {
+      "variant": 2,
+      "prompt": "Adapt this approved square editorial poster into matching portrait Instagram 4:5 composition (1080x1350 target). Preserve exact headline spelling, all main objects, same muted palette, materials and style. Reflow spacing vertically, keep text comfortably inside frame; place small katov.uz near bottom. Do not stretch the image or crop text. No additional words or logos.",
+      "reference": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-bf67e4b9-b3e1-4d9b-b6fa-9f11b03ed3da.png"
+    },
+    {
+      "variant": 3,
+      "prompt": "Adapt this approved square editorial poster into matching portrait Instagram 4:5 composition (1080x1350 target). Preserve exact headline spelling, all main objects, same muted palette, materials and style. Reflow spacing vertically, keep text comfortably inside frame; place small katov.uz near bottom. Do not stretch the image or crop text. No additional words or logos.",
+      "reference": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-aefb30b1-a87d-4625-91f0-c0cb570b9144.png"
+    }
+  ],
+  "assets": [
+    {
+      "source": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-b9589e8a-428e-4f97-8f26-212d2ef6f92f.png",
+      "target": "smm-bot/assets/frilanser-yoki-agentlik/v1_1x1.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "source": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-bf67e4b9-b3e1-4d9b-b6fa-9f11b03ed3da.png",
+      "target": "smm-bot/assets/frilanser-yoki-agentlik/v2_1x1.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "source": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-aefb30b1-a87d-4625-91f0-c0cb570b9144.png",
+      "target": "smm-bot/assets/frilanser-yoki-agentlik/v3_1x1.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "source": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-01b75c4a-8760-48fb-bb0c-bb7b3f398e0d.png",
+      "target": "public/images/blog/frilanser-yoki-agentlik.webp",
+      "width": 1200,
+      "height": 675
+    },
+    {
+      "source": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-ae666b54-782e-453f-a41e-684879535748.png",
+      "target": "smm-bot/assets/frilanser-yoki-agentlik/v1_4x5.png",
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "source": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-902f43ce-42b2-49fa-a8e8-7012cc8ebc11.png",
+      "target": "smm-bot/assets/frilanser-yoki-agentlik/v2_4x5.png",
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "source": "/Users/shavkatovff/.codex/generated_images/01a0865f-3265-79d3-a612-bb2a5f1ce016/exec-ea338235-7a68-4ebd-bb46-145cf44c0326.png",
+      "target": "smm-bot/assets/frilanser-yoki-agentlik/v3_4x5.png",
+      "width": 1080,
+      "height": 1350
+    }
+  ]
+}
