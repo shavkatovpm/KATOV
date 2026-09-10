@@ -6,7 +6,7 @@ KATOV (`katov.uz`) uchun Telegram va Instagram kontenti. Post oddiy foydalanuvch
 
 ## Kontent qoidalari
 
-- Faqat o'zbek tilida, sodda va aniq yoziladi.
+- Ijtimoiy tarmoq posti (Telegram/Instagram caption) faqat o'zbek tilida, sodda va aniq yoziladi — bu til cheklovi faqat ijtimoiy tarmoq matniga tegishli, website maqolasiga tegishli emas (pastdagi "Website maqolasi uchun til va intent mezonlari" bo'limiga qarang).
 - Yolg'on da'vo va mubolag'a ishlatilmaydi. KATOV 2024-yildan faoliyat yuritadi.
 - Har postning strategik maqsadi: `katov.uz` website'ining SEO/GEO rivojiga yordam berish, lekin matn sun'iy SEO matni yoki majburiy reklama ko'rinishida bo'lmasligi kerak.
 - Asosiy fokus: SEO va GEO orqali natija beradigan website va raqamli yechimlar hamda auditoriyaga haqiqiy foyda beradigan IT/AI tushuntirishlari.
@@ -36,6 +36,16 @@ KATOV (`katov.uz`) uchun Telegram va Instagram kontenti. Post oddiy foydalanuvch
 - Ijtimoiy tarmoq rasmining asosiy sarlavhasi taxminan 3–5 ta so'zdan iborat bo'ladi. Uzun hook, izoh va body matni rasmga joylanmaydi — captionda beriladi. Kichik `katov.uz` yozuvi bu so'z chegarasiga kirmaydi.
 - Matn o'qilishi, o'zbekcha imlo va raqamlarning aniqligi generatsiyadan keyin tekshiriladi.
 - Shrift bo'yicha foydalanuvchi fikri (2026-09-10): zamonaviy, minimalist sans-serif ishlatilsin (Inter/Helvetica uslubida). Serif va bezakli sarlavhalar yoqmadi. Sarlavha o'rtacha qalinlikda, kichik `katov.uz` yozuvi ham sodda sans-serif bo'lsin; shriftni almashtirishda mavjud dizayn kompozitsiyasi saqlansin.
+
+## Website maqolasi uchun til va intent mezonlari (majburiy)
+
+- Har website maqolasi **majburiy 3 tilda (uz/ru/en)** yoziladi. Birortasi ham "keyinroq", "hozircha UZ yetadi" yoki shunga o'xshash sabab bilan qoldirilmaydi — maqola faqat barcha 3 til tayyor bo'lganda tugallangan hisoblanadi.
+- Mavzu/sarlavha tanlanganda ikkala intent ham **bir vaqtda kuchli** bo'lishi shart:
+  - **SEO intent**: sarlavha/H1 real, odamlar qidiradigan kalit so'z yoki frazani o'z ichiga oladi (faqat "relatable"/umumiy gap emas).
+  - **GEO/AEO intent**: mavzu aniq savol shaklida ifodalanadi va AI javob mexanizmlari (ChatGPT, Perplexity, Google AIO) tabiiy tsitirovka qiladigan formatda bo'ladi.
+  - Ikkisidan biri kuchsiz bo'lsa, mavzu/sarlavha qayta ishlanadi — SEO GEO hisobiga yoki aksincha qurbon qilinmaydi.
+- Bu qoida SMM-workflow orqali yoziladigan barcha website maqolalariga ham to'liq tegishli — "ijtimoiy tarmoqdan kelgan mavzu" degan sabab bilan til yoki intent mezonlari yumshatilmaydi.
+- Qolgan barcha SEO/AEO/E-E-A-T/DoD mezonlari (Definition of Done checklist, internal linking, FAQ schema va h.k.) o'zgarishsiz kuchda qoladi — bu bo'lim ularni to'ldiradi, almashtirmaydi.
 
 ## Website maqolasi uchun SEO rasmi
 
@@ -123,7 +133,7 @@ Har yangi mavzuda shu kutubxonadan mavzuga eng mos uchta, imkon qadar bir-birida
 2. Mavzu berilmasa, mavjud rejadagi birinchi ishlatilmagan mavzu olinadi.
 3. Agar rejalashtirilgan mavzular tugasa, shu strategiyaga mos yangi mavzular qo'shilishi mumkin.
 4. Auditoriyaga foydali va `katov.uz` SEO/GEO strategiyasiga xizmat qiladigan ijtimoiy post yoziladi.
-5. Shu mavzu bo'yicha `katov.uz` blogi uchun to'liq, foydali va SEO/GEO talablariga mos website maqolasi ham yozila boshlanadi. Bu ish dizayn tanlovini kutmaydi.
+5. Shu mavzu bo'yicha `katov.uz` blogi uchun to'liq, foydali va SEO/GEO talablariga mos website maqolasi **uz/ru/en 3 tilda** yozila boshlanadi (yuqoridagi "Website maqolasi uchun til va intent mezonlari" bo'limiga qarang). Bu ish dizayn tanlovini kutmaydi.
 6. Tasdiqlangan 9 uslub orasidan mavzuga mos va bir-biridan farqli 3 ta kreativ dizayn tayyorlanadi.
 7. Har dizaynda katta watermark o'rniga kichik, oddiy `katov.uz` yozuvi bo'ladi.
 8. Har uch dizayn uchun Telegram 1:1 va unga mos Instagram 4:5 fayli oldindan tayyorlanadi.
