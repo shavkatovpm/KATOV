@@ -35,6 +35,7 @@ KATOV (`katov.uz`) uchun Telegram va Instagram kontenti. Post oddiy foydalanuvch
 - Har dizaynda oddiy, kichik va ikkilamchi darajadagi `katov.uz` yozuvi qo'yiladi.
 - Ijtimoiy tarmoq rasmining asosiy sarlavhasi taxminan 3–5 ta so'zdan iborat bo'ladi. Uzun hook, izoh va body matni rasmga joylanmaydi — captionda beriladi. Kichik `katov.uz` yozuvi bu so'z chegarasiga kirmaydi.
 - Matn o'qilishi, o'zbekcha imlo va raqamlarning aniqligi generatsiyadan keyin tekshiriladi.
+- Shrift bo'yicha foydalanuvchi fikri (2026-09-10): zamonaviy, minimalist sans-serif ishlatilsin (Inter/Helvetica uslubida). Serif va bezakli sarlavhalar yoqmadi. Sarlavha o'rtacha qalinlikda, kichik `katov.uz` yozuvi ham sodda sans-serif bo'lsin; shriftni almashtirishda mavjud dizayn kompozitsiyasi saqlansin.
 
 ## Website maqolasi uchun SEO rasmi
 

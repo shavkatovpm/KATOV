@@ -134,5 +134,39 @@
       }
     ],
     "selectedVariant": 2
+  },
+  {
+    "id": "endi-har-kim-dasturchi",
+    "topic": "“Endi har kim dasturchi” davri — yaxshimi, yomonmi",
+    "hook": "AI bilan sayt yasadingiz.\nEndi siz dasturchimisiz?",
+    "body": "G'oyani tezda ko'rsatish — yaxshi imkoniyat.\nAmmo chiroyli sahifa hali tayyor biznes mahsuloti degani emas.\nAriza sizga yetib keladimi? Telefonda ishlaydimi? Xatoni kim tuzatadi?\nBoshlash osonlashdi. Natijani tekshirish va ishlatib borish ham ishning bir qismi.",
+    "cta_text": "Namuna va tayyor sayt farqini maqolada o'qing",
+    "cta_link": "https://katov.uz/blog/endi-har-kim-dasturchi",
+    "hashtags": [
+      "#katovuz",
+      "#suniyintellekt",
+      "#dasturchi",
+      "#saytyaratish",
+      "#biznes"
+    ],
+    "status": "saved_only",
+    "images": [
+      {
+        "variant": 1,
+        "square_1x1_path": "assets/endi-har-kim-dasturchi/v1_1x1.png",
+        "instagram_4x5_path": "assets/endi-har-kim-dasturchi/v1_4x5.png"
+      },
+      {
+        "variant": 2,
+        "square_1x1_path": "assets/endi-har-kim-dasturchi/v2_1x1.png",
+        "instagram_4x5_path": "assets/endi-har-kim-dasturchi/v2_4x5.png"
+      },
+      {
+        "variant": 3,
+        "square_1x1_path": "assets/endi-har-kim-dasturchi/v3_1x1.png",
+        "instagram_4x5_path": "assets/endi-har-kim-dasturchi/v3_4x5.png"
+      }
+    ],
+    "selectedVariant": 2
   }
 ]

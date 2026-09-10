@@ -16,7 +16,23 @@ if (!BOT_TOKEN || !ADMIN_ID) {
   process.exit(1);
 }
 
-const bot = new TelegramBot(BOT_TOKEN, { polling: true });
+const bot = new TelegramBot(BOT_TOKEN, {
+  polling: { interval: 1000, params: { timeout: 20 } },
+  request: { timeout: 35000 },
+});
+
+bot.on('polling_error', (err) => {
+  console.error(`Telegram polling: ${err.code || 'UNKNOWN'}`);
+});
+
+// Telegram's event emitter does not await async command handlers.
+function onCommand(pattern, handler) {
+  bot.onText(pattern, (msg, match) => {
+    Promise.resolve(handler(msg, match)).catch((err) => {
+      console.error(`Telegram command failed: ${err.code || 'UNKNOWN'}`);
+    });
+  });
+}
 
 function loadQueue() {
   return JSON.parse(readFileSync(QUEUE_PATH, 'utf-8'));
@@ -155,7 +171,7 @@ async function handleConfirm(query, itemId, decision) {
 
 bot.on('callback_query', async (query) => {
   if (!isAdmin(query)) {
-    await bot.answerCallbackQuery(query.id, { text: 'Ruxsat yo\'q.' });
+    await bot.answerCallbackQuery(query.id, { text: 'Ruxsat yo\'q.' }).catch(() => {});
     return;
   }
 
@@ -170,30 +186,40 @@ bot.on('callback_query', async (query) => {
       await bot.answerCallbackQuery(query.id);
     }
   } catch (err) {
-    console.error(err);
-    await bot.answerCallbackQuery(query.id, { text: 'Xato yuz berdi.' });
+    console.error(`Telegram callback failed: ${err.code || 'UNKNOWN'}`);
+    await bot.answerCallbackQuery(query.id, { text: 'Xato yuz berdi.' }).catch(() => {});
   }
 });
 
-bot.onText(/^\/next$/, async (msg) => {
+onCommand(/^\/next$/, async (msg) => {
   if (!isAdmin(msg)) return;
   const queue = loadQueue();
-  const next = findNextPending(queue);
+  const next = findNextPending(queue)
+    || [...queue].reverse().find((item) => item.status === 'awaiting_confirm');
   if (!next) {
     await bot.sendMessage(msg.chat.id, 'Navbatda TODO mavzu yo\'q.');
     return;
   }
-  await sendVariantsForSelection(msg.chat.id, next);
+  if (next.status === 'awaiting_confirm' && next.selectedVariant) {
+    const images = next.images.find((img) => img.variant === next.selectedVariant);
+    if (images) {
+      await bot.sendPhoto(msg.chat.id, path.join(__dirname, images.square_1x1_path));
+      await bot.sendDocument(msg.chat.id, path.join(__dirname, images.instagram_4x5_path));
+    }
+    await sendConfirmPrompt(msg.chat.id, next, next.selectedVariant);
+  } else {
+    await sendVariantsForSelection(msg.chat.id, next);
+  }
 });
 
-bot.onText(/^\/queue$/, async (msg) => {
+onCommand(/^\/queue$/, async (msg) => {
   if (!isAdmin(msg)) return;
   const queue = loadQueue();
   const lines = queue.map((item) => `- [${item.status}] ${item.topic}`);
   await bot.sendMessage(msg.chat.id, lines.join('\n') || 'Navbat bo\'sh.');
 });
 
-bot.onText(/^\/start$/, async (msg) => {
+onCommand(/^\/start$/, async (msg) => {
   if (!isAdmin(msg)) return;
   await bot.sendMessage(msg.chat.id, 'KATOV SMM bot ishga tushdi.\n/next — navbatdagi mavzuni ko\'rish\n/queue — navbat holatini ko\'rish');
 });
