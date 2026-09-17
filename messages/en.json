@@ -376,5 +376,11 @@
     "back": "Back",
     "next": "Next",
     "previous": "Previous"
+  },
+  "blogTelegramPrompt": {
+    "title": "Don’t miss useful articles",
+    "subtitle": "Follow the KATOV Telegram channel for new articles on IT, website development and growing your business.",
+    "openButton": "Subscribe to our Telegram channel",
+    "subscribe": "Subscribe to the channel"
   }
 }

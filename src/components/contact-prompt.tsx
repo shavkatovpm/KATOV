@@ -1,17 +1,29 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { locales } from '@/i18n/config';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, X, Check, AlertTriangle, MessageCircle } from 'lucide-react';
 
-const STORAGE_KEY = 'katov_contact_prompt_seen';
 const BUTTON_DELAY_MS = 15_000;
 const AUTO_OPEN_DELAY_MS = 45_000;
 
 export function ContactPrompt() {
+  const pathname = usePathname();
+  const segments = pathname.split('/').filter(Boolean);
+  if (locales.some((locale) => locale === segments[0])) segments.shift();
+  const isBlog = segments[0] === 'blog';
+
+  return <PagePrompt key={isBlog ? 'blog' : 'contact'} isBlog={isBlog} />;
+}
+
+function PagePrompt({ isBlog }: { isBlog: boolean }) {
+  const storageKey = isBlog ? 'katov_blog_telegram_prompt_seen' : 'katov_contact_prompt_seen';
   const t = useTranslations('contact');
+  const telegram = useTranslations('blogTelegramPrompt');
   const [shown, setShown] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
   const [buttonPulsing, setButtonPulsing] = useState(true);
@@ -26,13 +38,13 @@ export function ContactPrompt() {
   // 15s timer + session dedup — show the floating button first
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (sessionStorage.getItem(STORAGE_KEY) === '1') return;
+    if (sessionStorage.getItem(storageKey) === '1') return;
 
     const timer = setTimeout(() => setButtonVisible(true), BUTTON_DELAY_MS);
     return () => clearTimeout(timer);
-  }, []);
+  }, [storageKey]);
 
-  // If the button is ignored, auto-open the modal once at the 30s mark
+  // If the button is ignored, auto-open the modal once at the 45s mark
   useEffect(() => {
     if (!buttonVisible || shown || !buttonPulsing) return;
 
@@ -48,10 +60,10 @@ export function ContactPrompt() {
     setShown(true);
   };
 
-  const handleClose = () => {
-    sessionStorage.setItem(STORAGE_KEY, '1');
+  const handleClose = useCallback(() => {
+    sessionStorage.setItem(storageKey, '1');
     setShown(false);
-  };
+  }, [storageKey]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,7 +80,7 @@ export function ContactPrompt() {
         }),
       });
       if (response.ok) {
-        sessionStorage.setItem(STORAGE_KEY, '1');
+        sessionStorage.setItem(storageKey, '1');
         setSubmitted(true);
         setFormData({ name: '', phone: '', message: '' });
         setTimeout(() => setShown(false), 2500);
@@ -92,7 +104,7 @@ export function ContactPrompt() {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [shown]);
+  }, [shown, handleClose]);
 
   if (!mounted) return null;
 
@@ -108,8 +120,8 @@ export function ContactPrompt() {
             exit={{ opacity: 0, scale: 0.6, y: 20 }}
             transition={{ type: 'spring', stiffness: 300, damping: 24 }}
             onClick={handleOpen}
-            aria-label={t('prompt.openButton')}
-            title={t('prompt.openButton')}
+            aria-label={isBlog ? telegram('openButton') : t('prompt.openButton')}
+            title={isBlog ? telegram('openButton') : t('prompt.openButton')}
             className="fixed bottom-6 right-6 z-[90] flex items-center justify-center w-14 h-14 rounded-full shadow-2xl"
             style={{
               backgroundColor: 'var(--color-fg)',
@@ -124,7 +136,7 @@ export function ContactPrompt() {
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               />
             )}
-            <MessageCircle size={22} className="relative" />
+            <span className="relative">{isBlog ? <Send size={22} /> : <MessageCircle size={22} />}</span>
           </motion.button>
         )}
       </AnimatePresence>
@@ -177,7 +189,26 @@ export function ContactPrompt() {
                   </button>
 
                   <div className="px-5 sm:px-6 pt-14 pb-5 sm:pb-6">
-                    {submitted ? (
+                    {isBlog ? (
+                      <div className="text-center">
+                        <Send size={32} className="mx-auto mb-4" />
+                        <h2 className="text-xl sm:text-2xl font-bold">{telegram('title')}</h2>
+                        <p className="text-sm text-muted mt-3 mb-6 leading-relaxed">
+                          {telegram('subtitle')}
+                        </p>
+                        <a
+                          href="https://t.me/katovuz"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={handleClose}
+                          className="flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-2xl font-semibold text-sm transition-opacity hover:opacity-90"
+                          style={{ backgroundColor: 'var(--color-fg)', color: 'var(--color-bg)' }}
+                        >
+                          {telegram('subscribe')}
+                          <Send size={16} />
+                        </a>
+                      </div>
+                    ) : submitted ? (
                       <div className="flex flex-col items-center text-center py-6">
                         <div
                           className="flex items-center justify-center w-12 h-12 rounded-full mb-4"
