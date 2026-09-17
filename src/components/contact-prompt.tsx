@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { locales } from '@/i18n/config';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, X, Check, AlertTriangle, MessageCircle } from 'lucide-react';
+import { Send, X, Check, AlertTriangle, MessageCircle, ArrowUpRight } from 'lucide-react';
 
 const BUTTON_DELAY_MS = 15_000;
 const AUTO_OPEN_DELAY_MS = 45_000;
@@ -21,6 +21,7 @@ export function ContactPrompt() {
 }
 
 function PagePrompt({ isBlog }: { isBlog: boolean }) {
+  const autoOpenDelay = isBlog ? 30_000 : AUTO_OPEN_DELAY_MS;
   const storageKey = isBlog ? 'katov_blog_telegram_prompt_seen' : 'katov_contact_prompt_seen';
   const t = useTranslations('contact');
   const telegram = useTranslations('blogTelegramPrompt');
@@ -44,16 +45,16 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
     return () => clearTimeout(timer);
   }, [storageKey]);
 
-  // If the button is ignored, auto-open the modal once at the 45s mark
+  // Auto-open once: 30 seconds on blog pages, 45 seconds elsewhere.
   useEffect(() => {
     if (!buttonVisible || shown || !buttonPulsing) return;
 
     const timer = setTimeout(() => {
       setShown(true);
       setButtonPulsing(false);
-    }, AUTO_OPEN_DELAY_MS - BUTTON_DELAY_MS);
+    }, autoOpenDelay - BUTTON_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [buttonVisible, shown, buttonPulsing]);
+  }, [buttonVisible, shown, buttonPulsing, autoOpenDelay]);
 
   const handleOpen = () => {
     setButtonPulsing(false);
@@ -83,7 +84,6 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
         sessionStorage.setItem(storageKey, '1');
         setSubmitted(true);
         setFormData({ name: '', phone: '', message: '' });
-        setTimeout(() => setShown(false), 2500);
       } else {
         setError(true);
         setTimeout(() => setError(false), 4000);
@@ -95,16 +95,6 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
       setIsSubmitting(false);
     }
   };
-
-  // Escape to close
-  useEffect(() => {
-    if (!shown) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') handleClose();
-    };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [shown, handleClose]);
 
   if (!mounted) return null;
 
@@ -156,7 +146,6 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                 backdropFilter: 'blur(4px)',
                 WebkitBackdropFilter: 'blur(4px)',
               }}
-              onClick={handleClose}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.94, y: 12 }}
@@ -165,6 +154,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
               transition={{ type: 'spring', stiffness: 320, damping: 30 }}
               role="dialog"
               aria-modal="true"
+              aria-label={isBlog ? telegram('title') : t('prompt.title')}
               className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none"
             >
               <div className="w-full max-w-md pointer-events-auto">
@@ -191,22 +181,36 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                   <div className="px-5 sm:px-6 pt-14 pb-5 sm:pb-6">
                     {isBlog ? (
                       <div className="text-center">
-                        <Send size={32} className="mx-auto mb-4" />
-                        <h2 className="text-xl sm:text-2xl font-bold">{telegram('title')}</h2>
-                        <p className="text-sm text-muted mt-3 mb-6 leading-relaxed">
+                        <div className="relative -mx-5 -mt-14 mb-6 flex h-40 items-center justify-center overflow-hidden border-b border-sky-500/15 bg-gradient-to-br from-sky-500/15 via-sky-400/5 to-transparent sm:-mx-6">
+                          <div className="absolute h-52 w-52 rounded-full border border-sky-500/10" />
+                          <div className="absolute h-36 w-36 rounded-full border border-sky-500/15" />
+                          <div className="relative flex h-20 w-20 -rotate-6 items-center justify-center rounded-3xl bg-gradient-to-br from-sky-400 to-sky-600 text-white shadow-xl shadow-sky-500/20">
+                            <Send size={36} strokeWidth={1.6} className="-translate-x-0.5 translate-y-0.5" />
+                          </div>
+                          <span className="absolute bottom-3 rounded-full border border-sky-500/20 bg-[var(--color-bg)] px-3 py-1 text-[10px] font-semibold tracking-[0.18em]">KATOV · TELEGRAM</span>
+                        </div>
+                        <h2 className="mx-auto max-w-xs text-2xl sm:text-[28px] font-bold leading-tight tracking-tight">{telegram('title')}</h2>
+                        <p className="text-sm text-muted mt-3 leading-relaxed">
                           {telegram('subtitle')}
                         </p>
+                        <div className="my-6 flex items-center gap-3 rounded-2xl border p-3 text-left" style={{ borderColor: 'var(--color-border)' }}>
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sky-500"><Send size={20} /></div>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-sm font-semibold">KATOV</p>
+                            <p className="text-xs text-muted">@katovuz</p>
+                          </div>
+                          <span className="rounded-full bg-sky-500/10 px-2.5 py-1 text-xs font-medium text-sky-600 dark:text-sky-400">{telegram('channel')}</span>
+                        </div>
                         <a
                           href="https://t.me/katovuz"
                           target="_blank"
                           rel="noopener noreferrer"
-                          onClick={handleClose}
-                          className="flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-2xl font-semibold text-sm transition-opacity hover:opacity-90"
-                          style={{ backgroundColor: 'var(--color-fg)', color: 'var(--color-bg)' }}
+                          className="group flex items-center justify-center gap-2 w-full px-4 py-4 rounded-2xl bg-sky-600 text-white shadow-lg shadow-sky-600/15 font-semibold text-sm transition-colors hover:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-500"
                         >
                           {telegram('subscribe')}
-                          <Send size={16} />
+                          <ArrowUpRight size={18} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                         </a>
+                        <p className="mt-3 text-xs text-muted">{telegram('newTab')}</p>
                       </div>
                     ) : submitted ? (
                       <div className="flex flex-col items-center text-center py-6">
