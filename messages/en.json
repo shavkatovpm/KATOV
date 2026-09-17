@@ -381,6 +381,8 @@
     "title": "Don’t miss useful articles",
     "subtitle": "Follow the KATOV Telegram channel for new articles on IT, website development and growing your business.",
     "openButton": "Subscribe to our Telegram channel",
-    "subscribe": "Subscribe to the channel"
+    "subscribe": "Subscribe to the channel",
+    "channel": "Channel",
+    "newTab": "Telegram opens in a new tab"
   }
 }

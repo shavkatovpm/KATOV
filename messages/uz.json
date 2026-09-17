@@ -380,6 +380,8 @@
     "title": "Foydali maqolalarni o‘tkazib yubormang",
     "subtitle": "IT, sayt yaratish va biznesni rivojlantirish haqida yangi maqolalarni KATOV Telegram kanalida kuzatib boring.",
     "openButton": "Telegram kanalimizga obuna bo‘ling",
-    "subscribe": "Kanalga obuna bo‘lish"
+    "subscribe": "Kanalga obuna bo‘lish",
+    "channel": "Kanal",
+    "newTab": "Telegram yangi oynada ochiladi"
   }
 }
