@@ -66,6 +66,18 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
     setShown(false);
   }, [storageKey]);
 
+  // Lock background scroll while the modal is open — otherwise a mobile
+  // pull-to-refresh gesture on the page behind it reloads the tab, which
+  // looks like the modal closed itself without the X button.
+  useEffect(() => {
+    if (!shown) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [shown]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
