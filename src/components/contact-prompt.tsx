@@ -6,10 +6,11 @@ import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { locales } from '@/i18n/config';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, X, Check, AlertTriangle, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Send, X, ArrowUpRight } from 'lucide-react';
 
 const BUTTON_DELAY_MS = 15_000;
 const AUTO_OPEN_DELAY_MS = 45_000;
+const STORAGE_KEY = 'katov_telegram_prompt_seen';
 
 export function ContactPrompt() {
   const pathname = usePathname();
@@ -22,28 +23,23 @@ export function ContactPrompt() {
 
 function PagePrompt({ isBlog }: { isBlog: boolean }) {
   const autoOpenDelay = isBlog ? 30_000 : AUTO_OPEN_DELAY_MS;
-  const storageKey = isBlog ? 'katov_blog_telegram_prompt_seen' : 'katov_contact_prompt_seen';
   const t = useTranslations('contact');
   const telegram = useTranslations('blogTelegramPrompt');
   const [shown, setShown] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
   const [buttonPulsing, setButtonPulsing] = useState(true);
   const [mounted, setMounted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
   // 15s timer + session dedup — show the floating button first
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (sessionStorage.getItem(storageKey) === '1') return;
+    if (sessionStorage.getItem(STORAGE_KEY) === '1') return;
 
     const timer = setTimeout(() => setButtonVisible(true), BUTTON_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [storageKey]);
+  }, []);
 
   // Auto-open once: 30 seconds on blog pages, 45 seconds elsewhere.
   useEffect(() => {
@@ -62,9 +58,9 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
   };
 
   const handleClose = useCallback(() => {
-    sessionStorage.setItem(storageKey, '1');
+    sessionStorage.setItem(STORAGE_KEY, '1');
     setShown(false);
-  }, [storageKey]);
+  }, []);
 
   // Lock background scroll while the modal is open — otherwise a mobile
   // pull-to-refresh gesture on the page behind it reloads the tab, which
@@ -77,36 +73,6 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
       document.body.style.overflow = original;
     };
   }, [shown]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError(false);
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          phone: '+998 ' + formData.phone,
-          order: { type: 'CTA modal' },
-        }),
-      });
-      if (response.ok) {
-        sessionStorage.setItem(storageKey, '1');
-        setSubmitted(true);
-        setFormData({ name: '', phone: '', message: '' });
-      } else {
-        setError(true);
-        setTimeout(() => setError(false), 4000);
-      }
-    } catch {
-      setError(true);
-      setTimeout(() => setError(false), 4000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   if (!mounted) return null;
 
@@ -122,8 +88,8 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
             exit={{ opacity: 0, scale: 0.6, y: 20 }}
             transition={{ type: 'spring', stiffness: 300, damping: 24 }}
             onClick={handleOpen}
-            aria-label={isBlog ? telegram('openButton') : t('prompt.openButton')}
-            title={isBlog ? telegram('openButton') : t('prompt.openButton')}
+            aria-label={telegram('openButton')}
+            title={telegram('openButton')}
             className="fixed bottom-6 right-6 z-[90] flex items-center justify-center w-14 h-14 rounded-full shadow-2xl"
             style={{
               backgroundColor: 'var(--color-fg)',
@@ -138,7 +104,9 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               />
             )}
-            <span className="relative">{isBlog ? <Send size={22} /> : <MessageCircle size={22} />}</span>
+            <span className="relative">
+              <Send size={22} />
+            </span>
           </motion.button>
         )}
       </AnimatePresence>
@@ -149,7 +117,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100]"
+            className="fixed inset-0 z-[10000]"
           >
             <div
               className="absolute inset-0"
@@ -166,12 +134,12 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
               transition={{ type: 'spring', stiffness: 320, damping: 30 }}
               role="dialog"
               aria-modal="true"
-              aria-label={isBlog ? telegram('title') : t('prompt.title')}
+              aria-label={telegram('title')}
               className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none"
             >
-              <div className="w-full max-w-md pointer-events-auto">
+              <div className="w-full max-w-sm pointer-events-auto">
                 <div
-                  className="relative rounded-3xl shadow-2xl max-h-[85vh] overflow-y-auto"
+                  className="relative rounded-3xl shadow-2xl"
                   style={{
                     backgroundColor: 'var(--color-bg)',
                     border: '1px solid var(--color-border)',
@@ -190,176 +158,56 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                     <X size={18} />
                   </button>
 
-                  <div className="px-5 sm:px-6 pt-14 pb-5 sm:pb-6">
-                    {isBlog ? (
-                      <div className="text-center">
-                        <div className="relative -mx-5 -mt-14 mb-6 flex h-40 items-center justify-center overflow-hidden border-b border-sky-500/15 bg-gradient-to-br from-sky-500/15 via-sky-400/5 to-transparent sm:-mx-6">
-                          <div className="absolute h-52 w-52 rounded-full border border-sky-500/10" />
-                          <div className="absolute h-36 w-36 rounded-full border border-sky-500/15" />
-                          <div className="relative flex h-20 w-20 -rotate-6 items-center justify-center rounded-3xl bg-gradient-to-br from-sky-400 to-sky-600 text-white shadow-xl shadow-sky-500/20">
-                            <Send size={36} strokeWidth={1.6} className="-translate-x-0.5 translate-y-0.5" />
-                          </div>
-                          <span className="absolute bottom-3 rounded-full border border-sky-500/20 bg-[var(--color-bg)] px-3 py-1 text-[10px] font-semibold tracking-[0.18em]">KATOV · TELEGRAM</span>
-                        </div>
-                        <h2 className="mx-auto max-w-xs text-2xl sm:text-[28px] font-bold leading-tight tracking-tight">{telegram('title')}</h2>
-                        <p className="text-sm text-muted mt-3 leading-relaxed">
-                          {telegram('subtitle')}
-                        </p>
-                        <div className="my-6 flex items-center gap-3 rounded-2xl border p-3 text-left" style={{ borderColor: 'var(--color-border)' }}>
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sky-500"><Send size={20} /></div>
-                          <div className="min-w-0 flex-1">
-                            <p className="text-sm font-semibold">KATOV</p>
-                            <p className="text-xs text-muted">@katovuz</p>
-                          </div>
-                          <span className="rounded-full bg-sky-500/10 px-2.5 py-1 text-xs font-medium text-sky-600 dark:text-sky-400">{telegram('channel')}</span>
-                        </div>
-                        <a
-                          href="https://t.me/katovuz"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group flex items-center justify-center gap-2 w-full px-4 py-4 rounded-2xl bg-sky-600 text-white shadow-lg shadow-sky-600/15 font-semibold text-sm transition-colors hover:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-500"
-                        >
-                          {telegram('subscribe')}
-                          <ArrowUpRight size={18} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                        </a>
-                        <p className="mt-3 text-xs text-muted">{telegram('newTab')}</p>
+                  <div className="px-6 pt-8 pb-6 text-center">
+                    <div
+                      className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl"
+                      style={{ backgroundColor: 'var(--color-fg)', color: 'var(--color-bg)' }}
+                    >
+                      <Send size={20} strokeWidth={1.8} />
+                    </div>
+                    <h2 className="text-lg sm:text-xl font-bold leading-tight tracking-tight">
+                      {telegram('title')}
+                    </h2>
+                    <p className="text-sm text-muted mt-2 leading-relaxed">
+                      {telegram('subtitle')}
+                    </p>
+
+                    <div
+                      className="my-5 flex items-center gap-3 rounded-2xl border p-3 text-left"
+                      style={{ borderColor: 'var(--color-border)' }}
+                    >
+                      <div
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                        style={{ backgroundColor: 'color-mix(in srgb, var(--color-fg) 8%, transparent)' }}
+                      >
+                        <Send size={18} />
                       </div>
-                    ) : submitted ? (
-                      <div className="flex flex-col items-center text-center py-6">
-                        <div
-                          className="flex items-center justify-center w-12 h-12 rounded-full mb-4"
-                          style={{
-                            backgroundColor: 'var(--color-fg)',
-                            color: 'var(--color-bg)',
-                          }}
-                        >
-                          <Check size={22} />
-                        </div>
-                        <p className="text-lg font-bold">{t('prompt.successTitle')}</p>
-                        <p className="text-sm text-muted mt-1">{t('prompt.successText')}</p>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm font-semibold">KATOV</p>
+                        <p className="text-xs text-muted">@katovuz</p>
                       </div>
-                    ) : (
-                      <>
-                        <h2 className="text-xl sm:text-2xl font-bold pr-8">{t('prompt.title')}</h2>
-                        <p className="text-[13px] sm:text-sm text-muted mt-1.5 mb-5 leading-relaxed">
-                          {t('prompt.subtitle')}
-                        </p>
+                      <span
+                        className="rounded-full px-2.5 py-1 text-xs font-medium"
+                        style={{ backgroundColor: 'color-mix(in srgb, var(--color-fg) 8%, transparent)' }}
+                      >
+                        {telegram('channel')}
+                      </span>
+                    </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-3.5">
-                          <input
-                            type="text"
-                            required
-                            value={formData.name}
-                            onChange={(e) => {
-                              const value = e.target.value;
-                              setFormData({
-                                ...formData,
-                                name: value.charAt(0).toUpperCase() + value.slice(1),
-                              });
-                            }}
-                            onInvalid={(e) => {
-                              (e.target as HTMLInputElement).setCustomValidity(
-                                t('form.validation.nameRequired')
-                              );
-                            }}
-                            onInput={(e) => {
-                              (e.target as HTMLInputElement).setCustomValidity('');
-                            }}
-                            className="w-full px-4 py-3 rounded-xl bg-transparent transition-colors focus:outline-none focus:border-muted"
-                            style={{ border: '1px solid var(--color-border)' }}
-                            placeholder={t('form.namePlaceholder')}
-                          />
-
-                          <div
-                            className="flex items-center rounded-xl overflow-hidden"
-                            style={{ border: '1px solid var(--color-border)' }}
-                          >
-                            <span className="pl-4 py-3 shrink-0" style={{ color: 'var(--color-fg)' }}>
-                              +998
-                            </span>
-                            <input
-                              type="tel"
-                              required
-                              pattern="\d{2} \d{3} \d{2} \d{2}"
-                              value={formData.phone}
-                              onChange={(e) => {
-                                const digits = e.target.value.replace(/\D/g, '').slice(0, 9);
-                                let formatted = '';
-                                if (digits.length > 0) formatted = digits.slice(0, 2);
-                                if (digits.length > 2) formatted += ' ' + digits.slice(2, 5);
-                                if (digits.length > 5) formatted += ' ' + digits.slice(5, 7);
-                                if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
-                                setFormData({ ...formData, phone: formatted });
-                              }}
-                              onInvalid={(e) => {
-                                const target = e.target as HTMLInputElement;
-                                target.setCustomValidity(
-                                  target.value === ''
-                                    ? t('form.validation.phoneRequired')
-                                    : t('form.validation.phoneIncomplete')
-                                );
-                              }}
-                              onInput={(e) => {
-                                (e.target as HTMLInputElement).setCustomValidity('');
-                              }}
-                              className="flex-1 min-w-0 px-3 py-3 bg-transparent transition-colors focus:outline-none"
-                              placeholder="33 888 01 33"
-                            />
-                          </div>
-
-                          <textarea
-                            required
-                            rows={3}
-                            value={formData.message}
-                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                            onInvalid={(e) => {
-                              (e.target as HTMLTextAreaElement).setCustomValidity(
-                                t('form.validation.messageRequired')
-                              );
-                            }}
-                            onInput={(e) => {
-                              (e.target as HTMLTextAreaElement).setCustomValidity('');
-                            }}
-                            className="w-full px-4 py-3 rounded-xl bg-transparent transition-colors focus:outline-none focus:border-muted resize-none"
-                            style={{ border: '1px solid var(--color-border)' }}
-                            placeholder={t('form.messagePlaceholder')}
-                          />
-
-                          <button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="w-full flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl font-semibold text-[13px] sm:text-sm transition-opacity hover:opacity-90 disabled:opacity-50"
-                            style={{
-                              backgroundColor: 'var(--color-fg)',
-                              color: 'var(--color-bg)',
-                            }}
-                          >
-                            {isSubmitting ? (
-                              t('form.sending')
-                            ) : (
-                              <>
-                                {t('form.submit')}
-                                <Send size={15} />
-                              </>
-                            )}
-                          </button>
-
-                          <AnimatePresence>
-                            {error && (
-                              <motion.p
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className="flex items-center justify-center gap-2 text-[12px] sm:text-sm text-muted text-center"
-                              >
-                                <AlertTriangle size={14} className="shrink-0" />
-                                {t('toast.error')}
-                              </motion.p>
-                            )}
-                          </AnimatePresence>
-                        </form>
-                      </>
-                    )}
+                    <a
+                      href="https://t.me/katovuz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-2xl font-semibold text-sm transition-opacity hover:opacity-90"
+                      style={{ backgroundColor: 'var(--color-fg)', color: 'var(--color-bg)' }}
+                    >
+                      {telegram('subscribe')}
+                      <ArrowUpRight
+                        size={18}
+                        className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
+                    </a>
+                    <p className="mt-3 text-xs text-muted">{telegram('newTab')}</p>
                   </div>
                 </div>
               </div>
