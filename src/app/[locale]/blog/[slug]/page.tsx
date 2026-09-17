@@ -63,6 +63,9 @@ function GrowthChart() {
 }
 
 const slugMap: Record<string, Record<string, string>> = {
+  "it-xizmatlari-narxi": {"uz": "it-xizmatlari-narxi", "ru": "tseny-na-it-uslugi", "en": "compare-it-service-quotes"},
+  "tseny-na-it-uslugi": {"uz": "it-xizmatlari-narxi", "ru": "tseny-na-it-uslugi", "en": "compare-it-service-quotes"},
+  "compare-it-service-quotes": {"uz": "it-xizmatlari-narxi", "ru": "tseny-na-it-uslugi", "en": "compare-it-service-quotes"},
   'sayt-yaratish-xizmati': { uz: 'sayt-yaratish-xizmati', ru: 'sozdanie-sayta-uslugi', en: 'website-creation-services' },
   'sozdanie-sayta-uslugi': { uz: 'sayt-yaratish-xizmati', ru: 'sozdanie-sayta-uslugi', en: 'website-creation-services' },
   'website-creation-services': { uz: 'sayt-yaratish-xizmati', ru: 'sozdanie-sayta-uslugi', en: 'website-creation-services' },

@@ -59,19 +59,40 @@ KATOV (`katov.uz`) uchun Telegram va Instagram kontenti. Post oddiy foydalanuvch
 - Ranglar sokin va past to'yinganlikda bo'ladi; asosiy obyekt kichik qidiruv thumbnail'ida ham tushunarli ko'rinishi kerak.
 - Rasmga katta KATOV watermark yoki uzun body matni qo'yilmaydi. Zarur bo'lsa faqat kichik `katov.uz` yozuvi ishlatiladi.
 
-## Tasdiqlangan 9 dizayn yo'nalishi
+## Yangi reference dizaynlar kutubxonasi (2026-09-17)
 
-1. Minimal 3D obyekt va statistik/metaforik kompozitsiya.
-2. 3D navbat, yo'l yoki jarayon metaforasi.
-3. Kinetik tipografika, chizib tashlash va handwriting aksenti.
-4. Qo'lda chizilgan statistik diagramma va taktil 3D elementlar.
-5. Realistik foto-kollaj va tahririy tipografika.
-6. KATOV sayti ruhidagi futuristik qora-oq 3D kompozitsiya.
-7. Marker/whiteboard uslubidagi tushuntiruvchi chizma.
-8. Brutalist yirtilgan qog'oz kollaji.
-9. Sokin, ramziy va arxitekturaviy 3D sahna.
+Foydalanuvchi eski 9 dizayn yo'nalishi o'rniga yangi rasm namunalarini asos qilib olishni so'radi. Quyidagi 15 namuna suhbatda yuborilgan tartibda vizual tavsif sifatida qayd etildi. Asl rasm fayllari repozitoriyga saqlangani tasdiqlanmagan; bu katalog ularning ko'rilgan kompozitsiya va uslubini saqlaydi. Foydalanuvchi hali “bo'ldi” demagan — keyingi namunalar ham shu kutubxonaga qo'shiladi, avvalgilari o'chirilmaydi.
 
-Har yangi mavzuda shu kutubxonadan mavzuga eng mos uchta, imkon qadar bir-biridan farqli yo'nalish tanlanadi. Bir xil kompozitsiyani faqat rangini almashtirib uch variant qilish mumkin emas.
+### Har bir namunaning belgilari
+
+1. **Qorong'i fondagi tog'.** Deyarli qora, biroz yashil-kulrang fon; markazda yakka tog' cho'qqisi, kulrang qirralarga tushgan xira yorug'lik; keng bo'sh joy, sokin va dramatik kayfiyat. Obyektga asoslangan minimal kompozitsiya.
+2. **Katta tipografika va tahrirlash ramkasi.** Qora fon, katta oq sans-serif so'z, ortida to'q kulrang ikkilamchi matn; ingichka tanlash ramkasi va kichik to'q sariq kvadrat tutqichlar; pastki chetda tosh foto fragmenti. Matn va grafik interfeys belgilarining uyg'unligi.
+3. **Grain va xira gradientli poster.** Qora-kulrang donador fon, yumshoq yoyilgan oq yorug'lik va blur; chapga tekislangan sodda oq sans-serif sarlavha, keng oraliqlar, kichik texnik yozuvlar. Sarlavha tinch va o'qilishi aniq.
+4. **Yorug'lik taratuvchi interfeys elementi.** Qora fonda juda xira kvadrat grid; markazda qoramtir yumaloq pill/input, kichik plus va iliq amber kursor; o'ngga yoyilgan yumshoq yorug'lik. Minimal, fazoviy raqamli interfeys metaforasi.
+5. **Grid ustida tipografika va marker.** To'q fon, ingichka kulrang kataklar; katta oq qalin sans-serif matn; bitta so'z atrofida xira yalpiz-kulrang qo'lda chizilgan oval va pastda marker chizig'i. Handwriting faqat grafik aksent.
+6. **Monoxrom 3D qo'l va interaksiya.** Qora bo'shliqda yumshoq yoritilgan kulrang 3D qo'llar, yorug' nuqta va qurilma cheti; asimmetrik joylashuv, kichik oq sarlavha. Gestura, texnologiya va inson aloqasi mavzulariga mos.
+7. **Foto ustida ulkan kesilgan harflar.** Sovuq, past to'yingan ko'kimtir-kulrang foto, harakat xiraligi va quloqchinli figura; chetlardan chiqib ketgan ulkan och rangli qalin sans-serif harflar, kichik strelka. Kuchli editorial kompozitsiya; KATOV matni baribir tushunarli qoladi.
+8. **Qora-oq foto va bo'lingan so'z.** Qora fon, yuqorida ikki qatorga bo'lingan katta oq so'z va yonida ixcham matn bloki; pastda derazadan tushgan yorug'lik aks etgan qorong'i monoxrom foto. Asimmetriya va keng qora maydon.
+9. **Takroriy tipografika va so'nish.** Qora fonda bir xil qisqa iboraning qatorlari, markaziy qator yorqin, yuqori-pastga qarab asta xiralashadi; ixcham monospace/texnik ritm, ko'p bo'sh joy. Takroriy matn dekorativ tekstura, asosiy xabar bitta qisqa ibora.
+10. **Oq fonda taktil klavishlar.** Oqartirilgan och kulrang fon, markazda realistik qora 3D klaviatura tugmalari, yumshoq soya; yengil grid va kulrang qo'lda chizilgan strelka/oval aksentlar. Toza, yengil, bitta sodda vizual metafora.
+11. **Qalam-ko'prik foto-kollaji.** Oq/och kulrang fon, ikki qoyaning orasidagi bo'shliq, kichik inson siluetlari va ko'prik chizayotgan yirik binafsha qalam; qora sans-serif matnda bitta rangli so'z. Muammo va yechimni ko'rsatadigan surreal masshtab va aniq metafora; binafsha cheklangan aksent.
+
+12. **Chuqurlik va narvon — yechim metaforasi.** Och kulrang tekis fonda qora chuqurlikdan chiqayotgan oq/kulrang 3D narvon, yon tomonga tushgan uzun aniq soya; pastki chapda katta, zich sans-serif tipografika, asosiy ibora qizil, qolgan qismi qora. Bitta obyekt orqali muammo va undan chiqish yo'li tushuntiriladi. KATOV uchun uzun inglizcha matn ko'chirilmaydi, sarlavha 3–5 so'zga moslanadi.
+13. **Highlight va tahrirlash tutqichli tipografika.** Oqartirilgan fonda markazga yig'ilgan ixcham matn bloki; bitta juda katta qora sans-serif so'z ortida pastel pushti to'rtburchak, ikki chetda chiziq va dumaloq tutqichlar. Yuqorida tagiga chizilgan kichik ibora, pastda yengil vazndagi izoh; suhbat belgisi va mayda yaltirash aksenti. KATOV talqinida matn qisqa, aksentlar kam, atrofida keng bo'sh joy qoladi.
+14. **Shaxmat va muvozanat — strategiya metaforasi.** Och kulrang taktil/qog'oz teksturali fonda oq sharga tayangan ingichka muvozanat taxtasi; bir tomonda bitta qizil piyoda, boshqa tomonda uchta qora piyoda. Yuqorida katta qizil qalin qiya sans-serif sarlavha va ixcham qora ikkilamchi yozuv. Yo'nalishning asosiy belgisi — oddiy 3D sahna, vazn/muvozanat va strategik ustunlik metaforasi; namunadagi begona logo ishlatilmaydi.
+15. **Suzuvchi fikr kartasi va 3D bildirishnoma.** Och kulrang fonda yumaloq burchakli to'q grafit karta, yumshoq chuqur soya; kartaning tepasida qizil 3D yurakli bildirishnoma. Orqada juda katta, xira kulrang dekorativ tipografika; kartada qo'shtirnoq belgisi va qisqa matn. KATOV uchun faqat haqiqiy tasdiqlangan mijoz fikri ishlatiladi; fikr yoki natija to'qilmaydi. Mijoz fikri bo'lmasa, uslub qisqa mavzu bayoni uchun moslanadi, soxta iqtibos sifatida berilmaydi.
+
+### Yangi namunalarni qo'llash qoidalari
+
+- Kelajakdagi dizaynlar uchun asosiy manba shu yangi reference kutubxonasi; eski 9 yo'nalish endi tanlash uchun asos emas.
+- Har bir namuna mustaqil yo'nalish sifatida saqlanadi. Hammasini faqat qora fondagi bitta uslubga birlashtirib yubormaslik; oq/och fonli 10–15 namunalar ham teng huquqli.
+- Har mavzu uchun kutubxonadan kompozitsiyasi va vizual g'oyasi aniq farqli 3 yo'nalish tanlanadi. Faqat rangni o'zgartirish uch variant hisoblanmaydi.
+- Asosiy kayfiyat: minimalizm, katta bo'sh maydon, kuchli tipografik ierarxiya, monoxrom yoki past to'yingan ranglar, mavzuga mos bitta kuchli vizual metafora. Grain, blur, glow, grid, foto va 3D faqat tanlangan reference talab qilganda ishlatiladi.
+- Yangi 12–15 namunalardagi qizil va pushti ranglar cheklangan aksent sifatida qo‘llanishi mumkin; umumiy fon sokin va och qoladi. Bu barcha dizaynlarni yorqin ranglarga o‘tkazish talabi emas.
+- Namunadagi boshqa brendlar, inglizcha reklama matnlari, kontaktlar va sanalar ko'chirilmaydi. Uslub KATOV mavzusiga moslanadi.
+- Asosiy sarlavha 3–5 so'z, sodda sans-serif; reference talab qilganda katta/qalin tipografika mumkin. Serif qo'llanmaydi. Monospace yoki qo'lda chizilgan belgilar faqat mos yo'nalishdagi ikkilamchi aksent.
+- Reference rasmlarining xira joylari asosiy sarlavhaning o'qilishini buzmasin; o'zbekcha matn va kichik katov.uz aniq ko'rinsin.
+- Telegram 1080x1080, Instagram 1080x1350, kichik katov.uz, caption va uch tilli website maqolasi talablari saqlanadi. Website uchun shu uslub keng 1200x675 kompozitsiyaga moslashtiriladi.
 
 ## Mavzular kutubxonasi
 
@@ -134,7 +155,7 @@ Har yangi mavzuda shu kutubxonadan mavzuga eng mos uchta, imkon qadar bir-birida
 3. Agar rejalashtirilgan mavzular tugasa, shu strategiyaga mos yangi mavzular qo'shilishi mumkin.
 4. Auditoriyaga foydali va `katov.uz` SEO/GEO strategiyasiga xizmat qiladigan ijtimoiy post yoziladi.
 5. Shu mavzu bo'yicha `katov.uz` blogi uchun to'liq, foydali va SEO/GEO talablariga mos website maqolasi **uz/ru/en 3 tilda** yozila boshlanadi (yuqoridagi "Website maqolasi uchun til va intent mezonlari" bo'limiga qarang). Bu ish dizayn tanlovini kutmaydi.
-6. Tasdiqlangan 9 uslub orasidan mavzuga mos va bir-biridan farqli 3 ta kreativ dizayn tayyorlanadi.
+6. Yangi reference dizaynlar kutubxonasidan mavzuga mos va bir-biridan farqli 3 ta kreativ dizayn tayyorlanadi.
 7. Har dizaynda katta watermark o'rniga kichik, oddiy `katov.uz` yozuvi bo'ladi.
 8. Har uch dizayn uchun Telegram 1:1 va unga mos Instagram 4:5 fayli oldindan tayyorlanadi.
 9. Dizaynlar bot navbatiga joylanadi. Shu vaqtning o'zida website maqolasi yozilib, uning alohida SEO featured image'i tayyorlanadi va sayt blogiga qo'shiladi.
@@ -146,8 +167,14 @@ Har yangi mavzuda shu kutubxonadan mavzuga eng mos uchta, imkon qadar bir-birida
 
 ## Hozirgi holat
 
+- 2026-09-17: 6-mavzu — “O‘zbek IT bozorida narxlar nega bunchalik farq qiladi” — tijorat takliflarini solishtirish burchagida tayyorlandi. UZ/RU/EN maqolalar: `it-xizmatlari-narxi`, `tseny-na-it-uslugi`, `compare-it-service-quotes`. Uch dizaynning Telegram/Instagram fayllari va alohida 1200x675 featured image tayyor. Bot yozuvi `saved_only`; nashr qilinmagan.
+
 - Birinchi ishlangan mavzu: “O'zbekistonda dasturchilarga talab pasayayaptimi — bozor haqiqati”.
-- 9 dizayn yo'nalishining barchasi tasdiqlangan.
+- Eski 9 dizayn yo'nalishi 2026-09-17 kuni yangi reference kutubxonasiga almashtirildi; hozircha 15 ta namuna qayd etilgan, namunalar qabul qilish davom etmoqda.
 - Bot papkasi: `smm-bot/`.
 - Botni loyiha ildizidan ishga tushirish komandasi: `cd "smm-bot" && npm start`.
 - Qo'shimcha bot integratsiyasi ma'lumotlari foydalanuvchi tomonidan keyin beriladi.
+
+### 2026-09-17: 6-mavzu dizayn tanlovi
+
+Foydalanuvchi oq fon va qora keycaps ishlatilgan 2-variantni tanladi. Telegram 1080x1080, Instagram 1080x1350; blog/Discover uchun shu uslub 1200x675 keng kompozitsiyada qayta yaratildi. Blogning uz/ru/en nusxalari `it-xizmatlari-narxi-keycaps.webp` rasmiga ulandi. Nashr qilinmagan.

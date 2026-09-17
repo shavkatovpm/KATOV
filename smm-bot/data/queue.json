@@ -168,5 +168,39 @@
       }
     ],
     "selectedVariant": 2
+  },
+  {
+    "id": "it-xizmatlari-narxi",
+    "topic": "O‘zbek IT bozorida narxlar nega bunchalik farq qiladi",
+    "hook": "Bir xil topshiriq. Ikki xil narx.\nFarqi nimada?",
+    "body": "Bir taklifga faqat saytni yig‘ish kiradi. Boshqasiga matn, arizalarni ulash va sinov ham.\nShuning uchun avval «Narxga nimalar kiradi?» deb so‘rang.\nDomen, hosting va keyingi yordam xarajatlarini ham hisoblang.\nQimmat narxning o‘zi sifat kafolati emas — ish hajmi va tekshiriladigan natijani solishtiring.",
+    "cta_text": "Sayt rejalashtiryapsizmi? KATOV bilan loyiha hajmi va narxga kiradigan ishlarni muhokama qiling.",
+    "cta_link": "https://katov.uz/sayt-yaratish",
+    "hashtags": [
+      "#katovuz",
+      "#saytyaratish",
+      "#ITxizmatlari",
+      "#biznes",
+      "#vebsayt"
+    ],
+    "status": "saved_only",
+    "images": [
+      {
+        "variant": 1,
+        "square_1x1_path": "assets/it-xizmatlari-narxi/v1_1x1.png",
+        "instagram_4x5_path": "assets/it-xizmatlari-narxi/v1_4x5.png"
+      },
+      {
+        "variant": 2,
+        "square_1x1_path": "assets/it-xizmatlari-narxi/v2_1x1.png",
+        "instagram_4x5_path": "assets/it-xizmatlari-narxi/v2_4x5.png"
+      },
+      {
+        "variant": 3,
+        "square_1x1_path": "assets/it-xizmatlari-narxi/v3_1x1.png",
+        "instagram_4x5_path": "assets/it-xizmatlari-narxi/v3_4x5.png"
+      }
+    ],
+    "selectedVariant": 2
   }
 ]
