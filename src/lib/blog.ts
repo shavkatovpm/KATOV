@@ -16,6 +16,7 @@ export interface BlogPost {
   title: string;
   description: string;
   date: string;
+  dateModified?: string;
   image?: string;
   imageAlt?: string;
   imageWidth?: number;
@@ -95,6 +96,7 @@ export function getBlogPost(
     title: data.title || '',
     description: data.description || '',
     date: data.date || '',
+    dateModified: data.dateModified,
     image: data.image,
     imageAlt: data.imageAlt,
     imageWidth: data.imageWidth,

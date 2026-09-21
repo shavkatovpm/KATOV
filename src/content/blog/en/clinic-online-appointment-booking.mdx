@@ -1,12 +1,13 @@
 ---
-title: "How does an online appointment booking system for a clinic work?"
-description: "Plan online booking for a clinic: requests versus confirmed appointments, shared schedules, website and Telegram options, reminders, costs and acceptance checks."
+title: "How does online appointment booking work for a clinic?"
+description: "Plan online booking for a clinic: requests versus confirmed appointments, shared schedules, website and Telegram options, reminders, costs and checks."
 date: "2026-09-21"
+dateModified: "2026-09-21"
 author: "Katov"
 image: "/images/blog/klinika-onlayn-yozilish-tizimi.webp"
 imageWidth: 1200
 imageHeight: 675
-imageAlt: "Qora 3D qabul kalendariga yo‘nalgan bemor kartochkalari va tasdiq belgisi"
+imageAlt: "Black 3D patient cards moving toward an appointment calendar with a booking confirmation mark"
 tags: ["clinic website", "online appointment booking", "doctor scheduling", "clinic automation"]
 faq: [{"question":"Does submitting an online request confirm an appointment?","answer":"Not always. With a request form, a receptionist checks and confirms the time. With a shared scheduling system, confirmation follows successful reservation of the slot and creation of the booking."},{"question":"Does a clinic need a website or is a Telegram bot enough?","answer":"A website explains services, doctors and location; a bot supports booking inside Telegram. If both channels are used, their bookings should reach the same schedule."},{"question":"Does online booking replace the receptionist?","answer":"No. Staff still handle schedule changes, requests without suitable availability and exceptions. The system can perform some repetitive tasks."},{"question":"What determines the cost of a clinic booking system?","answer":"Cost depends on branches, doctors, scheduling rules, languages, reminders and integration with existing software. Compare development charges and recurring fees separately."}]
 ---
@@ -62,13 +63,13 @@ An illustrative acceptance test: two patients select 14:00 at the same moment. T
 
 A **website** can explain services, doctors, opening hours and location. The clinic should verify the information about its practitioners. The booking button must be easy to find on a phone, and the form should request only what is needed. Our [website speed guide](/en/blog/site-speed-and-seo) helps assess the mobile experience.
 
-A **Telegram bot** can provide an additional route for people who already contact the clinic through Telegram. A **CRM or existing clinic application** may support staff workflows, but not every CRM fits appointment scheduling requirements. Check integration options before replacing an existing application. Our [CRM guide](/en/blog/crm-system-development-uzbekistan) explains the difference between ready-made and custom solutions.
+A **[Telegram bot](/en/services/telegram-bot)** can provide an additional route for people who already contact the clinic through Telegram. A **[CRM](/en/services/crm-tizimi) or existing clinic application** may support staff workflows, but not every CRM fits appointment scheduling requirements. Check integration options before replacing an existing application. Our [CRM guide](/en/blog/crm-system-development-uzbekistan) explains the difference between ready-made and custom solutions.
 
 <h2 id="section-5">How should reminders and patient details be handled?</h2>
 
 A confirmation records a successful booking; a reminder points to an upcoming appointment. A reminder may need only the time, branch and instructions for changing the booking. Do not include diagnoses or unnecessary personal details. Failed delivery should be visible to the responsible staff member: sending a message and delivering it are different states.
 
-Collect only the information needed to arrange the appointment. Decide who can access it, how long it is retained and how staff access is revoked before development begins. A basic booking form does not replace a medical record. This article covers workflow planning; applicable local data requirements should be checked separately before launch.
+Collect only the information needed to arrange the appointment. Decide who can access it, how long it is retained and how staff access is revoked before development begins. A basic booking form does not replace a medical record. This article covers workflow planning; applicable local data requirements, including consent and storage rules, should be checked against the [Law on Personal Data](https://lex.uz/docs/4831939) before launch.
 
 <h2 id="section-6">How should you assess cost and accept the finished system?</h2>
 

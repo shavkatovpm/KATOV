@@ -299,6 +299,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     description: post.description,
     image: articleImage,
     datePublished: post.date,
+    dateModified: post.dateModified || post.date,
     author: {
       '@type': 'Organization',
       name: 'KATOV',
