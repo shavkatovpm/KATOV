@@ -3,8 +3,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
-import { locales } from '@/i18n/config';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, X, ArrowUpRight } from 'lucide-react';
 
@@ -13,16 +11,6 @@ const AUTO_OPEN_DELAY_MS = 45_000;
 const STORAGE_KEY = 'katov_telegram_prompt_seen';
 
 export function ContactPrompt() {
-  const pathname = usePathname();
-  const segments = pathname.split('/').filter(Boolean);
-  if (locales.some((locale) => locale === segments[0])) segments.shift();
-  const isBlog = segments[0] === 'blog';
-
-  return <PagePrompt key={isBlog ? 'blog' : 'contact'} isBlog={isBlog} />;
-}
-
-function PagePrompt({ isBlog }: { isBlog: boolean }) {
-  const autoOpenDelay = isBlog ? 30_000 : AUTO_OPEN_DELAY_MS;
   const t = useTranslations('contact');
   const telegram = useTranslations('blogTelegramPrompt');
   const [shown, setShown] = useState(false);
@@ -41,16 +29,16 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Auto-open once: 30 seconds on blog pages, 45 seconds elsewhere.
+  // Auto-open once, 45 seconds after entering the site.
   useEffect(() => {
     if (!buttonVisible || shown || !buttonPulsing) return;
 
     const timer = setTimeout(() => {
       setShown(true);
       setButtonPulsing(false);
-    }, autoOpenDelay - BUTTON_DELAY_MS);
+    }, AUTO_OPEN_DELAY_MS - BUTTON_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [buttonVisible, shown, buttonPulsing, autoOpenDelay]);
+  }, [buttonVisible, shown, buttonPulsing]);
 
   const handleOpen = () => {
     setButtonPulsing(false);
