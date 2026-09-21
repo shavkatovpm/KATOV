@@ -1,0 +1,129 @@
+---
+title: "What is Jev AI and how does it work? Speed, pricing and uses"
+description: "How does Jev AI differ from ChatGPT and Claude? Understand TypeSafe’s speed claims, pricing, API access and the limits of structured decision automation."
+date: "2026-09-21"
+author: "Katov"
+image: "/images/blog/jev-ai-qarorlar.webp"
+imageWidth: 1200
+imageHeight: 675
+imageAlt: "TypeSafe belgili markazdan uch yo‘lga ajralgan 3D sxema va yashil rangda ajratilgan tanlov"
+tags: ["Jev AI", "TypeSafe", "System One", "AI automation"]
+faq: [{"question": "What is Jev AI?", "answer": "Jev is TypeSafe’s System One model for structured selections and judgments inside software. It focuses on specific automation questions rather than free-form text generation."}, {"question": "Is Jev 200 times faster than ChatGPT?", "answer": "That is not an established result for all tasks. TypeSafe ties its speed claim to particular internal workflow evaluations; it cannot be extended to every conversation or text-generation task."}, {"question": "Will Jev replace ChatGPT or Claude?", "answer": "It should not be treated as a universal replacement. A system can use Jev for narrow judgments and a generative model for text when needed."}, {"question": "Is Jev free?", "answer": "The published input rate on September 21, 2026 was $42 per billion tokens. Output is described as having no separate charge; check current terms before use."}, {"question": "Does a valid Jev output format mean its content is correct?", "answer": "No. An answer within the permitted format can still select the wrong option. Testing, business rules and review of uncertain cases remain necessary."}]
+---
+
+<div className="editorial-article">
+
+**Jev AI is a TypeSafe model designed to evaluate predefined options and return structured decisions inside software.** For example, it can help identify the department that should handle a customer request, rather than write a long reply. TypeSafe describes Jev as its first public **System One** model. [Official introduction](https://docs.typesafe.ai/introduction).
+
+“200 times faster than ChatGPT” makes an eye-catching headline. Its meaning, however, depends on **the task, the comparison model and the test conditions**. This guide explains both the figures and their limits.
+
+<aside className="article-note">Information checked on September 21, 2026. This is an analysis of official documentation, not a report of independent Jev benchmarking by KATOV.</aside>
+
+
+<nav className="article-toc" aria-label="In this article">
+<strong>In this article</strong>
+<ul>
+<li><a href="#jev-section-1">How does Jev AI work?</a></li>
+<li><a href="#jev-section-3">How does Jev differ from ChatGPT and Claude?</a></li>
+<li><a href="#jev-section-4">What supports the “200 times faster” claim?</a></li>
+<li><a href="#jev-section-6">Can Jev make mistakes?</a></li>
+<li><a href="#jev-section-7">What does Jev cost, and how can you use it?</a></li>
+<li><a href="#jev-section-8">Where might Jev help businesses and Telegram bots?</a></li>
+<li><a href="#jev-section-9">Frequently asked questions</a></li>
+</ul>
+</nav>
+
+<h2 id="jev-section-1">How does Jev AI work?</h2>
+
+Imagine a message to a bot: “Where is my order?” Before drafting a reply, the application needs to identify the route: **delivery**, **payment**, **technical help** or **other**.
+
+Jev receives the message, relevant context, a specific question and permitted options. The application uses the result to select its next step. This is an illustrative scenario, not a client case study or a measured result.
+
+**Message → evaluate options → application rules → next action.**
+
+The application still determines permissions. A model selection does not itself authorise a refund, record deletion or change to customer data.
+
+<h2 id="jev-section-2">What does System One mean?</h2>
+
+System One is TypeSafe’s name for a class of models aimed at fast, narrowly scoped judgments. It draws on the idea of fast thinking; it should not be interpreted as an exact reproduction of human cognition. The name Jev refers to William Stanley Jevons. TypeSafe announced the model on **September 15, 2026**. [Launch announcement](https://typesafe.ai/blog/introducing-system-one-models-and-jev).
+
+In practice, ask focused questions such as “Is this message about delivery?” instead of a broad instruction such as “Analyse everything and run the business.” Assemble a larger process from those small evaluations and rules in code.
+
+<h2 id="jev-section-3">How does Jev differ from ChatGPT and Claude?</h2>
+
+| Need | Jev approach | Generative model approach |
+| --- | --- | --- |
+| Write an article or reply | Not designed for free-form text generation | Suitable for creating text |
+| Route a request to a department | Evaluate predefined options | Can be addressed with instructions and an appropriate output format |
+| Use the result in software | Return a value of a predefined type | Structured output is also possible, depending on the model and API |
+| Handle a complex process | Compose narrow questions in code | Use multi-step analysis and generation |
+
+The distinction is more nuanced than “one talks, the other decides.” Jev’s proposition is to deliver certain kinds of judgments quickly in a form software can consume. A system might use Jev to classify a request and a generative model to draft the customer response. That is an architectural option, not a universal recommendation.
+
+<h2 id="jev-section-4">What supports the “200 times faster” claim?</h2>
+
+**It is not a guarantee across all tasks.** TypeSafe reports **193.6× faster and 444.6× cheaper** results from its own workflow evaluations, while noting that these may be toward the high end of real-world gains. The 70–500 ms and 40–200× ranges likewise come from the company’s description of System One-shaped tasks. [Evaluation caveats](https://typesafe.ai/blog/introducing-system-one-models-and-jev).
+
+The [evaluation methodology](https://evals.typesafe.ai/) combines four workflows with equal weight. Answers are compared with consensus judgments generated by strong models, rather than unquestionable human-labelled ground truth. This is a **vendor-run test**, not independent confirmation.
+
+For your application, measure correct decisions, end-to-end time and total cost together. Network latency, retries and human review affect the result. These workflow numbers do not establish how quickly a model can write an article.
+
+<h2 id="jev-section-5">What outputs does Jev return?</h2>
+
+The [documentation](https://docs.typesafe.ai/primitives) describes three types:
+
+- **Choice:** a selected option, probabilities and `confidence`.
+- **Score:** a rating on a defined scale, probabilities and `confidence`.
+- **Noul:** a value from 0 to 1 expressing the probability that a statement is true, without a separate `confidence` field.
+
+It is therefore inaccurate to say that every Jev answer carries the same confidence output. Choose the question type to match the result your software needs.
+
+<h2 id="jev-section-6">Can Jev make mistakes?</h2>
+
+**Yes. A correctly structured answer does not guarantee a correct selection.** TypeSafe’s type-safety claim concerns output structure. Missing context or poorly chosen options can still lead to a wrong practical decision.
+
+`Confidence` is not simply another name for percentage correctness: it is a statistic derived from the probability distribution. Do not automatically read 0.95 as “95% correct.” Thresholds need validation on your own data. [Confidence documentation](https://docs.typesafe.ai/confidence).
+
+Do not apply the same automatic policy to routing a message and returning money. Significant actions still need separate permissions, business conditions and any required confirmation.
+
+<h2 id="jev-section-7">What does Jev cost, and how can you use it?</h2>
+
+On September 21, 2026, the [TypeSafe website](https://typesafe.ai/) listed **$42 per billion input tokens**, equivalent to **$0.042 per million**. The launch announcement says output tokens are not billed separately. This is not the price of an entire system: integration, other models and ongoing support also contribute to cost.
+
+Jev launched in early access. The current [Quick Start](https://docs.typesafe.ai/introduction/quickstart) describes a Playground and API; check the current access conditions when signing up. Keep API keys on the server, outside the user-visible portion of a bot.
+
+Start with one narrow task, collect examples, define correct answers in advance and compare with your existing approach. You can initially record decisions without executing them, then automate the parts that have been validated.
+
+<h2 id="jev-section-8">Where might Jev help businesses and Telegram bots?</h2>
+
+Request classification, document categorisation and identifying cases for review are potential pilot areas, not promises of results. Uzbek, Russian and mixed-language messages need separate tests: the reviewed sources do not provide an independent Uzbek-language benchmark.
+
+When [developing a Telegram bot](/en/services/telegram-bot), define request routes and human handoffs before choosing where AI belongs. For example, in [clinic appointment booking](/en/blog/clinic-online-appointment-booking), message classification could be useful, but checking available slots and confirming a reservation remains the scheduling system’s responsibility.
+
+It also matters where a classified request goes next: often it is saved to a customer record in a [CRM system](/en/services/crm-tizimi). How AI tools “see” websites is a separate topic, covered in [How ChatGPT sees your website](/en/blog/how-chatgpt-sees-your-website).
+
+<h2 id="jev-section-9">Frequently asked questions</h2>
+
+### What is Jev AI?
+
+Jev is TypeSafe’s System One model for structured selections and judgments inside software. It focuses on specific automation questions rather than free-form text generation.
+
+### Is Jev 200 times faster than ChatGPT?
+
+That is not an established result for all tasks. TypeSafe ties its speed claim to particular internal workflow evaluations; it cannot be extended to every conversation or text-generation task.
+
+### Will Jev replace ChatGPT or Claude?
+
+It should not be treated as a universal replacement. A system can use Jev for narrow judgments and a generative model for text when needed.
+
+### Is Jev free?
+
+The published input rate on September 21, 2026 was $42 per billion tokens. Output is described as having no separate charge; check current terms before use.
+
+### Does a valid Jev output format mean its content is correct?
+
+No. An answer within the permitted format can still select the wrong option. Testing, business rules and review of uncertain cases remain necessary.
+
+<aside className="article-note">If you read about Jev out of curiosity, you can skip this part. If you are planning to connect AI to your website, Telegram bot or customer-request handling, first pick one specific task and write down how you do it by hand today — it makes it easier to see which part is worth automating. If you would like to discuss that task with KATOV, you can [leave a request](https://katov.uz/en/sayt-yaratish).</aside>
+
+</div>

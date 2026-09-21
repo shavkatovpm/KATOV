@@ -453,27 +453,32 @@ button {
   font-weight: 600;
 }
 
-/* Clinic guide: readable sections and native anchor navigation. */
-.prose .clinic-article h2 {
+/* Editorial guides: readable sections and native anchor navigation. */
+.prose .clinic-article h2 ,
+.prose .editorial-article h2 {
   font-size: clamp(1.35rem, 3vw, 1.75rem);
   font-weight: 750;
   margin-top: 2rem;
   scroll-margin-top: 7rem;
 }
-.prose .clinic-article h3 {
+.prose .clinic-article h3 ,
+.prose .editorial-article h3 {
   font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   font-weight: 700;
   margin-top: 1.5rem;
 }
-.prose .clinic-article p { margin-top: 1rem; }
-.prose .clinic-article .clinic-toc {
+.prose .clinic-article p ,
+.prose .editorial-article p { margin-top: 1rem; }
+.prose .clinic-article .clinic-toc ,
+.prose .editorial-article .article-toc {
   margin: 1.5rem 0;
   padding: 1.25rem;
   border: 1px solid var(--color-border);
   border-radius: 1rem;
   background: color-mix(in srgb, var(--color-fg) 3%, transparent);
 }
-.prose .clinic-article .clinic-toc ul {
+.prose .clinic-article .clinic-toc ul ,
+.prose .editorial-article .article-toc ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
   gap: 0.35rem 1.25rem;
@@ -481,12 +486,14 @@ button {
   padding: 0;
   margin: 0.75rem 0 0;
 }
-.prose .clinic-article .clinic-toc a {
+.prose .clinic-article .clinic-toc a ,
+.prose .editorial-article .article-toc a {
   display: inline-block;
   padding: 0.35rem 0;
   text-underline-offset: 0.2em;
 }
-.prose .clinic-article table {
+.prose .clinic-article table ,
+.prose .editorial-article table {
   display: block;
   overflow-x: auto;
   max-width: 100%;
@@ -686,4 +693,10 @@ button {
   .price-cta-desc {
     white-space: pre-line !important;
   }
+}
+
+.prose .editorial-article .article-note {
+  margin: 1.25rem 0; padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-border);
+  font-size: 0.9rem; line-height: 1.6;
 }

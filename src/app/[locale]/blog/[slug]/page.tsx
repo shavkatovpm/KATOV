@@ -63,6 +63,10 @@ function GrowthChart() {
 }
 
 const slugMap: Record<string, Record<string, string>> = {
+  "jev-ai-nima": {"uz": "jev-ai-nima", "ru": "chto-takoe-jev-ai", "en": "what-is-jev-ai"},
+  "chto-takoe-jev-ai": {"uz": "jev-ai-nima", "ru": "chto-takoe-jev-ai", "en": "what-is-jev-ai"},
+  "what-is-jev-ai": {"uz": "jev-ai-nima", "ru": "chto-takoe-jev-ai", "en": "what-is-jev-ai"},
+
   "klinika-onlayn-yozilish-tizimi": {"uz": "klinika-onlayn-yozilish-tizimi", "ru": "onlayn-zapis-v-kliniku", "en": "clinic-online-appointment-booking"},
   "onlayn-zapis-v-kliniku": {"uz": "klinika-onlayn-yozilish-tizimi", "ru": "onlayn-zapis-v-kliniku", "en": "clinic-online-appointment-booking"},
   "clinic-online-appointment-booking": {"uz": "klinika-onlayn-yozilish-tizimi", "ru": "onlayn-zapis-v-kliniku", "en": "clinic-online-appointment-booking"},
