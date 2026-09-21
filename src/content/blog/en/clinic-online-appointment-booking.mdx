@@ -1,0 +1,110 @@
+---
+title: "How does an online appointment booking system for a clinic work?"
+description: "Plan online booking for a clinic: requests versus confirmed appointments, shared schedules, website and Telegram options, reminders, costs and acceptance checks."
+date: "2026-09-21"
+author: "Katov"
+image: "/images/blog/klinika-onlayn-yozilish-tizimi.webp"
+imageWidth: 1200
+imageHeight: 675
+imageAlt: "Qora 3D qabul kalendariga yo‘nalgan bemor kartochkalari va tasdiq belgisi"
+tags: ["clinic website", "online appointment booking", "doctor scheduling", "clinic automation"]
+faq: [{"question":"Does submitting an online request confirm an appointment?","answer":"Not always. With a request form, a receptionist checks and confirms the time. With a shared scheduling system, confirmation follows successful reservation of the slot and creation of the booking."},{"question":"Does a clinic need a website or is a Telegram bot enough?","answer":"A website explains services, doctors and location; a bot supports booking inside Telegram. If both channels are used, their bookings should reach the same schedule."},{"question":"Does online booking replace the receptionist?","answer":"No. Staff still handle schedule changes, requests without suitable availability and exceptions. The system can perform some repetitive tasks."},{"question":"What determines the cost of a clinic booking system?","answer":"Cost depends on branches, doctors, scheduling rules, languages, reminders and integration with existing software. Compare development charges and recurring fees separately."}]
+---
+
+<div className="clinic-article">
+
+**An online appointment booking system lets patients choose a service, doctor and suitable time, while the clinic receives requests and manages its schedule.** The key distinction is between a request and a confirmed booking. Sending contact details does not necessarily mean a doctor is expecting the patient at the selected time.
+
+A receptionist may be on the phone when another patient wants to book. A website or bot can collect that request, but a working process also needs an up-to-date schedule, clear confirmation rules and a responsible staff member.
+
+
+<nav aria-label="In this article" className="clinic-toc">
+<strong>In this article</strong>
+<ul>
+<li><a href="#section-1">Requests and bookings</a></li>
+<li><a href="#section-2">Patient journey</a></li>
+<li><a href="#section-3">Shared schedule</a></li>
+<li><a href="#section-4">Website or bot</a></li>
+<li><a href="#section-5">Reminders and data</a></li>
+<li><a href="#section-6">Cost and testing</a></li>
+<li><a href="#section-7">Questions</a></li>
+<li><a href="#section-8">Discuss a project</a></li>
+</ul>
+</nav>
+
+<h2 id="section-1">How does a request differ from an automatic booking?</h2>
+
+| Option | What the patient does | When the time is confirmed |
+| --- | --- | --- |
+| Callback form | Leaves a name and phone number | After agreeing a time with reception |
+| Preferred-time request | Submits a service and desired time | After the clinic checks availability |
+| Booking connected to a shared schedule | Selects an available slot | After the slot is reserved and the booking saved |
+
+The first two options need an accurate message: **“Your request has been sent. Your appointment time is not yet confirmed.”** A successful automatic booking should show the date, time, doctor and branch. A failed save must not produce a success message.
+
+<h2 id="section-2">What does the patient journey look like?</h2>
+
+1. The patient chooses a service or specialist, and a branch if necessary.
+2. The system shows suitable available times, accounting for appointment length and breaks.
+3. The patient enters the contact details needed for booking and sees an explanation of their use.
+4. The system saves a booking or sends a request for staff approval. The patient can tell which outcome occurred.
+5. After confirmation, the patient receives the appointment details and a way to cancel or change the time.
+
+As a real service example, the [NHS App guide](https://www.nhs.uk/nhs-app/help/appointments/managing-gp-appointments/) separately explains viewing and cancelling appointments. This is not a required template for clinics in Uzbekistan; it illustrates why the journey after a booking matters too.
+
+<h2 id="section-3">How can you avoid booking two patients into one slot?</h2>
+
+Appointments made by phone, at reception, on the website and through a bot should appear in **one main schedule**. When reception reserves a time by phone, it should stop being available online. Doctor absences, service duration and constraints across branches also belong in the scheduling rules.
+
+An illustrative acceptance test: two patients select 14:00 at the same moment. The first booking is saved; the second patient is told that the slot is taken and offered alternatives. Confirming both would be a defect to catch before launch. If staff keep a separate paper list without updating the system, the website cannot know those times are occupied.
+
+<h2 id="section-4">Should a clinic choose a website, Telegram bot or CRM?</h2>
+
+A **website** can explain services, doctors, opening hours and location. The clinic should verify the information about its practitioners. The booking button must be easy to find on a phone, and the form should request only what is needed. Our [website speed guide](/en/blog/site-speed-and-seo) helps assess the mobile experience.
+
+A **Telegram bot** can provide an additional route for people who already contact the clinic through Telegram. A **CRM or existing clinic application** may support staff workflows, but not every CRM fits appointment scheduling requirements. Check integration options before replacing an existing application. Our [CRM guide](/en/blog/crm-system-development-uzbekistan) explains the difference between ready-made and custom solutions.
+
+<h2 id="section-5">How should reminders and patient details be handled?</h2>
+
+A confirmation records a successful booking; a reminder points to an upcoming appointment. A reminder may need only the time, branch and instructions for changing the booking. Do not include diagnoses or unnecessary personal details. Failed delivery should be visible to the responsible staff member: sending a message and delivering it are different states.
+
+Collect only the information needed to arrange the appointment. Decide who can access it, how long it is retained and how staff access is revoked before development begins. A basic booking form does not replace a medical record. This article covers workflow planning; applicable local data requirements should be checked separately before launch.
+
+<h2 id="section-6">How should you assess cost and accept the finished system?</h2>
+
+Give the developer a list of branches, doctors, services, languages and existing applications. Decide whether bookings are automatic or require staff approval. Ask about hosting, messaging, subscriptions and support as well as the development fee. Our [IT quote comparison table](/en/blog/compare-it-service-quotes) helps compare equivalent scopes of work.
+
+Test practical situations during acceptance:
+
+- Two simultaneous attempts at the same slot: only one booking is confirmed.
+- A phone booking entered by reception: the online slot becomes unavailable.
+- Cancellation or rescheduling: the old and new slots have the correct status.
+- A doctor changes their schedule: staff can see affected appointments.
+- A message fails or a number is invalid: patients and staff receive understandable status information.
+- Mobile use: text is readable, buttons work and submitting again does not create a duplicate.
+
+You can start with one service or a small group of doctors. Track the time from request to confirmation, unfinished forms and scheduling conflicts. Online booking alone does not guarantee more patients or higher revenue; assess it alongside the clinic's actual working process.
+
+<h2 id="section-7">Frequently asked questions</h2>
+
+### Does submitting an online request confirm an appointment?
+
+Not always. With a request form, a receptionist checks and confirms the time. With a shared scheduling system, confirmation follows successful reservation of the slot and creation of the booking.
+
+### Does a clinic need a website or is a Telegram bot enough?
+
+A website explains services, doctors and location; a bot supports booking inside Telegram. If both channels are used, their bookings should reach the same schedule.
+
+### Does online booking replace the receptionist?
+
+No. Staff still handle schedule changes, requests without suitable availability and exceptions. The system can perform some repetitive tasks.
+
+### What determines the cost of a clinic booking system?
+
+Cost depends on branches, doctors, scheduling rules, languages, reminders and integration with existing software. Compare development charges and recurring fees separately.
+
+<h2 id="section-8">Start with your clinic's booking process</h2>
+
+Tell KATOV how you receive requests, where you keep the schedule and what you want to improve. Discuss the clinic website and scope of online booking through our [website development service](https://katov.uz/en/sayt-yaratish).
+
+</div>

@@ -453,6 +453,45 @@ button {
   font-weight: 600;
 }
 
+/* Clinic guide: readable sections and native anchor navigation. */
+.prose .clinic-article h2 {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 750;
+  margin-top: 2rem;
+  scroll-margin-top: 7rem;
+}
+.prose .clinic-article h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+.prose .clinic-article p { margin-top: 1rem; }
+.prose .clinic-article .clinic-toc {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--color-fg) 3%, transparent);
+}
+.prose .clinic-article .clinic-toc ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 0.35rem 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+.prose .clinic-article .clinic-toc a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  text-underline-offset: 0.2em;
+}
+.prose .clinic-article table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 .prose a {
   text-decoration: underline;
   text-underline-offset: 3px;

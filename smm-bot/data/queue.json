@@ -202,5 +202,28 @@
       }
     ],
     "selectedVariant": 2
+  },
+  {
+    "id": "klinika-onlayn-yozilish-tizimi",
+    "topic": "Klinika uchun onlayn yozilish tizimi qanday ishlaydi?",
+    "hook": "Klinikada navbatni qanday avtomatlashtirish mumkin?",
+    "body": "Sayt yoki bot murojaatni qabul qiladi. Ammo ariza yuborish hali qabul tasdiqlandi degani emas.\nTelefon, sayt va botdagi yozilishlar bitta jadvalga tushsin.\nBemor tasdiq xabarida sana, vaqt va filialni ko‘rsin.\nQabulni o‘zgartirish va bekor qilish yo‘li ham tushunarli bo‘lsin.",
+    "cta_text": "Klinikada onlayn yozilish qanday ishlashini maqolada o‘qing",
+    "cta_link": "https://katov.uz/blog/klinika-onlayn-yozilish-tizimi",
+    "hashtags": [
+      "#katovuz",
+      "#klinika",
+      "#onlaynyozilish",
+      "#saytyaratish"
+    ],
+    "status": "saved_only",
+    "images": [
+      {
+        "variant": 6,
+        "square_1x1_path": "assets/klinika-onlayn-yozilish-tizimi/tanlangan/telegram-1080x1080.png",
+        "instagram_4x5_path": "assets/klinika-onlayn-yozilish-tizimi/tanlangan/instagram-1080x1350.png"
+      }
+    ],
+    "selectedVariant": 6
   }
 ]

@@ -63,6 +63,10 @@ function GrowthChart() {
 }
 
 const slugMap: Record<string, Record<string, string>> = {
+  "klinika-onlayn-yozilish-tizimi": {"uz": "klinika-onlayn-yozilish-tizimi", "ru": "onlayn-zapis-v-kliniku", "en": "clinic-online-appointment-booking"},
+  "onlayn-zapis-v-kliniku": {"uz": "klinika-onlayn-yozilish-tizimi", "ru": "onlayn-zapis-v-kliniku", "en": "clinic-online-appointment-booking"},
+  "clinic-online-appointment-booking": {"uz": "klinika-onlayn-yozilish-tizimi", "ru": "onlayn-zapis-v-kliniku", "en": "clinic-online-appointment-booking"},
+
   "it-xizmatlari-narxi": {"uz": "it-xizmatlari-narxi", "ru": "tseny-na-it-uslugi", "en": "compare-it-service-quotes"},
   "tseny-na-it-uslugi": {"uz": "it-xizmatlari-narxi", "ru": "tseny-na-it-uslugi", "en": "compare-it-service-quotes"},
   "compare-it-service-quotes": {"uz": "it-xizmatlari-narxi", "ru": "tseny-na-it-uslugi", "en": "compare-it-service-quotes"},
