@@ -20,6 +20,12 @@
    on light theme (same selector specificity, so source order decides). */
 :root {
   --ai-seo-mark-opacity: 0.16;
+  /* Floating navbar (after scrolling past the top) */
+  --nav-glass-bg: rgba(18, 18, 18, 0.45);
+  --nav-glass-border: rgba(255, 255, 255, 0.1);
+  --nav-glass-highlight: rgba(255, 255, 255, 0.06);
+  --nav-active-bg: rgba(255, 255, 255, 0.12);
+  --nav-glass-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.6);
 }
 
 /* Light mode */
@@ -34,6 +40,11 @@
   --color-nav-bg: rgba(255, 255, 255, 0.5);
   --color-nav-fg: #111111;
   --ai-seo-mark-opacity: 0.32;
+  --nav-glass-bg: rgba(255, 255, 255, 0.5);
+  --nav-glass-border: rgba(0, 0, 0, 0.08);
+  --nav-glass-highlight: rgba(255, 255, 255, 0.7);
+  --nav-active-bg: rgba(0, 0, 0, 0.07);
+  --nav-glass-shadow: 0 10px 40px -16px rgba(0, 0, 0, 0.18);
 }
 
 /* Light mode Hero CTA button */
@@ -103,9 +114,119 @@
   }
 }
 
+/* backwards, not forwards: a filled-forward filter (even blur(0px)) stays on
+   the header and stops the navbar's backdrop-filter from blurring the page
+   behind it. backwards holds the hidden 0% frame during the delay, then
+   hands back to the header's own unfiltered styles. */
 .header-animate {
-  opacity: 0;
-  animation: headerEntrance 0.3s ease-out 1s forwards;
+  animation: headerEntrance 0.3s ease-out 1s backwards;
+}
+
+/* Navbar shell — full-width bar over the hero, floating glass pill once the
+   page is scrolled */
+.nav-shell {
+  /* One duration and one curve for every property, so the bar moves as a
+     single piece. A symmetric ease-in-out rather than an expo-out: expo
+     front-loads the move and then crawls for most of the duration, which
+     reads as the bar getting stuck on the way. */
+  --nav-ease: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: var(--color-nav-bg);
+  /* -webkit- must come first: when it follows the standard property the CSS
+     minifier treats it as an override, drops backdrop-filter, and Chrome ends
+     up with no blur at all */
+  --nav-blur: blur(12px);
+  -webkit-backdrop-filter: var(--nav-blur);
+  backdrop-filter: var(--nav-blur);
+  /* Border is always 1px (transparent over the hero): changing its width
+     can't be eased and jolts the whole bar by a pixel */
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition:
+    max-width var(--nav-ease),
+    margin-top var(--nav-ease),
+    border-radius var(--nav-ease),
+    background-color var(--nav-ease),
+    border-color var(--nav-ease),
+    box-shadow var(--nav-ease),
+    -webkit-backdrop-filter var(--nav-ease),
+    backdrop-filter var(--nav-ease);
+}
+
+.nav-shell[data-scrolled='true'] {
+  max-width: min(1080px, calc(100% - 24px));
+  margin-top: 12px;
+  /* Half the bar height or more = fully rounded pill ends */
+  border-radius: 32px;
+  border-color: var(--nav-glass-border);
+  background-color: var(--nav-glass-bg);
+  --nav-blur: blur(24px) saturate(180%);
+  box-shadow: var(--nav-glass-shadow), inset 0 1px 0 var(--nav-glass-highlight);
+}
+
+.nav-shell[data-scrolled='true'] .container-custom {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .nav-shell[data-scrolled='true'] .container-custom {
+    padding-left: 1.75rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* Padding eases with the bar; snapping it made the logo and controls jump
+   sideways at the start of the move */
+.nav-shell .container-custom {
+  transition: padding var(--nav-ease);
+}
+
+.nav-shell nav {
+  transition: height var(--nav-ease);
+}
+
+/* Mobile menu — floating glass card under the navbar */
+.nav-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 12px;
+  right: 12px;
+  padding: 0.5rem;
+  border-radius: 28px;
+  transform-origin: top right;
+  color: var(--color-nav-fg);
+  background-color: var(--nav-glass-bg);
+  border: 1px solid var(--nav-glass-border);
+  box-shadow: var(--nav-glass-shadow), inset 0 1px 0 var(--nav-glass-highlight);
+  /* -webkit- first, see .nav-shell */
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  /* Short phones: scroll inside the card rather than off-screen */
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+}
+
+.nav-menu-link {
+  transition: background-color 0.2s;
+}
+
+.nav-menu-link:hover,
+.nav-menu-link:active {
+  background-color: rgba(127, 127, 127, 0.12);
+}
+
+.nav-menu-link[aria-current='page'] {
+  background-color: var(--nav-active-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-shell,
+  .nav-shell .container-custom,
+  .nav-shell nav {
+    transition: none;
+  }
 }
 
 /* Base Styles */
@@ -231,6 +352,15 @@ button {
 
 .nav-link:hover {
   opacity: 1;
+}
+
+/* Current section — full-strength text on a soft pill */
+.nav-link[aria-current='page'] {
+  opacity: 1;
+}
+
+.nav-active-pill {
+  background-color: var(--nav-active-bg);
 }
 
 /* Nav Link Icon - for icons with opacity */

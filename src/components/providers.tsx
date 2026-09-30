@@ -2,6 +2,8 @@
 
 import { ReactNode, useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
+import { ReactLenis } from 'lenis/react';
+import 'lenis/dist/lenis.css';
 
 interface ProvidersProps {
   children: ReactNode;
@@ -24,8 +26,14 @@ export function Providers({ children }: ProvidersProps) {
   }, []);
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
-      {children}
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      {/* Inertia-style smooth wheel scrolling; touch devices keep native scroll */}
+      <ReactLenis
+        root
+        options={{ lerp: 0.1, anchors: true, allowNestedScroll: true }}
+      >
+        {children}
+      </ReactLenis>
     </ThemeProvider>
   );
 }

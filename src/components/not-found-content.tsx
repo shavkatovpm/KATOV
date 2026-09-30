@@ -12,8 +12,7 @@ interface NotFoundContentProps {
 }
 
 /**
- * Shared by the real 404 (src/app/not-found.tsx) and its preview at
- * /test/404, so the design only exists once.
+ * Rendered by the real 404 (src/app/not-found.tsx) via not-found-client.
  *
  * Styling is inline and theme-token based with hard fallbacks: the real 404
  * renders outside the theme provider, where the tokens resolve to their dark
