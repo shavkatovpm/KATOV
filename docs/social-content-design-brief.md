@@ -24,7 +24,7 @@ KATOV (`katov.uz`) uchun Telegram va Instagram kontenti. Post oddiy foydalanuvch
 
 ## Dizaynning umumiy qoidalari
 
-- Har mavzu uchun botga bir-biridan aniq farq qiladigan 3 ta dizayn varianti yuboriladi.
+- Har mavzu uchun avval bir-biridan aniq farq qiladigan 5 ta 1:1 dizayn varianti tayyorlanadi. Foydalanuvchi bittasini tanlamaguncha Instagram va Google Discover variantlari yaratilmaydi.
 - Foydalanuvchi bittasini tanlaydi; tanlangan variant kanalga yuborish jarayoniga o'tadi.
 - Telegram formati: 1:1, 1080x1080.
 - Instagram formati: 4:5, 1080x1350.
@@ -33,11 +33,30 @@ KATOV (`katov.uz`) uchun Telegram va Instagram kontenti. Post oddiy foydalanuvch
 - Ranglardan foydalanish mumkin, ammo ular juda yorqin yoki ko'zni charchatadigan bo'lmasligi kerak. Asosiy palitra sokin, past to'yinganlikdagi qora, oq, kulrang va tabiiy ranglardan tuziladi; rangli elementlar cheklangan aksent sifatida ishlatiladi.
 - Brend belgisi sifatida katta `KATOV` watermark ishlatilmaydi.
 - Har dizaynda oddiy, kichik va ikkilamchi darajadagi `katov.uz` yozuvi qo'yiladi.
+- 2026-09-21 feedback: `katov.uz` shunchaki chetga yozilgan oddiy matn bo‘lib qolmasin. Kichik va minimal imzo sifatida dizaynga uyg‘unlashtirilsin: mos sans-serif, harflar oralig‘i, tekislash va zarur bo‘lsa kompozitsiyaga mos nozik chiziq. Asosiy sarlavha bilan raqobat qilmasin, katta watermarkga aylanmasin.
 - Ijtimoiy tarmoq rasmining asosiy sarlavhasi taxminan 3–5 ta so'zdan iborat bo'ladi. Uzun hook, izoh va body matni rasmga joylanmaydi — captionda beriladi. Kichik `katov.uz` yozuvi bu so'z chegarasiga kirmaydi.
 - Matn o'qilishi, o'zbekcha imlo va raqamlarning aniqligi generatsiyadan keyin tekshiriladi.
 - Shrift bo'yicha foydalanuvchi fikri (2026-09-10): zamonaviy, minimalist sans-serif ishlatilsin (Inter/Helvetica uslubida). Serif va bezakli sarlavhalar yoqmadi. Sarlavha o'rtacha qalinlikda, kichik `katov.uz` yozuvi ham sodda sans-serif bo'lsin; shriftni almashtirishda mavjud dizayn kompozitsiyasi saqlansin.
 
 ## Website maqolasi uchun til va intent mezonlari (majburiy)
+
+### Tabiiy ichki havolalar — 2026-09-21 feedback
+
+- Barcha keyingi maqolalarda ichki havolalar gap mazmuniga tabiiy mos tushishi va o‘quvchiga foyda berishi shart. Havola qo‘yish uchun sun’iy jumla yoki majburiy reklama yozilmaydi.
+- KATOV bilan tanishtirish kontekstida bosh sahifaga, aniq xizmat haqida gap ketganda tegishli xizmat sahifasiga, qo‘shimcha tushuntirish kerak bo‘lganda tegishli blog maqolasiga havola beriladi.
+- Har maqoladan bosh sahifaga havola berish majburiy emas. Bir manzilga keraksiz takroriy havolalar va belgilangan sonni to‘ldirish uchun linklar qo‘shilmaydi.
+- Havola matni qisqa, tushunarli va ochiladigan sahifaga mos bo‘ladi. Kalit so‘zlar sun’iy tiqishtirilmaydi; atrofidagi gap ham tabiiy o‘qilishi kerak.
+- Havolalar tegishli til nusxasiga yo‘naltiriladi va manzillari tekshiriladi. SEO/GEO maqsadlari o‘qish qulayligi va mazmunning tabiiyligini buzmasligi kerak.
+
+### O‘qish qulayligi va bo‘limlar UI — 2026-09-21 feedback
+
+- Maqola aniq ajratilgan, tushunarli bo‘limlardan tuziladi. H2/H3 sarlavhalari vizual jihatdan kattaroq va qalin bo‘lib, bo‘limlar orasida yetarli masofa bo‘ladi; oddiy paragrafni qalin qilish semantik sarlavha o‘rnini bosmaydi.
+- Foydalanuvchi asosiy javobni topish uchun uzoq scroll qilishga majbur bo‘lmasin: kirishda qisqa va bevosita javob, keyin muhim tafsilotlar beriladi. Uzun maqolada bo‘limlarga o‘tish uchun ixcham mundarija qo‘llanadi.
+- Qisqa paragraflar, muhim fikrlarga me’yoridagi bold urg‘u, solishtirish uchun jadval va jarayon uchun raqamlangan qadamlar ishlatiladi. Bir fikr qayta-qayta takrorlanmaydi; hajm uchun yozilmaydi.
+- Telefon ekranida sarlavha, matn, bo‘limlar oralig‘i va jadvallar qulay o‘qilishi tekshiriladi. Vizual ierarxiya o‘quvchiga mazmunni tez ko‘zdan kechirishga yordam berishi kerak.
+- GEO/AEO majburiy: savol shaklidagi sarlavhalar, ularning ostida mustaqil tushunarli aniq javoblar, zarur ta’riflar, tekshirilgan da’volarga manbalar va mavzuga mos FAQ beriladi. FAQ schema sahifada ko‘rinadigan javoblarga mos keladi; AI tomonidan keltirilish kafolatlanmaydi.
+- SEO intent majburiy: mavzu va H1 real qidiruv savoli hamda kalit frazaga mos tanlanadi, maqola shu niyatga to‘liq javob beradi. Qidiruv hajmi tekshirilmagan bo‘lsa, tekshirilgandek da’vo qilinmaydi. SEO va GEO bir-birining hisobiga kuchaytirilmaydi.
+- Bu talablar joriy klinika maqolasi va keyingi barcha bloglarning uz/ru/en nusxalariga tatbiq etiladi.
 
 - Har website maqolasi **majburiy 3 tilda (uz/ru/en)** yoziladi. Birortasi ham "keyinroq", "hozircha UZ yetadi" yoki shunga o'xshash sabab bilan qoldirilmaydi — maqola faqat barcha 3 til tayyor bo'lganda tugallangan hisoblanadi.
 - Mavzu/sarlavha tanlanganda ikkala intent ham **bir vaqtda kuchli** bo'lishi shart:
@@ -86,7 +105,7 @@ Foydalanuvchi eski 9 dizayn yo'nalishi o'rniga yangi rasm namunalarini asos qili
 
 - Kelajakdagi dizaynlar uchun asosiy manba shu yangi reference kutubxonasi; eski 9 yo'nalish endi tanlash uchun asos emas.
 - Har bir namuna mustaqil yo'nalish sifatida saqlanadi. Hammasini faqat qora fondagi bitta uslubga birlashtirib yubormaslik; oq/och fonli 10–15 namunalar ham teng huquqli.
-- Har mavzu uchun kutubxonadan kompozitsiyasi va vizual g'oyasi aniq farqli 3 yo'nalish tanlanadi. Faqat rangni o'zgartirish uch variant hisoblanmaydi.
+- Har mavzu uchun kutubxonadan kompozitsiyasi va vizual g'oyasi aniq farqli 5 yo'nalish tanlanadi. Faqat rangni o'zgartirish alohida variant hisoblanmaydi.
 - Asosiy kayfiyat: minimalizm, katta bo'sh maydon, kuchli tipografik ierarxiya, monoxrom yoki past to'yingan ranglar, mavzuga mos bitta kuchli vizual metafora. Grain, blur, glow, grid, foto va 3D faqat tanlangan reference talab qilganda ishlatiladi.
 - Yangi 12–15 namunalardagi qizil va pushti ranglar cheklangan aksent sifatida qo‘llanishi mumkin; umumiy fon sokin va och qoladi. Bu barcha dizaynlarni yorqin ranglarga o‘tkazish talabi emas.
 - Namunadagi boshqa brendlar, inglizcha reklama matnlari, kontaktlar va sanalar ko'chirilmaydi. Uslub KATOV mavzusiga moslanadi.
@@ -155,15 +174,16 @@ Foydalanuvchi eski 9 dizayn yo'nalishi o'rniga yangi rasm namunalarini asos qili
 3. Agar rejalashtirilgan mavzular tugasa, shu strategiyaga mos yangi mavzular qo'shilishi mumkin.
 4. Auditoriyaga foydali va `katov.uz` SEO/GEO strategiyasiga xizmat qiladigan ijtimoiy post yoziladi.
 5. Shu mavzu bo'yicha `katov.uz` blogi uchun to'liq, foydali va SEO/GEO talablariga mos website maqolasi **uz/ru/en 3 tilda** yozila boshlanadi (yuqoridagi "Website maqolasi uchun til va intent mezonlari" bo'limiga qarang). Bu ish dizayn tanlovini kutmaydi.
-6. Yangi reference dizaynlar kutubxonasidan mavzuga mos va bir-biridan farqli 3 ta kreativ dizayn tayyorlanadi.
-7. Har dizaynda katta watermark o'rniga kichik, oddiy `katov.uz` yozuvi bo'ladi.
-8. Har uch dizayn uchun Telegram 1:1 va unga mos Instagram 4:5 fayli oldindan tayyorlanadi.
-9. Dizaynlar bot navbatiga joylanadi. Shu vaqtning o'zida website maqolasi yozilib, uning alohida SEO featured image'i tayyorlanadi va sayt blogiga qo'shiladi.
-10. Bot foydalanuvchiga tanlash uchun avval 3 ta 1:1 dizayn variantini yuboradi.
-11. Foydalanuvchining rasm tanlovi website maqolasi yozilishini yoki saytga qo'shilishini kutib turmaydi; tanlov faqat ijtimoiy tarmoq dizayniga ta'sir qiladi.
-12. Foydalanuvchi uch variantdan bittasini tanlaydi.
-13. Bot tanlangan dizaynning mos Instagram 4:5 faylini foydalanuvchiga yuboradi.
-14. Kanalga avtomatik jo'natish bot integratsiyasi va foydalanuvchi tasdig'iga muvofiq bajariladi.
+6. Yangi reference kutubxonasidan 5 ta farqli dizayn faqat Telegram 1:1 (1080x1080) formatida tayyorlanadi.
+7. Sarlavha 3–5 so‘zli kuchli hook bo‘ladi: aniq muammo yoki savol. Tipografik ierarxiya, satr bo‘linishi va cheklangan aksent hookni ko‘rsatadi. Kichik katov.uz saqlanadi.
+8. Foydalanuvchiga shu 5 ta kvadrat variant ko‘rsatiladi va bittasini tanlashi kutiladi.
+9. Faqat tanlangan variantdan Instagram 4:5 (1080x1350) va Google Discover/SEO 16:9 (1200x675) tayyorlanadi. Tanlovdan oldin yoki barcha variantlar uchun bu formatlarni yaratish mumkin emas.
+10. Maqola uz/ru/en tillarida tanlovni kutmasdan qoralama sifatida yoziladi. Tanlangan featured image tayyor bo‘lgach sayt blogiga ulanadi; bungacha rasmsiz maqola nashrga tayyor deb belgilanmaydi.
+11. Botga yoki tashqi kanalga yuborish faqat foydalanuvchining tegishli ko‘rsatmasi bilan bajariladi. Nashr, deploy va push alohida so‘rovsiz bajarilmaydi.
+
+### 2026-09-20: tanlov tartibi va hook bo‘yicha tuzatish
+
+Foydalanuvchi aniq belgiladi: avval 5 ta 1:1, keyin tanlov, so‘ng faqat tanlangan dizayndan Instagram va Google Discover. Oldingi barcha variantlar uchun formatlarni oldindan tayyorlash qoidasi bekor qilindi. Vizual kompozitsiyalar yoqdi, ammo oddiy tavsifiy sarlavhalarda hook yetishmadi. Matn savol yoki muammo orqali qiziqish uyg‘otsin; muhim so‘z shrift o‘lchami, satr va sokin aksent bilan ajratilsin.
 
 ## Hozirgi holat
 
@@ -178,3 +198,15 @@ Foydalanuvchi eski 9 dizayn yo'nalishi o'rniga yangi rasm namunalarini asos qili
 ### 2026-09-17: 6-mavzu dizayn tanlovi
 
 Foydalanuvchi oq fon va qora keycaps ishlatilgan 2-variantni tanladi. Telegram 1080x1080, Instagram 1080x1350; blog/Discover uchun shu uslub 1200x675 keng kompozitsiyada qayta yaratildi. Blogning uz/ru/en nusxalari `it-xizmatlari-narxi-keycaps.webp` rasmiga ulandi. Nashr qilinmagan.
+
+### 2026-09-21: klinika dizayni tanlandi
+
+Foydalanuvchi v6 — kreativ tipografika va 3D kalendar dizaynini tanladi. Tasdiqlangan matn: “Klinikada navbatni qanday avtomatlashtirish mumkin?” Yakuniy fayllar `smm-bot/assets/klinika-onlayn-yozilish-tizimi/tanlangan/` papkasida: Telegram 1080x1080 PNG, Instagram 1080x1350 PNG va Google Discover 1200x675 WebP. Discover katta sarlavhasiz, shu vizual uslubning keng kompozitsiyasi. UZ/RU/EN maqola qoralamalari `docs/drafts/klinika-onlayn-yozilish-tizimi/` da. Nashr qilinmagan.
+
+### 2026-09-21: klinika maqolasi yakunlandi
+
+UZ/RU/EN maqolalar sayt kontentiga qo‘shildi: `klinika-onlayn-yozilish-tizimi`, `onlayn-zapis-v-kliniku`, `clinic-online-appointment-booking`. Mundarija, semantik H2/H3, FAQ bilan mos schema, lokalizatsiya xaritasi va tanlangan 1200x675 WebP ulandi. Bot navbatida `saved_only`, tanlov 6. Nashr, deploy va push bajarilmadi.
+
+### 2026-09-21: katov.uz imzosi bo‘yicha aniqlik
+
+Dizaynga uyg‘unlashtirish ramka qo‘yishni anglatmaydi. Keyingi dizaynlarda katov.uz mavjud yuzaga yoki kompozitsiya ritmiga minimal va tabiiy singdiriladi; foydalanuvchi so‘ramasa ramka ishlatilmaydi. Jev v3 rasmini foydalanuvchi bu safar mavjud ramkasi bilan ma’qulladi.
