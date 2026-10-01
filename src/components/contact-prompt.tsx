@@ -179,7 +179,8 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
           >
             {/* Split card: inverted brand panel on the left, same family as the form modal */}
             <div
-              className="relative grid w-full max-w-[600px] overflow-hidden rounded-3xl shadow-2xl pointer-events-auto sm:grid-cols-[0.8fr_1.2fr]"
+              // Sized to the viewport: content is laid out to fit, overflow only as a last resort (e.g. open keyboard)
+              className="relative grid w-full max-w-[600px] max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain rounded-3xl shadow-2xl pointer-events-auto sm:grid-cols-[0.8fr_1.2fr]"
               style={{
                 backgroundColor: 'var(--color-bg)',
                 color: 'var(--color-fg)',
@@ -187,31 +188,19 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
               }}
             >
               <div
-                className="relative flex min-h-[140px] items-center justify-center overflow-hidden"
+                className="relative flex min-h-[96px] sm:min-h-[140px] [@media(max-height:640px)]:min-h-[72px] items-center justify-center overflow-hidden"
                 style={{ backgroundColor: 'var(--color-fg)', color: 'var(--color-bg)' }}
               >
                 {/* Large outlined plane as a background mark, not a small inline icon */}
                 <Send
                   aria-hidden="true"
                   strokeWidth={0.6}
-                  className="absolute h-56 w-56 -right-10 -bottom-12 opacity-20"
+                  className="absolute h-40 w-40 sm:h-56 sm:w-56 -right-8 -bottom-10 sm:-right-10 sm:-bottom-12 opacity-20"
                 />
-                <span className="relative text-4xl font-black tracking-tighter">KATOV</span>
+                <span className="relative text-3xl sm:text-4xl font-black tracking-tighter">KATOV</span>
               </div>
-              <div className="relative p-7">
-                <button
-                  onClick={handleClose}
-                  aria-label={t('prompt.close')}
-                  title={t('prompt.close')}
-                  className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-opacity hover:opacity-70"
-                  style={{
-                    color: 'var(--color-fg)',
-                    backgroundColor: 'color-mix(in srgb, var(--color-fg) 10%, transparent)',
-                  }}
-                >
-                  <X size={18} />
-                </button>
-                <h2 className="pr-8 text-2xl font-semibold tracking-tight leading-tight">
+              <div className="relative p-5 sm:p-7 [@media(max-height:640px)]:p-5">
+                <h2 className="sm:pr-8 text-xl sm:text-2xl font-semibold tracking-tight leading-tight">
                   {telegram('title')}
                 </h2>
                 <p className="mt-3 text-sm text-muted leading-relaxed">{telegram('subtitle')}</p>
@@ -219,14 +208,22 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                   href="https://t.me/katovuz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition-opacity hover:opacity-90"
+                  className="mt-5 sm:mt-6 [@media(max-height:640px)]:mt-4 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition-opacity hover:opacity-90"
                   style={{ backgroundColor: 'var(--color-fg)', color: 'var(--color-bg)' }}
                 >
                   {telegram('subscribe')}
                   <ArrowUpRight size={16} />
                 </a>
-                <p className="mt-3 text-center text-xs text-muted">{telegram('newTab')}</p>
+                <p className="mt-3 text-center text-xs text-muted [@media(max-height:640px)]:hidden">{telegram('newTab')}</p>
               </div>
+              <button
+                  onClick={handleClose}
+                  aria-label={t('prompt.close')}
+                  title={t('prompt.close')}
+                  className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-opacity hover:opacity-70 text-[var(--color-bg)] bg-[color-mix(in_srgb,var(--color-bg)_15%,transparent)] sm:text-[var(--color-fg)] sm:bg-[color-mix(in_srgb,var(--color-fg)_8%,transparent)]"
+                >
+                  <X size={18} />
+                </button>
             </div>
           </motion.div>
         )}
@@ -240,7 +237,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
           >
             {/* Split card: opens like a horizontal slit, inverted info panel on the left */}
             <motion.div
-              className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto grid md:grid-cols-[1fr_1.2fr] rounded-[28px] shadow-2xl pointer-events-auto"
+              className="relative w-full max-w-3xl max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain grid md:grid-cols-[1fr_1.2fr] rounded-[28px] shadow-2xl pointer-events-auto"
               style={{
                 backgroundColor: 'var(--color-bg)',
                 color: 'var(--color-fg)',
@@ -255,25 +252,25 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
               transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
             >
               <div
-                className="relative p-7 sm:p-9 flex flex-col overflow-hidden"
+                className="relative px-5 py-5 pr-14 md:p-9 [@media(max-height:640px)]:md:p-6 flex flex-col overflow-hidden"
                 style={{ backgroundColor: 'var(--color-fg)', color: 'var(--color-bg)' }}
               >
                 {/* Large brand mark as background, not a small inline icon */}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -bottom-10 -left-4 text-[120px] font-black tracking-tighter opacity-[0.07] select-none"
+                  className="pointer-events-none absolute -bottom-10 -left-4 hidden md:block text-[120px] font-black tracking-tighter opacity-[0.07] select-none"
                 >
                   KATOV
                 </span>
                 <motion.h2
-                  className="relative text-2xl sm:text-3xl font-semibold tracking-tight leading-tight pr-10 md:pr-0"
+                  className="relative text-xl md:text-3xl [@media(max-height:640px)]:md:text-2xl font-semibold tracking-tight leading-tight"
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35, duration: 0.5, ease: SPLIT_EASE }}
                 >
                   {t('prompt.title')}
                 </motion.h2>
-                <ol className="relative mt-8 space-y-4">
+                <ol className="relative mt-8 space-y-4 hidden md:block [@media(max-height:640px)]:hidden">
                   {(['step1', 'step2', 'step3'] as const).map((step, i) => (
                     <motion.li
                       key={step}
@@ -293,21 +290,9 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                   ))}
                 </ol>
               </div>
-              <div className="relative p-7 sm:p-9">
-                <button
-                  onClick={handleClose}
-                  aria-label={t('prompt.close')}
-                  title={t('prompt.close')}
-                  className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-transform duration-300 hover:rotate-90"
-                  style={{
-                    color: 'var(--color-fg)',
-                    backgroundColor: 'color-mix(in srgb, var(--color-fg) 8%, transparent)',
-                  }}
-                >
-                  <X size={18} />
-                </button>
+              <div className="relative p-5 md:p-9 [@media(max-height:640px)]:md:p-6">
                 {submitted ? (
-                  <div className="flex flex-col items-center text-center py-8">
+                  <div className="flex flex-col items-center text-center py-6 md:py-8">
                     <motion.div
                       className="flex items-center justify-center w-14 h-14 rounded-full mb-4"
                       style={{ backgroundColor: 'var(--color-fg)', color: 'var(--color-bg)' }}
@@ -322,7 +307,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                   </div>
                 ) : (
                   <>
-                    <p className="text-sm text-muted mb-6 pr-10 leading-relaxed">{t('prompt.subtitle')}</p>
+                    <p className="text-sm text-muted mb-4 md:mb-6 md:pr-10 leading-relaxed [@media(max-height:640px)]:hidden">{t('prompt.subtitle')}</p>
                     <form onSubmit={handleSubmit} className="space-y-3">
                       <input
                         type="text"
@@ -343,7 +328,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                         onInput={(e) => {
                           (e.target as HTMLInputElement).setCustomValidity('');
                         }}
-                        className="w-full px-4 py-3.5 rounded-2xl bg-transparent border transition-colors focus:outline-none focus:border-[var(--color-fg)]"
+                        className="w-full px-4 py-3 md:py-3.5 [@media(max-height:640px)]:py-2.5 rounded-2xl bg-transparent border transition-colors focus:outline-none focus:border-[var(--color-fg)]"
                         style={{ borderColor: 'var(--color-border)' }}
                         placeholder={t('form.namePlaceholder')}
                       />
@@ -352,7 +337,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                         className="flex items-center rounded-2xl border overflow-hidden transition-colors focus-within:border-[var(--color-fg)]"
                         style={{ borderColor: 'var(--color-border)' }}
                       >
-                        <span className="pl-4 py-3.5 shrink-0 opacity-60">
+                        <span className="pl-4 py-3 md:py-3.5 [@media(max-height:640px)]:py-2.5 shrink-0 opacity-60">
                           +998
                         </span>
                         <input
@@ -380,7 +365,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                           onInput={(e) => {
                             (e.target as HTMLInputElement).setCustomValidity('');
                           }}
-                          className="flex-1 min-w-0 px-3 py-3.5 bg-transparent focus:outline-none"
+                          className="flex-1 min-w-0 px-3 py-3 md:py-3.5 [@media(max-height:640px)]:py-2.5 bg-transparent focus:outline-none"
                           placeholder="33 888 01 33"
                         />
                       </div>
@@ -398,7 +383,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                         onInput={(e) => {
                           (e.target as HTMLTextAreaElement).setCustomValidity('');
                         }}
-                        className="w-full px-4 py-3.5 rounded-2xl bg-transparent border transition-colors focus:outline-none focus:border-[var(--color-fg)] resize-none"
+                        className="w-full h-20 md:h-24 [@media(max-height:640px)]:h-16 px-4 py-3 md:py-3.5 [@media(max-height:640px)]:py-2.5 rounded-2xl bg-transparent border transition-colors focus:outline-none focus:border-[var(--color-fg)] resize-none"
                         style={{ borderColor: 'var(--color-border)' }}
                         placeholder={t('form.messagePlaceholder')}
                       />
@@ -406,7 +391,7 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="group w-full flex items-center justify-center gap-2 px-5 py-4 rounded-full font-semibold text-sm transition-opacity hover:opacity-90 disabled:opacity-50"
+                        className="group w-full flex items-center justify-center gap-2 px-5 py-3.5 md:py-4 [@media(max-height:640px)]:py-3 rounded-full font-semibold text-sm transition-opacity hover:opacity-90 disabled:opacity-50"
                         style={{
                           backgroundColor: 'var(--color-fg)',
                           color: 'var(--color-bg)',
@@ -439,6 +424,14 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                   </>
                 )}
               </div>
+              <button
+                  onClick={handleClose}
+                  aria-label={t('prompt.close')}
+                  title={t('prompt.close')}
+                  className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-transform duration-300 hover:rotate-90 text-[var(--color-bg)] bg-[color-mix(in_srgb,var(--color-bg)_15%,transparent)] md:text-[var(--color-fg)] md:bg-[color-mix(in_srgb,var(--color-fg)_8%,transparent)]"
+                >
+                  <X size={18} />
+                </button>
             </motion.div>
           </div>
         )}
