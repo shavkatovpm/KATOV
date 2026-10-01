@@ -326,9 +326,14 @@ export function RainLogo({
       focusable="false"
     >
       <defs>
+        {/* The black stroke pulls the mask in to the outline's inner edge.
+            Without it the glyphs run under the inner half of the
+            semi-transparent outline and look like they spill past it. */}
         <mask id={maskId}>
-          <path d={STEM_PATH} fill="#fff" />
-          <path d={CHEVRON_PATH} fill="#fff" />
+          <g fill="#fff" stroke="#000" strokeWidth={strokeWidth}>
+            <path d={STEM_PATH} />
+            <path d={CHEVRON_PATH} />
+          </g>
         </mask>
       </defs>
 

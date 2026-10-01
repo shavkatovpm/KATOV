@@ -21,7 +21,8 @@
 :root {
   --ai-seo-mark-opacity: 0.16;
   /* Floating navbar (after scrolling past the top) */
-  --nav-glass-bg: rgba(18, 18, 18, 0.45);
+  /* Pure black, dense enough that photos behind don't tint it */
+  --nav-glass-bg: rgba(0, 0, 0, 0.7);
   --nav-glass-border: rgba(255, 255, 255, 0.1);
   --nav-glass-highlight: rgba(255, 255, 255, 0.06);
   --nav-active-bg: rgba(255, 255, 255, 0.12);
@@ -136,7 +137,9 @@
   /* -webkit- must come first: when it follows the standard property the CSS
      minifier treats it as an override, drops backdrop-filter, and Chrome ends
      up with no blur at all */
-  --nav-blur: blur(12px);
+  /* saturate(0): blur the page behind in greyscale. Warm photos (blog
+     images) otherwise bleed through and turn the glass brownish */
+  --nav-blur: blur(12px) saturate(0);
   -webkit-backdrop-filter: var(--nav-blur);
   backdrop-filter: var(--nav-blur);
   /* Border is always 1px (transparent over the hero): changing its width
@@ -161,7 +164,7 @@
   border-radius: 32px;
   border-color: var(--nav-glass-border);
   background-color: var(--nav-glass-bg);
-  --nav-blur: blur(24px) saturate(180%);
+  --nav-blur: blur(24px) saturate(0);
   box-shadow: var(--nav-glass-shadow), inset 0 1px 0 var(--nav-glass-highlight);
 }
 
@@ -201,8 +204,8 @@
   border: 1px solid var(--nav-glass-border);
   box-shadow: var(--nav-glass-shadow), inset 0 1px 0 var(--nav-glass-highlight);
   /* -webkit- first, see .nav-shell */
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(0);
+  backdrop-filter: blur(24px) saturate(0);
   /* Short phones: scroll inside the card rather than off-screen */
   max-height: calc(100dvh - 100px);
   overflow-y: auto;
