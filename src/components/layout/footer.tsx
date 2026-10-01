@@ -139,6 +139,16 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+              <li>
+                <Link href="/portfolio" className="footer-link">
+                  {navT('portfolio')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="footer-link">
+                  {navT('about')}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

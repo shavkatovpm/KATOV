@@ -344,7 +344,10 @@
       "close": "Close",
       "openButton": "Leave a request",
       "successTitle": "Request received",
-      "successText": "We'll get in touch with you shortly."
+      "successText": "We'll get in touch with you shortly.",
+      "step1": "You leave a request",
+      "step2": "We get in touch with you",
+      "step3": "We prepare a project proposal"
     },
     "form": {
       "name": "Your Name",

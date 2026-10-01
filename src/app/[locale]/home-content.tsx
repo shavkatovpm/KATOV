@@ -1,11 +1,16 @@
 'use client';
 
+import { useLocale } from 'next-intl';
 import { Hero } from '@/components/sections/hero';
 import { About } from '@/components/sections/about';
 import { Services } from '@/components/sections/services';
 import { Portfolio } from '@/components/sections/portfolio';
-import { BlogPreview } from '@/components/sections/blog-preview';
+import { HomeProcess } from '@/components/sections/home-process';
+import { BlogPreview, type BlogPreviewPost } from '@/components/sections/blog-preview';
 import { Contact } from '@/components/sections/contact';
+import { ServiceFAQ } from '@/components/service-detail/service-faq';
+import { homeFaq } from '@/data/home';
+import type { Locale } from '@/i18n/config';
 
 /**
  * Everything below the hero used to sit at `opacity: 0` until the hero's
@@ -15,15 +20,20 @@ import { Contact } from '@/components/sections/contact';
  * hidden past six seconds. The hero is full-height, so this content is off
  * screen until the visitor scrolls anyway: gating it bought nothing visually
  * and cost the crawler the entire page.
+ *
+ * Order: offer → services → proof → process & price → FAQ → latest articles → form.
  */
-export default function HomeContent() {
+export default function HomeContent({ posts }: { posts: BlogPreviewPost[] }) {
+  const locale = useLocale() as Locale;
   return (
     <>
       <Hero />
       <About />
       <Services />
       <Portfolio />
-      <BlogPreview />
+      <HomeProcess />
+      <ServiceFAQ content={homeFaq[locale] ?? homeFaq.uz} />
+      <BlogPreview posts={posts} />
       <Contact />
     </>
   );

@@ -343,7 +343,10 @@
       "close": "Yopish",
       "openButton": "Ariza qoldirish",
       "successTitle": "Arizangiz qabul qilindi",
-      "successText": "Tez orada siz bilan bog'lanamiz."
+      "successText": "Tez orada siz bilan bog'lanamiz.",
+      "step1": "Ariza qoldirasiz",
+      "step2": "Siz bilan bog‘lanamiz",
+      "step3": "Loyiha bo‘yicha taklif beramiz"
     },
     "form": {
       "name": "Ismingiz",

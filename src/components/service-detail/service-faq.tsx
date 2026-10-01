@@ -6,7 +6,8 @@ import { ChevronDown } from 'lucide-react';
 import type { ServiceLocalizedContent } from '@/data/services';
 
 interface ServiceFAQProps {
-  content: ServiceLocalizedContent;
+  // Only the FAQ fields — lets the home page reuse this with its own copy
+  content: Pick<ServiceLocalizedContent, 'faqTitle' | 'faq'>;
 }
 
 export function ServiceFAQ({ content }: ServiceFAQProps) {

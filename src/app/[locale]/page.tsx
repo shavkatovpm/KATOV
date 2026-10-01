@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { Locale, locales } from '@/i18n/config';
 import { localizedUrl, ogLocale } from '@/lib/urls';
+import { getBlogPosts } from '@/lib/blog';
+import { homeFaq } from '@/data/home';
 import HomeContent from './home-content';
 
 interface HomePageProps {
@@ -80,8 +82,21 @@ export default async function HomePage({ params }: HomePageProps) {
           cssSelector: ['h1', '[data-aeo-speakable]'],
         },
       },
+      {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        mainEntity: (homeFaq[locale] ?? homeFaq.uz).faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      },
     ],
   };
+
+  const posts = getBlogPosts(locale)
+    .slice(0, 3)
+    .map(({ slug, title, description, date, readingTime }) => ({ slug, title, description, date, readingTime }));
 
   return (
     <>
@@ -89,7 +104,7 @@ export default async function HomePage({ params }: HomePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
-      <HomeContent />
+      <HomeContent posts={posts} />
     </>
   );
 }

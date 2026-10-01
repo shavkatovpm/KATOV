@@ -9,6 +9,8 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { ContactPrompt } from '@/components/contact-prompt';
 import { PageTransition } from '@/components/page-transition';
+import { getServicesCatalog, servicePath } from '@/data/services';
+import { localizedUrl } from '@/lib/urls';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -69,6 +71,16 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = await getMessages();
+
+  const offers = getServicesCatalog()
+    .filter((item) => item.available)
+    .map((item) => ({
+      '@type': 'Offer',
+      name: item.card.uz.title,
+      url: localizedUrl('uz', servicePath(item.slug)),
+      price: item.basePrice,
+      priceCurrency: 'USD',
+    }));
 
   return (
     <html lang={langMap[locale as Locale] || 'uz'} suppressHydrationWarning style={{ backgroundColor: '#000000' }}>
@@ -167,20 +179,8 @@ export default async function LocaleLayout({
                     'Click payment integration',
                     'Payme payment integration',
                   ],
-                  makesOffer: [
-                    { '@type': 'Offer', name: 'Landing Page Yaratish', url: 'https://www.katov.uz/services/landing-page', price: 270, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Korporativ Sayt Yaratish', url: 'https://www.katov.uz/services/korporativ-sayt', price: 870, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Internet Do\'kon Yaratish', url: 'https://www.katov.uz/services/internet-dokon', price: 1700, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Telegram Bot Yaratish', url: 'https://www.katov.uz/services/telegram-bot', price: 400, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Restoran Sayti', url: 'https://www.katov.uz/services/restoran-sayti', price: 600, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Sayt Redesign', url: 'https://www.katov.uz/services/sayt-redesign', price: 500, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'CRM Tizimi', url: 'https://www.katov.uz/services/crm-tizimi', price: 1000, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'SEO Xizmati', url: 'https://www.katov.uz/services/seo-xizmati', price: 300, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'ERP Tizimi', url: 'https://www.katov.uz/services/erp-tizimi', price: 1000, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Portfolio Sayt', url: 'https://www.katov.uz/services/portfolio-sayt', price: 270, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'Admin Panel', url: 'https://www.katov.uz/services/admin-panel', price: 800, priceCurrency: 'USD' },
-                    { '@type': 'Offer', name: 'AEO/GEO Xizmati', url: 'https://www.katov.uz/services/aeo-xizmati', price: 300, priceCurrency: 'USD' },
-                  ],
+                  // Built from the services catalog so URLs and prices always match the live pages
+                  makesOffer: offers,
                 },
                 {
                   '@type': 'WebSite',
@@ -191,14 +191,6 @@ export default async function LocaleLayout({
                     'IT xizmatlar agentligi O\'zbekistonda — veb-sayt, bot, CRM, ERP va boshqalar.',
                   publisher: { '@id': 'https://www.katov.uz/#organization' },
                   inLanguage: ['uz', 'ru', 'en'],
-                  potentialAction: {
-                    '@type': 'SearchAction',
-                    target: {
-                      '@type': 'EntryPoint',
-                      urlTemplate: 'https://www.katov.uz/blog?q={search_term_string}',
-                    },
-                    'query-input': 'required name=search_term_string',
-                  },
                 },
               ],
             }),

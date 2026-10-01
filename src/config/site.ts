@@ -25,7 +25,7 @@ export const siteConfig = {
     { key: 'ads', href: '/ads' },
     { key: 'services', href: '/services' },
     { key: 'blog', href: '/blog' },
-    { key: 'contact', href: '#contact' },
+    { key: 'contact', href: '/contact' },
   ],
 };
 

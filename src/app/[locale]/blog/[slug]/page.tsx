@@ -113,6 +113,19 @@ const slugMap: Record<string, Record<string, string>> = {
   'google-business-profile-toshkent': { uz: 'google-business-profile-toshkent', ru: 'google-biznes-profil-tashkent', en: 'google-business-profile-tashkent' },
   'google-biznes-profil-tashkent': { uz: 'google-business-profile-toshkent', ru: 'google-biznes-profil-tashkent', en: 'google-business-profile-tashkent' },
   'google-business-profile-tashkent': { uz: 'google-business-profile-toshkent', ru: 'google-biznes-profil-tashkent', en: 'google-business-profile-tashkent' },
+  'endi-har-kim-dasturchi': { uz: 'endi-har-kim-dasturchi', ru: 'sozdanie-sayta-s-pomoshchyu-ii', en: 'build-website-with-ai' },
+  'sozdanie-sayta-s-pomoshchyu-ii': { uz: 'endi-har-kim-dasturchi', ru: 'sozdanie-sayta-s-pomoshchyu-ii', en: 'build-website-with-ai' },
+  'build-website-with-ai': { uz: 'endi-har-kim-dasturchi', ru: 'sozdanie-sayta-s-pomoshchyu-ii', en: 'build-website-with-ai' },
+  'frilanser-yoki-agentlik': { uz: 'frilanser-yoki-agentlik', ru: 'frilanser-ili-agentstvo-dlya-sayta', en: 'freelancer-vs-agency-website' },
+  'frilanser-ili-agentstvo-dlya-sayta': { uz: 'frilanser-yoki-agentlik', ru: 'frilanser-ili-agentstvo-dlya-sayta', en: 'freelancer-vs-agency-website' },
+  'freelancer-vs-agency-website': { uz: 'frilanser-yoki-agentlik', ru: 'frilanser-ili-agentstvo-dlya-sayta', en: 'freelancer-vs-agency-website' },
+};
+
+// Visible authorship line: articles are researched and written by the team
+const bylineCopy: Record<Locale, { prefix: string; team: string; suffix: string; home: string }> = {
+  uz: { prefix: '', team: 'KATOV jamoasi', suffix: ' tomonidan ochiq manbalar o‘rganilib tayyorlandi.', home: 'Bosh sahifa' },
+  ru: { prefix: 'Подготовлено ', team: 'командой KATOV', suffix: ' на основе изучения открытых источников.', home: 'Главная' },
+  en: { prefix: 'Researched from public sources and written by the ', team: 'KATOV team', suffix: '.', home: 'Home' },
 };
 
 interface BlogPostPageProps {
@@ -300,13 +313,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     image: articleImage,
     datePublished: post.date,
     dateModified: post.dateModified || post.date,
+    // Written by the team from public sources, not a single named person
     author: {
       '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
       name: 'KATOV',
-      url: SITE_URL,
+      url: localizedUrl(locale as Locale, '/about'),
     },
     publisher: {
       '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
       name: 'KATOV',
       url: SITE_URL,
       logo: {
@@ -320,6 +336,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
     inLanguage: locale === 'ru' ? 'ru' : locale === 'en' ? 'en' : 'uz',
     keywords: post.tags.join(', '),
+  };
+
+  const byline = bylineCopy[locale as Locale] ?? bylineCopy.uz;
+  const articleUrl = localizedUrl(locale as Locale, `/blog/${slug}`);
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: byline.home, item: localizedUrl(locale as Locale) },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: localizedUrl(locale as Locale, '/blog') },
+      { '@type': 'ListItem', position: 3, name: post.title, item: articleUrl },
+    ],
   };
 
   const faqJsonLd = post.faq && post.faq.length > 0 ? {
@@ -341,6 +370,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {faqJsonLd && (
         <script
@@ -374,6 +407,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <span>•</span>
                 <span>{post.readingTime} {t('readTime')}</span>
               </div>
+
+              <p className="mt-4 text-xs sm:text-sm text-muted">
+                {byline.prefix}
+                <Link href="/about" className="font-medium underline underline-offset-4" style={{ color: 'var(--color-fg)' }}>
+                  {byline.team}
+                </Link>
+                {byline.suffix}
+              </p>
 
             </header>
 

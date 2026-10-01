@@ -6670,15 +6670,15 @@ export const servicesCatalog: ServiceCatalogItem[] = [
     demand: 5,
     card: {
       uz: {
-        title: 'Sayt yaratish',
+        title: 'Website',
         description: 'Landing, korporativ yoki internet do\'kon — biznesingizga mos sayt, $270 dan.',
       },
       ru: {
-        title: 'Создание сайта',
+        title: 'Website',
         description: 'Landing, корпоративный сайт или интернет-магазин — от $270.',
       },
       en: {
-        title: 'Website Creation',
+        title: 'Website',
         description: 'Landing page, corporate site, or online store — built for your business, from $270.',
       },
     },

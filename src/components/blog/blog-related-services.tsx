@@ -22,6 +22,8 @@ const blogToServices: Record<string, string[]> = {
   'google-search-console-qollanma': ['seo-xizmati', 'aeo-xizmati', 'sayt-redesign'],
   'sayt-tezligi-va-seo': ['seo-xizmati', 'sayt-redesign', 'sayt-yaratish'],
   'chatgpt-saytni-qanday-koradi': ['aeo-xizmati', 'seo-xizmati', 'sayt-yaratish'],
+  'endi-har-kim-dasturchi': ['sayt-yaratish', 'landing-page', 'korporativ-sayt'],
+  'frilanser-yoki-agentlik': ['sayt-yaratish', 'korporativ-sayt', 'landing-page'],
 };
 
 // RU / EN slug → canonical uz slug (mirrors the map in the blog page).
@@ -53,6 +55,12 @@ const slugToCanonical: Record<string, string> = {
   'chatgpt-saytni-qanday-koradi': 'chatgpt-saytni-qanday-koradi',
   'kak-chatgpt-vidit-sayt': 'chatgpt-saytni-qanday-koradi',
   'how-chatgpt-sees-your-website': 'chatgpt-saytni-qanday-koradi',
+  'endi-har-kim-dasturchi': 'endi-har-kim-dasturchi',
+  'sozdanie-sayta-s-pomoshchyu-ii': 'endi-har-kim-dasturchi',
+  'build-website-with-ai': 'endi-har-kim-dasturchi',
+  'frilanser-yoki-agentlik': 'frilanser-yoki-agentlik',
+  'frilanser-ili-agentstvo-dlya-sayta': 'frilanser-yoki-agentlik',
+  'freelancer-vs-agency-website': 'frilanser-yoki-agentlik',
 };
 
 interface BlogRelatedServicesProps {

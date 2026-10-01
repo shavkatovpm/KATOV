@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Static top-level pages (priority 0.8) — same path across locales
-  const staticPaths = ['/services', '/portfolio', '/blog', '/studio'];
+  const staticPaths = ['/services', '/portfolio', '/blog', '/about', '/contact', '/studio'];
   staticPaths.forEach((path) => {
     locales.forEach((locale) => {
       entries.push({
