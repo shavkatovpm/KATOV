@@ -220,9 +220,12 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                   onClick={handleClose}
                   aria-label={t('prompt.close')}
                   title={t('prompt.close')}
-                  className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-opacity hover:opacity-70 text-[var(--color-bg)] bg-[color-mix(in_srgb,var(--color-bg)_15%,transparent)] sm:text-[var(--color-fg)] sm:bg-[color-mix(in_srgb,var(--color-fg)_8%,transparent)]"
+                  className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full transition-opacity hover:opacity-70"
                 >
-                  <X size={18} />
+                  {/* Colours live on the span: globals.css resets button color/background unlayered */}
+                  <span className="flex h-full w-full items-center justify-center rounded-full text-[var(--color-bg)] bg-[color-mix(in_srgb,var(--color-bg)_15%,transparent)] sm:text-[var(--color-fg)] sm:bg-[color-mix(in_srgb,var(--color-fg)_8%,transparent)]">
+                    <X size={18} />
+                  </span>
                 </button>
             </div>
           </motion.div>
@@ -428,9 +431,12 @@ function PagePrompt({ isBlog }: { isBlog: boolean }) {
                   onClick={handleClose}
                   aria-label={t('prompt.close')}
                   title={t('prompt.close')}
-                  className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-transform duration-300 hover:rotate-90 text-[var(--color-bg)] bg-[color-mix(in_srgb,var(--color-bg)_15%,transparent)] md:text-[var(--color-fg)] md:bg-[color-mix(in_srgb,var(--color-fg)_8%,transparent)]"
+                  className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full transition-transform duration-300 hover:rotate-90"
                 >
-                  <X size={18} />
+                  {/* Colours live on the span: globals.css resets button color/background unlayered */}
+                  <span className="flex h-full w-full items-center justify-center rounded-full text-[var(--color-bg)] bg-[color-mix(in_srgb,var(--color-bg)_15%,transparent)] md:text-[var(--color-fg)] md:bg-[color-mix(in_srgb,var(--color-fg)_8%,transparent)]">
+                    <X size={18} />
+                  </span>
                 </button>
             </motion.div>
           </div>
