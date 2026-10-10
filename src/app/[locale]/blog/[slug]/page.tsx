@@ -119,6 +119,9 @@ const slugMap: Record<string, Record<string, string>> = {
   'frilanser-yoki-agentlik': { uz: 'frilanser-yoki-agentlik', ru: 'frilanser-ili-agentstvo-dlya-sayta', en: 'freelancer-vs-agency-website' },
   'frilanser-ili-agentstvo-dlya-sayta': { uz: 'frilanser-yoki-agentlik', ru: 'frilanser-ili-agentstvo-dlya-sayta', en: 'freelancer-vs-agency-website' },
   'freelancer-vs-agency-website': { uz: 'frilanser-yoki-agentlik', ru: 'frilanser-ili-agentstvo-dlya-sayta', en: 'freelancer-vs-agency-website' },
+  'ai-qidiruvda-raqobatchidan-ozish': { uz: 'ai-qidiruvda-raqobatchidan-ozish', ru: 'kak-oboyti-konkurentov-v-neyrosetyah', en: 'outrank-competitors-in-ai-search' },
+  'kak-oboyti-konkurentov-v-neyrosetyah': { uz: 'ai-qidiruvda-raqobatchidan-ozish', ru: 'kak-oboyti-konkurentov-v-neyrosetyah', en: 'outrank-competitors-in-ai-search' },
+  'outrank-competitors-in-ai-search': { uz: 'ai-qidiruvda-raqobatchidan-ozish', ru: 'kak-oboyti-konkurentov-v-neyrosetyah', en: 'outrank-competitors-in-ai-search' },
 };
 
 // Visible authorship line: articles are researched and written by the team
